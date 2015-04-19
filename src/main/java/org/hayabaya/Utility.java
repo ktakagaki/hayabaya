@@ -15,8 +15,11 @@ public class Utility {
     public static void writeResultsToCsv(Results results){
         try
         {
-            String filename = "./results/results." + results.type.toString() + "." +
+            //ToDo: results.type.toString() gives nullpointer exception. Seems that type is never initialized
+            String filename = "./results/results." + /* results.type.toString() + "." + */
                     results.operation.toString() + "." + Integer.toString(resultCounter) + ".csv";
+
+
             BufferedWriter br = new BufferedWriter(new FileWriter(filename));
             StringBuilder sb = new StringBuilder();
             for (long[] element : results.data) {
@@ -27,9 +30,10 @@ public class Utility {
 
             br.write(sb.toString());
             br.close();
-        }catch(IOException e1)
+        }catch( Exception e )
         {
-            System.out.println("An IOException was given from writeResultsToCsv() ");
+            System.out.println("An Exception was given from writeResultsToCsv() ");
+            e.printStackTrace(System.out);
         }
 
     }
