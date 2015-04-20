@@ -1,6 +1,5 @@
 package org.hayabaya.loopers;
 
-import org.hayabaya.Hayabaya;
 import org.hayabaya.Operation;
 import org.hayabaya.Results;
 import org.hayabaya.Tpe;
@@ -108,27 +107,27 @@ public abstract class Loopers {
 
     public Results makeResults(Operation operation) {
 
-        long data[][] = new long[Hayabaya.numberOfRowsSize][Hayabaya.numberOfColumnsCycle];
+        long data[][] = new long[RunSettings.numberOfRowsSize][RunSettings.numberOfColumnsCycle];
 
-        int cycles[] = new int[Hayabaya.numberOfColumnsCycle];
+        int cycles[] = new int[RunSettings.numberOfColumnsCycle];
 
-        for (int columnCount = Hayabaya.CYCLES_MIN, columnIndex = 0;
-             columnCount <= Hayabaya.CYCLES_MAX;
-             columnCount += Hayabaya.CYCLES_STEPS, columnIndex++) {
+        for (int columnCount = RunSettings.CYCLES_MIN, columnIndex = 0;
+             columnCount <= RunSettings.CYCLES_MAX;
+             columnCount += RunSettings.CYCLES_STEPS, columnIndex++) {
 
             cycles[columnIndex] = columnCount;
 
         }
 
         // row loop
-        for (int rowCount = Hayabaya.ARRAY_SIZE_MIN, rowIndex = 0;
-             rowCount <= Hayabaya.ARRAY_SIZE_MAX;
-             rowCount += Hayabaya.ARRAY_SIZE_STEPS, rowIndex++) {
+        for (int rowCount = RunSettings.ARRAY_SIZE_MIN, rowIndex = 0;
+             rowCount <= RunSettings.ARRAY_SIZE_MAX;
+             rowCount += RunSettings.ARRAY_SIZE_STEPS, rowIndex++) {
 
             // column loop
-            for (int columnCount = Hayabaya.CYCLES_MIN, columnIndex = 0;
-                 columnCount <= Hayabaya.CYCLES_MAX;
-                 columnCount += Hayabaya.CYCLES_STEPS, columnIndex++) {
+            for (int columnCount = RunSettings.CYCLES_MIN, columnIndex = 0;
+                 columnCount <= RunSettings.CYCLES_MAX;
+                 columnCount += RunSettings.CYCLES_STEPS, columnIndex++) {
 
                 setArrayLength(rowCount);
                 setCycles(columnCount);

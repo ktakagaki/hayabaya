@@ -8,20 +8,6 @@ import org.hayabaya.loopers.*;
 
 
 public class Hayabaya {
-    // NB: Note the hardcoded "1000" integer used for numberOfRowsSize and numberOfColumnsCycle, set the other variables only in
-    // steps thousands
-    //ToDo: Implement scaling factors so any stepsize can be used and calculation of numberOfX scales accordingly
-    //ToDo 2: you might want to encapsulate all of the following in a class or a static thing
-    static final public int ARRAY_SIZE_MIN =    1_000; // thousand
-    static final public int ARRAY_SIZE_MAX =  10_000; // hundred thousand
-    static final public int ARRAY_SIZE_STEPS =  1_000;
-
-    static final public int CYCLES_MIN   = 1_000; // thousand
-    static final public int CYCLES_MAX   = 5_000; // ten thousand
-    static final public int CYCLES_STEPS = 1_000;
-
-    static final public int numberOfRowsSize = (int) Math.ceil( ((ARRAY_SIZE_MAX - ARRAY_SIZE_MIN) ) / ARRAY_SIZE_STEPS) + 1;
-    static final public int numberOfColumnsCycle = (int) Math.ceil( ((CYCLES_MAX - CYCLES_MIN) ) / CYCLES_STEPS) + 1;
 
     public static void main(String[] args){
         /**
@@ -40,7 +26,7 @@ public class Hayabaya {
 
         //ToDo 1: Basically, you need to repeat this maybe 10 times to get a mean/SD
         //ToDo 1: and then, do this for each type
-        looper = new LoopersInt(ARRAY_SIZE_MIN, CYCLES_MIN);
+        looper = new LoopersInt(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN);
         result = looper.makeResults(Operation.ADD);
         Utility.writeResultsToCsv(result);
 
@@ -48,7 +34,7 @@ public class Hayabaya {
 //        System.out.println("Addition");
 //        printMatrix(resultIntegerADD);
 
-        System.out.println("numberofRows: " + numberOfRowsSize + " numberofColumns: " + numberOfColumnsCycle);
+        System.out.println("numberofRows: " + RunSettings.numberOfRowsSize + " numberofColumns: " + RunSettings.numberOfColumnsCycle);
 
         long endTime = System.currentTimeMillis();
         long totalRunTime =  endTime-startTime;
@@ -72,14 +58,14 @@ public class Hayabaya {
          * of the inner loop.
          * //ToDo: Make method able to produce complete results passing 2D values
          */
-        long results[][] = new long[numberOfRowsSize][numberOfColumnsCycle];
+        long results[][] = new long[RunSettings.numberOfRowsSize][RunSettings.numberOfColumnsCycle];
 
         // row loop
-        for (int rowCount = ARRAY_SIZE_MIN, rowIndex = 0; rowCount <= ARRAY_SIZE_MAX; rowCount += ARRAY_SIZE_STEPS,
+        for (int rowCount = RunSettings.ARRAY_SIZE_MIN, rowIndex = 0; rowCount <= RunSettings.ARRAY_SIZE_MAX; rowCount += RunSettings.ARRAY_SIZE_STEPS,
                 rowIndex++) {
             // column loop
-            for (int columnCount = CYCLES_MIN, columnIndex = 0; columnCount <= CYCLES_MAX; columnCount +=
-                    CYCLES_STEPS, columnIndex++) {
+            for (int columnCount = RunSettings.CYCLES_MIN, columnIndex = 0; columnCount <= RunSettings.CYCLES_MAX; columnCount +=
+                    RunSettings.CYCLES_STEPS, columnIndex++) {
                 results[rowIndex][columnIndex] = (long) rowCount;
             }
         }
