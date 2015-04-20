@@ -16,7 +16,7 @@ public class Utility {
         try
         {
             //ToDo: results.type.toString() gives nullpointer exception. Seems that type is never initialized
-            String filename = "./results/results." + /* results.type.toString() + "." + */
+            String filename = "./results/results." + results.type.toString() + "." +
                     results.operation.toString() + "." + Integer.toString(resultCounter) + ".csv";
 
 
