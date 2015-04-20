@@ -20,9 +20,9 @@ public abstract class Loopers {
 
     //@suppresswarnings("unused")
 
-    int arrayLength;
-    int cycles;
-    Tpe type;
+    int arrayLength = 0;
+    int cycles = 0;
+    Tpe type = null;
     Random rand = new Random(); // testing with seed
     //final int cyclesPreLoop = 3000;
 
