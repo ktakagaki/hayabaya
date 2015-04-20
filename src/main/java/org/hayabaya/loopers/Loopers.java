@@ -2,6 +2,7 @@ package org.hayabaya.loopers;
 
 import org.hayabaya.Operation;
 import org.hayabaya.Results;
+import org.hayabaya.RunSettings;
 import org.hayabaya.Tpe;
 
 import java.util.Random;
