@@ -10,6 +10,9 @@
 package org.hayabaya;
 
 import org.hayabaya.loopers.*;
+
+import java.io.FileNotFoundException;
+
 import static org.hayabaya.Utility.*;
 import static org.hayabaya.RunSettings.*;
 
@@ -44,6 +47,8 @@ public class Hayabaya {
         looper = new LoopersInt(ARRAY_SIZE_MIN, CYCLES_MIN);
         result = looper.makeResults(Operation.ADD);
         writeResultsToCsv(result);
+
+
 
         long endTime = System.currentTimeMillis();
         long totalRunTime =  endTime-startTime;

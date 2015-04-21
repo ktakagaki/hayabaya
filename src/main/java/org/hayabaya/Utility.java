@@ -3,6 +3,7 @@ package org.hayabaya;
 import org.hayabaya.loopers.Loopers;
 
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
@@ -14,7 +15,7 @@ public class Utility {
 
     private static int resultCounter = 0;
 
-    public static void writeResultsToCsv(Results results){
+    public static void writeResultsToCsv(Results results) {
         try
         {
             //ToDo: results.type.toString() gives nullpointer exception. Seems that type is never initialized
@@ -32,9 +33,13 @@ public class Utility {
 
             br.write(sb.toString());
             br.close();
-        }catch( Exception e )
+        }catch( FileNotFoundException e )
         {
-            System.out.println("An Exception was given from writeResultsToCsv() ");
+            System.out.println("The /results/ folder does not exist, cannot write file");
+            e.printStackTrace(System.out);
+        }catch ( Exception e)
+        {
+            System.out.println("An unknown file exception was thrown..");
             e.printStackTrace(System.out);
         }
 
