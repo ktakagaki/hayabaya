@@ -10,6 +10,9 @@
 package org.hayabaya;
 
 import org.hayabaya.loopers.*;
+import static org.hayabaya.Utility.*;
+import static org.hayabaya.RunSettings.*;
+
 
 /**Main class for testing java operations.
  *
@@ -38,9 +41,9 @@ public class Hayabaya {
 
         //ToDo 1: Basically, you need to repeat this maybe 10 times to get a mean/SD
         //ToDo 1: and then, do this for each type
-        looper = new LoopersInt(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN);
+        looper = new LoopersInt(ARRAY_SIZE_MIN, CYCLES_MIN);
         result = looper.makeResults(Operation.ADD);
-        Utility.writeResultsToCsv(result);
+        writeResultsToCsv(result);
 
         long endTime = System.currentTimeMillis();
         long totalRunTime =  endTime-startTime;
