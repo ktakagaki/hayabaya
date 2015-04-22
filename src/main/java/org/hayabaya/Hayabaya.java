@@ -12,6 +12,8 @@ package org.hayabaya;
 import org.hayabaya.loopers.*;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.hayabaya.Utility.*;
 import static org.hayabaya.RunSettings.*;
@@ -38,15 +40,32 @@ public class Hayabaya {
 
         long startTime = System.currentTimeMillis();
         Results result = null;
-        Loopers looper = null;
+        Loopers loopersInt = null;
+        Loopers loopersFloat = null;
 
         System.out.println("Hello to the Hayabaya project \n");
 
         //ToDo 1: Basically, you need to repeat this maybe 10 times to get a mean/SD
         //ToDo 1: and then, do this for each type
-        looper = new LoopersInt(ARRAY_SIZE_MIN, CYCLES_MIN);
-        result = looper.makeResults(Operation.ADD);
-        writeResultsToCsv(result);
+        loopersInt = new LoopersInt(ARRAY_SIZE_MIN, CYCLES_MIN);
+        loopersFloat = new LoopersFloat(ARRAY_SIZE_MIN, CYCLES_MIN);
+
+        List<Loopers> looperList = new ArrayList<>();
+        looperList.add(loopersInt);
+        looperList.add(loopersFloat);
+
+        for (Loopers i : looperList) {
+            for (Operation n : Operation.values()) {
+                result = i.makeResults(n);
+                writeResultsToCsv(result);
+            }
+        }
+
+//        result = loopersInt.makeResults(Operation.ADD);
+//        writeResultsToCsv(result);
+
+
+
 
 
 
