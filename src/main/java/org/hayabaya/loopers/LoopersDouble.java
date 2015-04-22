@@ -11,7 +11,7 @@ public class LoopersDouble extends Loopers {
 
 
     public LoopersDouble(int arraySizeMin, int cyclesMin) {
-        super(arraySizeMin, cyclesMin);
+        super(arraySizeMin, cyclesMin, Tpe.DOUBLE);
     }
     // <editor-fold defaultstate="collapsed" desc=" operate Loop (common to all classes; pseudo-generic) ">
 

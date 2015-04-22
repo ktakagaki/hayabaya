@@ -11,7 +11,7 @@ public class LoopersFloat extends Loopers {
 
 
     public LoopersFloat(int arraySizeMin, int cyclesMin) {
-        super(arraySizeMin, cyclesMin);
+        super(arraySizeMin, cyclesMin, Tpe.FLOAT);
     }
 
     // <editor-fold defaultstate="collapsed" desc=" operate Loop (common to all classes; pseudo-generic) ">

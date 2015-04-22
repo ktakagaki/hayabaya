@@ -10,7 +10,7 @@ public class LoopersIntegerBoxed extends Loopers {
     public final Tpe type = Tpe.INTEGER_BOXED;
 
     public LoopersIntegerBoxed(int arraySizeMin, int cyclesMin) {
-        super(arraySizeMin, cyclesMin);
+        super(arraySizeMin, cyclesMin, Tpe.INTEGER_BOXED);
     }
     // <editor-fold defaultstate="collapsed" desc=" operate Loop (common to all classes; pseudo-generic) ">
 

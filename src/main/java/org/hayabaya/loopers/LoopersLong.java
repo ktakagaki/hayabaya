@@ -10,7 +10,7 @@ public class LoopersLong extends Loopers {
     public final Tpe type = Tpe.LONG;
 
     public LoopersLong(int arraySizeMin, int cyclesMin) {
-        super(arraySizeMin, cyclesMin);
+        super(arraySizeMin, cyclesMin, Tpe.LONG);
     }
 
     // <editor-fold defaultstate="collapsed" desc=" operate Loop (common to all classes; pseudo-generic) ">

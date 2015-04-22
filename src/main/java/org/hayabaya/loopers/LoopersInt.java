@@ -14,7 +14,7 @@ public class LoopersInt extends Loopers {
 
 
     public LoopersInt(int arraySizeMin, int cyclesMin) {
-        super(arraySizeMin, cyclesMin);
+        super(arraySizeMin, cyclesMin, Tpe.INT);
     }
 
     // <editor-fold defaultstate="collapsed" desc=" operate Loop (common to all classes; pseudo-generic) ">

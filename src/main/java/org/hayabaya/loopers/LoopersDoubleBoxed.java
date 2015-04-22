@@ -11,7 +11,7 @@ public class LoopersDoubleBoxed extends Loopers {
 
 
     public LoopersDoubleBoxed(int arraySizeMin, int cyclesMin) {
-        super(arraySizeMin, cyclesMin);
+        super(arraySizeMin, cyclesMin, Tpe.DOUBLE_BOXED);
     }
     // <editor-fold defaultstate="collapsed" desc=" operate Loop (common to all classes; pseudo-generic) ">
 
