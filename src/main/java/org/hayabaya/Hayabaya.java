@@ -43,19 +43,15 @@ public class Hayabaya {
         long startTime = System.currentTimeMillis();
         Results result = null;
 
-        Loopers loopersInt = null;
-        Loopers loopersFloat = null;
-        Loopers loopersDouble = null;
-        Loopers loopersLong = null;
+        Loopers loopersInt = new LoopersInt(ARRAY_SIZE_MIN, CYCLES_MIN);;
+        Loopers loopersFloat = new LoopersFloat(ARRAY_SIZE_MIN, CYCLES_MIN);;
+        Loopers loopersDouble = new LoopersDouble(ARRAY_SIZE_MIN, CYCLES_MIN);;
+        Loopers loopersLong = new LoopersLong(ARRAY_SIZE_MIN, CYCLES_MIN);;
+        List<Loopers> looperList = new ArrayList<>();
 
         //ToDo 1: Basically, you need to repeat this maybe 10 times to get a mean/SD
         //ToDo 1: and then, do this for each type
-        loopersInt = new LoopersInt(ARRAY_SIZE_MIN, CYCLES_MIN);
-        loopersFloat = new LoopersFloat(ARRAY_SIZE_MIN, CYCLES_MIN);
-        loopersDouble = new LoopersDouble(ARRAY_SIZE_MIN, CYCLES_MIN);
-        loopersLong = new LoopersLong(ARRAY_SIZE_MIN, CYCLES_MIN);
 
-        List<Loopers> looperList = new ArrayList<>();
         looperList.add(loopersInt);
         looperList.add(loopersFloat);
         looperList.add(loopersDouble);
