@@ -11,12 +11,8 @@ package org.hayabaya;
 
 import org.hayabaya.loopers.*;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.hayabaya.Utility.*;
-import static org.hayabaya.RunSettings.*;
 
 
 /**Main class for testing java operations.
@@ -43,10 +39,10 @@ public class Hayabaya {
         long startTime = System.currentTimeMillis();
         Results result = null;
 
-        Loopers loopersInt = new LoopersInt(ARRAY_SIZE_MIN, CYCLES_MIN);;
-        Loopers loopersFloat = new LoopersFloat(ARRAY_SIZE_MIN, CYCLES_MIN);;
-        Loopers loopersDouble = new LoopersDouble(ARRAY_SIZE_MIN, CYCLES_MIN);;
-        Loopers loopersLong = new LoopersLong(ARRAY_SIZE_MIN, CYCLES_MIN);;
+        Loopers loopersInt = new LoopersInt(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN);;
+        Loopers loopersFloat = new LoopersFloat(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN);;
+        Loopers loopersDouble = new LoopersDouble(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN);;
+        Loopers loopersLong = new LoopersLong(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN);;
         List<Loopers> looperList = new ArrayList<>();
 
         //ToDo 1: Basically, you need to repeat this maybe 10 times to get a mean/SD
@@ -60,7 +56,7 @@ public class Hayabaya {
         for (Loopers i : looperList) {
             for (Operation n : Operation.values()) {
                 result = i.makeResults(n);
-                writeResultsToCsv(result);
+                Utility.writeResultsToCsv(result);
             }
         }
 
