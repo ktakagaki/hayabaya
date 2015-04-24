@@ -1,8 +1,8 @@
 package org.hayabaya.loopers;
 
 import org.hayabaya.RunSettings;
-import org.hayabaya.Results;
-import org.hayabaya.Tpe;
+import org.hayabaya.datarelated.Results;
+import org.hayabaya.datarelated.Tpe;
 
 import org.junit.Before;
 import org.junit.Test;

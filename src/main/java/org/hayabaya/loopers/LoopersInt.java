@@ -1,10 +1,7 @@
 package org.hayabaya.loopers;
 
-import org.hayabaya.Operation;
-import org.hayabaya.Tpe;
-
-import java.security.InvalidParameterException;
-import java.util.Random;
+import org.hayabaya.datarelated.Operation;
+import org.hayabaya.datarelated.Tpe;
 
 public class LoopersInt extends Loopers {
 

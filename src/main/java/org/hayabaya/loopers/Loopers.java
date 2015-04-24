@@ -1,9 +1,9 @@
 package org.hayabaya.loopers;
 
-import org.hayabaya.Operation;
-import org.hayabaya.Results;
+import org.hayabaya.datarelated.Operation;
+import org.hayabaya.datarelated.Results;
 import org.hayabaya.RunSettings;
-import org.hayabaya.Tpe;
+import org.hayabaya.datarelated.Tpe;
 
 import java.util.Random;
 
