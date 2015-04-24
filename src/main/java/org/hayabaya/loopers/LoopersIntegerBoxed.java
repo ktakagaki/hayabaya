@@ -34,4 +34,9 @@ public class LoopersIntegerBoxed extends Loopers {
     protected void initArray(int arrayLength) {
         array = new Integer[arrayLength];
     }
+
+    public Integer[] getArray() {
+        return array;
+    }
+
 }

@@ -1,9 +1,9 @@
-package org.hayabaya;
+package org.hayabaya.datarelated;
 
-import org.hayabaya.datarelated.Tpe;
 import org.junit.Test;
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.assertThat;
 
 /**
  * Created by cain on 4/21/2015.

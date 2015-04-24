@@ -1,7 +1,8 @@
 package org.hayabaya.loopers;
 
-import org.hayabaya.datarelated.Operation;
-import org.hayabaya.datarelated.Tpe;
+import org.hayabaya.RunSettings;
+import org.hayabaya.datarelated.*;
+
 
 public class LoopersInt extends Loopers {
 
