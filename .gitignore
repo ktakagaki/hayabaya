@@ -1,3 +1,6 @@
+# Ignore the result files (*.csv)
+*.csv
+
 # Ignore compiled Java files
 *.class
 *.html
