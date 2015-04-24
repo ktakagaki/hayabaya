@@ -15,6 +15,9 @@ import java.util.Arrays;
 public class Utility {
 
     private static int resultCounter = 0;
+    public static void setResultCounter(int i) {
+        resultCounter = i;
+    }
 
     public static void writeResultsToCsv(Results results) {
         try
@@ -30,7 +33,7 @@ public class Utility {
                 sb.append(Arrays.toString(element));
                 sb.append("\n");
             }
-            resultCounter ++;
+//            resultCounter ++;
 
             br.write(sb.toString());
             br.close();

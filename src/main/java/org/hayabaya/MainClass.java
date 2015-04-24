@@ -61,12 +61,16 @@ public class MainClass {
         looperList.add(loopersDouble);
 
 
-        for (Loopers lop : looperList) {
-            for (Operation op : Operation.values()) {
-                result = lop.makeResults(op);
-                Utility.writeResultsToCsv(result);
+        for (int repetitions = 0; repetitions < 5; repetitions++ ){
+            for (Loopers lop : looperList) {
+                for (Operation op : Operation.values()) {
+                    result = lop.makeResults(op);
+                    Utility.writeResultsToCsv(result);
+                }
             }
+            Utility.setResultCounter(repetitions);
         }
+
 
         long endTime = System.currentTimeMillis();
         long totalRunTime =  endTime-startTime;
