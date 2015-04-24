@@ -1,9 +1,9 @@
 package org.hayabaya.loopers;
 
-import org.hayabaya.Operation;
-import org.hayabaya.Results;
+import org.hayabaya.datarelated.Operation;
+import org.hayabaya.datarelated.Results;
 import org.hayabaya.RunSettings;
-import org.hayabaya.Tpe;
+import org.hayabaya.datarelated.Tpe;
 
 import java.util.Random;
 
@@ -23,18 +23,18 @@ public abstract class Loopers {
     int arrayLength = 0;
     int cycles = 0;
     Tpe type;
-    Random rand = new Random(); // testing with seed
-    //final int cyclesPreLoop = 3000;
+    Random rand = new Random();
 
     protected Loopers(){}
+
     public Loopers( int arrayLength, int cycles, Tpe type) {
 
         assert arrayLength > 0 : "array length must be > 0";
         assert cycles > 0 : "repetitions must be > 0";
+        assert type != null : "A Type must be given, not null";
 
         this.arrayLength = arrayLength;
         this.cycles = cycles;
-        //this.type = type.tolowercase();
         this.type = type;
 
         initArray(arrayLength);

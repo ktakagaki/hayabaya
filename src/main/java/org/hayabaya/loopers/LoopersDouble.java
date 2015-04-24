@@ -1,7 +1,7 @@
 package org.hayabaya.loopers;
 
-import org.hayabaya.Operation;
-import org.hayabaya.Tpe;
+import org.hayabaya.datarelated.Operation;
+import org.hayabaya.datarelated.Tpe;
 
 public class LoopersDouble extends Loopers {
 

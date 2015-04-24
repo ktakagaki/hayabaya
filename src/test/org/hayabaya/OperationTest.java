@@ -1,5 +1,6 @@
 package org.hayabaya;
 
+import org.hayabaya.datarelated.Operation;
 import org.junit.Test;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;

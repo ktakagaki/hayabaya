@@ -1,5 +1,5 @@
 /**
- * Hayabaya
+ * MainClass
  *
  * Measure the performance of arrays consisting of different primitive data types (int, float, double) and autoboxed
  * data types (Integer, Float).
@@ -9,14 +9,14 @@
  */
 package org.hayabaya;
 
+import org.hayabaya.datarelated.Operation;
+import org.hayabaya.datarelated.Results;
+import org.hayabaya.datarelated.Utility;
 import org.hayabaya.loopers.*;
+import org.hayabaya.datarelated.*;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.hayabaya.Utility.*;
-import static org.hayabaya.RunSettings.*;
 
 
 /**Main class for testing java operations.
@@ -33,44 +33,54 @@ import static org.hayabaya.RunSettings.*;
  * @author Ktakagaki
  * @author Slentzen Demian
  */
-public class Hayabaya {
+public class MainClass {
 
     public static void main(String[] args){
 
-        System.out.println("Hello to the Hayabaya project \n");
+        System.out.println("Hello to the MainClass project \n");
 
 
         long startTime = System.currentTimeMillis();
         Results result = null;
 
-        Loopers loopersInt = new LoopersInt(ARRAY_SIZE_MIN, CYCLES_MIN);;
-        Loopers loopersFloat = new LoopersFloat(ARRAY_SIZE_MIN, CYCLES_MIN);;
-        Loopers loopersDouble = new LoopersDouble(ARRAY_SIZE_MIN, CYCLES_MIN);;
-        Loopers loopersLong = new LoopersLong(ARRAY_SIZE_MIN, CYCLES_MIN);;
+        Loopers loopersInt = new LoopersInt(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN);
+        Loopers loopersLong = new LoopersLong(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN);
+
+        Loopers loopersFloat = new LoopersFloat(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN);
+        Loopers loopersDouble = new LoopersDouble(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN);
+
         List<Loopers> looperList = new ArrayList<>();
 
         //ToDo 1: Basically, you need to repeat this maybe 10 times to get a mean/SD
         //ToDo 1: and then, do this for each type
 
         looperList.add(loopersInt);
-        looperList.add(loopersFloat);
-        looperList.add(loopersDouble);
         looperList.add(loopersLong);
 
-        for (Loopers i : looperList) {
-            for (Operation n : Operation.values()) {
-                result = i.makeResults(n);
-                writeResultsToCsv(result);
+        looperList.add(loopersFloat);
+        looperList.add(loopersDouble);
+
+
+        for (int repetitions = 0; repetitions < 5; repetitions++ ){
+            for (Loopers lop : looperList) {
+                for (Operation op : Operation.values()) {
+                    result = lop.makeResults(op);
+                    Utility.writeResultsToCsv(result);
+                }
             }
+            Utility.setResultCounter(repetitions);
         }
 
 
         long endTime = System.currentTimeMillis();
         long totalRunTime =  endTime-startTime;
 
-
         System.out.println("numberofRows: " + RunSettings.numberOfRowsSize + " numberofColumns: " + RunSettings.numberOfColumnsCycle);
         System.out.println("The total runtime was: " + totalRunTime);
+        Loopers forPrint = looperList.get(0);
+        Results forPrintResults = forPrint.makeResults(Operation.ADD);
+        System.out.println("Example of result for addition: \t \n");
+        Utility.printMatrix(forPrintResults.data);
 
     }
 

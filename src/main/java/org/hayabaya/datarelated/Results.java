@@ -1,4 +1,4 @@
-package org.hayabaya;
+package org.hayabaya.datarelated;
 
 /**
  * Created by ktakagaki on 15/04/08.
@@ -12,7 +12,9 @@ public class Results {
 
     private Results() {}
 
-    public Results(long[][] data, int[] cycles, Tpe type, Operation operation){
+    public Results(long[][] data, int[] cycles, Tpe type, Operation operation) {
+        assert type != null : "Type most nust be null when creating Results";
+        assert operation != null : "A type of operation must be specified";
 
         assert data.length == cycles.length :
                 "Number of columns in data array must be the same as specified cycles";

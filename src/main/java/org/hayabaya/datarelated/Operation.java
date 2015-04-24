@@ -1,4 +1,4 @@
-package org.hayabaya;
+package org.hayabaya.datarelated;
 
 /**
  * Created by ktakagaki on 15/04/08.

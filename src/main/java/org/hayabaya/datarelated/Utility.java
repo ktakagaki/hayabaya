@@ -1,5 +1,6 @@
-package org.hayabaya;
+package org.hayabaya.datarelated;
 
+import org.hayabaya.RunSettings;
 import org.hayabaya.loopers.Loopers;
 
 import java.io.BufferedWriter;
@@ -14,6 +15,9 @@ import java.util.Arrays;
 public class Utility {
 
     private static int resultCounter = 0;
+    public static void setResultCounter(int i) {
+        resultCounter = i;
+    }
 
     public static void writeResultsToCsv(Results results) {
         try
@@ -29,7 +33,7 @@ public class Utility {
                 sb.append(Arrays.toString(element));
                 sb.append("\n");
             }
-            resultCounter ++;
+//            resultCounter ++;
 
             br.write(sb.toString());
             br.close();
@@ -65,7 +69,7 @@ public class Utility {
 
     }
 
-    static void printMatrix(long[][] grid) {
+    public static void printMatrix(long[][] grid) {
         for(int r=0; r<grid.length; r++) {
             for(int c=0; c<grid[r].length; c++)
                 System.out.print(grid[r][c] + " ");
