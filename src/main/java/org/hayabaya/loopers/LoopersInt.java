@@ -42,4 +42,20 @@ public class LoopersInt extends Loopers {
     public int[] getArray() {
         return array;
     }
+
+
+    @Override
+    public String toString() {
+        String oldString = super.toString();
+        StringBuilder result = new StringBuilder(oldString);
+        String NEW_LINE = System.getProperty("line.separator");
+
+        result.append("{myNumber:     " + myNumber + "}" + NEW_LINE);
+
+
+        return result.toString();
+    }
+
+
+
 }
