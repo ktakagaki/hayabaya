@@ -9,7 +9,8 @@ import java.util.Arrays;
 public class LoopersInt extends Loopers {
 
     private int[] array;
-    private int myNumber = rand.nextInt();
+//    private int myNumber = rand.nextInt();
+    private int myNumber = 25;
     public final Tpe type = Tpe.INT;
 
 

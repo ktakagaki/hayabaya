@@ -79,18 +79,21 @@ public class MainClass {
                 /** Loop over the types of operations ADD, SUBTRACT etc. */
                 for (Operation operation : Operation.values()) {
 
+                    result = thisLooper.makeResults(operation);
+                    Utility.writeResultsToCsv(result);
 
                     if (debugPrintStuff){
                         /** DEBUG INSERTS START */
-                        String s = thisLooper.toString();
-                        System.out.println(s);
+                        String loopString = thisLooper.toString();
+                        System.out.println(loopString);
+
+                        String resultString = result.toString();
+                        System.out.println(resultString);
+
                         /** DEBUG INSERTS START */
                     }
 
 
-
-                    result = thisLooper.makeResults(operation);
-                    Utility.writeResultsToCsv(result);
                 }
             }
             Utility.setResultCounter(repetitions);
