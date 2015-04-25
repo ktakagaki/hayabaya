@@ -52,33 +52,49 @@ public class MainClass {
         Loopers loopersFloat =          new LoopersFloat(       asize, acycle);
         Loopers loopersDouble =         new LoopersDouble(      asize, acycle);
 
-        Loopers loopersIntegerBoxed =   new LoopersIntegerBoxed(asize, acycle);
-        Loopers loopersLongBoxed =      new LoopersLongBoxed(   asize, acycle);
-        Loopers loopersFloatBoxed =     new LoopersFloatBoxed(  asize, acycle);
-        Loopers loopersDoubleBoxed =    new LoopersDoubleBoxed( asize, acycle);
+//        Loopers loopersIntegerBoxed =   new LoopersIntegerBoxed(asize, acycle);
+//        Loopers loopersLongBoxed =      new LoopersLongBoxed(   asize, acycle);
+//        Loopers loopersFloatBoxed =     new LoopersFloatBoxed(  asize, acycle);
+//        Loopers loopersDoubleBoxed =    new LoopersDoubleBoxed( asize, acycle);
 
 
         looperList.add(loopersInt);
         looperList.add(loopersLong);
         looperList.add(loopersFloat);
         looperList.add(loopersDouble);
-/*        looperList.add(loopersIntegerBoxed);
-        looperList.add(loopersLongBoxed);
-        looperList.add(loopersFloatBoxed);
-        looperList.add(loopersDoubleBoxed);*/
+
+//        looperList.add(loopersIntegerBoxed);
+//        looperList.add(loopersLongBoxed);
+//        looperList.add(loopersFloatBoxed);
+//        looperList.add(loopersDoubleBoxed);
 
 
+        boolean debugPrintStuff = false;
         /** The first and outermost loop only loops over the repetitions of the entire experiment */
-        for (int repetitions = 0; repetitions < 2; repetitions++ ){
+        for ( int repetitions = 0; repetitions < RunSettings.TOTAL_EXP_REPS; repetitions++ ){
+
+            /** Loop over each type of Looper object in the LooperList */
             for (Loopers thisLooper : looperList) {
+
+                /** Loop over the types of operations ADD, SUBTRACT etc. */
                 for (Operation operation : Operation.values()) {
 
-                    /** DEBUG INSERTS START */
-                    Class aClass = thisLooper.getClass();
-                    String loopName = aClass.getSimpleName();
-                    String op = operation.toString();
-                    System.out.println("*" + loopName + " | \t \t \t" + op );
-                    /** DEBUG INSERTS START */
+
+                    if (debugPrintStuff){
+                        /** DEBUG INSERTS START */
+                        Class aLooperClass = thisLooper.getClass();
+                        String looperClassName = aLooperClass.getSimpleName();
+                        String currentLooperOperation = operation.toString();
+
+                        int looperArrayLength = thisLooper.getArrayLength();
+                        int looperCycls = thisLooper.getCycles();
+
+                        System.out.println("*" + looperClassName + " | \t \t \t" );
+                        /** DEBUG INSERTS START */
+                    }
+
+                    String s = thisLooper.toString();
+                    System.out.println(s);
 
                     result = thisLooper.makeResults(operation);
                     Utility.writeResultsToCsv(result);
