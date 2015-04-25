@@ -54,7 +54,7 @@ public class MainClass {
 //        Loopers loopersIntegerBoxed = new LoopersIntegerBoxed(asize, acycle);
 //        Loopers loopersLongBoxed = new LoopersLongBoxed(asize, acycle);
 //        Loopers loopersFloatBoxed = new LoopersFloatBoxed(asize, acycle);
-//        Loopers loopersDoubleBoxed = new LoopersDoubleBoxed(asize, acycle);
+        Loopers loopersDoubleBoxed = new LoopersDoubleBoxed(asize, acycle);
 
 
         looperList.add(loopersInt);
@@ -64,7 +64,7 @@ public class MainClass {
 //        looperList.add(loopersIntegerBoxed);
 //        looperList.add(loopersLongBoxed);
 //        looperList.add(loopersFloatBoxed);
-//        looperList.add(loopersDoubleBoxed);
+        looperList.add(loopersDoubleBoxed);
 
 
         /** The first and outermost loop only loops over the repetitions of the entire experiment */

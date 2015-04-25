@@ -1,7 +1,6 @@
 package org.hayabaya.loopers;
 
-import org.hayabaya.datarelated.Operation;
-import org.hayabaya.datarelated.Tpe;
+import org.hayabaya.datarelated.*;
 
 public class LoopersDouble extends Loopers {
 
@@ -10,9 +9,13 @@ public class LoopersDouble extends Loopers {
     public final Tpe type = Tpe.DOUBLE;
 
 
+
     public LoopersDouble(int arraySizeMin, int cyclesMin) {
+
         super(arraySizeMin, cyclesMin, Tpe.DOUBLE);
     }
+
+
     // <editor-fold defaultstate="collapsed" desc=" operate Loop (common to all classes; pseudo-generic) ">
 
     @Override

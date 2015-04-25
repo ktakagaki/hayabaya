@@ -10,6 +10,7 @@ public class LoopersIntegerBoxed extends Loopers {
     public final Tpe type = Tpe.INTEGER_BOXED;
 
     public LoopersIntegerBoxed(int arraySizeMin, int cyclesMin) {
+
         super(arraySizeMin, cyclesMin, Tpe.INTEGER_BOXED);
     }
 

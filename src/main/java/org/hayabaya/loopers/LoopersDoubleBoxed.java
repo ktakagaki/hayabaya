@@ -1,18 +1,21 @@
 package org.hayabaya.loopers;
 
-import org.hayabaya.datarelated.Operation;
-import org.hayabaya.datarelated.Tpe;
+import org.hayabaya.datarelated.*;
 
 public class LoopersDoubleBoxed extends Loopers {
 
-    private Integer[] array;
-    private Integer myNumber = rand.nextInt();
+    private Double[] array;
+    private Double myNumber = rand.nextDouble();
     public final Tpe type = Tpe.DOUBLE_BOXED;
 
 
+
     public LoopersDoubleBoxed(int arraySizeMin, int cyclesMin) {
+
         super(arraySizeMin, cyclesMin, Tpe.DOUBLE_BOXED);
     }
+
+
     // <editor-fold defaultstate="collapsed" desc=" operate Loop (common to all classes; pseudo-generic) ">
 
     @Override
@@ -33,6 +36,6 @@ public class LoopersDoubleBoxed extends Loopers {
 
     @Override
     protected void initArray(int arrayLength) {
-        array = new Integer[arrayLength];
+        array = new Double[arrayLength];
     }
 }

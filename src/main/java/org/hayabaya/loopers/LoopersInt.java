@@ -35,6 +35,11 @@ public class LoopersInt extends Loopers {
 
     @Override
     protected void initArray(int arrayLength) {
+
         array = new int[arrayLength];
+    }
+
+    public int[] getArray() {
+        return array;
     }
 }
