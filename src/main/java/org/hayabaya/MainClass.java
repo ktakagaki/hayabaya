@@ -51,23 +51,23 @@ public class MainClass {
         Loopers loopersLong = new LoopersLong(asize, acycle);
         Loopers loopersFloat = new LoopersFloat(asize, acycle);
         Loopers loopersDouble = new LoopersDouble(asize, acycle);
-        Loopers loopersIntegerBoxed = new LoopersIntegerBoxed(asize, acycle);
-        Loopers loopersLongBoxed = new LoopersLongBoxed(asize, acycle);
-        Loopers loopersFloatBoxed = new LoopersFloatBoxed(asize, acycle);
-        Loopers loopersDoubleBoxed = new LoopersDoubleBoxed(asize, acycle);
+//        Loopers loopersIntegerBoxed = new LoopersIntegerBoxed(asize, acycle);
+//        Loopers loopersLongBoxed = new LoopersLongBoxed(asize, acycle);
+//        Loopers loopersFloatBoxed = new LoopersFloatBoxed(asize, acycle);
+//        Loopers loopersDoubleBoxed = new LoopersDoubleBoxed(asize, acycle);
 
 
         looperList.add(loopersInt);
         looperList.add(loopersLong);
         looperList.add(loopersFloat);
         looperList.add(loopersDouble);
-        looperList.add(loopersIntegerBoxed);
-        looperList.add(loopersLongBoxed);
-        looperList.add(loopersFloatBoxed);
-        looperList.add(loopersDoubleBoxed);
+//        looperList.add(loopersIntegerBoxed);
+//        looperList.add(loopersLongBoxed);
+//        looperList.add(loopersFloatBoxed);
+//        looperList.add(loopersDoubleBoxed);
 
 
-        for (int repetitions = 0; repetitions < 5; repetitions++ ){
+        for (int repetitions = 0; repetitions < 3; repetitions++ ){
             for (Loopers lop : looperList) {
                 for (Operation op : Operation.values()) {
                     result = lop.makeResults(op);
