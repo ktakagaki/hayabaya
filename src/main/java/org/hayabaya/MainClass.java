@@ -67,10 +67,20 @@ public class MainClass {
 //        looperList.add(loopersDoubleBoxed);
 
 
-        for (int repetitions = 0; repetitions < 3; repetitions++ ){
-            for (Loopers lop : looperList) {
-                for (Operation op : Operation.values()) {
-                    result = lop.makeResults(op);
+        /** The first and outermost loop only loops over the repetitions of the entire experiment */
+        for (int repetitions = 0; repetitions < 2; repetitions++ ){
+            for (Loopers thisLooper : looperList) {
+                for (Operation operation : Operation.values()) {
+
+                    /** DEBUG INSERTS START */
+                    Class aClass = thisLooper.getClass();
+                    String loopName = aClass.getSimpleName();
+                    String op = operation.toString();
+                    System.out.println("The object: " + loopName + " With operation: "
+                            + op + " Performed on " + "it");
+                    /** DEBUG INSERTS START */
+
+                    result = thisLooper.makeResults(operation);
                     Utility.writeResultsToCsv(result);
                 }
             }

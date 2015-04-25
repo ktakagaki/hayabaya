@@ -18,8 +18,6 @@ import java.util.Random;
  */
 public abstract class Loopers {
 
-    //@suppresswarnings("unused")
-
     int arrayLength = 0;
     int cycles = 0;
     Tpe type;
