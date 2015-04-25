@@ -33,21 +33,23 @@ public class Results {
         String NEW_LINE = System.getProperty("line.separator");
 
         // Name
-        result.append(Utility.ANSI_BLUE + "{Object:            "
+        result.append("\t \t \t \t" + Utility.ANSI_RED + "\033[1m Results Object \033[0m" + Utility.ANSI_RESET + "\n");
+
+        result.append("\t" + Utility.ANSI_BLUE + "{Object:            "
                 + Utility.ANSI_RESET + this.getClass().getSimpleName()+ "}" + NEW_LINE);
         // Cycles
-        result.append(Utility.ANSI_CYAN + "{Cycles:            " + Utility.ANSI_RESET +
+        result.append("\t" +Utility.ANSI_CYAN + "{Cycles:            " + Utility.ANSI_RESET +
                 cycles+ "}" + NEW_LINE);
         // Type
-        result.append(Utility.ANSI_PURPLE + "{Type:              " + Utility.ANSI_RESET +
+        result.append("\t" +Utility.ANSI_PURPLE + "{Type:              " + Utility.ANSI_RESET +
                 type+ "}" + NEW_LINE);
         // Operation
-        result.append(Utility.ANSI_GREEN + "{Type:              " + Utility.ANSI_RESET +
-                type+ "}" + NEW_LINE);
-
-        result.append("The resulting Array contains the following elements: \n \n");
+        result.append("\t" +Utility.ANSI_GREEN + "{Operation:              " + Utility.ANSI_RESET +
+                operation+ "}" + NEW_LINE);
 
         result.append(Arrays.deepToString(data));
+
+        result.append("\n \n");
 
         return result.toString();
     }
