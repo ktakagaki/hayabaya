@@ -1,9 +1,9 @@
 package org.hayabaya.loopers;
 
-import org.hayabaya.datarelated.Operation;
-import org.hayabaya.datarelated.Results;
+import org.hayabaya.datarelated.*;
+
 import org.hayabaya.RunSettings;
-import org.hayabaya.datarelated.Tpe;
+
 
 import java.util.Random;
 
@@ -21,6 +21,7 @@ public abstract class Loopers {
     int arrayLength = 0;
     int cycles = 0;
     Tpe type;
+    Operation lastSetOperation = null;
     Random rand = new Random();
 
     protected Loopers(){}
@@ -43,6 +44,10 @@ public abstract class Loopers {
 
     //intArray, longArray, etc...
     //myInt, myLong, etc...
+
+    public void setLastSetOperation(Operation operation){
+        this.lastSetOperation = operation;
+    }
 
     /**switch (operation) {
      case ADD: for( int n = 0; n < cycles; n++) for( int c = 0; c < arrayLength; c++) intArray[c] += myInt;
@@ -111,10 +116,16 @@ public abstract class Loopers {
         StringBuilder result = new StringBuilder();
         String NEW_LINE = System.getProperty("line.separator");
 
-        result.append("{Object:       " +this.getClass().getSimpleName()+ "}" + NEW_LINE);
-        result.append("{ArrayLength:  " +arrayLength+ "}" + NEW_LINE);
-        result.append("{Cycles:       " +cycles+ "}" + NEW_LINE);
-        result.append("{Type:         " +type+ "}" + NEW_LINE);
+        result.append(Utility.ANSI_BLUE + "{Object:            "
+                + Utility.ANSI_RESET + this.getClass().getSimpleName()+ "}" + NEW_LINE);
+
+        result.append(Utility.ANSI_GREEN + "{ArrayLength:       "
+                + Utility.ANSI_RESET + arrayLength + "}" + NEW_LINE);
+        result.append(Utility.ANSI_CYAN + "{Cycles:            " + Utility.ANSI_RESET +
+                cycles+ "}" + NEW_LINE);
+
+        result.append(Utility.ANSI_PURPLE + "{Type:              " + Utility.ANSI_RESET +
+                type+ "}" + NEW_LINE);
 
         return result.toString();
     }
