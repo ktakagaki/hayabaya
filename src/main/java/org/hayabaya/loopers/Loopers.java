@@ -100,7 +100,8 @@ public abstract class Loopers {
 
         //ToDo: Be VERY carefull, I may have introduced a bug here to make the autoboxed Loopers work. It must
         //ToDo: Be examined closer ASAP
-//        operateLoop(operation);
+        @Warning("This method must be fixed so it can handle both primitives and Autoboxed variants")
+        operateLoop(operation);
 
         long endTime = System.currentTimeMillis();
         return endTime-startTime;
