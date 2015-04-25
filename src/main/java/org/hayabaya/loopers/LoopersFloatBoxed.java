@@ -3,17 +3,16 @@ package org.hayabaya.loopers;
 import org.hayabaya.datarelated.Operation;
 import org.hayabaya.datarelated.Tpe;
 
-public class LoopersIntegerBoxed extends Loopers {
+public class LoopersFloatBoxed extends Loopers {
 
-    private Integer[] array;
-    private Integer myNumber = rand.nextInt();
-    public final Tpe type = Tpe.INTEGER_BOXED;
+    private Float[] array;
+    private Float myNumber = rand.nextFloat();
+    public final Tpe type = Tpe.FLOAT_BOXED;
 
-    public LoopersIntegerBoxed(int arraySizeMin, int cyclesMin) {
-        super(arraySizeMin, cyclesMin, Tpe.INTEGER_BOXED);
+
+    public LoopersFloatBoxed(int arraySizeMin, int cyclesMin) {
+        super(arraySizeMin, cyclesMin, Tpe.FLOAT_BOXED);
     }
-
-    // <editor-fold defaultstate="collapsed" desc=" operate Loop (common to all classes; pseudo-generic) ">
 
     @Override
     void operateLoop(Operation operation) {
@@ -29,15 +28,19 @@ public class LoopersIntegerBoxed extends Loopers {
         }
     }
 
-    // </editor-fold>
 
     @Override
     protected void initArray(int arrayLength) {
-        array = new Integer[arrayLength];
+        array = new Float[arrayLength];
     }
 
-    public Integer[] getArray() {
+    public Float[] getArray() {
         return array;
     }
+
+
+
+
+
 
 }

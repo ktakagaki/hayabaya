@@ -49,26 +49,6 @@ public class Utility {
 
     }
 
-    @Deprecated
-    public static void writeResultsToCsv(long[][] resultsToWrite, String filename) {
-        try
-        {
-            BufferedWriter br = new BufferedWriter(new FileWriter(filename + ".csv"));
-            StringBuilder sb = new StringBuilder();
-            for (long[] element : resultsToWrite) {
-                sb.append(Arrays.toString(element));
-                sb.append("\n");
-            }
-
-            br.write(sb.toString());
-            br.close();
-        }catch(IOException e1)
-        {
-            System.out.println("An IOException was given from writeResultsToCsv() ");
-        }
-
-    }
-
     public static void printMatrix(long[][] grid) {
         for(int r=0; r<grid.length; r++) {
             for(int c=0; c<grid[r].length; c++)

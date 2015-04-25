@@ -38,27 +38,33 @@ public class MainClass {
     public static void main(String[] args){
 
         System.out.println("Hello to the MainClass project \n");
-
-
         long startTime = System.currentTimeMillis();
+
         Results result = null;
-
-        Loopers loopersInt = new LoopersInt(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN);
-        Loopers loopersLong = new LoopersLong(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN);
-
-        Loopers loopersFloat = new LoopersFloat(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN);
-        Loopers loopersDouble = new LoopersDouble(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN);
-
         List<Loopers> looperList = new ArrayList<>();
 
-        //ToDo 1: Basically, you need to repeat this maybe 10 times to get a mean/SD
-        //ToDo 1: and then, do this for each type
+        int asize = RunSettings.ARRAY_SIZE_MIN;
+        int acycle = RunSettings.CYCLES_MIN;
+
+
+        Loopers loopersInt = new LoopersInt(asize, acycle);
+        Loopers loopersLong = new LoopersLong(asize, acycle);
+        Loopers loopersFloat = new LoopersFloat(asize, acycle);
+        Loopers loopersDouble = new LoopersDouble(asize, acycle);
+        Loopers loopersIntegerBoxed = new LoopersIntegerBoxed(asize, acycle);
+        Loopers loopersLongBoxed = new LoopersLongBoxed(asize, acycle);
+        Loopers loopersFloatBoxed = new LoopersFloatBoxed(asize, acycle);
+        Loopers loopersDoubleBoxed = new LoopersDoubleBoxed(asize, acycle);
+
 
         looperList.add(loopersInt);
         looperList.add(loopersLong);
-
         looperList.add(loopersFloat);
         looperList.add(loopersDouble);
+        looperList.add(loopersIntegerBoxed);
+        looperList.add(loopersLongBoxed);
+        looperList.add(loopersFloatBoxed);
+        looperList.add(loopersDoubleBoxed);
 
 
         for (int repetitions = 0; repetitions < 5; repetitions++ ){
