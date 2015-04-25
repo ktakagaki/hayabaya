@@ -116,6 +116,10 @@ public abstract class Loopers {
         StringBuilder result = new StringBuilder();
         String NEW_LINE = System.getProperty("line.separator");
 
+        // Name
+        result.append(Utility.ANSI_YELLOW + "\033[1m Results for " +this.getClass().getSimpleName()
+          + "\033[0m" + Utility.ANSI_RESET + "\n");
+
         result.append(Utility.ANSI_BLUE + "{Object:            "
                 + Utility.ANSI_RESET + this.getClass().getSimpleName()+ "}" + NEW_LINE);
 
