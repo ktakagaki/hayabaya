@@ -8,13 +8,13 @@ public class RunSettings {
     // steps thousands
     //ToDo: Implement scaling factors so any stepsize can be used and calculation of numberOfX scales accordingly
     //ToDo 2: you might want to encapsulate all of the following in a class or a static thing
-    static final public int ARRAY_SIZE_MIN =    1_000; // thousand
-    static final public int ARRAY_SIZE_MAX =  5_000; // hundred thousand
-    static final public int ARRAY_SIZE_STEPS =  1_000;
+    static final public int ARRAY_SIZE_MIN =    10; // thousand
+    static final public int ARRAY_SIZE_MAX =  100; // hundred thousand
+    static final public int ARRAY_SIZE_STEPS =  10;
     static final public int numberOfRowsSize = (int) Math.ceil( ((ARRAY_SIZE_MAX - ARRAY_SIZE_MIN) ) / ARRAY_SIZE_STEPS) + 1;
     static final public int CYCLES_MIN   = 1; // thousand
-    static final public int CYCLES_MAX   = 100; // ten thousand
-    static final public int CYCLES_STEPS = 10;
+    static final public int CYCLES_MAX   = 25; // ten thousand
+    static final public int CYCLES_STEPS = 5;
     static final public int TOTAL_EXP_REPS = 3;
     static final public int numberOfColumnsCycle = (int) Math.ceil( ((CYCLES_MAX - CYCLES_MIN) ) / CYCLES_STEPS) + 1;
 }

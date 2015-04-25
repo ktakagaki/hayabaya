@@ -68,6 +68,38 @@ public class MainClass {
 //        looperList.add(loopersFloatBoxed);
 //        looperList.add(loopersDoubleBoxed);
 
+        //<editor-fold desc="Temporarely not used for debug purposes">
+/*        boolean debugPrintStuff = true;
+        *//** The first and outermost loop only loops over the repetitions of the entire experiment *//*
+        for ( int repetitions = 0; repetitions < RunSettings.TOTAL_EXP_REPS; repetitions++ ){
+
+            *//** Loop over each type of Looper object in the LooperList *//*
+            for (Loopers thisLooper : looperList) {
+
+                *//** Loop over the types of operations ADD, SUBTRACT etc. *//*
+                for (Operation operation : Operation.values()) {
+
+                    result = thisLooper.makeResults(operation);
+                    Utility.writeResultsToCsv(result);
+
+                    if (debugPrintStuff){
+                        *//** DEBUG INSERTS START *//*
+                        String loopString = thisLooper.toString();
+                        System.out.println(loopString);
+
+                        String resultString = result.toString();
+                        System.out.println(resultString);
+
+                        *//** DEBUG INSERTS START *//*
+                    }
+
+
+                }
+            }
+            Utility.setResultCounter(repetitions);
+        }*/
+        //</editor-fold>
+
 
         boolean debugPrintStuff = true;
         /** The first and outermost loop only loops over the repetitions of the entire experiment */
