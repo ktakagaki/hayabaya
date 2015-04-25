@@ -37,7 +37,7 @@ public class MainClass {
 
     public static void main(String[] args){
 
-        System.out.println("Hello to the MainClass project \n");
+        System.out.println("Hello to the HayaBaya project \n");
         long startTime = System.currentTimeMillis();
 
         Results result = null;
@@ -63,9 +63,9 @@ public class MainClass {
         looperList.add(loopersFloat);
         looperList.add(loopersDouble);
         looperList.add(loopersIntegerBoxed);
-//        looperList.add(loopersLongBoxed);
-//        looperList.add(loopersFloatBoxed);
-//        looperList.add(loopersDoubleBoxed);
+        looperList.add(loopersLongBoxed);
+        looperList.add(loopersFloatBoxed);
+        looperList.add(loopersDoubleBoxed);
 
 
         /** The first and outermost loop only loops over the repetitions of the entire experiment */
@@ -77,7 +77,7 @@ public class MainClass {
                     Class aClass = thisLooper.getClass();
                     String loopName = aClass.getSimpleName();
                     String op = operation.toString();
-                    System.out.println("* \t" + loopName + "| \t" + op );
+                    System.out.println("*" + loopName + " | \t \t \t" + op );
                     /** DEBUG INSERTS START */
 
                     result = thisLooper.makeResults(operation);
@@ -91,14 +91,18 @@ public class MainClass {
         long endTime = System.currentTimeMillis();
         long totalRunTime =  endTime-startTime;
 
-        System.out.println("numberofRows: " + RunSettings.numberOfRowsSize + " numberofColumns: " + RunSettings.numberOfColumnsCycle);
+        /** A small summary report over this run */
+        System.out.println("\n \n");
         System.out.println("The total runtime was: " + totalRunTime);
-        Loopers forPrint = looperList.get(0);
+        System.out.println("The following Rows and Columns were generated for the 2D arrays...\n");
+        System.out.println("Rows: " + RunSettings.numberOfRowsSize +
+                " Columns: " + RunSettings.numberOfColumnsCycle);
+
+
+        Loopers forPrint = looperList.get(looperList.size() - 1);
         Results forPrintResults = forPrint.makeResults(Operation.ADD);
         System.out.println("Example of result for addition: \t \n");
         Utility.printMatrix(forPrintResults.data);
 
     }
-
-
 }
