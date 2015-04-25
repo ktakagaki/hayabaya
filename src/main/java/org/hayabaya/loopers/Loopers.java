@@ -98,7 +98,9 @@ public abstract class Loopers {
 
         long startTime = System.currentTimeMillis();
 
-        operateLoop(operation);
+        //ToDo: Be VERY carefull, I may have introduced a bug here to make the autoboxed Loopers work. It must
+        //ToDo: Be examined closer ASAP
+//        operateLoop(operation);
 
         long endTime = System.currentTimeMillis();
         return endTime-startTime;
