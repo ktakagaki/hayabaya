@@ -20,13 +20,13 @@ public class LoopersIntegerBoxed extends Loopers {
     void operateLoop(Operation operation) {
         switch( operation ) {
             case ADD:
-                for (int n = 0; n < cycles; n++) for (int c = 0; c < arrayLength; c++) array[c] += myNumber;
+                for (Integer n = 0; n < cycles; n++) for (Integer c = 0; c < arrayLength; c++) array[c] += myNumber;
             case SUBTRACT:
-                for (int n = 0; n < cycles; n++) for (int c = 0; c < arrayLength; c++) array[c] -= myNumber;
+                for (Integer n = 0; n < cycles; n++) for (Integer c = 0; c < arrayLength; c++) array[c] -= myNumber;
             case MULTIPLY:
-                for (int n = 0; n < cycles; n++) for (int c = 0; c < arrayLength; c++) array[c] *= myNumber;
+                for (Integer n = 0; n < cycles; n++) for (Integer c = 0; c < arrayLength; c++) array[c] *= myNumber;
             case DIVIDE:
-                for (int n = 0; n < cycles; n++) for (int c = 0; c < arrayLength; c++) array[c] /= myNumber;
+                for (Integer n = 0; n < cycles; n++) for (Integer c = 0; c < arrayLength; c++) array[c] /= myNumber;
         }
     }
 

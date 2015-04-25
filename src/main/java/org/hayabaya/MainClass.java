@@ -77,8 +77,7 @@ public class MainClass {
                     Class aClass = thisLooper.getClass();
                     String loopName = aClass.getSimpleName();
                     String op = operation.toString();
-                    System.out.println("The object: " + loopName + " With operation: "
-                            + op + " Performed on " + "it");
+                    System.out.println("* \t" + loopName + "| \t" + op );
                     /** DEBUG INSERTS START */
 
                     result = thisLooper.makeResults(operation);
