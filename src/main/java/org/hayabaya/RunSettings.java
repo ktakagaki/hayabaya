@@ -15,5 +15,6 @@ public class RunSettings {
     static final public int CYCLES_MIN   = 1_000; // thousand
     static final public int CYCLES_MAX   = 3_000; // ten thousand
     static final public int CYCLES_STEPS = 1_000;
+    static final public int TOTAL_EXP_REPS = 5;
     static final public int numberOfColumnsCycle = (int) Math.ceil( ((CYCLES_MAX - CYCLES_MIN) ) / CYCLES_STEPS) + 1;
 }
