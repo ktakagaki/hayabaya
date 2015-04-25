@@ -8,6 +8,13 @@ public class RunSettings {
     // steps thousands
     //ToDo: Implement scaling factors so any stepsize can be used and calculation of numberOfX scales accordingly
     //ToDo 2: you might want to encapsulate all of the following in a class or a static thing
+
+    public static boolean debug = false;
+    public static boolean unitTesting = false;
+    //ToDo: Make use of global static debug and unitTesting variables. So when doing UnitTest, max array length is much smaller and sensible myNumbers. And for Debug everything is printed out, and it can be controlled from one place.
+
+
+
     static final public int ARRAY_SIZE_MIN =    10; // thousand
     static final public int ARRAY_SIZE_MAX =  100; // hundred thousand
     static final public int ARRAY_SIZE_STEPS =  10;
