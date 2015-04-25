@@ -4,10 +4,14 @@ package org.hayabaya.datarelated;
  * Created by ktakagaki on 15/04/08.
  */
 public enum Tpe {
-    INT,    INTEGER_BOXED,
-    FLOAT,  FLOAT_BOXED,
-    DOUBLE, DOUBLE_BOXED,
-    LONG,   LONG_BOXED;
+    INT,
+    INTEGER_BOXED,
+    FLOAT,
+    FLOAT_BOXED,
+    DOUBLE,
+    DOUBLE_BOXED,
+    LONG,
+    LONG_BOXED;
 
     @Override
     public String toString() {
