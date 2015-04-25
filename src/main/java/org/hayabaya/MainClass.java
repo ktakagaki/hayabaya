@@ -62,10 +62,10 @@ public class MainClass {
         looperList.add(loopersLong);
         looperList.add(loopersFloat);
         looperList.add(loopersDouble);
-        looperList.add(loopersIntegerBoxed);
+/*        looperList.add(loopersIntegerBoxed);
         looperList.add(loopersLongBoxed);
         looperList.add(loopersFloatBoxed);
-        looperList.add(loopersDoubleBoxed);
+        looperList.add(loopersDoubleBoxed);*/
 
 
         /** The first and outermost loop only loops over the repetitions of the entire experiment */
