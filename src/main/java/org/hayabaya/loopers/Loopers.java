@@ -116,18 +116,19 @@ public abstract class Loopers {
         StringBuilder result = new StringBuilder();
         String NEW_LINE = System.getProperty("line.separator");
 
-        // Name
+        // Title of output
         result.append(Utility.ANSI_YELLOW + "\033[1m Results for " +this.getClass().getSimpleName()
           + "\033[0m" + Utility.ANSI_RESET + "\n");
-
+        // Name of Object
         result.append(Utility.ANSI_BLUE + "{Object:            "
                 + Utility.ANSI_RESET + this.getClass().getSimpleName()+ "}" + NEW_LINE);
-
+        // Arraylength
         result.append(Utility.ANSI_GREEN + "{ArrayLength:       "
                 + Utility.ANSI_RESET + arrayLength + "}" + NEW_LINE);
+        // Cycles
         result.append(Utility.ANSI_CYAN + "{Cycles:            " + Utility.ANSI_RESET +
                 cycles+ "}" + NEW_LINE);
-
+        // The type (Int, Integer etc.)
         result.append(Utility.ANSI_PURPLE + "{Type:              " + Utility.ANSI_RESET +
                 type+ "}" + NEW_LINE);
 

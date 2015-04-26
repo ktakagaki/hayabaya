@@ -101,27 +101,22 @@ public class MainClass {
         //</editor-fold>
 
 
-        boolean debugPrintStuff = true;
-        /** The first and outermost loop only loops over the repetitions of the entire experiment */
+        /** Loops over the repetitions of the entire experiment */
         for ( int repetitions = 0; repetitions < RunSettings.TOTAL_EXP_REPS; repetitions++ ){
 
-            /** Loop over each type of Looper object in the LooperList */
+            /** Loops over objects (Loopers) in ArrayList */
             for (Loopers thisLooper : looperList) {
 
-                /** Loop over the types of operations ADD, SUBTRACT etc. */
+                /** Loops over operations ADD, SUBTRACT etc. */
                 for (Operation operation : Operation.values()) {
 
                     result = thisLooper.makeResults(operation);
                     Utility.writeResultsToCsv(result);
 
-                    if (debugPrintStuff){
+                    if (RunSettings.debug){
                         /** DEBUG INSERTS START */
-                        String loopString = thisLooper.toString();
-                        System.out.println(loopString);
-
-                        String resultString = result.toString();
-                        System.out.println(resultString);
-
+                        System.out.println(thisLooper.toString());
+                        System.out.println(result.toString());
                         /** DEBUG INSERTS START */
                     }
 
@@ -141,12 +136,6 @@ public class MainClass {
         System.out.println("The following Rows and Columns were generated for the 2D arrays...\n");
         System.out.println("Rows: " + RunSettings.numberOfRowsSize +
                 " Columns: " + RunSettings.numberOfColumnsCycle);
-
-
-        Loopers forPrint = looperList.get(looperList.size() - 1);
-        Results forPrintResults = forPrint.makeResults(Operation.ADD);
-        System.out.println("Example of result for addition: \t \n");
-        Utility.printMatrix(forPrintResults.data);
 
     }
 }

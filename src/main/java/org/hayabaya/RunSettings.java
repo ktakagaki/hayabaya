@@ -14,17 +14,17 @@ public class RunSettings {
     /** When True, the myNumber variable in all of the looper classes will use a fixed number so the expected output
      * can be calculated and tested against
      */
-    public static boolean unitTesting = false;
+    public static boolean unitTesting = true;
 
 
 
 
     static final public int ARRAY_SIZE_MIN =    10; // thousand
-    static final public int ARRAY_SIZE_MAX =  100; // hundred thousand
+    static final public int ARRAY_SIZE_MAX =  1000; // hundred thousand
     static final public int ARRAY_SIZE_STEPS =  10;
     static final public int numberOfRowsSize = (int) Math.ceil( ((ARRAY_SIZE_MAX - ARRAY_SIZE_MIN) ) / ARRAY_SIZE_STEPS) + 1;
     static final public int CYCLES_MIN   = 1; // thousand
-    static final public int CYCLES_MAX   = 25; // ten thousand
+    static final public int CYCLES_MAX   = 45; // ten thousand
     static final public int CYCLES_STEPS = 5;
     static final public int TOTAL_EXP_REPS = 3;
     static final public int numberOfColumnsCycle = (int) Math.ceil( ((CYCLES_MAX - CYCLES_MIN) ) / CYCLES_STEPS) + 1;

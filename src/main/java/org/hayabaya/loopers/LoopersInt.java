@@ -57,8 +57,10 @@ public class LoopersInt extends Loopers {
         StringBuilder result = new StringBuilder(oldString);
         String NEW_LINE = System.getProperty("line.separator");
 
+        // myNumber used to operate with
         result.append(Utility.ANSI_YELLOW + "{myNumber:          " + Utility.ANSI_RESET +
                 myNumber + "}" + NEW_LINE);
+
 
         if (lastSetOperation == null)
         {

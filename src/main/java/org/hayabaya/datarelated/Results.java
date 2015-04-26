@@ -33,23 +33,36 @@ public class Results {
         String NEW_LINE = System.getProperty("line.separator");
 
         // Name
-        result.append("\t \t \t \t" + Utility.ANSI_RED + "\033[1m Results Object \033[0m" + Utility.ANSI_RESET + "\n");
+        result.append("\t \t \t" + Utility.ANSI_RED + "\033[1m Results Object \033[0m" + Utility.ANSI_RESET + "\n");
 
         result.append("\t" + Utility.ANSI_BLUE + "{Object:            "
-                + Utility.ANSI_RESET + this.getClass().getSimpleName()+ "}" + NEW_LINE);
-        // Cycles
-        result.append("\t" +Utility.ANSI_CYAN + "{Cycles:            " + Utility.ANSI_RESET +
-                cycles+ "}" + NEW_LINE);
+                + Utility.ANSI_RESET + this.getClass().getSimpleName() + "}" + NEW_LINE);
+
         // Type
-        result.append("\t" +Utility.ANSI_PURPLE + "{Type:              " + Utility.ANSI_RESET +
-                type+ "}" + NEW_LINE);
+        result.append("\t" + Utility.ANSI_PURPLE + "{Type:              " + Utility.ANSI_RESET +
+                type + "}" + NEW_LINE);
+
         // Operation
-        result.append("\t" +Utility.ANSI_GREEN + "{Operation:              " + Utility.ANSI_RESET +
-                operation+ "}" + NEW_LINE);
+        result.append("\t" + Utility.ANSI_GREEN + "{Operation:          " + Utility.ANSI_RESET +
+                operation + "}" + NEW_LINE);
 
-        result.append(Arrays.deepToString(data));
+        // Cycles
+        result.append("\t" + Utility.ANSI_CYAN + "{Cycles:            " + Utility.ANSI_RESET +
+                Arrays.toString(cycles) + "}" + NEW_LINE);
 
-        result.append("\n \n");
+        result.append("\n \n \t \t" + Utility.ANSI_RED + "\033[1m Last 10 rows of long[][] for the runtime (in ms) " +
+                "\033[0m" + Utility.ANSI_RESET);
+
+        /** Printing information regarding the long[][] array with the actual runtimes */
+        long[][] subData = Arrays.copyOfRange(data, data.length - 5, data.length);
+
+        result.append("\n================================================\n");
+        result.append("data.length: \t" + data.length + "\n");
+        result.append("data[0].length: \t" + data[0].length + "\n");
+
+        result.append(" \t" + Arrays.deepToString(subData) + NEW_LINE);
+        result.append("\n================================================\n");
+
 
         return result.toString();
     }
