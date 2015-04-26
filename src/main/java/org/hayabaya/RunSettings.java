@@ -4,18 +4,16 @@ package org.hayabaya;
  * Created by cain on 4/20/2015.
  */
 public class RunSettings {
-    // NB: Note the hardcoded "1000" integer used for numberOfRowsSize and numberOfColumnsCycle, set the other variables only in
-    // steps thousands
     //ToDo: Implement scaling factors so any stepsize can be used and calculation of numberOfX scales accordingly
     //ToDo 2: you might want to encapsulate all of the following in a class or a static thing
 
-    /** When set to true, all debug printing messages in the project will be activated */
-    public static boolean debug = false;
-    /** When True, the myNumber variable in all of the looper classes will use a fixed number so the expected output
-     * can be calculated and tested against
+    /** Global debug variable, controls all debug printing messages etc */
+    public static boolean debug = true;
+    /** Initialize with predictable numbers like hardcoded myNumber in the Loopers, making it possible to figure out
+     * what values should be expected when doing unit test. Also uses smaller arraylength, cycles and step size so it
+     * all runs faster
      */
     public static boolean unitTesting = true;
-
 
 
 
