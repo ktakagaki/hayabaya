@@ -1,5 +1,6 @@
 package org.hayabaya.loopers;
 
+import org.hayabaya.RunSettings;
 import org.hayabaya.datarelated.Operation;
 import org.hayabaya.datarelated.Tpe;
 import org.hayabaya.datarelated.Utility;
@@ -9,7 +10,7 @@ import java.util.Arrays;
 public class LoopersFloat extends Loopers {
 
     private float[] array;
-    private float myNumber = rand.nextFloat();
+    private float myNumber = (RunSettings.unitTesting) ? 5f : rand.nextFloat();
     public final Tpe type = Tpe.FLOAT;
 
 

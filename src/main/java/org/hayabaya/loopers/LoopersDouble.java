@@ -1,5 +1,6 @@
 package org.hayabaya.loopers;
 
+import org.hayabaya.RunSettings;
 import org.hayabaya.datarelated.*;
 
 import java.util.Arrays;
@@ -7,7 +8,7 @@ import java.util.Arrays;
 public class LoopersDouble extends Loopers {
 
     private double[] array;
-    private double myNumber = rand.nextDouble();
+    private double myNumber = (RunSettings.unitTesting) ? 5.0 : rand.nextDouble();
     public final Tpe type = Tpe.DOUBLE;
 
 

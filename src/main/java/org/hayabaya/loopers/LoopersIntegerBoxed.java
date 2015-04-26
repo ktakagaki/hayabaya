@@ -1,5 +1,6 @@
 package org.hayabaya.loopers;
 
+import org.hayabaya.RunSettings;
 import org.hayabaya.datarelated.Operation;
 import org.hayabaya.datarelated.Tpe;
 import org.hayabaya.datarelated.Utility;
@@ -9,7 +10,7 @@ import java.util.Arrays;
 public class LoopersIntegerBoxed extends Loopers {
 
     private Integer[] array;
-    private Integer myNumber = rand.nextInt();
+    private Integer myNumber = (RunSettings.unitTesting) ? new Integer(5) : rand.nextInt();
     public final Tpe type = Tpe.INTEGER_BOXED;
 
     public LoopersIntegerBoxed(int arraySizeMin, int cyclesMin) {

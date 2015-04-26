@@ -1,5 +1,6 @@
 package org.hayabaya.loopers;
 
+import org.hayabaya.RunSettings;
 import org.hayabaya.datarelated.Operation;
 import org.hayabaya.datarelated.Tpe;
 import org.hayabaya.datarelated.Utility;
@@ -9,7 +10,7 @@ import java.util.Arrays;
 public class LoopersLong extends Loopers {
 
     private long[] array;
-    private long myNumber = rand.nextLong();
+    private long myNumber = (RunSettings.unitTesting) ? 5L : rand.nextLong();
     public final Tpe type = Tpe.LONG;
 
     public LoopersLong(int arraySizeMin, int cyclesMin) {
