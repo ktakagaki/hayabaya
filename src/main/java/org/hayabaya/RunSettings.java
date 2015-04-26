@@ -9,9 +9,13 @@ public class RunSettings {
     //ToDo: Implement scaling factors so any stepsize can be used and calculation of numberOfX scales accordingly
     //ToDo 2: you might want to encapsulate all of the following in a class or a static thing
 
+    /** When set to true, all debug printing messages in the project will be activated */
     public static boolean debug = false;
+    /** When True, the myNumber variable in all of the looper classes will use a fixed number so the expected output
+     * can be calculated and tested against
+     */
     public static boolean unitTesting = false;
-    //ToDo: Make use of global static debug and unitTesting variables. So when doing UnitTest, max array length is much smaller and sensible myNumbers. And for Debug everything is printed out, and it can be controlled from one place.
+
 
 
 
