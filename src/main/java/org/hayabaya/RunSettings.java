@@ -8,12 +8,12 @@ public class RunSettings {
     //ToDo 2: you might want to encapsulate all of the following in a class or a static thing
 
     /** Global debug variable, controls all debug printing messages etc */
-    public static boolean debug = true;
+    public static boolean debug = false;
     /** Initialize with predictable numbers like hardcoded myNumber in the Loopers, making it possible to figure out
      * what values should be expected when doing unit test. Also uses smaller arraylength, cycles and step size so it
      * all runs faster
      */
-    public static boolean unitTesting = true;
+    public static boolean unitTesting = false;
 
 
 
