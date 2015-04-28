@@ -18,6 +18,11 @@ import org.hayabaya.datarelated.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import ch.qos.logback.classic.LoggerContext;
+import ch.qos.logback.core.util.StatusPrinter;
+
 
 /**Main class for testing java operations.
  *
@@ -36,6 +41,12 @@ import java.util.List;
 public class MainClass {
 
     public static void main(String[] args){
+        Logger logger = LoggerFactory.getLogger(MainClass.class);
+        logger.debug("Hello world.");
+
+        // print internal state
+        LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
+        StatusPrinter.print(lc);
 
         System.out.println("Hello to the HayaBaya project \n");
         long startTime = System.currentTimeMillis();
