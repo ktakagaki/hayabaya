@@ -44,8 +44,9 @@ public class MainClass {
         Logger logger = LoggerFactory.getLogger(MainClass.class);
         logger.info("Starting up logback");
 
-        // print internal state
+        // assume SLF4J is bound to logback in the current environment
         LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
+        // print logback's internal status
         StatusPrinter.print(lc);
 
         System.out.println("Hello to the HayaBaya project \n");
@@ -153,5 +154,8 @@ public class MainClass {
 
 
         logger.info("Hayabya finished running, Exiting logback..");
+        // assume SLF4J is bound to logback-classic in the current environment
+        LoggerContext loggerContext = (LoggerContext) LoggerFactory.getILoggerFactory();
+        loggerContext.stop();
     }
 }
