@@ -30,7 +30,6 @@ public class Utility {
     public static void writeResultsToCsv(Results results) {
         try
         {
-            //ToDo: results.type.toString() gives nullpointer exception. Seems that type is never initialized
             String filename = "./results/results."  + results.type.toString() + "." +
                     results.operation.toString() + "." + Integer.toString(resultCounter) + ".csv";
 
