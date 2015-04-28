@@ -42,7 +42,7 @@ public class MainClass {
 
     public static void main(String[] args){
         Logger logger = LoggerFactory.getLogger(MainClass.class);
-        logger.debug("Hello world.");
+        logger.info("Starting up logback");
 
         // print internal state
         LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
@@ -141,12 +141,17 @@ public class MainClass {
         long endTime = System.currentTimeMillis();
         long totalRunTime =  endTime-startTime;
 
-        /** A small summary report over this run */
-        System.out.println("\n \n");
-        System.out.println("The total runtime was: " + totalRunTime);
-        System.out.println("The following Rows and Columns were generated for the 2D arrays...\n");
-        System.out.println("Rows: " + RunSettings.numberOfRowsSize +
-                " Columns: " + RunSettings.numberOfColumnsCycle);
+        if(RunSettings.debug){
+            /** A small summary report over this run */
+            System.out.println("\n \n");
+            System.out.println("The total runtime was: " + totalRunTime);
+            System.out.println("The following Rows and Columns were generated for the 2D arrays...\n");
+            System.out.println("Rows: " + RunSettings.numberOfRowsSize +
+                    " Columns: " + RunSettings.numberOfColumnsCycle);
+        }
 
+
+
+        logger.info("Hayabya finished running, Exiting logback..");
     }
 }
