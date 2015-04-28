@@ -12,7 +12,6 @@ repositories {
 }
 
 dependencies {
-    //unitTestCompile files("$project.buildDir/classes/debug")
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.+'
     compile group: 'junit', name: 'junit', version: '4.+'
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.+'
@@ -26,7 +25,7 @@ dependencies {
 sourceSets {
     unitTest {
         java.srcDir file('src/test/java')
-        resources.srcDir file('test/resources')
+        resources.srcDir file('src/test/resources')
     }
 }
 
