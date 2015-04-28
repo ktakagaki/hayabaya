@@ -12,6 +12,7 @@ repositories {
 }
 
 dependencies {
+    //unitTestCompile files("$project.buildDir/classes/debug")
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.+'
     compile group: 'junit', name: 'junit', version: '4.+'
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.+'
@@ -20,4 +21,21 @@ dependencies {
     compile group: 'ch.qos.logback', name: 'logback-core', version: '1.+'
     compile 'org.codehaus.groovy:groovy-all:2.3.6'
     testCompile "org.codehaus.groovy:groovy:2.3.6"
+}
+
+sourceSets {
+    unitTest {
+        java.srcDir file('src/test/java')
+        resources.srcDir file('test/resources')
+    }
+}
+
+
+configurations {
+    unitTestCompile.extendsFrom runtime
+    unitTestRuntime.extendsFrom unitTestCompile
+}
+
+task hello << {
+    println "using build file '$buildFile.name' in '$buildFile.parentFile.name'."
 }

@@ -5,7 +5,6 @@ package org.hayabaya;
  */
 public class RunSettings {
     //ToDo: Implement scaling factors so any stepsize can be used and calculation of numberOfX scales accordingly
-    //ToDo 2: you might want to encapsulate all of the following in a class or a static thing
 
     /** Global debug variable, controls all debug printing messages etc */
     public static boolean debug = false;
@@ -14,7 +13,6 @@ public class RunSettings {
      * all runs faster
      */
     public static boolean unitTesting = true;
-
 
 
     static final public int ARRAY_SIZE_MIN =    10; // thousand

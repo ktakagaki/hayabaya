@@ -1,5 +1,6 @@
 package org.hayabaya.datarelated;
 
+import org.hayabaya.MyTestAbstract;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -8,7 +9,7 @@ import static org.junit.Assert.assertThat;
 /**
  * Created by cain on 4/21/2015.
  */
-public class TpeTest {
+public class TpeTest extends MyTestAbstract {
     
     @Test
     public void testToString() throws Exception {
