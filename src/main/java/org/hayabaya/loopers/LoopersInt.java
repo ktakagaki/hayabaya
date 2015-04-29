@@ -12,11 +12,14 @@ public class LoopersInt extends Loopers {
     private int myNumber = (RunSettings.unitTesting) ? 5 : rand.nextInt();
 //    private int myNumber = rand.nextInt();
 //    private int myNumber = 25;
-    public final Tpe type = Tpe.INT;
+    public static final Tpe type = Tpe.INT;
+
+    @Override
+    public final Tpe getType() { return type; }
 
 
     public LoopersInt(int arraySizeMin, int cyclesMin) {
-        super(arraySizeMin, cyclesMin, Tpe.INT);
+        super(arraySizeMin, cyclesMin, type);
     }
 
     // <editor-fold defaultstate="collapsed" desc=" operate Loop (common to all classes; pseudo-generic) ">

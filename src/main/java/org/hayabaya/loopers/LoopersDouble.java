@@ -9,13 +9,14 @@ public class LoopersDouble extends Loopers {
 
     private double[] array;
     private double myNumber = (RunSettings.unitTesting) ? 5.0 : rand.nextDouble();
-    public final Tpe type = Tpe.DOUBLE;
+    public static final Tpe type = Tpe.DOUBLE;
+    @Override
+    public final Tpe getType() { return type; }
 
 
 
     public LoopersDouble(int arraySizeMin, int cyclesMin) {
-
-        super(arraySizeMin, cyclesMin, Tpe.DOUBLE);
+        super(arraySizeMin, cyclesMin, type);
     }
 
 

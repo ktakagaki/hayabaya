@@ -11,11 +11,13 @@ public class LoopersFloat extends Loopers {
 
     private float[] array;
     private float myNumber = (RunSettings.unitTesting) ? 5f : rand.nextFloat();
-    public final Tpe type = Tpe.FLOAT;
+    public static final Tpe type = Tpe.FLOAT;
+    @Override
+    public final Tpe getType() { return type; }
 
 
-    public LoopersFloat(int arraySizeMin, int cyclesMin) {
-        super(arraySizeMin, cyclesMin, Tpe.FLOAT);
+    public LoopersFloat(int arraySizeMin, int cyclesMin)  {
+        super(arraySizeMin, cyclesMin, type);
     }
 
     // <editor-fold defaultstate="collapsed" desc=" operate Loop (common to all classes; pseudo-generic) ">

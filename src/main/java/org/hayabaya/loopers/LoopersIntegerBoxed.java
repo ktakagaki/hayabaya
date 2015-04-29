@@ -11,11 +11,12 @@ public class LoopersIntegerBoxed extends Loopers {
 
     private Integer[] array;
     private Integer myNumber = (RunSettings.unitTesting) ? new Integer(5) : rand.nextInt();
-    public final Tpe type = Tpe.INTEGER_BOXED;
+    public static final Tpe type = Tpe.INTEGER_BOXED;
+    @Override
+    public final Tpe getType() { return type; }
 
-    public LoopersIntegerBoxed(int arraySizeMin, int cyclesMin) {
-
-        super(arraySizeMin, cyclesMin, Tpe.INTEGER_BOXED);
+    public LoopersIntegerBoxed(int arraySizeMin, int cyclesMin)  {
+        super(arraySizeMin, cyclesMin, type);
     }
 
     // <editor-fold defaultstate="collapsed" desc=" operate Loop (common to all classes; pseudo-generic) ">

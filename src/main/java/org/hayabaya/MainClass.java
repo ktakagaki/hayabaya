@@ -13,7 +13,6 @@ import org.hayabaya.datarelated.Operation;
 import org.hayabaya.datarelated.Results;
 import org.hayabaya.datarelated.Utility;
 import org.hayabaya.loopers.*;
-import org.hayabaya.datarelated.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +26,7 @@ import ch.qos.logback.core.util.StatusPrinter;
 /**Main class for testing java operations.
  *
  *           APPROACH TO GENERATE DATA FOR REPORT:
- * 1: create 2D arrays for each datatype and operation type int:[add,sub,mult] + float:[add,sub,mult] etc.
+ * 1: create 2D arrays for each datatype and operation getType int:[add,sub,mult] + float:[add,sub,mult] etc.
  * ROWS:  Arraylength, start: 1.000 length, end: 100.length, stepsize: +1.000 length, TOTAL = 100
  * COLUMNS: Repetitions, start: 1.000 reps, end: 10.000 reps, stepsize: +1.000 reps, TOTAL = 10
  * 2: final is 100 rows X 10 colums (array length, repetitions)
@@ -50,6 +49,8 @@ public class MainClass {
         StatusPrinter.print(lc);
 
         System.out.println("Hello to the HayaBaya project \n");
+        //assert false : "Hi!";
+
         long startTime = System.currentTimeMillis();
 
         Results result = null;
@@ -60,7 +61,7 @@ public class MainClass {
 
 
         Loopers loopersInt =            new LoopersInt(         asize, acycle);
-//        Loopers loopersLong =           new LoopersLong(        asize, acycle);
+        Loopers loopersLong =           new LoopersLong(        asize, acycle);
 //        Loopers loopersFloat =          new LoopersFloat(       asize, acycle);
 //        Loopers loopersDouble =         new LoopersDouble(      asize, acycle);
 
@@ -71,7 +72,7 @@ public class MainClass {
 
 
         looperList.add(loopersInt);
-//        looperList.add(loopersLong);
+        looperList.add(loopersLong);
 //        looperList.add(loopersFloat);
 //        looperList.add(loopersDouble);
 
@@ -85,7 +86,7 @@ public class MainClass {
         *//** The first and outermost loop only loops over the repetitions of the entire experiment *//*
         for ( int repetitions = 0; repetitions < RunSettings.TOTAL_EXP_REPS; repetitions++ ){
 
-            *//** Loop over each type of Looper object in the LooperList *//*
+            *//** Loop over each getType of Looper object in the LooperList *//*
             for (Loopers thisLooper : looperList) {
 
                 *//** Loop over the types of operations ADD, SUBTRACT etc. *//*
@@ -120,10 +121,14 @@ public class MainClass {
             for (Loopers thisLooper : looperList) {
 
                 /** Loops over operations ADD, SUBTRACT etc. */
-                for (Operation operation : Operation.values()) {
+                for (Operation thisOperation : Operation.values()) {
 
-                    result = thisLooper.makeResults(operation);
+                    result = thisLooper.makeResults(thisOperation);
                     Utility.writeResultsToCsv(result);
+                    //ToDo Rewrite:
+                    //  Utility.writeResultsToCsv(result, repetitions);
+                    //delete
+                    //  Utility.setResultCounter()
 
                     if (RunSettings.debug){
                         /** DEBUG INSERTS START */
@@ -147,8 +152,8 @@ public class MainClass {
             System.out.println("\n \n");
             System.out.println("The total runtime was: " + totalRunTime);
             System.out.println("The following Rows and Columns were generated for the 2D arrays...\n");
-            System.out.println("Rows: " + RunSettings.numberOfRowsSize +
-                    " Columns: " + RunSettings.numberOfColumnsCycle);
+            System.out.println("Rows: " + RunSettings.numberOfRowsArrayLength +
+                    " Columns: " + RunSettings.cycleNumbers.length);//numberOfColumnsCycle);
         }
 
 

@@ -9,8 +9,8 @@ import java.util.Random;
 
 /**Loopers tests the runtime doing: addition, subtraction, multiplication
  * and division on the data types: int, float, double, long and (autoboxed) Integer, Float, Double and Long.
- * A Loopers object will be of a fixed data type, and the object ensures that operations are performed correctly on
- * the data type.
+ * A Loopers object will be of a fixed data getType, and the object ensures that operations are performed correctly on
+ * the data getType.
  * <p>
  * @author cain
  * @author ktakagaki
@@ -20,7 +20,8 @@ public abstract class Loopers {
 
     int arrayLength = 0;
     int cycles = 0;
-    Tpe type;
+    protected Tpe type = null;
+    public abstract Tpe getType();
     Operation lastSetOperation = null;
     Random rand = new Random();
 
@@ -57,7 +58,7 @@ public abstract class Loopers {
      }*/
     abstract void operateLoop(Operation operation);
 
-    /**initialize the correct primitive/boxed type array.
+    /**initialize the correct primitive/boxed getType array.
      * this is not done generically, in order to explicity
      * profile primitive operations.
      */
@@ -103,7 +104,7 @@ public abstract class Loopers {
 
         long startTime = System.currentTimeMillis();
 
-        //ToDo: Be VERY carefull, I may have introduced a bug here to make the autoboxed Loopers work. It must
+        //ToDo: Be VERY careful, I may have introduced a bug here to make the autoboxed Loopers work. It must
         //ToDo: Be examined closer ASAP
         operateLoop(operation);
 
@@ -111,6 +112,7 @@ public abstract class Loopers {
         return endTime-startTime;
     }
 
+    // <editor-fold defaultstate="collapsed" desc=" toString ">
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
@@ -128,44 +130,48 @@ public abstract class Loopers {
         // Cycles
         result.append(Utility.ANSI_CYAN + "{Cycles:            " + Utility.ANSI_RESET +
                 cycles+ "}" + NEW_LINE);
-        // The type (Int, Integer etc.)
+        // The getType (Int, Integer etc.)
         result.append(Utility.ANSI_PURPLE + "{Type:              " + Utility.ANSI_RESET +
-                type+ "}" + NEW_LINE);
+                getType() + "}" + NEW_LINE);
 
         return result.toString();
     }
+    // </editor-fold>
+
+    /**Runs [[test]] for the given operation
+     *
+     * @param operation
+     * @return
+     */
     public Results makeResults(Operation operation) {
 
-        long data[][] = new long[RunSettings.numberOfRowsSize][RunSettings.numberOfColumnsCycle];
+        long data[][] = new long[RunSettings.numberOfRowsArrayLength][RunSettings.cycleNumbers.length];//numberOfColumnsCycle];
 
-        int cycles[] = new int[RunSettings.numberOfColumnsCycle];
+        //int cycleNumbers[] = ///Intialization stuff moved to RunSettings as static array
 
-        for (int columnCount = RunSettings.CYCLES_MIN, columnIndex = 0;
-             columnCount <= RunSettings.CYCLES_MAX;
-             columnCount += RunSettings.CYCLES_STEPS, columnIndex++) {
-
-            cycles[columnIndex] = columnCount;
-
-        }
+        //int arraySizes[] =
+        //for(
 
         // row loop
-        for (int rowCount = RunSettings.ARRAY_SIZE_MIN, rowIndex = 0;
-             rowCount <= RunSettings.ARRAY_SIZE_MAX;
-             rowCount += RunSettings.ARRAY_SIZE_STEPS, rowIndex++) {
+        for (int rowCountArraySize = RunSettings.ARRAY_SIZE_MIN, rowIndex = 0;
+             rowCountArraySize <= RunSettings.ARRAY_SIZE_MAX;
+             rowCountArraySize += RunSettings.ARRAY_SIZE_STEPS, rowIndex++) {
 
             // column loop
-            for (int columnCount = RunSettings.CYCLES_MIN, columnIndex = 0;
-                 columnCount <= RunSettings.CYCLES_MAX;
-                 columnCount += RunSettings.CYCLES_STEPS, columnIndex++) {
+            int columnIndex = 0;
+            for ( int columnCountCycleNumbers : RunSettings.cycleNumbers ){
+//            for (int columnCountCycleNumbers = RunSettings.CYCLES_MIN, columnIndex = 0;
+//                 columnCountCycleNumbers <= RunSettings.CYCLES_MAX;
+//                 columnCountCycleNumbers += RunSettings.CYCLES_STEPS, columnIndex++) {
 
-                setArrayLength(rowCount);
-                setCycles(columnCount);
+                setArrayLength(rowCountArraySize);
+                setCycles(columnCountCycleNumbers);
 
                 data[rowIndex][columnIndex] = test(operation);
-
+                columnIndex ++;
             }
         }
-        return new Results(data, cycles, type, operation);
+        return new Results(data, RunSettings.cycleNumbers, getType(), operation);
     }
 
 

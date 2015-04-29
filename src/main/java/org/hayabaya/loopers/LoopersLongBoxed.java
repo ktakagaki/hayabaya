@@ -11,13 +11,13 @@ public class LoopersLongBoxed extends Loopers{
 
     private Long[] array;
     private Long myNumber = (RunSettings.unitTesting) ? new Long(5) : rand.nextLong();
-    public final Tpe type = Tpe.LONG_BOXED;
+    public static final Tpe type = Tpe.LONG_BOXED;
+    @Override
+    public final Tpe getType() { return type; }
 
     public LoopersLongBoxed(int arraySizeMin, int cyclesMin) {
-
-        super(arraySizeMin, cyclesMin, Tpe.LONG_BOXED);
+        super(arraySizeMin, cyclesMin, type);
     }
-
 
     @Override
     void operateLoop(Operation operation) {

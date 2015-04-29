@@ -14,11 +14,22 @@ public class Results {
 
     private Results() {}
 
+    /**
+     *
+     * @param data assumed to be (non-null) and <b>non-ragged</b>
+     * @param cycles assumed to be (non-null and with length same as data[0])
+     * @param type
+     * @param operation
+     */
     public Results(long[][] data, int[] cycles, Tpe type, Operation operation) {
-        assert type != null : "Type most nust be null when creating Results";
-        assert operation != null : "A type of operation must be specified";
 
-        assert data.length == cycles.length :
+        assert type != null : "Type most must be null when creating Results";
+        assert operation != null : "A getType of operation must be specified";
+        assert data != null : "data can't be null";
+        assert cycles != null : "cycles can't be null";
+
+        assert data[0] != null : "data must have a non-null 0th element";
+        assert data[0].length == cycles.length :
                 "Number of columns in data array must be the same as specified cycles";
 
         this.data = data;
@@ -53,13 +64,15 @@ public class Results {
         result.append("\n \n \t \t" + Utility.ANSI_RED + "\033[1m Last 10 rows of long[][] for the runtime (in ms) " +
                 "\033[0m" + Utility.ANSI_RESET);
 
-        /** Printing information regarding the long[][] array with the actual runtimes */
+        //Printing information from the last 5 rows
+        //regarding the long[][] array with the actual runtimes.
         long[][] subData = Arrays.copyOfRange(data, data.length - 5, data.length);
 
         result.append("\n================================================\n");
         result.append("data.length: \t" + data.length + "\n");
         result.append("data[0].length: \t" + data[0].length + "\n");
 
+        result.append("last 5 rows: \n");
         result.append(" \t" + Arrays.deepToString(subData) + NEW_LINE);
         result.append("\n================================================\n");
 

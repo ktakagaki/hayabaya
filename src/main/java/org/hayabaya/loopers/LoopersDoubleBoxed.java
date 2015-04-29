@@ -9,13 +9,14 @@ public class LoopersDoubleBoxed extends Loopers {
 
     private Double[] array;
     private Double myNumber = (RunSettings.unitTesting) ? new Double(5.0) : rand.nextDouble();
-    public final Tpe type = Tpe.DOUBLE_BOXED;
+    public static final Tpe type = Tpe.DOUBLE_BOXED;
+    @Override
+    public final Tpe getType() { return type; }
 
 
 
-    public LoopersDoubleBoxed(int arraySizeMin, int cyclesMin) {
-
-        super(arraySizeMin, cyclesMin, Tpe.DOUBLE_BOXED);
+    public LoopersDoubleBoxed(int arraySizeMin, int cyclesMin)  {
+        super(arraySizeMin, cyclesMin, type);
     }
 
 

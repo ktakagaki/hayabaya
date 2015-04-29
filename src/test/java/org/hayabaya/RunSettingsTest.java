@@ -49,7 +49,7 @@ public class RunSettingsTest extends MyTestAbstract{
             String f = c.getField("ARRAY_SIZE_STEPS").getType().toString();
             assertThat("int", equalTo(f));
 
-            String g = c.getField("numberOfRowsSize").getType().toString();
+            String g = c.getField("numberOfRowsArrayLength").getType().toString();
             assertThat("int", equalTo(g));
 
             String h = c.getField("CYCLES_MIN").getType().toString();

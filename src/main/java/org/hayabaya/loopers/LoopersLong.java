@@ -11,10 +11,12 @@ public class LoopersLong extends Loopers {
 
     private long[] array;
     private long myNumber = (RunSettings.unitTesting) ? 5L : rand.nextLong();
-    public final Tpe type = Tpe.LONG;
+    public static final Tpe type = Tpe.LONG;
+    @Override
+    public final Tpe getType() { return type; }
 
-    public LoopersLong(int arraySizeMin, int cyclesMin) {
-        super(arraySizeMin, cyclesMin, Tpe.LONG);
+    public LoopersLong(int arraySizeMin, int cyclesMin)  {
+        super(arraySizeMin, cyclesMin, type);
     }
 
     // <editor-fold defaultstate="collapsed" desc=" operate Loop (common to all classes; pseudo-generic) ">

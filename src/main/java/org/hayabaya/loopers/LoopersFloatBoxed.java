@@ -11,11 +11,13 @@ public class LoopersFloatBoxed extends Loopers {
 
     private Float[] array;
     private Float myNumber = (RunSettings.unitTesting) ? new Float(5) : rand.nextFloat();
-    public final Tpe type = Tpe.FLOAT_BOXED;
+    public static final Tpe type = Tpe.FLOAT_BOXED;
+    @Override
+    public final Tpe getType() { return type; }
 
 
-    public LoopersFloatBoxed(int arraySizeMin, int cyclesMin) {
-        super(arraySizeMin, cyclesMin, Tpe.FLOAT_BOXED);
+    public LoopersFloatBoxed(int arraySizeMin, int cyclesMin)  {
+        super(arraySizeMin, cyclesMin, type);
     }
 
     @Override
