@@ -44,6 +44,8 @@ public class LoopersDoubleBoxed extends Loopers {
     @Override
     protected void initArray(int arrayLength) {
         array = new Double[arrayLength];
+        for(int c = 0; c < array.length; c++) array[c] = new Double( rand.nextDouble() );
+
     }
 
 

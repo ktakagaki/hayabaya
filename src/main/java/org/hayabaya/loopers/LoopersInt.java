@@ -45,8 +45,8 @@ public class LoopersInt extends Loopers {
 
     @Override
     protected void initArray(int arrayLength) {
-
         array = new int[arrayLength];
+        for(int c = 0; c < array.length; c++) array[c] = rand.nextInt();
     }
 
     public int[] getArray() {

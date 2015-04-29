@@ -41,6 +41,8 @@ public class LoopersFloatBoxed extends Loopers {
     @Override
     protected void initArray(int arrayLength) {
         array = new Float[arrayLength];
+        for(int c = 0; c < array.length; c++) array[c] = new Float( rand.nextFloat() );
+
     }
 
     public Float[] getArray() {

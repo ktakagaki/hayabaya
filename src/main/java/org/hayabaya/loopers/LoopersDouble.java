@@ -44,6 +44,8 @@ public class LoopersDouble extends Loopers {
     @Override
     protected void initArray(int arrayLength) {
         array = new double[arrayLength];
+        for(int c = 0; c < array.length; c++) array[c] = rand.nextDouble();
+
     }
 
     @Override

@@ -1,5 +1,6 @@
 package org.hayabaya.datarelated;
 
+import org.hayabaya.MainClass;
 import org.hayabaya.RunSettings;
 import org.hayabaya.loopers.Loopers;
 
@@ -25,6 +26,10 @@ public class Utility {
         resultCounter = i;
     }
 
+    //ToDo 1: implement
+    //public static void writeResultsToCsv(Results results, int repetitionTag) {
+
+    @Deprecated
     public static void writeResultsToCsv(Results results) {
 
         assert results != null : "Results can't be null!";
@@ -48,6 +53,7 @@ public class Utility {
 //            resultCounter ++;
 
             br.write(sb.toString());
+            MainClass.logger.debug("Wrote results to csv for: " + filename);
             br.close();
         }catch( FileNotFoundException e )
         {

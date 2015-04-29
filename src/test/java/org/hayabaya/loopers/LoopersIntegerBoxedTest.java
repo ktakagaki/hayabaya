@@ -1,19 +1,19 @@
 package org.hayabaya.loopers;
 
-import org.hayabaya.MyTestAbstract;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.equalTo;
 
 /**
  * Created by cain on 4/24/2015.
  */
-public class LoopersIntegerBoxedTest extends MyTestAbstract {
-    
+public class LoopersIntegerBoxedTest extends LoopersTest {
+
     @Before
     public void setUp() throws Exception {
-
+        looper = new LoopersInt(100, 100);
     }
 
     @Test
@@ -23,7 +23,7 @@ public class LoopersIntegerBoxedTest extends MyTestAbstract {
 
     @Test
     public void testInitArray() throws Exception {
-
+        assertThat(looper.arrayLength, equalTo(100));
     }
 
     @Test

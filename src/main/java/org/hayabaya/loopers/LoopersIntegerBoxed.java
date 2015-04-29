@@ -28,13 +28,13 @@ public class LoopersIntegerBoxed extends Loopers {
 
         switch( operation ) {
             case ADD:
-                for (Integer n = 0; n < cycles; n++) for (Integer c = 0; c < arrayLength; c++) array[c] += myNumber;
+                for (int n = 0; n < cycles; n++) for (int c = 0; c < arrayLength; c++) array[c] += myNumber;
             case SUBTRACT:
-                for (Integer n = 0; n < cycles; n++) for (Integer c = 0; c < arrayLength; c++) array[c] -= myNumber;
+                for (int n = 0; n < cycles; n++) for (int c = 0; c < arrayLength; c++) array[c] -= myNumber;
             case MULTIPLY:
-                for (Integer n = 0; n < cycles; n++) for (Integer c = 0; c < arrayLength; c++) array[c] *= myNumber;
+                for (int n = 0; n < cycles; n++) for (int c = 0; c < arrayLength; c++) array[c] *= myNumber;
             case DIVIDE:
-                for (Integer n = 0; n < cycles; n++) for (Integer c = 0; c < arrayLength; c++) array[c] /= myNumber;
+                for (int n = 0; n < cycles; n++) for (int c = 0; c < arrayLength; c++) array[c] /= myNumber;
         }
     }
 
@@ -43,6 +43,7 @@ public class LoopersIntegerBoxed extends Loopers {
     @Override
     protected void initArray(int arrayLength) {
         array = new Integer[arrayLength];
+        for(int c = 0; c < array.length; c++) array[c] = new Integer( rand.nextInt() );
     }
 
     public Integer[] getArray() {

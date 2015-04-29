@@ -38,9 +38,10 @@ import ch.qos.logback.core.util.StatusPrinter;
  * @author Slentzen Demian
  */
 public class MainClass {
+    public static Logger logger = LoggerFactory.getLogger(MainClass.class);
 
     public static void main(String[] args){
-        Logger logger = LoggerFactory.getLogger(MainClass.class);
+
         logger.info("Starting up logback");
 
         // assume SLF4J is bound to logback in the current environment
@@ -65,7 +66,7 @@ public class MainClass {
 //        Loopers loopersFloat =          new LoopersFloat(       asize, acycle);
 //        Loopers loopersDouble =         new LoopersDouble(      asize, acycle);
 
-//        Loopers loopersIntegerBoxed =   new LoopersIntegerBoxed(asize, acycle);
+        Loopers loopersIntegerBoxed =   new LoopersIntegerBoxed(asize, acycle);
 //        Loopers loopersLongBoxed =      new LoopersLongBoxed(   asize, acycle);
 //        Loopers loopersFloatBoxed =     new LoopersFloatBoxed(  asize, acycle);
 //        Loopers loopersDoubleBoxed =    new LoopersDoubleBoxed( asize, acycle);
@@ -76,7 +77,7 @@ public class MainClass {
 //        looperList.add(loopersFloat);
 //        looperList.add(loopersDouble);
 
-//        looperList.add(loopersIntegerBoxed);
+        looperList.add(loopersIntegerBoxed);
 //        looperList.add(loopersLongBoxed);
 //        looperList.add(loopersFloatBoxed);
 //        looperList.add(loopersDoubleBoxed);

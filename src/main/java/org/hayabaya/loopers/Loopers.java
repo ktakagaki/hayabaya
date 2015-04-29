@@ -58,8 +58,8 @@ public abstract class Loopers {
      }*/
     abstract void operateLoop(Operation operation);
 
-    /**initialize the correct primitive/boxed getType array.
-     * this is not done generically, in order to explicity
+    /**Initialize the correct primitive/boxed getType array with random values.
+     * This is not done generically, in order to explicity
      * profile primitive operations.
      */
     abstract protected void initArray(int arrayLength);
