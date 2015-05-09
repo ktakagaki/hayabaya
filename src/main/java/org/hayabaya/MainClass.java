@@ -46,41 +46,28 @@ public class MainClass {
 
         // assume SLF4J is bound to logback in the current environment
         LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
+
         // print logback's internal status
         StatusPrinter.print(lc);
 
         System.out.println("Hello to the HayaBaya project \n");
-        //assert false : "Hi!";
-
-        long startTime = System.currentTimeMillis();
 
         Results result = null;
         List<Loopers> looperList = new ArrayList<>();
 
-        int asize = RunSettings.ARRAY_SIZE_MIN;
-        int acycle = RunSettings.CYCLES_MIN;
+        int aSize = RunSettings.ARRAY_SIZE_MIN;
+        int aCycle = RunSettings.CYCLES_MIN;
 
 
-        Loopers loopersInt =            new LoopersInt(         asize, acycle);
-        Loopers loopersLong =           new LoopersLong(        asize, acycle);
-//        Loopers loopersFloat =          new LoopersFloat(       asize, acycle);
-//        Loopers loopersDouble =         new LoopersDouble(      asize, acycle);
+        looperList.add(new LoopersInt(         aSize, aCycle));
+        looperList.add(new LoopersLong(        aSize, aCycle));
+        looperList.add(new LoopersFloat(       aSize, aCycle));
+        looperList.add(new LoopersDouble(      aSize, aCycle));
 
-        Loopers loopersIntegerBoxed =   new LoopersIntegerBoxed(asize, acycle);
-//        Loopers loopersLongBoxed =      new LoopersLongBoxed(   asize, acycle);
-//        Loopers loopersFloatBoxed =     new LoopersFloatBoxed(  asize, acycle);
-//        Loopers loopersDoubleBoxed =    new LoopersDoubleBoxed( asize, acycle);
-
-
-        looperList.add(loopersInt);
-        looperList.add(loopersLong);
-//        looperList.add(loopersFloat);
-//        looperList.add(loopersDouble);
-
-        looperList.add(loopersIntegerBoxed);
-//        looperList.add(loopersLongBoxed);
-//        looperList.add(loopersFloatBoxed);
-//        looperList.add(loopersDoubleBoxed);
+        looperList.add(new LoopersIntegerBoxed(aSize, aCycle));
+        looperList.add(new LoopersLongBoxed(   aSize, aCycle));
+        looperList.add(new LoopersFloatBoxed(  aSize, aCycle));
+        looperList.add(new LoopersDoubleBoxed( aSize, aCycle));
 
         //<editor-fold desc="Temporarely not used for debug purposes">
 /*        boolean debugPrintStuff = true;
@@ -160,6 +147,7 @@ public class MainClass {
 
 
         logger.info("Hayabya finished running, Exiting logback..");
+
         // assume SLF4J is bound to logback-classic in the current environment
         LoggerContext loggerContext = (LoggerContext) LoggerFactory.getILoggerFactory();
         loggerContext.stop();

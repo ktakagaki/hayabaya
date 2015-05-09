@@ -67,34 +67,4 @@ public class Utility {
         }
 
     }
-
-//    public static void printMatrix(long[][] grid) {
-//        for(int r=0; r<grid.length; r++) {
-//            for(int c=0; c<grid[r].length; c++)
-//                System.out.print(grid[r][c] + " ");
-//            System.out.println();
-//        }
-//    }
-//
-//    public static long[][] showValues(Loopers looperObject, Operation operation) {
-//        /**
-//         * A quick and dirty function used to check that the MakeIntResults function works correctly
-//         * To check that arraylength and repetition values are correct, just switch rowCount/columnCount in last line
-//         * of the inner loop.
-//         * //ToDo: Make method able to produce complete results passing 2D values
-//         */
-//        long results[][] = new long[RunSettings.numberOfRowsArrayLength][RunSettings.numberOfColumnsCycle];
-//
-//        // row loop
-//        for (int rowCount = RunSettings.ARRAY_SIZE_MIN, rowIndex = 0; rowCount <= RunSettings.ARRAY_SIZE_MAX; rowCount += RunSettings.ARRAY_SIZE_STEPS,
-//                rowIndex++) {
-//            // column loop
-//            for (int columnCount = RunSettings.CYCLES_MIN, columnIndex = 0; columnCount <= RunSettings.CYCLES_MAX; columnCount +=
-//                    RunSettings.CYCLES_STEPS, columnIndex++) {
-//                results[rowIndex][columnIndex] = (long) rowCount;
-//            }
-//        }
-//        return results;
-//    }
-//
 }
