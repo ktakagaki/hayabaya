@@ -64,6 +64,8 @@ public abstract class Loopers {
      */
     abstract protected void initArray(int arrayLength);
 
+    abstract void initRandom();
+
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc=" general getters and setters section ">
@@ -101,6 +103,8 @@ public abstract class Loopers {
 //          case MULTIPLY: for( int n = 0; n < cycles; n++) operateMultiply(0);
 //          case DIVIDE: for( int n = 0; n < cycles; n++)   operateDivide(0);
 //      }
+
+        //ToDo initRandom();
 
         long startTime = System.currentTimeMillis();
 
