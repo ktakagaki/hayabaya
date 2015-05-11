@@ -85,33 +85,33 @@ public class MainClass {
         //</editor-fold>
 
 
-        /** Loops over the repetitions of the entire experiment */
-        for (int repetitions = 0; repetitions < RunSettings.TOTAL_EXP_REPS; repetitions++) {
-
-            /** Loops over objects (Loopers) in ArrayList */
-            for (Loopers thisLooper : looperList) {
-
-                /** Loops over operations ADD, SUBTRACT etc. */
-                for (Operation thisOperation : Operation.values()) {
-
-                    result = thisLooper.makeResults(thisOperation);
-                    Utility.writeResultsToCsv(result);
-                    //ToDo Rewrite:
-                    //  Utility.writeResultsToCsv(result, repetitions);
-                    //delete
-                    //  Utility.setResultCounter()
-
-                    if (RunSettings.debug) {
-                        /** DEBUG INSERTS START */
-                        System.out.println(thisLooper.toString());
-                        System.out.println(result.toString());
-                        /** DEBUG INSERTS START */
-                    }
-
-
-                }
-            }
-            Utility.setResultCounter(repetitions);
-        }
+//        /** Loops over the repetitions of the entire experiment */
+//        for (int repetitions = 0; repetitions < RunSettings.TOTAL_EXP_REPS; repetitions++) {
+//
+//            /** Loops over objects (Loopers) in ArrayList */
+//            for (Loopers thisLooper : looperList) {
+//
+//                /** Loops over operations ADD, SUBTRACT etc. */
+//                for (Operation thisOperation : Operation.values()) {
+//
+//                    result = thisLooper.makeResults(thisOperation);
+//                    Utility.writeResultsToCsv(result);
+//                    //ToDo Rewrite:
+//                    //  Utility.writeResultsToCsv(result, repetitions);
+//                    //delete
+//                    //  Utility.setResultCounter()
+//
+//                    if (RunSettings.debug) {
+//                        /** DEBUG INSERTS START */
+//                        System.out.println(thisLooper.toString());
+//                        System.out.println(result.toString());
+//                        /** DEBUG INSERTS START */
+//                    }
+//
+//
+//                }
+//            }
+//            Utility.setResultCounter(repetitions);
+//        }
     }
 }
