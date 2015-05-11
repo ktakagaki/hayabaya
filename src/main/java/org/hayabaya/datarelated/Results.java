@@ -3,7 +3,11 @@ package org.hayabaya.datarelated;
 import java.util.Arrays;
 
 /**
- * Created by ktakagaki on 15/04/08.
+ * Default datastructure to hold results of Hayabaya profiling projects. Stores the runtime from arrays of different
+ * types and operations together with the type, operation and number of cycles used for the array.
+ * @see org.hayabaya.datarelated.Utility#writeResultsToCsv(Results) Main method used
+ * to write the Results objects to
+ * disk
  */
 public class Results {
 

@@ -1,9 +1,9 @@
 /**
  * MainClass
- *
+ * <p>
  * Measure the performance of arrays consisting of different primitive data types (int, float, double) and autoboxed
  * data types (Integer, Float).
- *
+ * <p>
  * It is possible to test the 4 fundamental operations (Addition, Subtraction, Multplication and Division) on an
  * array of arbitrary length, and with an arbitrary number of cycles repeated on each array.
  */
@@ -16,9 +16,6 @@ import org.hayabaya.loopers.*;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 
 /**Main class for testing java operations.
@@ -36,27 +33,24 @@ import org.slf4j.LoggerFactory;
  * @author Slentzen Demian
  */
 public class MainClass {
-
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         System.out.println("Hello to the HayaBaya project \n");
 
         Results result = null;
-        List<Loopers> looperList = new ArrayList<>();
-
-        int aSize = RunSettings.ARRAY_SIZE_MIN;
-        int aCycle = RunSettings.CYCLES_MIN;
+        List<Loopers> looperList = new ArrayList<>(); // place Loopers into a list and iterate over the list
+        // performing operations, parsing types to methods
 
 
-        looperList.add(new LoopersInt(         aSize, aCycle));
-        looperList.add(new LoopersLong(        aSize, aCycle));
-        looperList.add(new LoopersFloat(       aSize, aCycle));
-        looperList.add(new LoopersDouble(      aSize, aCycle));
+        looperList.add(new LoopersInt(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
+        looperList.add(new LoopersLong(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
+        looperList.add(new LoopersFloat(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
+        looperList.add(new LoopersDouble(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
 
-        looperList.add(new LoopersIntegerBoxed(aSize, aCycle));
-        looperList.add(new LoopersLongBoxed(   aSize, aCycle));
-        looperList.add(new LoopersFloatBoxed(  aSize, aCycle));
-        looperList.add(new LoopersDoubleBoxed( aSize, aCycle));
+        looperList.add(new LoopersIntegerBoxed(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
+        looperList.add(new LoopersLongBoxed(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
+        looperList.add(new LoopersFloatBoxed(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
+        looperList.add(new LoopersDoubleBoxed(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
 
         //<editor-fold desc="Temporarely not used for debug purposes">
 /*        boolean debugPrintStuff = true;
@@ -92,7 +86,7 @@ public class MainClass {
 
 
         /** Loops over the repetitions of the entire experiment */
-        for ( int repetitions = 0; repetitions < RunSettings.TOTAL_EXP_REPS; repetitions++ ){
+        for (int repetitions = 0; repetitions < RunSettings.TOTAL_EXP_REPS; repetitions++) {
 
             /** Loops over objects (Loopers) in ArrayList */
             for (Loopers thisLooper : looperList) {
@@ -107,7 +101,7 @@ public class MainClass {
                     //delete
                     //  Utility.setResultCounter()
 
-                    if (RunSettings.debug){
+                    if (RunSettings.debug) {
                         /** DEBUG INSERTS START */
                         System.out.println(thisLooper.toString());
                         System.out.println(result.toString());
