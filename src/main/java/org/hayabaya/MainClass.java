@@ -19,8 +19,6 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ch.qos.logback.classic.LoggerContext;
-import ch.qos.logback.core.util.StatusPrinter;
 
 
 /**Main class for testing java operations.
@@ -38,17 +36,8 @@ import ch.qos.logback.core.util.StatusPrinter;
  * @author Slentzen Demian
  */
 public class MainClass {
-    public static Logger logger = LoggerFactory.getLogger(MainClass.class);
 
     public static void main(String[] args){
-
-        logger.info("Starting up logback");
-
-        // assume SLF4J is bound to logback in the current environment
-        LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
-
-        // print logback's internal status
-        StatusPrinter.print(lc);
 
         System.out.println("Hello to the HayaBaya project \n");
 
@@ -130,26 +119,5 @@ public class MainClass {
             }
             Utility.setResultCounter(repetitions);
         }
-
-
-        long endTime = System.currentTimeMillis();
-        long totalRunTime =  endTime-startTime;
-
-        if(RunSettings.debug){
-            /** A small summary report over this run */
-            System.out.println("\n \n");
-            System.out.println("The total runtime was: " + totalRunTime);
-            System.out.println("The following Rows and Columns were generated for the 2D arrays...\n");
-            System.out.println("Rows: " + RunSettings.numberOfRowsArrayLength +
-                    " Columns: " + RunSettings.cycleNumbers.length);//numberOfColumnsCycle);
-        }
-
-
-
-        logger.info("Hayabya finished running, Exiting logback..");
-
-        // assume SLF4J is bound to logback-classic in the current environment
-        LoggerContext loggerContext = (LoggerContext) LoggerFactory.getILoggerFactory();
-        loggerContext.stop();
     }
 }
