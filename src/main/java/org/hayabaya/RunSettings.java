@@ -22,13 +22,13 @@ public class RunSettings {
     //and would also let you do quick-and-dirty testing by setting the variable here:
     // arrayLengths = new int[]{10, 20, 30};
     static final public int ARRAY_SIZE_MIN =    10_000; // thousand
-    static final public int ARRAY_SIZE_MAX =  50_000; // hundred thousand
-    static final public int ARRAY_SIZE_STEPS =  1_000;
+    static final public int ARRAY_SIZE_MAX =  20_000; // hundred thousand
+    static final public int ARRAY_SIZE_STEPS =  2_000;
     static final public int numberOfRowsArrayLength = (int) Math.ceil( ((ARRAY_SIZE_MAX - ARRAY_SIZE_MIN) ) / ARRAY_SIZE_STEPS) + 1;
 
 
     static final public int CYCLES_MIN   = 1000; // thousand
-    static final public int CYCLES_MAX   = 3000; // ten thousand
+    static final public int CYCLES_MAX   = 4000; // ten thousand
     static final public int CYCLES_STEPS = 1000;
     static final public int TOTAL_EXP_REPS = 3; // How many times to replicate the entire profiling project
     static final public int numberOfColumnsCycle = (int) Math.ceil( ((CYCLES_MAX - CYCLES_MIN) ) / CYCLES_STEPS) + 1;

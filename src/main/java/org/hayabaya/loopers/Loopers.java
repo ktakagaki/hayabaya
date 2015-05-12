@@ -169,17 +169,17 @@ public abstract class Loopers {
              rowCountArraySize += RunSettings.ARRAY_SIZE_STEPS, rowIndex++) {
 
             // column loop
-            int columnIndex = 0;
-            for (int columnCountCycleNumbers : RunSettings.cycleNumbers) {
-//            for (int columnCountCycleNumbers = RunSettings.CYCLES_MIN, columnIndex = 0;
-//                 columnCountCycleNumbers <= RunSettings.CYCLES_MAX;
-//                 columnCountCycleNumbers += RunSettings.CYCLES_STEPS, columnIndex++) {
+//            int columnIndex = 0;
+//            for (int columnCountCycleNumbers : RunSettings.cycleNumbers) {
+            for (int columnCountCycleNumbers = RunSettings.CYCLES_MIN, columnIndex = 0;
+                 columnCountCycleNumbers <= RunSettings.CYCLES_MAX;
+                 columnCountCycleNumbers += RunSettings.CYCLES_STEPS, columnIndex++) {
 
                 setArrayLength(rowCountArraySize);
                 setCycles(columnCountCycleNumbers);
 
                 data[rowIndex][columnIndex] = test(operation);
-                columnIndex++;
+//                columnIndex++;
             }
         }
         return new Results(data, RunSettings.cycleNumbers, getType(), operation);
