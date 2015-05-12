@@ -18,19 +18,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-/**Main class for testing java operations.
- *
- *           APPROACH TO GENERATE DATA FOR REPORT:
+/**
+ * Main class for testing java operations.
+ * <p>
+ * APPROACH TO GENERATE DATA FOR REPORT:
  * 1: create 2D arrays for each datatype and operation getType int:[add,sub,mult] + float:[add,sub,mult] etc.
  * ROWS:  Arraylength, start: 1.000 length, end: 100.length, stepsize: +1.000 length, TOTAL = 100
  * COLUMNS: Repetitions, start: 1.000 reps, end: 10.000 reps, stepsize: +1.000 reps, TOTAL = 10
  * 2: final is 100 rows X 10 colums (array length, repetitions)
  * 3: Write each datatype/operationtype to a csv file and process in R.
  *
- * Created by ktakagaki on 15/03/16.
- *
  * @author Ktakagaki
  * @author Slentzen Demian
+ * @version 1.0
  */
 public class MainClass {
     public static void main(String[] args) {
@@ -42,6 +42,7 @@ public class MainClass {
         // performing operations, parsing types to methods
 
 
+        //<editor-fold desc="Init of all Looper instances">
         looperList.add(new LoopersInt(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
         looperList.add(new LoopersLong(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
         looperList.add(new LoopersFloat(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
@@ -51,41 +52,43 @@ public class MainClass {
         looperList.add(new LoopersLongBoxed(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
         looperList.add(new LoopersFloatBoxed(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
         looperList.add(new LoopersDoubleBoxed(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
+        //</editor-fold>
 
         //<editor-fold desc="Temporarely not used for debug purposes">
-/*        boolean debugPrintStuff = true;
-        *//** The first and outermost loop only loops over the repetitions of the entire experiment *//*
+        boolean debugPrintStuff = true;
+        /* The first and outermost loop only loops over the repetitions of the entire experiment */
         for ( int repetitions = 0; repetitions < RunSettings.TOTAL_EXP_REPS; repetitions++ ){
 
-            *//** Loop over each getType of Looper object in the LooperList *//*
+            /* Loop over each getType of Looper object in the LooperList */
             for (Loopers thisLooper : looperList) {
 
-                *//** Loop over the types of operations ADD, SUBTRACT etc. *//*
+                /* Loop over the types of operations ADD, SUBTRACT etc. */
                 for (Operation operation : Operation.values()) {
 
                     result = thisLooper.makeResults(operation);
                     Utility.writeResultsToCsv(result);
 
                     if (debugPrintStuff){
-                        *//** DEBUG INSERTS START *//*
+                        /* DEBUG INSERTS START */
                         String loopString = thisLooper.toString();
                         System.out.println(loopString);
 
                         String resultString = result.toString();
                         System.out.println(resultString);
 
-                        *//** DEBUG INSERTS START *//*
+                        /* DEBUG INSERTS START */
                     }
 
 
                 }
             }
             Utility.setResultCounter(repetitions);
-        }*/
+        }
         //</editor-fold>
 
 
-//        /** Loops over the repetitions of the entire experiment */
+        //<editor-fold desc="Temporarily disabled as code has not been updated from last 2 meetings">
+        //        /** Loops over the repetitions of the entire experiment */
 //        for (int repetitions = 0; repetitions < RunSettings.TOTAL_EXP_REPS; repetitions++) {
 //
 //            /** Loops over objects (Loopers) in ArrayList */
@@ -113,5 +116,6 @@ public class MainClass {
 //            }
 //            Utility.setResultCounter(repetitions);
 //        }
+        //</editor-fold>
     }
 }

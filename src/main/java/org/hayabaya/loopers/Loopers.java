@@ -64,7 +64,7 @@ public abstract class Loopers {
      */
     abstract protected void initArray(int arrayLength);
 
-    abstract void initRandom();
+//    abstract void initRandom();
 
     // </editor-fold>
 

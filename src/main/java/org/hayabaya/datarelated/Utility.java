@@ -53,7 +53,7 @@ public class Utility {
 //            resultCounter ++;
 
             br.write(sb.toString());
-            MainClass.logger.debug("Wrote results to csv for: " + filename);
+//            MainClass.logger.debug("Wrote results to csv for: " + filename);
             br.close();
         }catch( FileNotFoundException e )
         {
