@@ -14,7 +14,7 @@ public class RunSettings {
      * what values should be expected when doing unit test. Also uses smaller arraylength, cycles and step size so it
      * all runs faster
      */
-    public static boolean unitTesting = true;
+    public static boolean unitTesting = false;
 
 
     //ToDo: rewrite these to have a fixed list (like cycleNumbers below)
@@ -23,15 +23,15 @@ public class RunSettings {
     // arrayLengths = new int[]{10, 20, 30};
     static final public int ARRAY_SIZE_MIN =    10; // thousand
     static final public int ARRAY_SIZE_MAX =  1000; // hundred thousand
-    static final public int ARRAY_SIZE_STEPS =  10;
+    static final public int ARRAY_SIZE_STEPS =  100;
     static final public int numberOfRowsArrayLength = (int) Math.ceil( ((ARRAY_SIZE_MAX - ARRAY_SIZE_MIN) ) / ARRAY_SIZE_STEPS) + 1;
 
 
     static final public int CYCLES_MIN   = 1; // thousand
-    static final public int CYCLES_MAX   = 45; // ten thousand
-    static final public int CYCLES_STEPS = 5;
-    static final public int TOTAL_EXP_REPS = 3;
-    //static final public int numberOfColumnsCycle = (int) Math.ceil( ((CYCLES_MAX - CYCLES_MIN) ) / CYCLES_STEPS) + 1;
+    static final public int CYCLES_MAX   = 300; // ten thousand
+    static final public int CYCLES_STEPS = 100;
+    static final public int TOTAL_EXP_REPS = 3; // How many times to replicate the entire profiling project
+    static final public int numberOfColumnsCycle = (int) Math.ceil( ((CYCLES_MAX - CYCLES_MIN) ) / CYCLES_STEPS) + 1;
     static final public int[] cycleNumbers = new int[]{100, 1000};
     //ToDo 2: make this sort of logarithmic (either hard-coded by hand, or with function)
 //                new int[RunSettings.numberOfColumnsCycle];

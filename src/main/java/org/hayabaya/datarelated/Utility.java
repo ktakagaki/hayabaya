@@ -8,7 +8,7 @@ import java.io.*;
 import java.util.Arrays;
 
 /**
- * Created by ktakagaki on 15/04/09.
+ * General Utility functions used to execute the project.
  */
 public class Utility {
 

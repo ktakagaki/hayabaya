@@ -38,39 +38,41 @@ public class MainClass {
         System.out.println("Hello to the HayaBaya project \n");
 
         Results result = null;
-        List<Loopers> looperList = new ArrayList<>(); // place Loopers into a list and iterate over the list
-        // performing operations, parsing types to methods
+
+        /* place Loopers into a list and iterate over the list performing operations, parsing types to methods */
+        List<Loopers> aListOfLoopers = new ArrayList<>();
 
 
-        //<editor-fold desc="Init of all Looper instances">
-        looperList.add(new LoopersInt(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
-        looperList.add(new LoopersLong(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
-        looperList.add(new LoopersFloat(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
-        looperList.add(new LoopersDouble(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
 
-        looperList.add(new LoopersIntegerBoxed(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
-        looperList.add(new LoopersLongBoxed(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
-        looperList.add(new LoopersFloatBoxed(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
-        looperList.add(new LoopersDoubleBoxed(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
+        //<editor-fold desc="Initialize all Looper instances with Array_Size_Min and Cycles_Min from Runsettings">
+        aListOfLoopers.add(new LoopersInt(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
+        aListOfLoopers.add(new LoopersLong(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
+        aListOfLoopers.add(new LoopersFloat(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
+        aListOfLoopers.add(new LoopersDouble(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
+
+        aListOfLoopers.add(new LoopersIntegerBoxed(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
+        aListOfLoopers.add(new LoopersLongBoxed(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
+        aListOfLoopers.add(new LoopersFloatBoxed(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
+        aListOfLoopers.add(new LoopersDoubleBoxed(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
         //</editor-fold>
 
-        //<editor-fold desc="Temporarely not used for debug purposes">
-        boolean debugPrintStuff = true;
+
         /* The first and outermost loop only loops over the repetitions of the entire experiment */
         for ( int repetitions = 0; repetitions < RunSettings.TOTAL_EXP_REPS; repetitions++ ){
 
-            /* Loop over each getType of Looper object in the LooperList */
-            for (Loopers thisLooper : looperList) {
+            /* Loops over each getType of Looper object in the LooperList */
+            for (Loopers aLooperInstance : aListOfLoopers) {
 
                 /* Loop over the types of operations ADD, SUBTRACT etc. */
-                for (Operation operation : Operation.values()) {
+                for (Operation anOperationToUse : Operation.values()) {
 
-                    result = thisLooper.makeResults(operation);
+                    result = aLooperInstance.makeResults(anOperationToUse);
                     Utility.writeResultsToCsv(result);
 
-                    if (debugPrintStuff){
+
+                    if (RunSettings.debug){
                         /* DEBUG INSERTS START */
-                        String loopString = thisLooper.toString();
+                        String loopString = aLooperInstance.toString();
                         System.out.println(loopString);
 
                         String resultString = result.toString();
@@ -84,7 +86,6 @@ public class MainClass {
             }
             Utility.setResultCounter(repetitions);
         }
-        //</editor-fold>
 
 
         //<editor-fold desc="Temporarily disabled as code has not been updated from last 2 meetings">
@@ -92,7 +93,7 @@ public class MainClass {
 //        for (int repetitions = 0; repetitions < RunSettings.TOTAL_EXP_REPS; repetitions++) {
 //
 //            /** Loops over objects (Loopers) in ArrayList */
-//            for (Loopers thisLooper : looperList) {
+//            for (Loopers thisLooper : aListOfLoopers) {
 //
 //                /** Loops over operations ADD, SUBTRACT etc. */
 //                for (Operation thisOperation : Operation.values()) {
