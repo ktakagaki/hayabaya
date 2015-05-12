@@ -58,7 +58,7 @@ public class MainClass {
 
 
         /* The first and outermost loop only loops over the repetitions of the entire experiment */
-        for ( int repetitions = 0; repetitions < RunSettings.TOTAL_EXP_REPS; repetitions++ ){
+        for ( int repetitions = 0; repetitions <= RunSettings.TOTAL_EXP_REPS; repetitions++ ){
 
             /* Loops over each getType of Looper object in the LooperList */
             for (Loopers aLooperInstance : aListOfLoopers) {
