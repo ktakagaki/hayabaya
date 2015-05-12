@@ -32,6 +32,8 @@ public class Utility {
     @Deprecated
     public static void writeResultsToCsv(Results results) {
 
+        assert results.type != null : "Results.type must be specified when writing to disk";
+        assert results.operation != null : "The type of operation must be specified when writing to disk";
         assert results != null : "Results can't be null!";
 
         try
@@ -50,10 +52,8 @@ public class Utility {
                 sb.append(Arrays.toString(element));
                 sb.append("\n");
             }
-//            resultCounter ++;
 
             br.write(sb.toString());
-//            MainClass.logger.debug("Wrote results to csv for: " + filename);
             br.close();
         }catch( FileNotFoundException e )
         {

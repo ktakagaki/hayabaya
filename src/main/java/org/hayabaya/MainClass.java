@@ -70,18 +70,14 @@ public class MainClass {
                     Utility.writeResultsToCsv(result);
 
 
+                    //<editor-fold desc="Print debug information when running Hayabaya">
                     if (RunSettings.debug){
-                        /* DEBUG INSERTS START */
                         String loopString = aLooperInstance.toString();
                         System.out.println(loopString);
-
                         String resultString = result.toString();
                         System.out.println(resultString);
-
-                        /* DEBUG INSERTS START */
                     }
-
-
+                    //</editor-fold>
                 }
             }
             Utility.setResultCounter(repetitions);
