@@ -8,7 +8,7 @@ import java.io.*;
 import java.util.Arrays;
 
 /**
- * Created by ktakagaki on 15/04/09.
+ * General Utility functions used to execute the project.
  */
 public class Utility {
 
@@ -32,6 +32,8 @@ public class Utility {
     @Deprecated
     public static void writeResultsToCsv(Results results) {
 
+        assert results.type != null : "Results.type must be specified when writing to disk";
+        assert results.operation != null : "The type of operation must be specified when writing to disk";
         assert results != null : "Results can't be null!";
 
         try
@@ -50,10 +52,8 @@ public class Utility {
                 sb.append(Arrays.toString(element));
                 sb.append("\n");
             }
-//            resultCounter ++;
 
             br.write(sb.toString());
-            MainClass.logger.debug("Wrote results to csv for: " + filename);
             br.close();
         }catch( FileNotFoundException e )
         {
@@ -67,34 +67,4 @@ public class Utility {
         }
 
     }
-
-//    public static void printMatrix(long[][] grid) {
-//        for(int r=0; r<grid.length; r++) {
-//            for(int c=0; c<grid[r].length; c++)
-//                System.out.print(grid[r][c] + " ");
-//            System.out.println();
-//        }
-//    }
-//
-//    public static long[][] showValues(Loopers looperObject, Operation operation) {
-//        /**
-//         * A quick and dirty function used to check that the MakeIntResults function works correctly
-//         * To check that arraylength and repetition values are correct, just switch rowCount/columnCount in last line
-//         * of the inner loop.
-//         * //ToDo: Make method able to produce complete results passing 2D values
-//         */
-//        long results[][] = new long[RunSettings.numberOfRowsArrayLength][RunSettings.numberOfColumnsCycle];
-//
-//        // row loop
-//        for (int rowCount = RunSettings.ARRAY_SIZE_MIN, rowIndex = 0; rowCount <= RunSettings.ARRAY_SIZE_MAX; rowCount += RunSettings.ARRAY_SIZE_STEPS,
-//                rowIndex++) {
-//            // column loop
-//            for (int columnCount = RunSettings.CYCLES_MIN, columnIndex = 0; columnCount <= RunSettings.CYCLES_MAX; columnCount +=
-//                    RunSettings.CYCLES_STEPS, columnIndex++) {
-//                results[rowIndex][columnIndex] = (long) rowCount;
-//            }
-//        }
-//        return results;
-//    }
-//
 }
