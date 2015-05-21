@@ -109,44 +109,31 @@ public abstract class Loopers {
         this.cycles = cycles;
     }
 
-    public long test(Operation operation) {
-
-//      //THIS ATTEMPT AT INLINING WON'T WORK: IT WON'T AFFECT THE REAL LOOP
-//      //Initial run to trigger inlining and run-time optimizations
-//      switch (operation) {
-//          case ADD: for( int n = 0; n < cycles; n++)      operateAdd(0);
-//          case SUBTRACT: for( int n = 0; n < cycles; n++) operateSubtract(0);
-//          case MULTIPLY: for( int n = 0; n < cycles; n++) operateMultiply(0);
-//          case DIVIDE: for( int n = 0; n < cycles; n++)   operateDivide(0);
-//      }
-
+    /**
+     * Records the total time in ms that it takes to perform an operation on an array.
+     * @param operation The type of operation
+     * @return the time it took to perform the given operation
+     */
+    public long performOperation(Operation operation) {
         //ToDo initRandom();
 
         long startTime = System.currentTimeMillis();
-
-        //ToDo: Be VERY careful, I may have introduced a bug here to make the autoboxed Loopers work. It must
-        //ToDo: Be examined closer ASAP
         operateLoop(operation);
-
         long endTime = System.currentTimeMillis();
+
         return endTime - startTime;
     }
 
 
     /**
-     * Runs [[test]] for the given operation
+     * Runs [[performOperation]] for the given operation
      *
      * @param operation
-     * @return
+     * @return Results object, Results(long[][], int cycleNumbers used, Data type, Operation type)
      */
     public Results makeResults(Operation operation) {
 
-        long data[][] = new long[RunSettings.numberOfRowsArrayLength][RunSettings.numberOfColumnsCycle];//numberOfColumnsCycle];
-
-        //int cycleNumbers[] = ///Intialization stuff moved to RunSettings as static array
-
-        //int arraySizes[] =
-        //for(
+        long data[][] = new long[RunSettings.numberOfRowsArrayLength][RunSettings.numberOfColumnsCycle];
 
         // row loop
         for (int rowCountArraySize = RunSettings.ARRAY_SIZE_MIN, rowIndex = 0;
@@ -163,8 +150,7 @@ public abstract class Loopers {
                 setArrayLength(rowCountArraySize);
                 setCycles(columnCountCycleNumbers);
 
-                data[rowIndex][columnIndex] = test(operation);
-//                columnIndex++;
+                data[rowIndex][columnIndex] = performOperation(operation);
             }
         }
         return new Results(data, RunSettings.cycleNumbers, getType(), operation);

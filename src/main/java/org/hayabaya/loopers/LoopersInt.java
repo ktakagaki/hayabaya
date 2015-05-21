@@ -11,7 +11,7 @@ public class LoopersInt extends Loopers {
     private int[] array;
     private int myNumber = (!RunSettings.unitTesting) ? rand.nextInt() : 5;;
 
-    //By calling this function before every test (experiment),
+    //By calling this function before every performOperation (experiment),
     //you can minimize the effect of different values causing
     //runtime differences (esp. for floating point vis-a-vis carrying, etc.)
 //    @Override

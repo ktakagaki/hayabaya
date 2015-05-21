@@ -2,7 +2,7 @@ package org.hayabaya;
 
 import org.junit.Test;
 
-/**Just a demo, not a real test.
+/**Just a demo, not a real performOperation.
  * Created by ktakagaki on 15/04/29.
  */
 public class ArrayMajorTests extends MyTestAbstract {

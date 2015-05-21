@@ -11,7 +11,7 @@ public class RunSettings {
     /** Global debug variable, controls all debug printing messages etc */
     public static boolean debug = false;
     /** Initialize with predictable numbers like hardcoded myNumber in the Loopers, making it possible to figure out
-     * what values should be expected when doing unit test. Also uses smaller arraylength, cycles and step size so it
+     * what values should be expected when doing unit performOperation. Also uses smaller arraylength, cycles and step size so it
      * all runs faster
      */
     public static boolean unitTesting = false;

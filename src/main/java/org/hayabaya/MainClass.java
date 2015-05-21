@@ -4,7 +4,7 @@
  * Measure the performance of arrays consisting of different primitive data types (int, float, double) and autoboxed
  * data types (Integer, Float).
  * <p>
- * It is possible to test the 4 fundamental operations (Addition, Subtraction, Multplication and Division) on an
+ * It is possible to performOperation the 4 fundamental operations (Addition, Subtraction, Multplication and Division) on an
  * array of arbitrary length, and with an arbitrary number of cycles repeated on each array.
  */
 package org.hayabaya;
@@ -82,37 +82,5 @@ public class MainClass {
             }
             Utility.setResultCounter(repetitions);
         }
-
-
-        //<editor-fold desc="Temporarily disabled as code has not been updated from last 2 meetings">
-        //        /** Loops over the repetitions of the entire experiment */
-//        for (int repetitions = 0; repetitions < RunSettings.TOTAL_EXP_REPS; repetitions++) {
-//
-//            /** Loops over objects (Loopers) in ArrayList */
-//            for (Loopers thisLooper : aListOfLoopers) {
-//
-//                /** Loops over operations ADD, SUBTRACT etc. */
-//                for (Operation thisOperation : Operation.values()) {
-//
-//                    result = thisLooper.makeResults(thisOperation);
-//                    Utility.writeResultsToCsv(result);
-//                    //ToDo Rewrite:
-//                    //  Utility.writeResultsToCsv(result, repetitions);
-//                    //delete
-//                    //  Utility.setResultCounter()
-//
-//                    if (RunSettings.debug) {
-//                        /** DEBUG INSERTS START */
-//                        System.out.println(thisLooper.toString());
-//                        System.out.println(result.toString());
-//                        /** DEBUG INSERTS START */
-//                    }
-//
-//
-//                }
-//            }
-//            Utility.setResultCounter(repetitions);
-//        }
-        //</editor-fold>
     }
 }
