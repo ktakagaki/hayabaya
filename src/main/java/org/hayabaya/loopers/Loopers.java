@@ -35,7 +35,7 @@ public abstract class Loopers {
 
     /**
      * Loopers superclass constructor. This constructor is called from each child class to set the fields
-     * arrayLength, cycles and type. The specific child class implements the abstract initArray(arrayLength) method
+     * arrayLength, cycles and type. The specific child class implements the abstract {@link #initArray(int)} method
      * to do the actual initialization of the arrays.
      * @param arrayLength The length of the array
      * @param cycles The number of times to perform the specific operation on the array
@@ -55,10 +55,6 @@ public abstract class Loopers {
 
     } //end constructor
 
-    // <editor-fold defaultstate="collapsed" desc=" to make concrete ">
-
-    //intArray, longArray, etc...
-    //myInt, myLong, etc...
 
     /**
      * Used to print out what type of operation was performed when HayaBaya is running in debug mode.
@@ -70,28 +66,26 @@ public abstract class Loopers {
     }
 
     /**
-     * switch (operation) {
-     * case ADD: for( int n = 0; n < cycles; n++) for( int c = 0; c < arrayLength; c++) intArray[c] += myInt;
-     * case SUBTRACT: for( int n = 0; n < cycles; n++) for( int c = 0; c < arrayLength; c++) intArray[c] -= myInt;
-     * case MULTIPLY: for( int n = 0; n < cycles; n++) for( int c = 0; c < arrayLength; c++) intArray[c] *= myInt;
-     * case DIVIDE: for( int n = 0; n < cycles; n++) for( int c = 0; c < arrayLength; c++) intArray[c] /= myInt;
-     * }
+     * This is the meat of the HayaBaya project. operateLoop in the child classes performs the actual computations on
+     * the arrays.
+     * @param operation The type of operation to perform (+,-,/,*) on the array for n cycles
      */
     abstract void operateLoop(Operation operation);
 
     /**
-     * Initialize the correct primitive/boxed getType array with random values.
+     * Initialize the correct primitive/boxed array with random values.
      * This is not done generically, in order to explicity
      * profile primitive operations.
+     * @param arrayLength The length of the array
      */
     abstract protected void initArray(int arrayLength);
 
-//    abstract void initRandom();
-
-    // </editor-fold>
-
-    // <editor-fold defaultstate="collapsed" desc=" general getters and setters section ">
-
+    /**
+     * Reset the arraylength of a Loopers object to a new length. This makes it possible for one object to profile
+     * arrays of multiple lengths without creating new object instances. The method uses
+     * {@link #initArray(int)}  of the specific child classes to re-initialize a new array.
+     * @param arrayLength The length of the new array to be initialized
+     */
     final public void setArrayLength(int arrayLength) {
         assert arrayLength > 0 : "array length must be above zero";
         this.arrayLength = arrayLength;
@@ -106,13 +100,14 @@ public abstract class Loopers {
         return cycles;
     }
 
+    /**
+     * Used to increment the number of cycles such that an array can be tested with different number of cycles
+     * @param cycles The new number of cycles to run on an array
+     */
     final public void setCycles(int cycles) {
         assert cycles > 0 : "repetitions must be above zero";
         this.cycles = cycles;
     }
-
-    // </editor-fold>
-
 
     public long test(Operation operation) {
 
@@ -137,31 +132,6 @@ public abstract class Loopers {
         return endTime - startTime;
     }
 
-    // <editor-fold defaultstate="collapsed" desc=" toString ">
-    @Override
-    public String toString() {
-        StringBuilder result = new StringBuilder();
-        String NEW_LINE = System.getProperty("line.separator");
-
-        // Title of output
-        result.append(Utility.ANSI_YELLOW + "\033[1m Results for " + this.getClass().getSimpleName()
-                + "\033[0m" + Utility.ANSI_RESET + "\n");
-        // Name of Object
-        result.append(Utility.ANSI_BLUE + "{Object:            "
-                + Utility.ANSI_RESET + this.getClass().getSimpleName() + "}" + NEW_LINE);
-        // Arraylength
-        result.append(Utility.ANSI_GREEN + "{ArrayLength:       "
-                + Utility.ANSI_RESET + arrayLength + "}" + NEW_LINE);
-        // Cycles
-        result.append(Utility.ANSI_CYAN + "{Cycles:            " + Utility.ANSI_RESET +
-                cycles + "}" + NEW_LINE);
-        // The getType (Int, Integer etc.)
-        result.append(Utility.ANSI_PURPLE + "{Type:              " + Utility.ANSI_RESET +
-                getType() + "}" + NEW_LINE);
-
-        return result.toString();
-    }
-    // </editor-fold>
 
     /**
      * Runs [[test]] for the given operation
@@ -200,5 +170,29 @@ public abstract class Loopers {
         return new Results(data, RunSettings.cycleNumbers, getType(), operation);
     }
 
+    // <editor-fold defaultstate="collapsed" desc=" toString ">
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        String NEW_LINE = System.getProperty("line.separator");
 
+        // Title of output
+        result.append(Utility.ANSI_YELLOW + "\033[1m Results for " + this.getClass().getSimpleName()
+                + "\033[0m" + Utility.ANSI_RESET + "\n");
+        // Name of Object
+        result.append(Utility.ANSI_BLUE + "{Object:            "
+                + Utility.ANSI_RESET + this.getClass().getSimpleName() + "}" + NEW_LINE);
+        // Arraylength
+        result.append(Utility.ANSI_GREEN + "{ArrayLength:       "
+                + Utility.ANSI_RESET + arrayLength + "}" + NEW_LINE);
+        // Cycles
+        result.append(Utility.ANSI_CYAN + "{Cycles:            " + Utility.ANSI_RESET +
+                cycles + "}" + NEW_LINE);
+        // The getType (Int, Integer etc.)
+        result.append(Utility.ANSI_PURPLE + "{Type:              " + Utility.ANSI_RESET +
+                getType() + "}" + NEW_LINE);
+
+        return result.toString();
+    }
+    // </editor-fold>
 }
