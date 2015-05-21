@@ -3,51 +3,30 @@ package org.hayabaya.datarelated;
 import java.util.Arrays;
 
 /**
- * Results is the class used to store the data obtained from running the Hayabaya profiling project. The class stores
+ * <p>Results is the class used to store the data obtained from running the Hayabaya profiling project. The class stores
  * the runtimes from each profiling operation + data type in a 2D array of type long.  The 2D array holds the runtime
- * in ms for array length in the rows, and the number of cycles in the columns. See example below.
- * <p>
- *     <table>
- *         <tr>
- *             <TH>Array Length</TH>
- *             <th>1k Cycles</th>
- *             <th>2k Cycles</th>
- *             <th>3k Cycles</th>
- *             <th>nk Cycles</th>
- *         </tr>
- *         <tr>
- *             <TH>Row 1 header</TH>
- *             <td> a </td>
- *             <td> a </td>
- *             <td> a </td>
- *             <td> a </td>
- *         </tr>
- *         <tr>
- *             <TH>Row 1 header</TH>
- *             <td> a </td>
- *             <td> a </td>
- *             <td> a </td>
- *             <td> a </td>
- *         </tr>
- *     </table>
- * </p>
+ * in ms for array length in the rows, and the number of cycles in the columns.</p>
+ *  <p>By calling {@link org.hayabaya.datarelated.Utility#writeResultsToCsv(Results)} the 2D array is written to disk as
+ * a text file with the naming convention <b>results.[data type].[operation].[experiment repetion].csv</b></p>
  *
- *
- *
- *
- *
- *
- *                Number of Cycles
- *           1k, 2k, 3k, 4k, 5k, 6k
- *  ArrayLen
- *  1.000    [1,  2, 2,  2,  2,  3] \n
- *  2.000    [3,  3, 3,  5,  4,  5]
- *  3.000    [4,  5, 6,  6,  7,  8]
- *  4.000    [6,  8, 7,  8,  9,  10]
- *  5.000    [7, 11, 9, 10, 12,  13]
- * By calling {@link org.hayabaya.datarelated.Utility#writeResultsToCsv(Results)} the 2D array is written to disk as
- * a text file with the naming convention results.[data type].[operation].[experiment repetion].csv
-
+ * <TABLE>
+ * <CAPTION>Example of the 2D array</CAPTION>
+ * <TR>
+ *<TD></TD>
+ *<TH>1.000 Cycles</TH>
+ *<TH>2.000 Cycles</TH>
+ *</TR>
+ *<TR>
+ *<TH>100 element array</TH>
+ *<TD>10 (ms)</TD>
+ *<TD>20 (ms)</TD>
+ *</TR>
+ *<TR>
+ *<TH>200 element array</TH>
+ *<TD>23 (ms)</TD>
+ *<TD>53 (ms)</TD>
+ *</TR>
+ *</TABLE>
  */
 public class Results {
 
@@ -62,8 +41,8 @@ public class Results {
      *
      * @param data assumed to be (non-null) and <b>non-ragged</b>
      * @param cycles assumed to be (non-null and with length same as data[0])
-     * @param type
-     * @param operation
+     * @param type the data type
+     * @param operation the operation to perform (+,-,/,*)
      */
     public Results(long[][] data, int[] cycles, Tpe type, Operation operation) {
 
