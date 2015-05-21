@@ -1,10 +1,7 @@
 package org.hayabaya.loopers;
 
 import org.hayabaya.datarelated.*;
-
 import org.hayabaya.RunSettings;
-
-
 import java.util.Random;
 
 /**
@@ -23,6 +20,11 @@ public abstract class Loopers {
     int cycles = 0;
     protected Tpe type = null;
 
+    /**
+     * JavaBean style encapsulation of the child classes Tpe type field. Used when creating the results and in the
+     * toString method
+     * @return Tpe type, the enum type of the child class
+     */
     public abstract Tpe getType();
 
     Operation lastSetOperation = null;
