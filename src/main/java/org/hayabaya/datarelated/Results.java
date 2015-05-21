@@ -3,11 +3,51 @@ package org.hayabaya.datarelated;
 import java.util.Arrays;
 
 /**
- * Default datastructure to hold results of Hayabaya profiling projects. Stores the runtime from arrays of different
- * types and operations together with the type, operation and number of cycles used for the array.
- * @see org.hayabaya.datarelated.Utility#writeResultsToCsv(Results) Main method used
- * to write the Results objects to
- * disk
+ * Results is the class used to store the data obtained from running the Hayabaya profiling project. The class stores
+ * the runtimes from each profiling operation + data type in a 2D array of type long.  The 2D array holds the runtime
+ * in ms for array length in the rows, and the number of cycles in the columns. See example below.
+ * <p>
+ *     <table>
+ *         <tr>
+ *             <TH>Array Length</TH>
+ *             <th>1k Cycles</th>
+ *             <th>2k Cycles</th>
+ *             <th>3k Cycles</th>
+ *             <th>nk Cycles</th>
+ *         </tr>
+ *         <tr>
+ *             <TH>Row 1 header</TH>
+ *             <td> a </td>
+ *             <td> a </td>
+ *             <td> a </td>
+ *             <td> a </td>
+ *         </tr>
+ *         <tr>
+ *             <TH>Row 1 header</TH>
+ *             <td> a </td>
+ *             <td> a </td>
+ *             <td> a </td>
+ *             <td> a </td>
+ *         </tr>
+ *     </table>
+ * </p>
+ *
+ *
+ *
+ *
+ *
+ *
+ *                Number of Cycles
+ *           1k, 2k, 3k, 4k, 5k, 6k
+ *  ArrayLen
+ *  1.000    [1,  2, 2,  2,  2,  3] \n
+ *  2.000    [3,  3, 3,  5,  4,  5]
+ *  3.000    [4,  5, 6,  6,  7,  8]
+ *  4.000    [6,  8, 7,  8,  9,  10]
+ *  5.000    [7, 11, 9, 10, 12,  13]
+ * By calling {@link org.hayabaya.datarelated.Utility#writeResultsToCsv(Results)} the 2D array is written to disk as
+ * a text file with the naming convention results.[data type].[operation].[experiment repetion].csv
+
  */
 public class Results {
 
