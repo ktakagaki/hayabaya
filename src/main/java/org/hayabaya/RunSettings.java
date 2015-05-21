@@ -24,7 +24,8 @@ public class RunSettings {
     static final public int ARRAY_SIZE_MIN =    1000; // thousand
     static final public int ARRAY_SIZE_MAX =  5000; // hundred thousand
     static final public int ARRAY_SIZE_STEPS =  1_000;
-    static final public int numberOfRowsArrayLength = (int) Math.ceil( ((ARRAY_SIZE_MAX - ARRAY_SIZE_MIN) ) / ARRAY_SIZE_STEPS) + 1;
+    static final public int numberOfRowsArrayLength = (int) Math.ceil( ((ARRAY_SIZE_MAX - ARRAY_SIZE_MIN) ) /
+            ARRAY_SIZE_STEPS) + 1;
 
 
     static final public int CYCLES_MIN   = 500; // thousand
