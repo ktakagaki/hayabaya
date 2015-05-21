@@ -31,7 +31,7 @@ public class RunSettings {
     static final public int CYCLES_MIN   = 500; // thousand
     static final public int CYCLES_MAX   = 1000; // ten thousand
     static final public int CYCLES_STEPS = 100;
-    static final public int TOTAL_EXP_REPS = 3; // How many times to replicate the entire profiling project
+    static final public int TOTAL_EXP_REPS = 1; // How many times to replicate the entire profiling project
     static final public int numberOfColumnsCycle = (int) Math.ceil( ((CYCLES_MAX - CYCLES_MIN) ) / CYCLES_STEPS) + 1;
     static final public int[] cycleNumbers = new int[]{100, 1000};
     //ToDo 2: make this sort of logarithmic (either hard-coded by hand, or with function)
