@@ -133,6 +133,16 @@ public abstract class Loopers {
      */
     public Results makeResults(Operation operation) {
 
+        /*           ArrLen
+                  1k, 2k, 3k, 4k, 5k, 6k
+
+        1 cycles  [1,  2, 2,  2,  2,  3]
+        2 cycles  [3,  3, 3,  5,  4,  5]
+        3 cycles  [4,  5, 6,  6,  7,  8]
+        4 cycles  [6,  8, 7,  8,  9,  10]
+        5 cycles  [7, 11, 9, 10, 12,  13]
+
+         */
         long data[][] = new long[RunSettings.numberOfRowsArrayLength][RunSettings.numberOfColumnsCycle];
 
         // row loop
