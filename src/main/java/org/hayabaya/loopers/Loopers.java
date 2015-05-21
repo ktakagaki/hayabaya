@@ -31,6 +31,14 @@ public abstract class Loopers {
     protected Loopers() {
     }
 
+    /**
+     * Loopers superclass constructor. This constructor is called from each child class to set the fields
+     * arrayLength, cycles and type. The specific child class implements the abstract initArray(arrayLength) method
+     * to do the actual initialization of the arrays.
+     * @param arrayLength The length of the array
+     * @param cycles The number of times to perform the specific operation on the array
+     * @param type The specific datatype of a given child class
+     */
     public Loopers(int arrayLength, int cycles, Tpe type) {
 
         assert arrayLength > 0 : "array length must be > 0";
@@ -50,6 +58,11 @@ public abstract class Loopers {
     //intArray, longArray, etc...
     //myInt, myLong, etc...
 
+    /**
+     * Used to print out what type of operation was performed when HayaBaya is running in debug mode.
+     * lastSetOperation is printed out in the Looper child classes toString methods.
+     * @param operation
+     */
     public void setLastSetOperation(Operation operation) {
         this.lastSetOperation = operation;
     }

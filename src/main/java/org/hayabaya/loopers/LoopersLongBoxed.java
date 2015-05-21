@@ -21,7 +21,7 @@ public class LoopersLongBoxed extends Loopers{
 
     @Override
     void operateLoop(Operation operation) {
-        /** I am storing the last used kind of operation for debug purposes */
+        /** I am storing the last used operation for debug purposes in the toString method */
         setLastSetOperation(operation);
 
         switch (operation) {
