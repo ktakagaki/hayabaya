@@ -11,28 +11,35 @@ public class RunSettings {
     /** Global debug variable, controls all debug printing messages etc */
     public static boolean debug = false;
     /** Initialize with predictable numbers like hardcoded myNumber in the Loopers, making it possible to figure out
-     * what values should be expected when doing unit performOperation. Also uses smaller arraylength, cycles and step size so it
+     * what values should be expected when doing unit test. Also uses smaller arraylength, cycles and step size so it
      * all runs faster
      */
-    public static boolean unitTesting = false;
+    public static boolean unitTesting = true;
 
 
     //ToDo: rewrite these to have a fixed list (like cycleNumbers below)
     //That would allow you to encapsulate that code within the RunSettings class
     //and would also let you do quick-and-dirty testing by setting the variable here:
-    // arrayLengths = new int[]{10, 20, 30};
-    static final public int ARRAY_SIZE_MIN =    1000; // thousand
-    static final public int ARRAY_SIZE_MAX =  5000; // hundred thousand
-    static final public int ARRAY_SIZE_STEPS =  1_000;
-    static final public int numberOfRowsArrayLength = (int) Math.ceil( ((ARRAY_SIZE_MAX - ARRAY_SIZE_MIN) ) /
-            ARRAY_SIZE_STEPS) + 1;
+    public static final int[] arrayLengths = new int[]{10, 20, 30};
+
+    @Deprecated
+    static final public int ARRAY_SIZE_MIN =    10; // thousand
+    @Deprecated
+    static final public int ARRAY_SIZE_MAX =  1000; // hundred thousand
+    @Deprecated
+    static final public int ARRAY_SIZE_STEPS =  10;
+    @Deprecated
+    static final public int numberOfRowsArrayLength = (int) Math.ceil( ((ARRAY_SIZE_MAX - ARRAY_SIZE_MIN) ) / ARRAY_SIZE_STEPS) + 1;
 
 
-    static final public int CYCLES_MIN   = 500; // thousand
-    static final public int CYCLES_MAX   = 1000; // ten thousand
-    static final public int CYCLES_STEPS = 100;
-    static final public int TOTAL_EXP_REPS = 1; // How many times to replicate the entire profiling project
-    static final public int numberOfColumnsCycle = (int) Math.ceil( ((CYCLES_MAX - CYCLES_MIN) ) / CYCLES_STEPS) + 1;
+
+    @Deprecated
+    static final public int CYCLES_MIN   = 1; // thousand
+    @Deprecated
+    static final public int CYCLES_MAX   = 45; // ten thousand
+    @Deprecated
+    static final public int CYCLES_STEPS = 5;
+    //static final public int numberOfColumnsCycle = (int) Math.ceil( ((CYCLES_MAX - CYCLES_MIN) ) / CYCLES_STEPS) + 1;
     static final public int[] cycleNumbers = new int[]{100, 1000};
     //ToDo 2: make this sort of logarithmic (either hard-coded by hand, or with function)
 //                new int[RunSettings.numberOfColumnsCycle];
@@ -41,5 +48,7 @@ public class RunSettings {
 //            columnCountCycleNumbers += RunSettings.CYCLES_STEPS, columnIndex++) {
 //            cycleNumbers[columnIndex] = columnCountCycleNumbers;
 //        }
+
+    static final public int TOTAL_EXP_REPS = 3;
 
 }
