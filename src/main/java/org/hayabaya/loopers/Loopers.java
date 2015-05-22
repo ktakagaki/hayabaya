@@ -6,6 +6,9 @@ import java.util.Random;
 
 /**
  * Loopers tests the runtime doing: addition, subtraction, multiplication
+ *    <= Loopers DOES NOT do anything, it is abstract.
+ *    try to explain what the abstract classes are encapsulating (i.e. what they give to the child classes),
+ *    and what will be overriden during inheritance
  * and division on the data types: int, float, double, long and (autoboxed) Integer, Float, Double and Long.
  * A Loopers object will be of a fixed data getType, and the object ensures that operations are performed correctly on
  * the data getType.
@@ -21,9 +24,7 @@ public abstract class Loopers {
     protected Tpe type = null;
 
     /**
-     * JavaBean style encapsulation of the child classes Tpe type field. Used when creating the results and in the
-     * toString method
-     * @return Tpe type, the enum type of the child class
+     * @return Tpe the type of numerical representation that is tested.
      */
     public abstract Tpe getType();
 
@@ -37,6 +38,7 @@ public abstract class Loopers {
      * Loopers superclass constructor. This constructor is called from each child class to set the fields
      * arrayLength, cycles and type. The specific child class implements the abstract {@link #initArray(int)} method
      * to do the actual initialization of the arrays.
+     *
      * @param arrayLength The length of the array
      * @param cycles The number of times to perform the specific operation on the array
      * @param type The specific datatype of a given child class
@@ -110,7 +112,7 @@ public abstract class Loopers {
     }
 
     /**
-     * Records the total time in ms that it takes to perform an operation on an array.
+     * Returns the total time in ms that it takes to perform an operation on an array.
      * @param operation The type of operation
      * @return the time it took to perform the given operation
      */
@@ -125,44 +127,42 @@ public abstract class Loopers {
     }
 
 
-    /**
-     * Runs [[performOperation]] for the given operation
-     *
-     * @param operation
-     * @return Results object, Results(long[][], int cycleNumbers used, Data type, Operation type)
+    /**Runs [[performOperation]] for the given operation/type and bundles the results
+     * into [[Results]] object.
      */
     public Results makeResults(Operation operation) {
 
         /*           Number of Cycles
                   1k, 2k, 3k, 4k, 5k, 6k
         ArrayLen
-        1.000    [1,  2, 2,  2,  2,  3]
-        2.000    [3,  3, 3,  5,  4,  5]
-        3.000    [4,  5, 6,  6,  7,  8]
-        4.000    [6,  8, 7,  8,  9,  10]
-        5.000    [7, 11, 9, 10, 12,  13]
+        1.000    {{1,  2, 2,  2,  2,  3},
+        2.000     {3,  3, 3,  5,  4,  5},
+        3.000     {4,  5, 6,  6,  7,  8},
+        4.000     {6,  8, 7,  8,  9,  10},
+        5.000     {7, 11, 9, 10, 12,  13}}
 
          */
-        long data[][] = new long[RunSettings.numberOfRowsArrayLength][RunSettings.numberOfColumnsCycle];
+        long data[][] = new long[RunSettings.arrayLengths.length/*numberOfRowsArrayLength*/][RunSettings.cycleNumbers.length/*numberOfColumnsCycle*/];
 
-        // row loop
-        for (int rowCountArraySize = RunSettings.ARRAY_SIZE_MIN, rowIndex = 0;
-             rowCountArraySize <= RunSettings.ARRAY_SIZE_MAX;
-             rowCountArraySize += RunSettings.ARRAY_SIZE_STEPS, rowIndex++) {
-
-            // column loop
-//            int columnIndex = 0;
-//            for (int columnCountCycleNumbers : RunSettings.cycleNumbers) {
-            for (int columnCountCycleNumbers = RunSettings.CYCLES_MIN, columnIndex = 0;
-                 columnCountCycleNumbers <= RunSettings.CYCLES_MAX;
-                 columnCountCycleNumbers += RunSettings.CYCLES_STEPS, columnIndex++) {
-
+        // #row loop#
+        int rowIndex = 0; //index is just used for writing to data[][] object, not for actual for termination
+        for (int rowCountArraySize: RunSettings.arrayLengths){
+            // #column loop#
+            int columnIndex = 0; //index is just used for writing to data[][] object, not for actual for termination
+            for (int columnCountCycleNumbers : RunSettings.cycleNumbers) {
                 setArrayLength(rowCountArraySize);
                 setCycles(columnCountCycleNumbers);
-
                 data[rowIndex][columnIndex] = performOperation(operation);
+
+                columnIndex ++;
             }
+            rowIndex ++;
         }
+
+        //What is the reason for sending RunSettings.cycleNumbers within the results?
+        //Why not just send the whole RunSettings object?
+        //   (or, instead of sending, you can assume the same "RunSettings" for the whole object)
+        //What is so special about the "cycleNumbers" that it has to be extracted?
         return new Results(data, RunSettings.cycleNumbers, getType(), operation);
     }
 
