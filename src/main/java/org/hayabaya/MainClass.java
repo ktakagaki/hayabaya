@@ -43,6 +43,7 @@ public class MainClass {
         List<Loopers> aListOfLoopers = new ArrayList<>();
 
 
+        //ToDo150522: try to change the following to use for comprehension with RunSettings.cycleNumbers and arrayLengths
 
         //<editor-fold desc="Initialize all Looper instances with Array_Size_Min and Cycles_Min from Runsettings">
         aListOfLoopers.add(new LoopersInt(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));

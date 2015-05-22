@@ -6,7 +6,7 @@ import java.util.Random;
 
 /**
  * Loopers tests the runtime doing: addition, subtraction, multiplication
- *    <= Loopers DOES NOT do anything, it is abstract.
+ *    Loopers DOES NOT do anything, it is abstract.
  *    try to explain what the abstract classes are encapsulating (i.e. what they give to the child classes),
  *    and what will be overriden during inheritance
  * and division on the data types: int, float, double, long and (autoboxed) Integer, Float, Double and Long.
@@ -61,7 +61,6 @@ public abstract class Loopers {
     /**
      * Used to print out what type of operation was performed when HayaBaya is running in debug mode.
      * lastSetOperation is printed out in the Looper child classes toString methods.
-     * @param operation
      */
     public void setLastSetOperation(Operation operation) {
         this.lastSetOperation = operation;
@@ -85,7 +84,7 @@ public abstract class Loopers {
     /**
      * Reset the arraylength of a Loopers object to a new length. This makes it possible for one object to profile
      * arrays of multiple lengths without creating new object instances. The method uses
-     * {@link #initArray(int)}  of the specific child classes to re-initialize a new array.
+     * {@link org.hayabaya.loopers.Loopers#initArray(int)}  of the specific child classes to re-initialize a new array.
      * @param arrayLength The length of the new array to be initialized
      */
     final public void setArrayLength(int arrayLength) {
@@ -132,7 +131,7 @@ public abstract class Loopers {
      */
     public Results makeResults(Operation operation) {
 
-        /*           Number of Cycles
+        /**           Number of Cycles
                   1k, 2k, 3k, 4k, 5k, 6k
         ArrayLen
         1.000    {{1,  2, 2,  2,  2,  3},
