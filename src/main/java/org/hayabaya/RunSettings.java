@@ -14,7 +14,7 @@ public class RunSettings {
      * what values should be expected when doing unit test. Also uses smaller arraylength, cycles and step size so it
      * all runs faster
      */
-    public static boolean unitTesting = true;
+    public static boolean unitTesting = false;
 
 
     //ToDo: rewrite these to have a fixed list (like cycleNumbers below)
