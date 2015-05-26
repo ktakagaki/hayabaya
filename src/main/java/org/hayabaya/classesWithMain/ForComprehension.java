@@ -44,6 +44,14 @@ public class ForComprehension {
 
         return result;
     }
+
+    /**
+     * <b>(copied from online)</b> Convert an ArrayList of Integers to a Java primitive int[]
+     * array, while avoiding Java throwing a
+     * NullPointerException if any of the elements are null.
+     * @see <a href="http://stackoverflow.com/questions/718554/how-to-convert-an-arraylist-containing-integers-to
+     * -primitive-int-array">The question on StackExchange</a>
+     */
     public static int[] convertToPrimitiveArray(List<Integer> integers)
     {
         int[] ret = new int[integers.size()];
