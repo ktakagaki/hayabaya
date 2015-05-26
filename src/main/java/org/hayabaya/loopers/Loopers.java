@@ -6,7 +6,7 @@ import java.util.Random;
 
 /**
  * Loopers tests the runtime doing: addition, subtraction, multiplication
- *    <= Loopers DOES NOT do anything, it is abstract.
+ *    Loopers DOES NOT do anything, it is abstract.
  *    try to explain what the abstract classes are encapsulating (i.e. what they give to the child classes),
  *    and what will be overriden during inheritance
  * and division on the data types: int, float, double, long and (autoboxed) Integer, Float, Double and Long.
