@@ -1,8 +1,6 @@
 # Ignore the result files (*.csv)
 *.csv
 
-# Ignore compiled Java files
-
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
@@ -13,6 +11,7 @@
 
 .gradle
 build/
+out/
 
 # Ignore Gradle GUI config
 gradle-app.setting
