@@ -22,23 +22,26 @@ public class ForComprehension {
 
 
     }
-    public static int[] generateIntegerLinspace(int min, int max, int incrementSize) {
-        assert min > 0 : "array length must be > 0";
-        assert max > 0 : "array length must be > 0";
-        assert max > min : " max must be > min";
+    public static int[] generateIntegerLinspace(int minimumValue, int maximumValue, int incrementSize) {
+        assert minimumValue > 0 : "array length must be > 0";
+        assert maximumValue > 0 : "array length must be > 0";
+        assert maximumValue > minimumValue : " maximumValue must be > minimumValue";
         assert incrementSize > 0 : "incrementSize must be > 0";
-        
-        int arrayLength = (int) Math.ceil(((max - min)) / incrementSize) + 1;
-        ArrayList<Integer> arl = new ArrayList<>(arrayLength);
 
-        arl.add(min);
-        int count = min;
+        /*
+        Use a dynamic Arraylist for the intermediate calculation. Initialize it with arraylength + 5 to make sure that
+        at no point will Java have to do any dynamic work and re-allocate a new arraylist (for performance).
+         */
+        int arrayLength = (int) Math.ceil(((maximumValue - minimumValue)) / incrementSize) + 1; // Estimate the length
+        ArrayList<Integer> arl = new ArrayList<>(arrayLength + 5); // Adding a couple of elements for safety
 
-        while (count < max) {
+        arl.add(minimumValue);
+        int count = minimumValue;
+
+        while (count < maximumValue) {
             count = count + incrementSize;
             arl.add(count);
         }
-        arl.add(max);
 
         int[] result = convertToPrimitiveArray(arl);
 
