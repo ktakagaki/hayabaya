@@ -63,9 +63,8 @@ public abstract class Loopers {
 
 
     /**
-     * Used to print out what type of operation was performed when HayaBaya is running in debug mode.
-     * lastSetOperation is printed out in the Looper child classes toString methods.
-     * @param operation
+     * Manually specify the last operation you called a Loopers instance with; for the purpose of debugging when
+     * using the toString() methods for Loopers instances.
      */
     public void setLastSetOperation(Operation operation) {
         this.lastSetOperation = operation;
