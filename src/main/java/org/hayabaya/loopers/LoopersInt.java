@@ -9,7 +9,7 @@ import java.util.Arrays;
 public class LoopersInt extends Loopers {
 
     private int[] array;
-    private int myNumber = (!RunSettings.unitTesting) ? rand.nextInt() : 5;;
+    private int myNumber = (!RunSettings.unitTesting) ? rand.nextInt() : 5;
 
     //By calling this function before every performOperation (experiment),
     //you can minimize the effect of different values causing
