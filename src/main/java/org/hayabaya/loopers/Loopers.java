@@ -18,12 +18,14 @@ import java.util.Random;
  * @author ktakagaki
  */
 public abstract class Loopers {
+    RunSettings runSettings = RunSettings.getInstance();
 
-    int arrayLength = 0;
-    int cycles = 0;
+    int[] arrayLength = runSettings.getArrayLengths();
+    int[] cycleNumbers = runSettings.getCycleNumbers();
     protected Tpe type = null;
 
     /**
+     * Override method in the type specific child class implementations.
      * @return Tpe the type of numerical representation that is tested.
      */
     public abstract Tpe getType();
@@ -31,7 +33,7 @@ public abstract class Loopers {
     Operation lastSetOperation = null;
     Random rand = new Random();
 
-    protected Loopers() {
+    protected Loopers() { // made protected to avoid external initialization
     }
 
     /**
@@ -43,14 +45,8 @@ public abstract class Loopers {
      * @param cycles The number of times to perform the specific operation on the array
      * @param type The specific datatype of a given child class
      */
-    public Loopers(int arrayLength, int cycles, Tpe type) {
-
-        assert arrayLength > 0 : "array length must be > 0";
-        assert cycles > 0 : "repetitions must be > 0";
+    public Loopers(Tpe type) {
         assert type != null : "A Type must be given, not null";
-
-        this.arrayLength = arrayLength;
-        this.cycles = cycles;
         this.type = type;
 
         initArray(arrayLength);
