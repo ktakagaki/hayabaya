@@ -9,29 +9,15 @@ import java.util.Arrays;
 public class LoopersInt extends Loopers {
 
     private int[] array;
-    private int myNumber = (!RunSettings.unitTesting) ? rand.nextInt() : 5;
-
-    //By calling this function before every performOperation (experiment),
-    //you can minimize the effect of different values causing
-    //runtime differences (esp. for floating point vis-a-vis carrying, etc.)
-//    @Override
-//    void initRand() {
-////        this.myNumber = (!RunSettings.unitTesting) ? rand.nextInt() : 5;
-//    }
-
-//    private int myNumber = rand.nextInt();
-//    private int myNumber = 25;
+    private int myNumber = rand.nextInt();
     public static final Tpe type = Tpe.INT;
 
     @Override
     public final Tpe getType() { return type; }
 
 
-    public LoopersInt(int arraySizeMin, int cyclesMin) {
-        super(arraySizeMin, cyclesMin, type);
-        //In Scala, you would put the following in the class body,
-        //and it would be called once by default at initialization
-//        initRand();
+    public LoopersInt() {
+        super(type);
     }
 
     // <editor-fold defaultstate="collapsed" desc=" operate Loop (common to all classes; pseudo-generic) ">
