@@ -42,7 +42,7 @@
 //    // </editor-fold>
 //
 //    @Override
-//    protected void initArray(int arrayLength) {
+//    protected void initializeArrayElements(int arrayLength) {
 //        array = new Double[arrayLength];
 //        for(int c = 0; c < array.length; c++) array[c] = new Double( rand.nextDouble() );
 //

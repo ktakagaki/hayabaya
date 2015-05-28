@@ -42,7 +42,7 @@ public class LoopersInt extends Loopers {
     // </editor-fold>
 
     @Override
-    protected void initArray(int arrayLength) {
+    protected void initializeArrayElements(int arrayLength) {
         array = new int[arrayLength];
         for(int c = 0; c < array.length; c++) array[c] = rand.nextInt();
     }

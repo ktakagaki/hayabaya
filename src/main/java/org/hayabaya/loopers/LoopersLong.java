@@ -41,7 +41,7 @@
 //    // </editor-fold>
 //
 //    @Override
-//    protected void initArray(int arrayLength) {
+//    protected void initializeArrayElements(int arrayLength) {
 //        array = new long[arrayLength];
 //        for(int c = 0; c < array.length; c++) array[c] = rand.nextLong();
 //

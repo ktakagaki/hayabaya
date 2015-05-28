@@ -19,6 +19,7 @@ import java.util.Random;
  */
 public abstract class Loopers {
     RunSettings runSettings = RunSettings.getInstance();
+    Random rand = new Random();
 
     int[] arrayLength = runSettings.getArrayLengths();
     int[] cycleNumbers = runSettings.getCycleNumbers();
@@ -30,15 +31,13 @@ public abstract class Loopers {
      */
     public abstract Tpe getType();
 
-    Operation lastSetOperation = null;
-    Random rand = new Random();
 
     protected Loopers() { // made protected to avoid external initialization
     }
 
     /**
      * Loopers superclass constructor. This constructor is called from each child class to set the fields
-     * arrayLength, cycles and type. The specific child class implements the abstract {@link #initArray(int)} method
+     * arrayLength, cycles and type. The specific child class implements the abstract {@link #initializeArrayElements(int)} method
      * to do the actual initialization of the arrays.
      *
      * @param arrayLength The length of the array
@@ -48,23 +47,13 @@ public abstract class Loopers {
     public Loopers(Tpe type) {
         assert type != null : "A Type must be given, not null";
         this.type = type;
-
-        initArray(arrayLength);
-
     } //end constructor
 
 
     /**
-     * Manually specify the last operation you called a Loopers instance with; for the purpose of debugging when
-     * using the toString() methods for Loopers instances.
-     */
-    public void setLastSetOperation(Operation operation) {
-        this.lastSetOperation = operation;
-    }
-
-    /**
-     * This is the meat of the HayaBaya project. operateLoop in the child classes performs the actual computations on
-     * the arrays.
+     * This is where the core computations are actually performed; by calling it from {@link performOperation
+     * (Operation)} which measures the computation time, the child classes will deal with the data type specific
+     * implementations of computing on the arrays.
      * @param operation The type of operation to perform (+,-,/,*) on the array for n cycles
      */
     abstract void operateLoop(Operation operation);
@@ -75,36 +64,8 @@ public abstract class Loopers {
      * profile primitive operations.
      * @param arrayLength The length of the array
      */
-    abstract protected void initArray(int arrayLength);
+    abstract protected void initializeArrayElements(int arrayLength);
 
-    /**
-     * Reset the arraylength of a Loopers object to a new length. This makes it possible for one object to profile
-     * arrays of multiple lengths without creating new object instances. The method uses
-     * {@link org.hayabaya.loopers.Loopers#initArray(int)}  of the specific child classes to re-initialize a new array.
-     * @param arrayLength The length of the new array to be initialized
-     */
-    final public void setArrayLength(int arrayLength) {
-        assert arrayLength > 0 : "array length must be above zero";
-        this.arrayLength = arrayLength;
-        initArray(arrayLength);
-    }
-
-    final public int getArrayLength() {
-        return arrayLength;
-    }
-
-    final public int getCycles() {
-        return cycles;
-    }
-
-    /**
-     * Used to increment the number of cycles such that an array can be tested with different number of cycles
-     * @param cycles The new number of cycles to run on an array
-     */
-    final public void setCycles(int cycles) {
-        assert cycles > 0 : "repetitions must be above zero";
-        this.cycles = cycles;
-    }
 
     /**
      * Returns the total time in ms that it takes to perform an operation on an array.
@@ -126,6 +87,15 @@ public abstract class Loopers {
      * into [[Results]] object.
      */
     public Results makeResults(Operation operation) {
+        int rowIndex = 0; //index is just used for writing to data[][] object, not for actual for termination
+        for (int lengthOfArray: arrayLength){ // Rows
+            int columnIndex = 0; //index is just used for writing to data[][] object, not for actual for termination
+            for (int numberOfCycles: cycleNumbers){ // columns
+                long data[][] = new long[lengthOfArray][numberOfCycles];
+                data[rowIndex][columnIndex] = performOperation(operation);
+                return new Results(data, RunSettings.cycleNumbers, getType(), operation)
+            }
+        }
 
         /**           Number of Cycles
                   1k, 2k, 3k, 4k, 5k, 6k
@@ -140,10 +110,10 @@ public abstract class Loopers {
         long data[][] = new long[RunSettings.arrayLengths.length/*numberOfRowsArrayLength*/][RunSettings.cycleNumbers.length/*numberOfColumnsCycle*/];
 
         // #row loop#
-        int rowIndex = 0; //index is just used for writing to data[][] object, not for actual for termination
+
         for (int rowCountArraySize: RunSettings.arrayLengths){
             // #column loop#
-            int columnIndex = 0; //index is just used for writing to data[][] object, not for actual for termination
+
             for (int columnCountCycleNumbers : RunSettings.cycleNumbers) {
                 setArrayLength(rowCountArraySize);
                 setCycles(columnCountCycleNumbers);

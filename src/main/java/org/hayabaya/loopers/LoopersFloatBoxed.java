@@ -39,7 +39,7 @@
 //
 //
 //    @Override
-//    protected void initArray(int arrayLength) {
+//    protected void initializeArrayElements(int arrayLength) {
 //        array = new Float[arrayLength];
 //        for(int c = 0; c < array.length; c++) array[c] = new Float( rand.nextFloat() );
 //

@@ -34,12 +34,12 @@ import java.util.List;
  */
 public class MainClass {
     public static void main(String[] args) {
-
+/*
         System.out.println("Hello to the HayaBaya project \n");
 
         Results result = null;
 
-        /* place Loopers into a list and iterate over the list performing operations, parsing types to methods */
+        *//* place Loopers into a list and iterate over the list performing operations, parsing types to methods *//*
         List<Loopers> aListOfLoopers = new ArrayList<>();
 
 
@@ -58,13 +58,13 @@ public class MainClass {
         //</editor-fold>
 
 
-        /* The first and outermost loop only loops over the repetitions of the entire experiment */
+        *//* The first and outermost loop only loops over the repetitions of the entire experiment *//*
         for ( int repetitions = 0; repetitions <= RunSettings.TOTAL_EXP_REPS; repetitions++ ){
 
-            /* Loops over each getType of Looper object in the LooperList */
+            *//* Loops over each getType of Looper object in the LooperList *//*
             for (Loopers aLooperInstance : aListOfLoopers) {
 
-                /* Loop over the types of operations ADD, SUBTRACT etc. */
+                *//* Loop over the types of operations ADD, SUBTRACT etc. *//*
                 for (Operation anOperationToUse : Operation.values()) {
 
                     result = aLooperInstance.makeResults(anOperationToUse);
@@ -82,6 +82,6 @@ public class MainClass {
                 }
             }
             Utility.setResultCounter(repetitions);
-        }
+        }*/
     }
 }

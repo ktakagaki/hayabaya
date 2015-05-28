@@ -13,10 +13,6 @@ import java.util.List;
 public class RunSettings {
     private static RunSettings instance = new RunSettings();
 
-    //ToDo: Remove usage of debug and unitTesting variables
-    private boolean debug = false;
-    private boolean unitTesting = false;
-
     private int[] arrayLengthFromToBy = {1, 10, 1};
     private int[] cycleNumbersFromToBy = {1,20,2};
     private int totalExperimentRepetitions = 2;
@@ -42,14 +38,6 @@ public class RunSettings {
 
     public static RunSettings getInstance() {
         return instance;
-    }
-
-    public boolean isDebug() {
-        return debug;
-    }
-
-    public boolean isUnitTesting() {
-        return unitTesting;
     }
 
     public int[] getArrayLengthFromToBy() {
