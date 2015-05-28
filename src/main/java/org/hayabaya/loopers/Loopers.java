@@ -69,14 +69,26 @@ public abstract class Loopers {
      *
      * @param operation The type of operation to perform (+,-,/,*) on the array for n cycles
      */
-    abstract protected void performOperation(Operation operation);
+    abstract protected long[][] performOperation(Operation operation);
 
 
     /**
      * Runs [[performOperation]] for the given operation/type and bundles the results
      * into [[Results]] object.
      */
-    abstract public void makeResults();
+    public void makeResults(){
+        for (Operation anOperationToUse : Operation.values()) {
+
+            int repNumber = 0;
+            int totalRepetitions = runSettings.getTotalExperimentRepetitions();
+
+            for (int currentRepetition = 0; currentRepetition <= totalRepetitions; currentRepetition++) {
+                long[][] data = performOperation(anOperationToUse);
+                Results result = new Results(data, currentRepetition, getType(), anOperationToUse);
+                Utility.writeResultsToCsv(result);
+            }
+        }
+    }
 
 //
 //        int rowIndex = 0; //index is just used for writing to data[][] object, not for actual for termination

@@ -19,33 +19,11 @@ public class LoopersInt extends Loopers {
     @Override
     public final Tpe getType() { return type; }
 
-    @Override
-    public final void makeResults(){
-        Results results = null;
-        int totalRepetitions = runSettings.getTotalExperimentRepetitions();
-        for (; currentRepetitionNumber <= totalRepetitions; currentRepetitionNumber++){
-            // Loop over the types of operations ADD, SUBTRACT etc.
-                for (Operation anOperationToUse : Operation.values()){
-
-                }
-
-
-        }
-
-    }
-
-
-
-
-    // <editor-fold defaultstate="collapsed" desc=" operate Loop (common to all classes; pseudo-generic) ">
 
     @Override
-    public void performOperation(Operation operation) {
-        Results results = null;
-        int totalRepetitions = runSettings.getTotalExperimentRepetitions();
-        for (int i = currentRepetitionNumber; i <= totalRepetitions; i++){
+    public long[][] performOperation(Operation operation) {
+        long[][] tempResults;
 
-        }
         System.out.println("Doing Int operation");
 //        switch( operation ) {
 //            case ADD:
@@ -57,9 +35,9 @@ public class LoopersInt extends Loopers {
 //            case DIVIDE:
 //                for (int n = 0; n < cycles; n++) for (int c = 0; c < arrayLengths; c++) array[c] /= myNumber;
 //        }
+        return tempResults;
     }
 
-    // </editor-fold>
 
     @Override
     protected void initializeArrayElements(int arrayLength) {
