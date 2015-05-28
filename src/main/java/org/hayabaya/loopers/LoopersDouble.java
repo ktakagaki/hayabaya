@@ -1,9 +1,6 @@
 package org.hayabaya.loopers;
 
-import org.hayabaya.RunSettings;
 import org.hayabaya.datarelated.*;
-
-import java.util.Arrays;
 
 public class LoopersDouble extends Loopers {
 
@@ -18,19 +15,15 @@ public class LoopersDouble extends Loopers {
 
     public LoopersDouble() {
         super(type);
-        initializeArrayElements(arrayLength[0]);
-        currentArrayLength = arrayLength[0];
+        initializeArrayElements(arrayLengths[0]);
+        currentArrayLength = arrayLengths[0];
         currentCycleNumber = cycleNumbers[0];
     }
 
-
-    // <editor-fold defaultstate="collapsed" desc=" operate Loop (common to all classes; pseudo-generic) ">
-
     @Override
-    void operateLoop(Operation operation) {
+    public void performOperation(Operation operation) {
+        System.out.println("Doing Double operation");
     }
-
-    // </editor-fold>
 
     @Override
     protected void initializeArrayElements(int arrayLength) {

@@ -1,11 +1,7 @@
 package org.hayabaya.loopers;
 
-import org.hayabaya.RunSettings;
 import org.hayabaya.datarelated.Operation;
 import org.hayabaya.datarelated.Tpe;
-import org.hayabaya.datarelated.Utility;
-
-import java.util.Arrays;
 
 public class LoopersFloatBoxed extends Loopers {
 
@@ -18,15 +14,10 @@ public class LoopersFloatBoxed extends Loopers {
 
     public LoopersFloatBoxed()  {
         super(type);
-        initializeArrayElements(arrayLength[0]);
-        currentArrayLength = arrayLength[0];
+        initializeArrayElements(arrayLengths[0]);
+        currentArrayLength = arrayLengths[0];
         currentCycleNumber = cycleNumbers[0];
     }
-
-    @Override
-    void operateLoop(Operation operation) {
-    }
-
 
     @Override
     protected void initializeArrayElements(int arrayLength) {
@@ -35,7 +26,8 @@ public class LoopersFloatBoxed extends Loopers {
 
     }
 
-    public Float[] getArray() {
-        return array;
+    @Override
+    public void performOperation(Operation operation) {
+        System.out.println("Doing FloatBoxed operation");
     }
 }

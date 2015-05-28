@@ -23,7 +23,7 @@
 //
 //    @Test
 //    public void testInitArray() throws Exception {
-//        assertThat(looper.arrayLength, equalTo(100));
+//        assertThat(looper.arrayLengths, equalTo(100));
 //    }
 //
 //    @Test
