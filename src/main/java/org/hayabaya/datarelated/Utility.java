@@ -20,22 +20,8 @@ public class Utility {
     public static final String ANSI_PURPLE = "\u001B[35m";
     public static final String ANSI_CYAN = "\u001B[36m";
 
-    private static int resultCounter = 0;
-    @Deprecated
-    public static void setResultCounter(int i) {
-        resultCounter = i;
-    }
-
-    //ToDo 1: implement
-    //public static void writeResultsToCsv(Results results, int repetitionTag) {
-
     @Deprecated
     public static void writeResultsToCsv(Results results) {
-
-        assert results.type != null : "Results.type must be specified when writing to disk";
-        assert results.operation != null : "The type of operation must be specified when writing to disk";
-        assert results != null : "Results can't be null!";
-
         try
         {
             //check if directory exists, and create if not
@@ -43,8 +29,8 @@ public class Utility {
             File fileDirObj = new File(fileDir);
             if(!fileDirObj.exists()) fileDirObj.mkdir();
 
-            String filename = fileDir  + "/results." + results.type.toString() + "." +
-                    results.operation.toString() + "." + Integer.toString(resultCounter) + ".csv";
+            String filename = fileDir  + results.type.toString() + "-" +
+                    results.operation.toString() + "-rep_" + results.theRepetitionNumber + ".csv";
 
             BufferedWriter br = new BufferedWriter(new FileWriter(filename));
             StringBuilder sb = new StringBuilder();

@@ -39,7 +39,6 @@ public class MainClass {
 
         RunSettings runSettings = RunSettings.getInstance();
         LooperFactory looperFactory = LooperFactory.getinstance();
-        Results result = null;
 
         /* place Loopers into a list and iterate over the list performing operations, parsing types to methods */
         List<Loopers> aListOfLoopers = new ArrayList<>();
@@ -49,11 +48,7 @@ public class MainClass {
         }
 
         for (Loopers anInstance : aListOfLoopers){
-            System.out.println("The instance is: " +anInstance.toString());
-            for (Operation anOperationToUse : Operation.values()){
-                anInstance.makeResults(anOperationToUse);
-            }
-
+            anInstance.makeResults();
         }
 
 

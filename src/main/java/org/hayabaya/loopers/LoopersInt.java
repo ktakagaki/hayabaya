@@ -9,10 +9,6 @@ public class LoopersInt extends Loopers {
     private int myNumber = rand.nextInt();
     public static final Tpe type = Tpe.INT;
 
-    @Override
-    public final Tpe getType() { return type; }
-
-
     public LoopersInt() {
         super(type);
         initializeArrayElements(arrayLengths[0]);
@@ -20,10 +16,36 @@ public class LoopersInt extends Loopers {
         currentCycleNumber = cycleNumbers[0];
     }
 
+    @Override
+    public final Tpe getType() { return type; }
+
+    @Override
+    public final void makeResults(){
+        Results results = null;
+        int totalRepetitions = runSettings.getTotalExperimentRepetitions();
+        for (; currentRepetitionNumber <= totalRepetitions; currentRepetitionNumber++){
+            // Loop over the types of operations ADD, SUBTRACT etc.
+                for (Operation anOperationToUse : Operation.values()){
+
+                }
+
+
+        }
+
+    }
+
+
+
+
     // <editor-fold defaultstate="collapsed" desc=" operate Loop (common to all classes; pseudo-generic) ">
 
     @Override
     public void performOperation(Operation operation) {
+        Results results = null;
+        int totalRepetitions = runSettings.getTotalExperimentRepetitions();
+        for (int i = currentRepetitionNumber; i <= totalRepetitions; i++){
+
+        }
         System.out.println("Doing Int operation");
 //        switch( operation ) {
 //            case ADD:
@@ -43,10 +65,6 @@ public class LoopersInt extends Loopers {
     protected void initializeArrayElements(int arrayLength) {
         array = new int[arrayLength];
         for(int c = 0; c < array.length; c++) array[c] = rand.nextInt();
-    }
-
-    public int[] getArray() {
-        return array;
     }
 
 }

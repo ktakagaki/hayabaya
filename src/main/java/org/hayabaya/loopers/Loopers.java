@@ -76,9 +76,7 @@ public abstract class Loopers {
      * Runs [[performOperation]] for the given operation/type and bundles the results
      * into [[Results]] object.
      */
-    public void makeResults(Operation operation) {
-        performOperation(operation);
-        }
+    abstract public void makeResults();
 
 //
 //        int rowIndex = 0; //index is just used for writing to data[][] object, not for actual for termination
