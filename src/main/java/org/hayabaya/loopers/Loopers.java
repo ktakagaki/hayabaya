@@ -23,10 +23,13 @@ public abstract class Loopers {
 
     int[] arrayLength = runSettings.getArrayLengths();
     int[] cycleNumbers = runSettings.getCycleNumbers();
+    int currentArrayLength;
+    int currentCycleNumber;
     protected Tpe type = null;
 
     /**
      * Override method in the type specific child class implementations.
+     *
      * @return Tpe the type of numerical representation that is tested.
      */
     public abstract Tpe getType();
@@ -40,8 +43,6 @@ public abstract class Loopers {
      * arrayLength, cycles and type. The specific child class implements the abstract {@link #initializeArrayElements(int)} method
      * to do the actual initialization of the arrays.
      *
-     * @param arrayLength The length of the array
-     * @param cycles The number of times to perform the specific operation on the array
      * @param type The specific datatype of a given child class
      */
     public Loopers(Tpe type) {
@@ -51,9 +52,10 @@ public abstract class Loopers {
 
 
     /**
-     * This is where the core computations are actually performed; by calling it from {@link performOperation
-     * (Operation)} which measures the computation time, the child classes will deal with the data type specific
+     * This is where the core computations are actually performed; by calling it from performOperation
+     * which measures the computation time, the child classes will deal with the data type specific
      * implementations of computing on the arrays.
+     *
      * @param operation The type of operation to perform (+,-,/,*) on the array for n cycles
      */
     abstract void operateLoop(Operation operation);
@@ -62,6 +64,7 @@ public abstract class Loopers {
      * Initialize the correct primitive/boxed array with random values.
      * This is not done generically, in order to explicity
      * profile primitive operations.
+     *
      * @param arrayLength The length of the array
      */
     abstract protected void initializeArrayElements(int arrayLength);
@@ -69,6 +72,7 @@ public abstract class Loopers {
 
     /**
      * Returns the total time in ms that it takes to perform an operation on an array.
+     *
      * @param operation The type of operation
      * @return the time it took to perform the given operation
      */
@@ -83,10 +87,11 @@ public abstract class Loopers {
     }
 
 
-    /**Runs [[performOperation]] for the given operation/type and bundles the results
+    /**
+     * Runs [[performOperation]] for the given operation/type and bundles the results
      * into [[Results]] object.
      */
-    public Results makeResults(Operation operation) {
+    public void makeResults(Operation operation) {
         int rowIndex = 0; //index is just used for writing to data[][] object, not for actual for termination
         for (int lengthOfArray: arrayLength){ // Rows
             int columnIndex = 0; //index is just used for writing to data[][] object, not for actual for termination
@@ -131,29 +136,9 @@ public abstract class Loopers {
         return new Results(data, RunSettings.cycleNumbers, getType(), operation);
     }
 
-    // <editor-fold defaultstate="collapsed" desc=" toString ">
     @Override
-    public String toString() {
-        StringBuilder result = new StringBuilder();
-        String NEW_LINE = System.getProperty("line.separator");
-
-        // Title of output
-        result.append(Utility.ANSI_YELLOW + "\033[1m Results for " + this.getClass().getSimpleName()
-                + "\033[0m" + Utility.ANSI_RESET + "\n");
-        // Name of Object
-        result.append(Utility.ANSI_BLUE + "{Object:            "
-                + Utility.ANSI_RESET + this.getClass().getSimpleName() + "}" + NEW_LINE);
-        // Arraylength
-        result.append(Utility.ANSI_GREEN + "{ArrayLength:       "
-                + Utility.ANSI_RESET + arrayLength + "}" + NEW_LINE);
-        // Cycles
-        result.append(Utility.ANSI_CYAN + "{Cycles:            " + Utility.ANSI_RESET +
-                cycles + "}" + NEW_LINE);
-        // The getType (Int, Integer etc.)
-        result.append(Utility.ANSI_PURPLE + "{Type:              " + Utility.ANSI_RESET +
-                getType() + "}" + NEW_LINE);
-
-        return result.toString();
+    public String toString(){
+        return type.toString();
     }
-    // </editor-fold>
+
 }
