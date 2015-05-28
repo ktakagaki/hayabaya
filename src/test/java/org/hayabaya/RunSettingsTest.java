@@ -64,9 +64,6 @@ public class RunSettingsTest extends MyTestAbstract{
             String k = c.getField("TOTAL_EXP_REPS").getType().toString();
             assertThat("int", equalTo(k));
 
-            String l = c.getField("numberOfColumnsCycle").getType().toString();
-            assertThat("int", equalTo(l));
-
         } catch (NoSuchFieldException e) {
             e.printStackTrace();
         }
