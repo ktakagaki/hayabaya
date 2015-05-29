@@ -19,6 +19,7 @@ import java.util.Random;
  */
 public abstract class Loopers {
     RunSettings runSettings = RunSettings.getInstance();
+    //ToDo: Core Java page 71, only one static variable being more secure?
     Random rand = new Random();
 
     int[] arrayLengths = runSettings.getArrayLengths();
