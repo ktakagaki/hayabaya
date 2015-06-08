@@ -75,7 +75,7 @@ public abstract class Loopers {
 
         int totalRepetitions = runSettings.getTotalExperimentRepetitions();
 
-        for (int currentRepetition = 0; currentRepetition <= totalRepetitions; currentRepetition++) {
+        for (int currentRepetition = 0; currentRepetition < totalRepetitions; currentRepetition++) {
 
             for (Operation anOperationToUse : Operation.values()) {
 

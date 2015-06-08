@@ -13,8 +13,8 @@ import java.util.List;
 public class RunSettings {
     private static RunSettings instance = new RunSettings();
 
-    private int[] arrayLengthFromToBy = {1, 10, 1};
-    private int[] cycleNumbersFromToBy = {1,20,2};
+    private int[] arrayLengthFromToBy = {1000, 10000, 1000};
+    private int[] cycleNumbersFromToBy = {1000,5000,1000};
     private int totalExperimentRepetitions = 2;
 
     private int[] arrayLengths = generateIntegerLinearSpace(

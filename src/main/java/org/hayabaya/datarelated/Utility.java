@@ -28,7 +28,7 @@ public class Utility {
             File fileDirObj = new File(fileDir);
             if(!fileDirObj.exists()) fileDirObj.mkdir();
 
-            String filename = fileDir  + results.type.toString() + "-" +
+            String filename = fileDir  +"./results"+ results.type.toString() + "-" +
                     results.operation.toString() + "-rep_" + results.theRepetitionNumber + ".csv";
 
             BufferedWriter br = new BufferedWriter(new FileWriter(filename));
