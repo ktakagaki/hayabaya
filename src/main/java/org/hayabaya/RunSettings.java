@@ -13,8 +13,8 @@ import java.util.List;
 public class RunSettings {
     private static RunSettings instance = new RunSettings();
 
-    private int[] arrayLengthFromToBy = {1000, 10000, 1000};
-    private int[] cycleNumbersFromToBy = {1000,5000,1000};
+    private int[] arrayLengthFromToBy = {1, 10, 1};
+    private int[] cycleNumbersFromToBy = {10, 50, 10};
     private int totalExperimentRepetitions = 2;
 
     private int[] arrayLengths = generateIntegerLinearSpace(
@@ -25,6 +25,9 @@ public class RunSettings {
             cycleNumbersFromToBy[0],
             cycleNumbersFromToBy[1],
             cycleNumbersFromToBy[2]);
+
+    private int[] arrayLengthsX2 = generateBaseNSpace(2, arrayLengths);
+    private int[] cycleNumbersX2 = generateBaseNSpace(2, cycleNumbers);
 
 
     private RunSettings() {
@@ -40,31 +43,20 @@ public class RunSettings {
         return instance;
     }
 
-    public int[] getArrayLengthFromToBy() {
-        return arrayLengthFromToBy;
-    }
-
-    public int[] getCycleNumbersFromToBy() {
-        return cycleNumbersFromToBy;
-    }
-
-    public int getTotalExperimentRepetitions() {
-        return totalExperimentRepetitions;
-    }
-
-    public int[] getArrayLengths() {
-        return arrayLengths;
-    }
-
-    public int[] getCycleNumbers() {
-        return cycleNumbers;
+    public static int[] generateBaseNSpace(int base, int[] linearArray) {
+        int[] result = linearArray;
+        for (int element : result) {
+            element = (int) Math.pow((double) base, (double) element);
+        }
+        return result;
     }
 
     /**
      * Create an array of int[] starting from minimumValue, going up to (inclusive) maximumValue, in increments of
      * incrementSize.
-     * @param minimumValue The starting value for the array
-     * @param maximumValue The ending value for the array
+     *
+     * @param minimumValue  The starting value for the array
+     * @param maximumValue  The ending value for the array
      * @param incrementSize The increment size by which the elements of the array will increase by
      * @return A variable length int[] array, in fencepost cases the method will be inclusive
      */
@@ -98,18 +90,37 @@ public class RunSettings {
      * <b>(copied from online)</b> Convert an ArrayList of Integers to a Java primitive int[]
      * array, while avoiding Java throwing a
      * NullPointerException if any of the elements are null.
+     *
      * @see <a href="http://stackoverflow.com/questions/718554/how-to-convert-an-arraylist-containing-integers-to
      * -primitive-int-array">The question on StackExchange</a>
      */
-    public static int[] convertToPrimitiveArray(List<Integer> integers)
-    {
+    public static int[] convertToPrimitiveArray(List<Integer> integers) {
         int[] ret = new int[integers.size()];
         Iterator<Integer> iterator = integers.iterator();
-        for (int i = 0; i < ret.length; i++)
-        {
+        for (int i = 0; i < ret.length; i++) {
             ret[i] = iterator.next().intValue();
         }
         return ret;
+    }
+
+    public int[] getArrayLengthFromToBy() {
+        return arrayLengthFromToBy;
+    }
+
+    public int[] getCycleNumbersFromToBy() {
+        return cycleNumbersFromToBy;
+    }
+
+    public int getTotalExperimentRepetitions() {
+        return totalExperimentRepetitions;
+    }
+
+    public int[] getArrayLengths() {
+        return arrayLengths;
+    }
+
+    public int[] getCycleNumbers() {
+        return cycleNumbers;
     }
 
 }
