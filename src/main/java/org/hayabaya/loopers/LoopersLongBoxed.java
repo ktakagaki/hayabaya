@@ -3,13 +3,16 @@ package org.hayabaya.loopers;
 import org.hayabaya.datarelated.Operation;
 import org.hayabaya.datarelated.Tpe;
 
-public class LoopersLongBoxed extends Loopers{
+public class LoopersLongBoxed extends Loopers {
 
     private Long[] array;
     private Long myNumber = rand.nextLong();
     public static final Tpe type = Tpe.LONG_BOXED;
+
     @Override
-    public final Tpe getType() { return type; }
+    public final Tpe getType() {
+        return type;
+    }
 
     public LoopersLongBoxed() {
         super(type);
@@ -19,13 +22,23 @@ public class LoopersLongBoxed extends Loopers{
     }
 
     @Override
-    protected void initializeArrayElements(int arrayLength) {
-        array = new Long[arrayLength];
-        for(int c = 0; c < array.length; c++) array[c] = new Long( rand.nextLong() );
+    void operateLoop(Operation operation) {
+
+        switch( operation ) {
+            case ADD:
+                for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++) array[c] += myNumber;
+            case SUBTRACT:
+                for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++) array[c] -= myNumber;
+            case MULTIPLY:
+                for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++) array[c] *= myNumber;
+            case DIVIDE:
+                for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++) array[c] /= myNumber;
+        }
     }
 
     @Override
-    public void performOperation(Operation operation) {
-        System.out.println("Doing Int operation");
+    protected void initializeArrayElements(int arrayLength) {
+        array = new Long[arrayLength];
+        for (int c = 0; c < array.length; c++) array[c] = new Long(rand.nextLong());
     }
 }
