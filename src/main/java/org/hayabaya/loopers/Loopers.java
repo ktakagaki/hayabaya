@@ -19,7 +19,6 @@ import java.util.Random;
  */
 public abstract class Loopers {
     RunSettings runSettings = RunSettings.getInstance();
-    //ToDo: Core Java page 71, only one static variable being more secure?
     Random rand = new Random();
 
     int[] arrayLengths = runSettings.getArrayLengths();
@@ -78,15 +77,40 @@ public abstract class Loopers {
      * into [[Results]] object.
      */
     public void makeResults(){
-        for (Operation anOperationToUse : Operation.values()) {
 
-            int repNumber = 0;
-            int totalRepetitions = runSettings.getTotalExperimentRepetitions();
+        int totalRepetitions = runSettings.getTotalExperimentRepetitions();
 
-            for (int currentRepetition = 0; currentRepetition <= totalRepetitions; currentRepetition++) {
-                long[][] data = performOperation(anOperationToUse);
-                Results result = new Results(data, currentRepetition, getType(), anOperationToUse);
+        for (int currentRepetition = 0; currentRepetition <= totalRepetitions; currentRepetition++) {
+
+            for (Operation anOperationToUse : Operation.values()) {
+
+                Results result;
+                long data[][] = new long[runSettings.getArrayLengths().length][runSettings.getCycleNumbers().length];
+
+                // #row loop#
+
+                for (int rowCountArraySize: RunSettings.arrayLengths){
+                    // #column loop#
+
+                    for (int columnCountCycleNumbers : RunSettings.cycleNumbers) {
+                        setArrayLength(rowCountArraySize);
+                        setCycles(columnCountCycleNumbers);
+                        data[rowIndex][columnIndex] = performOperation(operation);
+
+                        columnIndex ++;
+                    }
+                    rowIndex ++;
+                }
+
+                //What is the reason for sending RunSettings.cycleNumbers within the results?
+                //Why not just send the whole RunSettings object?
+                //   (or, instead of sending, you can assume the same "RunSettings" for the whole object)
+                //What is so special about the "cycleNumbers" that it has to be extracted?
+                return new Results(data, RunSettings.cycleNumbers, getType(), operation);
+
                 Utility.writeResultsToCsv(result);
+
+
             }
         }
     }
