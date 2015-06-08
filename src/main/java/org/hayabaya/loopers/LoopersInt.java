@@ -21,21 +21,18 @@ public class LoopersInt extends Loopers {
 
 
     @Override
-    public long[][] performOperation(Operation operation) {
-        long[][] tempResults;
+    void operateLoop(Operation operation) {
 
-        System.out.println("Doing Int operation");
-//        switch( operation ) {
-//            case ADD:
-//                for (int n = 0; n < cycles; n++) for (int c = 0; c < arrayLengths; c++) array[c] += myNumber;
-//            case SUBTRACT:
-//                for (int n = 0; n < cycles; n++) for (int c = 0; c < arrayLengths; c++) array[c] -= myNumber;
-//            case MULTIPLY:
-//                for (int n = 0; n < cycles; n++) for (int c = 0; c < arrayLengths; c++) array[c] *= myNumber;
-//            case DIVIDE:
-//                for (int n = 0; n < cycles; n++) for (int c = 0; c < arrayLengths; c++) array[c] /= myNumber;
-//        }
-        return tempResults;
+        switch( operation ) {
+            case ADD:
+                for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++) array[c] += myNumber;
+            case SUBTRACT:
+                for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++) array[c] -= myNumber;
+            case MULTIPLY:
+                for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++) array[c] *= myNumber;
+            case DIVIDE:
+                for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++) array[c] /= myNumber;
+        }
     }
 
 

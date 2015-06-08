@@ -25,7 +25,6 @@ public abstract class Loopers {
     int[] cycleNumbers = runSettings.getCycleNumbers();
     int currentArrayLength;
     int currentCycleNumber;
-    int currentRepetitionNumber = 0;
     protected Tpe type = null;
 
     /**
@@ -53,23 +52,19 @@ public abstract class Loopers {
 
 
     /**
+     * This is the meat of the HayaBaya project. operateLoop in the child classes performs the actual computations on
+     * the arrays.
+     * @param operation The type of operation to perform (+,-,/,*) on the array for n cycles
+     */
+    abstract void operateLoop(Operation operation);
+
+    /**
      * Initialize the correct primitive/boxed array with random values.
      * This is not done generically, in order to explicity
      * profile primitive operations.
-     *
      * @param arrayLength The length of the array
      */
     abstract protected void initializeArrayElements(int arrayLength);
-
-
-    /**
-     * This is where the core computations are actually performed; by calling it from performOperation
-     * which measures the computation time, the child classes will deal with the data type specific
-     * implementations of computing on the arrays.
-     *
-     * @param operation The type of operation to perform (+,-,/,*) on the array for n cycles
-     */
-    abstract protected long[][] performOperation(Operation operation);
 
 
     /**
@@ -89,75 +84,73 @@ public abstract class Loopers {
 
                 // #row loop#
 
-                for (int rowCountArraySize: RunSettings.arrayLengths){
+                int rowIndex = 0;
+                for (int rowCountArraySize: runSettings.getArrayLengths()){
                     // #column loop#
+                    int columnIndex = 0;
 
-                    for (int columnCountCycleNumbers : RunSettings.cycleNumbers) {
+                    for (int columnCountCycleNumbers : runSettings.getCycleNumbers()) {
                         setArrayLength(rowCountArraySize);
                         setCycles(columnCountCycleNumbers);
-                        data[rowIndex][columnIndex] = performOperation(operation);
+                        data[rowIndex][columnIndex] = performOperation(anOperationToUse);
 
                         columnIndex ++;
                     }
                     rowIndex ++;
                 }
 
-                //What is the reason for sending RunSettings.cycleNumbers within the results?
-                //Why not just send the whole RunSettings object?
-                //   (or, instead of sending, you can assume the same "RunSettings" for the whole object)
-                //What is so special about the "cycleNumbers" that it has to be extracted?
-                return new Results(data, RunSettings.cycleNumbers, getType(), operation);
+                result = new Results(data, currentRepetition, getType(), anOperationToUse);
 
                 Utility.writeResultsToCsv(result);
-
-
             }
         }
     }
 
-//
-//        int rowIndex = 0; //index is just used for writing to data[][] object, not for actual for termination
-//        for (int lengthOfArray: arrayLengths){ // Rows
-//            int columnIndex = 0; //index is just used for writing to data[][] object, not for actual for termination
-//            for (int numberOfCycles: cycleNumbers){ // columns
-//                long data[][] = new long[lengthOfArray][numberOfCycles];
-//                data[rowIndex][columnIndex] = performOperation(operation);
-//                return new Results(data, RunSettings.cycleNumbers, getType(), operation)
-//            }
-//        }
-//
-//        /**           Number of Cycles
-//                  1k, 2k, 3k, 4k, 5k, 6k
-//        ArrayLen
-//        1.000    {{1,  2, 2,  2,  2,  3},
-//        2.000     {3,  3, 3,  5,  4,  5},
-//        3.000     {4,  5, 6,  6,  7,  8},
-//        4.000     {6,  8, 7,  8,  9,  10},
-//        5.000     {7, 11, 9, 10, 12,  13}}
-//
-//         */
-//        long data[][] = new long[RunSettings.arrayLengths.length/*numberOfRowsArrayLength*/][RunSettings.cycleNumbers.length/*numberOfColumnsCycle*/];
-//
-//        // #row loop#
-//
-//        for (int rowCountArraySize: RunSettings.arrayLengths){
-//            // #column loop#
-//
-//            for (int columnCountCycleNumbers : RunSettings.cycleNumbers) {
-//                setArrayLength(rowCountArraySize);
-//                setCycles(columnCountCycleNumbers);
-//                data[rowIndex][columnIndex] = performOperation(operation);
-//
-//                columnIndex ++;
-//            }
-//            rowIndex ++;
-//        }
-//
-//        //What is the reason for sending RunSettings.cycleNumbers within the results?
-//        //Why not just send the whole RunSettings object?
-//        //   (or, instead of sending, you can assume the same "RunSettings" for the whole object)
-//        //What is so special about the "cycleNumbers" that it has to be extracted?
-//        return new Results(data, RunSettings.cycleNumbers, getType(), operation);
+    /**
+     * This is where the core computations are actually performed; by calling it from performOperation
+     * which measures the computation time, the child classes will deal with the data type specific
+     * implementations of computing on the arrays.
+     *
+     * @param operation The type of operation to perform (+,-,/,*) on the array for n cycles
+     */
+    protected long performOperation(Operation operation){
+        //ToDo initRandom();
+
+        long startTime = System.currentTimeMillis();
+        operateLoop(operation);
+        long endTime = System.currentTimeMillis();
+
+        return endTime - startTime;
+    }
+
+    /**
+     * Reset the arraylength of a Loopers object to a new length. This makes it possible for one object to profile
+     * arrays of multiple lengths without creating new object instances. The method uses
+     * {@link org.hayabaya.loopers.Loopers#initializeArrayElements(int)}  of the specific child classes to re-initialize a new array.
+     * @param arrayLength The length of the new array to be initialized
+     */
+    final public void setArrayLength(int arrayLength) {
+        assert arrayLength > 0 : "array length must be above zero";
+        this.currentArrayLength = arrayLength;
+        initializeArrayElements(arrayLength);
+    }
+
+    final public int getArrayLength() {
+        return currentArrayLength;
+    }
+
+    final public int getCycles() {
+        return currentCycleNumber;
+    }
+
+    /**
+     * Used to increment the number of cycles such that an array can be tested with different number of cycles
+     * @param cycles The new number of cycles to run on an array
+     */
+    final public void setCycles(int cycles) {
+        assert cycles > 0 : "repetitions must be above zero";
+        this.currentCycleNumber = cycles;
+    }
 
     @Override
     public String toString(){
