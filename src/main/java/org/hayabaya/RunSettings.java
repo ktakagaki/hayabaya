@@ -1,5 +1,9 @@
 package org.hayabaya;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -101,6 +105,45 @@ public class RunSettings {
             ret[i] = iterator.next().intValue();
         }
         return ret;
+    }
+
+    /**
+     * Write the used runsettings to disk so it can be stored together with the results for later analysis. Utility
+     * .writeResultsToCSV will in the future be updated to also include the meta data from runsettings, this is only
+     * a temporary solution to ensure that the meta data is still saved in case the meta data should fail to be
+     * included by writeResultsToCSV().
+     */
+    public void writeRunSettingsToDisk() {
+        try {
+            //check if directory exists, and create if not
+            String fileDir = "./results";
+            File fileDirObj = new File(fileDir);
+            if (!fileDirObj.exists()) fileDirObj.mkdir();
+
+            String filename = fileDir + "./A_" + "RunSettings.txt";
+
+            BufferedWriter br = new BufferedWriter(new FileWriter(filename));
+            StringBuilder sb = new StringBuilder();
+            {
+                sb.append("Using the following runsettings");
+                sb.append("Total repetitions: " + totalExperimentRepetitions + "\n");
+                sb.append("arrayLengthFromToBy: " + Arrays.toString(arrayLengthFromToBy) + "\n");
+                sb.append("Resulting ArrayLengths: " + Arrays.toString(arrayLengths) + "\n");
+                sb.append("cycleNumbersFromToBy: " + Arrays.toString(cycleNumbersFromToBy) + "\n");
+                sb.append("Resulting cycleNumbers: " + Arrays.toString(cycleNumbers) + "\n");
+            }
+
+            br.write(sb.toString());
+            br.close();
+        } catch (FileNotFoundException e) {
+            //This should not be triggered
+            System.out.println("SHOULD NOT BE TRIGGERED: The /results/ folder does not exist, cannot write file");
+            e.printStackTrace(System.out);
+        } catch (Exception e) {
+            System.out.println("An unknown file exception was thrown..");
+            e.printStackTrace(System.out);
+        }
+
     }
 
     public int[] getArrayLengthFromToBy() {

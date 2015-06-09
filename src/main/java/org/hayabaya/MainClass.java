@@ -9,11 +9,9 @@
  */
 package org.hayabaya;
 
-import org.hayabaya.datarelated.Operation;
-import org.hayabaya.datarelated.Results;
 import org.hayabaya.datarelated.Tpe;
-import org.hayabaya.datarelated.Utility;
-import org.hayabaya.loopers.*;
+import org.hayabaya.loopers.LooperFactory;
+import org.hayabaya.loopers.Loopers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,5 +49,8 @@ public class MainClass {
         for (Loopers anInstance : aListOfLoopers){
             anInstance.makeResults();
         }
+
+        //Write the runsettings used to disk so it can be recalled later on during analysis
+        runSettings.writeRunSettingsToDisk();
     }
 }
