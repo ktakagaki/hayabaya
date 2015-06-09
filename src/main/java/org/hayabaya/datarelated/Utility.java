@@ -1,10 +1,9 @@
 package org.hayabaya.datarelated;
 
-import org.hayabaya.MainClass;
-import org.hayabaya.RunSettings;
-import org.hayabaya.loopers.Loopers;
-
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.util.Arrays;
 
 /**
@@ -28,8 +27,8 @@ public class Utility {
             File fileDirObj = new File(fileDir);
             if(!fileDirObj.exists()) fileDirObj.mkdir();
 
-            String filename = fileDir  +"./results"+ results.type.toString() + "-" +
-                    results.operation.toString() + "-rep_" + results.theRepetitionNumber + ".csv";
+            String filename = fileDir + "./res_" + results.type.toString() + "_" +
+                    results.operation.toString() + "_rep_" + results.theRepetitionNumber + ".csv";
 
             BufferedWriter br = new BufferedWriter(new FileWriter(filename));
             StringBuilder sb = new StringBuilder();

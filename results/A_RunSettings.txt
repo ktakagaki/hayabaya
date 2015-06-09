@@ -1,0 +1,5 @@
+Using the following runsettingsTotal repetitions: 4
+arrayLengthFromToBy: [1000, 30000, 5000]
+Resulting ArrayLengths: [1000, 6000, 11000, 16000, 21000, 26000, 31000]
+cycleNumbersFromToBy: [1000, 5000, 1000]
+Resulting cycleNumbers: [1000, 2000, 3000, 4000, 5000]

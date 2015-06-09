@@ -30,8 +30,8 @@ public class RunSettings {
             cycleNumbersFromToBy[1],
             cycleNumbersFromToBy[2]);
 
-    private int[] arrayLengthsX2 = generateBaseNSpace(2, arrayLengths);
-    private int[] cycleNumbersX2 = generateBaseNSpace(2, cycleNumbers);
+//    private int[] arrayLengthsX2 = generateBaseNSpace(2, arrayLengths);
+//    private int[] cycleNumbersX2 = generateBaseNSpace(2, cycleNumbers);
 
 
     private RunSettings() {
@@ -48,7 +48,7 @@ public class RunSettings {
     }
 
     public static int[] generateBaseNSpace(int base, int[] linearArray) {
-        int[] result = linearArray;
+        int[] result = linearArray.clone();
         for (int element : result) {
             element = (int) Math.pow((double) base, (double) element);
         }
