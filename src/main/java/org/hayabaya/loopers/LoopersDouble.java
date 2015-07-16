@@ -1,17 +1,13 @@
 package org.hayabaya.loopers;
 
-import org.hayabaya.datarelated.*;
+import org.hayabaya.datarelated.Operation;
+import org.hayabaya.datarelated.Tpe;
 
 public class LoopersDouble extends Loopers {
 
+    public static final Tpe type = Tpe.DOUBLE;
     private double[] array;
     private double myNumber = rand.nextDouble();
-    public static final Tpe type = Tpe.DOUBLE;
-
-    @Override
-    public final Tpe getType() { return type; }
-
-
 
     public LoopersDouble() {
         super(type);
@@ -21,17 +17,29 @@ public class LoopersDouble extends Loopers {
     }
 
     @Override
+    public final Tpe getType() {
+        return type;
+    }
+
+    @Override
     void operateLoop(Operation operation) {
 
         switch( operation ) {
             case ADD:
                 for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++) array[c] += myNumber;
+                break;
             case SUBTRACT:
                 for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++) array[c] -= myNumber;
+                break;
             case MULTIPLY:
                 for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++) array[c] *= myNumber;
+                break;
             case DIVIDE:
                 for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++) array[c] /= myNumber;
+                break;
+            default:
+                System.out.println("Reached default in operateLoop!");
+                break;
         }
     }
 

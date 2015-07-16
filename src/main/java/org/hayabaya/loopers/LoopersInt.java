@@ -1,13 +1,14 @@
 package org.hayabaya.loopers;
 
-import org.hayabaya.datarelated.*;
+import org.hayabaya.datarelated.Operation;
+import org.hayabaya.datarelated.Tpe;
 
 
 public class LoopersInt extends Loopers {
 
+    public static final Tpe type = Tpe.INT;
     private int[] array;
     private int myNumber = rand.nextInt();
-    public static final Tpe type = Tpe.INT;
 
     public LoopersInt() {
         super(type);
@@ -26,12 +27,19 @@ public class LoopersInt extends Loopers {
         switch( operation ) {
             case ADD:
                 for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++) array[c] += myNumber;
+                break;
             case SUBTRACT:
                 for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++) array[c] -= myNumber;
+                break;
             case MULTIPLY:
                 for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++) array[c] *= myNumber;
+                break;
             case DIVIDE:
                 for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++) array[c] /= myNumber;
+                break;
+            default:
+                System.out.println("Reached default in operateLoop!");
+                break;
         }
     }
 
