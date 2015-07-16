@@ -17,9 +17,9 @@ import java.util.List;
 public class RunSettings {
     private static RunSettings instance = new RunSettings();
 
-    private int[] arrayLengthFromToBy = {30000, 40000, 10000};
-    private int[] cycleNumbersFromToBy = {1000, 2000, 1000};
-    private int totalExperimentRepetitions = 1;
+    private int[] arrayLengthFromToBy = {100000, 200000, 100000};
+    private int[] cycleNumbersFromToBy = {10000, 20000, 10000};
+    private int totalExperimentRepetitions = 4;
 
     private int[] arrayLengths = generateIntegerLinearSpace(
             arrayLengthFromToBy[0],
@@ -125,11 +125,8 @@ public class RunSettings {
             BufferedWriter br = new BufferedWriter(new FileWriter(filename));
             StringBuilder sb = new StringBuilder();
             {
-                sb.append("Using the following runsettings");
-                sb.append("Total repetitions: " + totalExperimentRepetitions + "\n");
-                sb.append("arrayLengthFromToBy: " + Arrays.toString(arrayLengthFromToBy) + "\n");
+                sb.append(" \n Total repetitions: " + totalExperimentRepetitions + "\n");
                 sb.append("Resulting ArrayLengths: " + Arrays.toString(arrayLengths) + "\n");
-                sb.append("cycleNumbersFromToBy: " + Arrays.toString(cycleNumbersFromToBy) + "\n");
                 sb.append("Resulting cycleNumbers: " + Arrays.toString(cycleNumbers) + "\n");
             }
 
