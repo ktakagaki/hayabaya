@@ -19,16 +19,19 @@ public class RunSettings {
 
     private int[] arrayLengthFromToBy = {100000, 200000, 100000};
     private int[] cycleNumbersFromToBy = {10000, 20000, 10000};
-    private int totalExperimentRepetitions = 4;
+    private int totalExperimentRepetitions = 3;
 
-    private int[] arrayLengths = generateIntegerLinearSpace(
-            arrayLengthFromToBy[0],
-            arrayLengthFromToBy[1],
-            arrayLengthFromToBy[2]);
-    private int[] cycleNumbers = generateIntegerLinearSpace(
-            cycleNumbersFromToBy[0],
-            cycleNumbersFromToBy[1],
-            cycleNumbersFromToBy[2]);
+    private int[] cycleNumbers = {2500, 3844, 5625, 7569, 10000, 12544, 15625, 18769, 22500};
+    private int[] arrayLengths = {100, 400, 900, 1600, 2500, 3600, 4900, 6400, 8100, 10000};
+
+//    private int[] arrayLengths = generateIntegerLinearSpace(
+//            arrayLengthFromToBy[0],
+//            arrayLengthFromToBy[1],
+//            arrayLengthFromToBy[2]);
+//    private int[] cycleNumbers = generateIntegerLinearSpace(
+//            cycleNumbersFromToBy[0],
+//            cycleNumbersFromToBy[1],
+//            cycleNumbersFromToBy[2]);
 
 //    private int[] arrayLengthsX2 = generateBaseNSpace(2, arrayLengths);
 //    private int[] cycleNumbersX2 = generateBaseNSpace(2, cycleNumbers);
