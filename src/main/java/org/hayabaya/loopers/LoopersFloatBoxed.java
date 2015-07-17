@@ -5,13 +5,9 @@ import org.hayabaya.datarelated.Tpe;
 
 public class LoopersFloatBoxed extends Loopers {
 
+    public static final Tpe type = Tpe.FLOAT_BOXED;
     private Float[] array;
     private Float myNumber = rand.nextFloat();
-    public static final Tpe type = Tpe.FLOAT_BOXED;
-    @Override
-    public final Tpe getType() { return type; }
-
-
     public LoopersFloatBoxed()  {
         super(type);
         initializeArrayElements(arrayLengths[0]);
@@ -20,17 +16,29 @@ public class LoopersFloatBoxed extends Loopers {
     }
 
     @Override
+    public final Tpe getType() {
+        return type;
+    }
+
+    @Override
     void operateLoop(Operation operation) {
 
         switch( operation ) {
             case ADD:
                 for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++) array[c] += myNumber;
+                break;
             case SUBTRACT:
                 for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++) array[c] -= myNumber;
+                break;
             case MULTIPLY:
                 for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++) array[c] *= myNumber;
+                break;
             case DIVIDE:
                 for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++) array[c] /= myNumber;
+                break;
+            default:
+                System.out.println("Reached default in operateLoop!");
+                break;
         }
     }
 

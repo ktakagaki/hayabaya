@@ -17,9 +17,12 @@ import java.util.List;
 public class RunSettings {
     private static RunSettings instance = new RunSettings();
 
-    private int[] arrayLengthFromToBy = {1, 10, 1};
-    private int[] cycleNumbersFromToBy = {10, 50, 10};
-    private int totalExperimentRepetitions = 2;
+    private int[] arrayLengthFromToBy = {10, 20, 1};
+    private int[] cycleNumbersFromToBy = {10, 200, 20};
+    private int totalExperimentRepetitions = 3;
+
+//    private int[] cycleNumbers = {2500, 3844, 5625, 7569, 10000, 12544, 15625, 18769, 22500};
+//    private int[] arrayLengths = {100, 400, 900, 1600, 2500, 3600, 4900, 6400, 8100, 10000};
 
     private int[] arrayLengths = generateIntegerLinearSpace(
             arrayLengthFromToBy[0],
@@ -30,8 +33,8 @@ public class RunSettings {
             cycleNumbersFromToBy[1],
             cycleNumbersFromToBy[2]);
 
-    private int[] arrayLengthsX2 = generateBaseNSpace(2, arrayLengths);
-    private int[] cycleNumbersX2 = generateBaseNSpace(2, cycleNumbers);
+//    private int[] arrayLengthsX2 = generateBaseNSpace(2, arrayLengths);
+//    private int[] cycleNumbersX2 = generateBaseNSpace(2, cycleNumbers);
 
 
     private RunSettings() {
@@ -48,7 +51,7 @@ public class RunSettings {
     }
 
     public static int[] generateBaseNSpace(int base, int[] linearArray) {
-        int[] result = linearArray;
+        int[] result = linearArray.clone();
         for (int element : result) {
             element = (int) Math.pow((double) base, (double) element);
         }
@@ -125,12 +128,10 @@ public class RunSettings {
             BufferedWriter br = new BufferedWriter(new FileWriter(filename));
             StringBuilder sb = new StringBuilder();
             {
-                sb.append("Using the following runsettings");
-                sb.append("Total repetitions: " + totalExperimentRepetitions + "\n");
-                sb.append("arrayLengthFromToBy: " + Arrays.toString(arrayLengthFromToBy) + "\n");
-                sb.append("Resulting ArrayLengths: " + Arrays.toString(arrayLengths) + "\n");
-                sb.append("cycleNumbersFromToBy: " + Arrays.toString(cycleNumbersFromToBy) + "\n");
-                sb.append("Resulting cycleNumbers: " + Arrays.toString(cycleNumbers) + "\n");
+                sb.append("repetitions: " + totalExperimentRepetitions + System.getProperty("line.separator"));
+                sb.append("ArrayLengths: " + Arrays.toString(arrayLengths) + System.getProperty("line.separator"));
+                sb.append("CycleNumbers: " + Arrays.toString(cycleNumbers) + System.getProperty("line.separator"));
+                sb.append(System.getProperty("line.separator"));
             }
 
             br.write(sb.toString());
