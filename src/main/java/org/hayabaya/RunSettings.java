@@ -128,10 +128,10 @@ public class RunSettings {
             BufferedWriter br = new BufferedWriter(new FileWriter(filename));
             StringBuilder sb = new StringBuilder();
             {
-                sb.append("\n");
-                sb.append("repetitions: " + totalExperimentRepetitions + "\n");
-                sb.append("ArrayLengths: " + Arrays.toString(arrayLengths) + "\n");
-                sb.append("Resulting cycleNumbers: " + Arrays.toString(cycleNumbers) + "\n");
+                sb.append("repetitions: " + totalExperimentRepetitions + System.getProperty("line.separator"));
+                sb.append("ArrayLengths: " + Arrays.toString(arrayLengths) + System.getProperty("line.separator"));
+                sb.append("CycleNumbers: " + Arrays.toString(cycleNumbers) + System.getProperty("line.separator"));
+                sb.append(System.getProperty("line.separator"));
             }
 
             br.write(sb.toString());
