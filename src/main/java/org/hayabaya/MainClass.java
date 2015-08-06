@@ -9,10 +9,9 @@
  */
 package org.hayabaya;
 
-import org.hayabaya.datarelated.Operation;
-import org.hayabaya.datarelated.Results;
-import org.hayabaya.datarelated.Utility;
-import org.hayabaya.loopers.*;
+import org.hayabaya.datarelated.Tpe;
+import org.hayabaya.loopers.LooperFactory;
+import org.hayabaya.loopers.Loopers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,53 +33,43 @@ import java.util.List;
  */
 public class MainClass {
     public static void main(String[] args) {
+        RunSettings runSettings = RunSettings.getInstance();
 
-        System.out.println("Hello to the HayaBaya project \n");
 
-        Results result = null;
+        if (args.length < 3) {
+            System.out.println("Please supply a \"name\" param, a \"size\" param (small, medium, large) and number of repetitions");
+            System.exit(1);
+        } else if (args.length == 3) {
+            String name= args[0];
+            runSettings.setName(name);
+            String sampleSize = args[1];
+            runSettings.setSampleSize(sampleSize);
+
+            try {
+                int reps = Integer.parseInt(args[2]);
+                runSettings.setTotalExperimentRepetitions(reps);
+            } catch (NumberFormatException e) {
+                System.err.println("Argument" + args[2] + "must be an integer > 0");
+                System.exit(1);
+            }
+        }
+
+
+        LooperFactory looperFactory = LooperFactory.getinstance();
 
         /* place Loopers into a list and iterate over the list performing operations, parsing types to methods */
         List<Loopers> aListOfLoopers = new ArrayList<>();
 
-
-
-        //<editor-fold desc="Initialize all Looper instances with Array_Size_Min and Cycles_Min from Runsettings">
-        aListOfLoopers.add(new LoopersInt(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
-        aListOfLoopers.add(new LoopersLong(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
-        aListOfLoopers.add(new LoopersFloat(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
-        aListOfLoopers.add(new LoopersDouble(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
-
-        aListOfLoopers.add(new LoopersIntegerBoxed(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
-        aListOfLoopers.add(new LoopersLongBoxed(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
-        aListOfLoopers.add(new LoopersFloatBoxed(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
-        aListOfLoopers.add(new LoopersDoubleBoxed(RunSettings.ARRAY_SIZE_MIN, RunSettings.CYCLES_MIN));
-        //</editor-fold>
-
-
-        /* The first and outermost loop only loops over the repetitions of the entire experiment */
-        for ( int repetitions = 0; repetitions <= RunSettings.TOTAL_EXP_REPS; repetitions++ ){
-
-            /* Loops over each getType of Looper object in the LooperList */
-            for (Loopers aLooperInstance : aListOfLoopers) {
-
-                /* Loop over the types of operations ADD, SUBTRACT etc. */
-                for (Operation anOperationToUse : Operation.values()) {
-
-                    result = aLooperInstance.makeResults(anOperationToUse);
-                    Utility.writeResultsToCsv(result);
-
-
-                    //<editor-fold desc="Print debug information when running Hayabaya">
-                    if (RunSettings.debug){
-                        String loopString = aLooperInstance.toString();
-                        System.out.println(loopString);
-                        String resultString = result.toString();
-                        System.out.println(resultString);
-                    }
-                    //</editor-fold>
-                }
-            }
-            Utility.setResultCounter(repetitions);
+        for (Tpe datatype: Tpe.values()){
+            aListOfLoopers.add(looperFactory.createLooperInstance(datatype));
         }
+
+        /* No need for doing casting as makeResults should only use non-instance specific actions */
+        for (Loopers anInstance : aListOfLoopers){
+            anInstance.makeResults();
+        }
+
+        //Write the runsettings used to disk so it can be recalled later on during analysis
+        runSettings.writeRunSettingsToDisk();
     }
 }
