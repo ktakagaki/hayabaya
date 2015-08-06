@@ -47,10 +47,11 @@ public class MainClass {
 
             try {
                 int reps = Integer.parseInt(args[2]);
+                //The following will also check if the parse ended up with a valid int parameter
                 runSettings.setTotalExperimentRepetitions(reps);
             } catch (NumberFormatException e) {
-                System.err.println("Argument" + args[2] + "must be an integer > 0");
-                System.exit(1);
+                System.err.println("Argument" + args[2] + "must be a parsable integer.");
+                System.exit(-1);
             }
         }
 

@@ -15,6 +15,7 @@ import java.util.List;
  * Created by cain on 4/20/2015.
  */
 public class RunSettings {
+
     private static RunSettings instance = new RunSettings();
 
     private String sampleSize;
@@ -149,6 +150,8 @@ public class RunSettings {
     }
 
     public void setName(String n){
+        //if(n == null) throw new IllegalArgumentException("This shouldn't happen")
+        //if(n.equals("")) throw new IllegalArgumentException("This shouldn't happen either")
         this.name = n;
     }
 
@@ -163,10 +166,15 @@ public class RunSettings {
         } else if (s.equals("large")){
             this.arrayLengthFromToBy = new int[] {1000, 200000, 1000};
             this.cycleNumbersFromToBy = new int[] {10000, 200000, 20000};
+        } else {
+            throw new IllegalArgumentException("specify small/medium/large for 2nd argument!");
         }
     }
 
     public void setTotalExperimentRepetitions(int r){
+        if(r <= 0 || 100 <= r ){
+            throw new IllegalArgumentException("third argument must be greater than zero and less than 100!");
+        }
         this.totalExperimentRepetitions = r;
     }
 
