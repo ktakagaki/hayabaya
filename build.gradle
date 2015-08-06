@@ -13,24 +13,10 @@ repositories {
     mavenCentral()
 }
 
-// tag::jar[]
-/*jar {
-    baseName = 'HayaBaya'
-    version =  '0.1.0'
-}*/
-// end::jar[]
-
-
 
 dependencies {
     compile group: 'junit', name: 'junit', version: '4.+'
 }
-
-// tag::wrapper[]
-/*task wrapper(type: Wrapper) {
-    gradleVersion = '2.5'
-}*/
-// end::wrapper[]
 
 
 //create a single Jar with all dependencies

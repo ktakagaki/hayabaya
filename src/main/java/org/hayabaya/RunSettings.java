@@ -17,9 +17,26 @@ import java.util.List;
 public class RunSettings {
     private static RunSettings instance = new RunSettings();
 
-    private int[] arrayLengthFromToBy = {10, 20, 1};
-    private int[] cycleNumbersFromToBy = {10, 200, 20};
-    private int totalExperimentRepetitions = 3;
+    private String sampleSize;
+    private String name;
+    private int totalExperimentRepetitions;
+    private int[] arrayLengthFromToBy;
+    private int[] cycleNumbersFromToBy;
+
+    private RunSettings() {
+        System.out.println("RunSettings() Singleton being instantiated...");
+//        System.out.println("Total repetitions: "      +totalExperimentRepetitions);
+//        System.out.println("arrayLengthFromToBy: "    +Arrays.toString(arrayLengthFromToBy));
+//        System.out.println("Resulting ArrayLengths: " +Arrays.toString(arrayLengths));
+//        System.out.println("cycleNumbersFromToBy: "   +Arrays.toString(cycleNumbersFromToBy));
+//        System.out.println("Resulting cycleNumbers: " +Arrays.toString(cycleNumbers));
+    }
+
+
+    public static RunSettings getInstance() {
+        return instance;
+    }
+
 
 //    private int[] cycleNumbers = {2500, 3844, 5625, 7569, 10000, 12544, 15625, 18769, 22500};
 //    private int[] arrayLengths = {100, 400, 900, 1600, 2500, 3600, 4900, 6400, 8100, 10000};
@@ -33,30 +50,6 @@ public class RunSettings {
             cycleNumbersFromToBy[1],
             cycleNumbersFromToBy[2]);
 
-//    private int[] arrayLengthsX2 = generateBaseNSpace(2, arrayLengths);
-//    private int[] cycleNumbersX2 = generateBaseNSpace(2, cycleNumbers);
-
-
-    private RunSettings() {
-        System.out.println("RunSettings() Singleton being instantiated...");
-        System.out.println("Total repetitions: "      +totalExperimentRepetitions);
-        System.out.println("arrayLengthFromToBy: "    +Arrays.toString(arrayLengthFromToBy));
-        System.out.println("Resulting ArrayLengths: " +Arrays.toString(arrayLengths));
-        System.out.println("cycleNumbersFromToBy: "   +Arrays.toString(cycleNumbersFromToBy));
-        System.out.println("Resulting cycleNumbers: " +Arrays.toString(cycleNumbers));
-    }
-
-    public static RunSettings getInstance() {
-        return instance;
-    }
-
-    public static int[] generateBaseNSpace(int base, int[] linearArray) {
-        int[] result = linearArray.clone();
-        for (int element : result) {
-            element = (int) Math.pow((double) base, (double) element);
-        }
-        return result;
-    }
 
     /**
      * Create an array of int[] starting from minimumValue, going up to (inclusive) maximumValue, in increments of
@@ -90,6 +83,14 @@ public class RunSettings {
 
         int[] result = convertToPrimitiveArray(arl);
 
+        return result;
+    }
+
+    public static int[] generateBaseNSpace(int base, int[] linearArray) {
+        int[] result = linearArray.clone();
+        for (int element : result) {
+            element = (int) Math.pow((double) base, (double) element);
+        }
         return result;
     }
 
@@ -147,12 +148,26 @@ public class RunSettings {
 
     }
 
-    public int[] getArrayLengthFromToBy() {
-        return arrayLengthFromToBy;
+    public void setName(String n){
+        this.name = n;
     }
 
-    public int[] getCycleNumbersFromToBy() {
-        return cycleNumbersFromToBy;
+    public void setSampleSize(String s){
+        this.sampleSize = s;
+        if (s.equals("small")){
+            this.arrayLengthFromToBy = new int[] {10, 20, 1};
+            this.cycleNumbersFromToBy = new int[] {10, 200, 20};
+        } else if (s.equals("medium")){
+            this.arrayLengthFromToBy = new int[] {100, 200, 10};
+            this.cycleNumbersFromToBy = new int[] {1000, 20000, 2000};
+        } else if (s.equals("large")){
+            this.arrayLengthFromToBy = new int[] {1000, 200000, 1000};
+            this.cycleNumbersFromToBy = new int[] {10000, 200000, 20000};
+        }
+    }
+
+    public void setTotalExperimentRepetitions(int r){
+        this.totalExperimentRepetitions = r;
     }
 
     public int getTotalExperimentRepetitions() {

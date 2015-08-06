@@ -33,9 +33,28 @@ import java.util.List;
  */
 public class MainClass {
     public static void main(String[] args) {
-        System.out.println("Hello to the HayaBaya project \n");
-
         RunSettings runSettings = RunSettings.getInstance();
+
+
+        if (args.length < 3) {
+            System.out.println("Please supply a \"name\" param, a \"size\" param (small, medium, large) and number of repetitions");
+            System.exit(1);
+        } else if (args.length == 3) {
+            String name= args[0];
+            runSettings.setName(name);
+            String sampleSize = args[1];
+            runSettings.setSampleSize(sampleSize);
+
+            try {
+                int reps = Integer.parseInt(args[2]);
+                runSettings.setTotalExperimentRepetitions(reps);
+            } catch (NumberFormatException e) {
+                System.err.println("Argument" + args[2] + "must be an integer > 0");
+                System.exit(1);
+            }
+        }
+
+
         LooperFactory looperFactory = LooperFactory.getinstance();
 
         /* place Loopers into a list and iterate over the list performing operations, parsing types to methods */
