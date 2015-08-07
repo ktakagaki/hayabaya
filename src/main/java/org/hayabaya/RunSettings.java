@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.util.*;
+
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -47,6 +49,7 @@ public class RunSettings {
      * @return A variable length int[] array, in fencepost cases the method will be inclusive
      */
     public static int[] generateIntegerLinearSpace(int minimumValue, int maximumValue, int incrementSize) {
+        logger.entry(minimumValue, maximumValue, incrementSize);
         assert minimumValue > 0 : "array length must be > 0";
         assert maximumValue > 0 : "array length must be > 0";
         assert maximumValue > minimumValue : " maximumValue must be > minimumValue";
@@ -69,14 +72,17 @@ public class RunSettings {
 
         int[] result = convertToPrimitiveArray(arl);
 
+        logger.exit(result);
         return result;
     }
 
     public static int[] generateBaseNSpace(int base, int[] linearArray) {
+        logger.entry(base, linearArray);
         int[] result = linearArray.clone();
         for (int element : result) {
             element = (int) Math.pow((double) base, (double) element);
         }
+        logger.exit(result);
         return result;
     }
 
@@ -89,11 +95,13 @@ public class RunSettings {
      * -primitive-int-array">The question on StackExchange</a>
      */
     public static int[] convertToPrimitiveArray(List<Integer> integers) {
+        logger.entry(integers);
         int[] ret = new int[integers.size()];
         Iterator<Integer> iterator = integers.iterator();
         for (int i = 0; i < ret.length; i++) {
             ret[i] = iterator.next().intValue();
         }
+        logger.exit(ret);
         return ret;
     }
 
@@ -137,12 +145,15 @@ public class RunSettings {
     }
 
     public void setName(String n) {
+        logger.entry(n);
         //if(n == null) throw new IllegalArgumentException("This shouldn't happen")
         //if(n.equals("")) throw new IllegalArgumentException("This shouldn't happen either")
         this.name = Objects.requireNonNull(n, "name must not be null");
+        logger.exit();
     }
 
     public void setSampleSize(String s) {
+        logger.entry(s);
         this.sampleSize = Objects.requireNonNull(s, "sampleSize must not be null");
         if (s.equals("small")) {
             this.arrayLengthFromToBy = new int[]{10, 20, 1};
@@ -157,9 +168,11 @@ public class RunSettings {
             throw new IllegalArgumentException("specify small/medium/large for 2nd argument!");
         }
         generateArrays(this.arrayLengthFromToBy, this.cycleNumbersFromToBy);
+        logger.exit();
     }
 
-    private void generateArrays(int[] arl, int[] cnf){
+    private void generateArrays(int[] arl, int[] cnf) {
+        logger.entry(arl, cnf);
         this.arrayLengths = generateIntegerLinearSpace(
                 arl[0],
                 arl[1],
@@ -168,6 +181,7 @@ public class RunSettings {
                 cnf[0],
                 cnf[1],
                 cnf[2]);
+        logger.exit();
     }
 
     public int getTotalExperimentRepetitions() {
@@ -175,6 +189,7 @@ public class RunSettings {
     }
 
     public void setTotalExperimentRepetitions(int r) {
+        logger.entry(r);
         try {
 //            if (r <= 0 || 100 <= r) {
 //                throw new IllegalArgumentException("third argument must be greater than zero and less than 100!");
@@ -183,7 +198,7 @@ public class RunSettings {
         } catch (IllegalArgumentException e){
             logger.error("Illegal usage of repetitions arguments", e);
         }
-
+        logger.exit();
     }
 
     public int[] getArrayLengths() {

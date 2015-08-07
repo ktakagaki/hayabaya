@@ -6,7 +6,12 @@
         </Console>
     </Appenders>
     <Loggers>
-        <Logger name="com.foo.Bar" level="trace" additivity="false">
+        <Root level="error">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+    <Loggers>
+        <Logger name="org.hayabaya.RunSettings" level="warn" additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>
         <Root level="error">

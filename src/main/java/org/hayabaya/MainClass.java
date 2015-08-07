@@ -9,6 +9,7 @@
  */
 package org.hayabaya;
 
+import org.apache.logging.log4j.Level;
 import org.hayabaya.datarelated.Tpe;
 import org.hayabaya.loopers.LooperFactory;
 import org.hayabaya.loopers.Loopers;
@@ -51,8 +52,9 @@ public class MainClass {
 
 
         if (args.length < 3) {
-            System.err.println("Please supply a \"name\" param, a \"size\" param (small, medium, large) and number of repetitions");
-            System.exit(-1);
+            throw logger.throwing(Level.ERROR,  new IllegalArgumentException("You must supply 3 " +
+                    "arguments to the program, 1st: name, 2nd: small/medium/large 3rd: " +
+                    "repetitions [1-10] \n"));
         } else if (args.length == 3) {
             String name = args[0];
             runSettings.setName(name);
