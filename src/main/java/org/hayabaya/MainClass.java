@@ -9,15 +9,18 @@
  */
 package org.hayabaya;
 
-import org.apache.logging.log4j.Level;
+import ch.qos.logback.classic.Level;
 import org.hayabaya.datarelated.Tpe;
 import org.hayabaya.loopers.LooperFactory;
 import org.hayabaya.loopers.Loopers;
-
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import ch.qos.logback.classic.LoggerContext;
+import ch.qos.logback.core.util.StatusPrinter;
+import org.slf4j.ext.XLogger;
+import org.slf4j.ext.XLoggerFactory;
 
 /**
  * Main class for testing java operations.
@@ -34,10 +37,6 @@ import org.apache.logging.log4j.Logger;
  * @version 1.0
  */
 public class MainClass {
-    // Define a static logger variable so that it references the
-    // Logger instance named "MyApp".
-    private static final Logger logger = LogManager.getLogger(MainClass.class);
-
     /**
      * Main takes 3 parameters, \" name sampleSize reps \". Name is the name
      * of the CPU/System being tested, sampleSize has to be either small,
@@ -47,12 +46,15 @@ public class MainClass {
      * @param args name sampleSize repetitions
      */
     public static void main(String[] args) {
+        XLogger logger = XLoggerFactory.getXLogger(RunSettings.class
+                .getName());
+//        Logger logger = LoggerFactory.getLogger(MainClass.class);
         logger.info("Hello, World!");
         RunSettings runSettings = RunSettings.getInstance();
 
 
         if (args.length < 3) {
-            throw logger.throwing(Level.ERROR,  new IllegalArgumentException("You must supply 3 " +
+            throw logger.throwing(new IllegalArgumentException("You must supply 3 " +
                     "arguments to the program, 1st: name, 2nd: small/medium/large 3rd: " +
                     "repetitions [1-10] \n"));
         } else if (args.length == 3) {

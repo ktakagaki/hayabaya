@@ -1,14 +1,14 @@
 package org.hayabaya;
 
+import org.slf4j.ext.XLogger;
+import org.slf4j.ext.XLoggerFactory;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.util.*;
 
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 /**
  * This static class encapsulates the settings for experimental runs
@@ -17,7 +17,8 @@ import org.apache.logging.log4j.Logger;
  * Created by cain on 4/20/2015.
  */
 public class RunSettings {
-    private static final Logger logger = LogManager.getLogger(RunSettings.class);
+    private static XLogger logger = XLoggerFactory.getXLogger(RunSettings.class
+            .getName());
 
     private static RunSettings instance = new RunSettings();
 
