@@ -35,8 +35,21 @@ import java.util.Objects;
  */
 public class Results {
 
-    private Logger logger;
-    private String TAG;
+    private static String TAG;
+    private static Class<?> cls;
+    private static Logger logger;
+    static {
+        try {
+            Class<?> cls = Class.forName("org.hayabaya.datarelated.Results");
+            TAG = cls.toString();
+            Logger logger = LoggerFactory.getLogger(cls);
+            logger.info("Results logger sucessfully initialized");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            logger.error("The classname was not found and TAG not initialized", e);
+        }
+    }
+
     public long[][] data;
     public int theRepetitionNumber;
     public Tpe type;
@@ -45,16 +58,6 @@ public class Results {
     public String isBoxed;
 
     private Results() {}
-
-    try {
-        Class<?> cls = Class.forName("org.hayabaya.datarelated.Results");
-        TAG = cls.toString();
-        Logger logger = LoggerFactory.getLogger(cls);
-        logger.info("Results logger sucessfully initialized");
-    } catch (ClassNotFoundException e) {
-        e.printStackTrace();
-        logger.error("The classname was not found and TAG not initialized", e);
-    }
 
     /**
      *
@@ -72,11 +75,11 @@ public class Results {
             this.theRepetitionNumber = Objects.requireNonNull(theRepetitionNumber);
             this.type = type; // Can be null from creation from Loopers abstract class!
             this.operation = Objects.requireNonNull(operation);
-            this.isBoxed = Utility.isBoxed(this.type);
+            this.isBoxed = Utility.isBoxed(type);
 
-            logger.info(TAG + "Successfully initialized");
-        } catch (Exception e){
-            logger.error(TAG, " costum nullpointerexception: ", e);
+            logger.info("Successfully initialized" + TAG);
+        } catch (NullPointerException e){
+            logger.error("Something wrong", e);
         }
     }
 

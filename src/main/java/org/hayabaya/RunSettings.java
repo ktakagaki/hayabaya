@@ -1,5 +1,7 @@
 package org.hayabaya;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.slf4j.ext.XLogger;
 import org.slf4j.ext.XLoggerFactory;
 
@@ -17,7 +19,22 @@ import java.util.*;
  * Created by cain on 4/20/2015.
  */
 public class RunSettings {
-    private static XLogger logger = XLoggerFactory.getXLogger(RunSettings.class
+    private static String TAG;
+    private static Class<?> cls;
+    private static Logger logger;
+    static {
+        try {
+            Class<?> cls = Class.forName("org.hayabaya.RunSettings");
+            TAG = cls.toString();
+            Logger logger = LoggerFactory.getLogger(cls);
+            logger.info("RunSettings logger sucessfully initialized");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            logger.error("The classname was not found and TAG not initialized", e);
+        }
+    }
+
+    private static XLogger xlogger = XLoggerFactory.getXLogger(RunSettings.class
             .getName());
 
     private static RunSettings instance = new RunSettings();
@@ -55,7 +72,7 @@ public class RunSettings {
      * @return A variable length int[] array, in fencepost cases the method will be inclusive
      */
     public static int[] generateIntegerLinearSpace(int minimumValue, int maximumValue, int incrementSize) {
-        logger.entry(minimumValue, maximumValue, incrementSize);
+        xlogger.entry(TAG, minimumValue, maximumValue, incrementSize);
         assert minimumValue > 0 : "array length must be > 0";
         assert maximumValue > 0 : "array length must be > 0";
         assert maximumValue > minimumValue : " maximumValue must be > minimumValue";
@@ -78,17 +95,17 @@ public class RunSettings {
 
         int[] result = convertToPrimitiveArray(arl);
 
-        logger.exit(result);
+        xlogger.exit(result);
         return result;
     }
 
     public static int[] generateBaseNSpace(int base, int[] linearArray) {
-        logger.entry(base, linearArray);
+        xlogger.entry(base, linearArray);
         int[] result = linearArray.clone();
         for (int element : result) {
             element = (int) Math.pow((double) base, (double) element);
         }
-        logger.exit(result);
+        xlogger.exit(result);
         return result;
     }
 
@@ -101,13 +118,13 @@ public class RunSettings {
      * -primitive-int-array">The question on StackExchange</a>
      */
     public static int[] convertToPrimitiveArray(List<Integer> integers) {
-        logger.entry(integers);
+        xlogger.entry(integers);
         int[] ret = new int[integers.size()];
         Iterator<Integer> iterator = integers.iterator();
         for (int i = 0; i < ret.length; i++) {
             ret[i] = iterator.next().intValue();
         }
-        logger.exit(ret);
+        xlogger.exit(ret);
         return ret;
     }
 
@@ -139,11 +156,11 @@ public class RunSettings {
             br.close();
         } catch (FileNotFoundException e) {
             //This should not be triggered
-            logger.error("Sorry, somewhting wrong!", e);
+            xlogger.error("Sorry, somewhting wrong!", e);
             System.out.println("SHOULD NOT BE TRIGGERED: The /results/ folder does not exist, cannot write file");
             e.printStackTrace(System.out);
         } catch (Exception e) {
-            logger.error("Sorry, somewhting wrong!", e);
+            xlogger.error("Sorry, somewhting wrong!", e);
             System.out.println("An unknown file exception was thrown..");
             e.printStackTrace(System.out);
         }
@@ -151,15 +168,15 @@ public class RunSettings {
     }
 
     public void setName(String n) {
-        logger.entry(n);
+        xlogger.entry(n);
         //if(n == null) throw new IllegalArgumentException("This shouldn't happen")
         //if(n.equals("")) throw new IllegalArgumentException("This shouldn't happen either")
         this.name = Objects.requireNonNull(n, "name must not be null");
-        logger.exit();
+        xlogger.exit();
     }
 
     public void setSampleSize(String s) {
-        logger.entry(s);
+        xlogger.entry(s);
         this.sampleSize = Objects.requireNonNull(s, "sampleSize must not be null");
         if (s.equals("small")) {
             this.arrayLengthFromToBy = new int[]{10, 20, 1};
@@ -174,11 +191,11 @@ public class RunSettings {
             throw new IllegalArgumentException("specify small/medium/large for 2nd argument!");
         }
         generateArrays(this.arrayLengthFromToBy, this.cycleNumbersFromToBy);
-        logger.exit();
+        xlogger.exit();
     }
 
     private void generateArrays(int[] arl, int[] cnf) {
-        logger.entry(arl, cnf);
+        xlogger.entry(arl, cnf);
         this.arrayLengths = generateIntegerLinearSpace(
                 arl[0],
                 arl[1],
@@ -187,7 +204,7 @@ public class RunSettings {
                 cnf[0],
                 cnf[1],
                 cnf[2]);
-        logger.exit();
+        xlogger.exit();
     }
 
     public int getTotalExperimentRepetitions() {
@@ -195,16 +212,16 @@ public class RunSettings {
     }
 
     public void setTotalExperimentRepetitions(int r) {
-        logger.entry(r);
+        xlogger.entry(r);
         try {
 //            if (r <= 0 || 100 <= r) {
 //                throw new IllegalArgumentException("third argument must be greater than zero and less than 100!");
 //            }
             this.totalExperimentRepetitions = Objects.requireNonNull(r, "Repetitions must not be null");
         } catch (IllegalArgumentException e){
-            logger.error("Illegal usage of repetitions arguments", e);
+            xlogger.error("Illegal usage of repetitions arguments", e);
         }
-        logger.exit();
+        xlogger.exit();
     }
 
     public int[] getArrayLengths() {

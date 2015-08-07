@@ -2,6 +2,9 @@ package org.hayabaya.loopers;
 
 import org.hayabaya.datarelated.*;
 import org.hayabaya.RunSettings;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Random;
 
 /**
@@ -18,6 +21,11 @@ import java.util.Random;
  * @author ktakagaki
  */
 public abstract class Loopers {
+    private static String TAG;
+    private static Class<?> cls;
+    private static Logger logger;
+
+
     RunSettings runSettings = RunSettings.getInstance();
     Random rand = new Random();
 
@@ -99,9 +107,12 @@ public abstract class Loopers {
                     rowIndex ++;
                 }
 
-                result = new Results(data, currentRepetition, getType(), anOperationToUse);
-
-                Utility.writeResultsToCsv(result);
+                try {
+                    result = new Results(data, currentRepetition, getType(), anOperationToUse);
+                    Utility.writeResultsToCsv(result);
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
