@@ -15,6 +15,8 @@ import org.hayabaya.loopers.Loopers;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Main class for testing java operations.
@@ -31,6 +33,10 @@ import java.util.List;
  * @version 1.0
  */
 public class MainClass {
+    // Define a static logger variable so that it references the
+    // Logger instance named "MyApp".
+    private static final Logger logger = LogManager.getLogger(MainClass.class);
+
     /**
      * Main takes 3 parameters, \" name sampleSize reps \". Name is the name
      * of the CPU/System being tested, sampleSize has to be either small,
@@ -40,7 +46,7 @@ public class MainClass {
      * @param args name sampleSize repetitions
      */
     public static void main(String[] args) {
-
+        logger.info("Hello, World!");
         RunSettings runSettings = RunSettings.getInstance();
 
 

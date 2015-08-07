@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.util.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * This static class encapsulates the settings for experimental runs
@@ -13,6 +15,7 @@ import java.util.*;
  * Created by cain on 4/20/2015.
  */
 public class RunSettings {
+    private static final Logger logger = LogManager.getLogger(RunSettings.class);
 
     private static RunSettings instance = new RunSettings();
 
@@ -122,9 +125,11 @@ public class RunSettings {
             br.close();
         } catch (FileNotFoundException e) {
             //This should not be triggered
+            logger.error("Sorry, somewhting wrong!", e);
             System.out.println("SHOULD NOT BE TRIGGERED: The /results/ folder does not exist, cannot write file");
             e.printStackTrace(System.out);
         } catch (Exception e) {
+            logger.error("Sorry, somewhting wrong!", e);
             System.out.println("An unknown file exception was thrown..");
             e.printStackTrace(System.out);
         }
@@ -143,11 +148,11 @@ public class RunSettings {
             this.arrayLengthFromToBy = new int[]{10, 20, 1};
             this.cycleNumbersFromToBy = new int[]{10, 200, 20};
         } else if (s.equals("medium")) {
-            this.arrayLengthFromToBy = new int[]{100, 200, 10};
-            this.cycleNumbersFromToBy = new int[]{1000, 20000, 2000};
+            this.arrayLengthFromToBy = new int[]{1000, 5000, 1000};
+            this.cycleNumbersFromToBy = new int[]{1000, 5000, 1000};
         } else if (s.equals("large")) {
-            this.arrayLengthFromToBy = new int[]{1000, 200000, 1000};
-            this.cycleNumbersFromToBy = new int[]{10000, 200000, 20000};
+            this.arrayLengthFromToBy = new int[]{10000, 50000, 5000};
+            this.cycleNumbersFromToBy = new int[]{1000, 10000, 1000};
         } else {
             throw new IllegalArgumentException("specify small/medium/large for 2nd argument!");
         }
@@ -170,10 +175,15 @@ public class RunSettings {
     }
 
     public void setTotalExperimentRepetitions(int r) {
-        if (r <= 0 || 100 <= r) {
-            throw new IllegalArgumentException("third argument must be greater than zero and less than 100!");
+        try {
+//            if (r <= 0 || 100 <= r) {
+//                throw new IllegalArgumentException("third argument must be greater than zero and less than 100!");
+//            }
+            this.totalExperimentRepetitions = Objects.requireNonNull(r, "Repetitions must not be null");
+        } catch (IllegalArgumentException e){
+            logger.error("Illegal usage of repetitions arguments", e);
         }
-        this.totalExperimentRepetitions = Objects.requireNonNull(r, "Repetitions must not be null");
+
     }
 
     public int[] getArrayLengths() {
