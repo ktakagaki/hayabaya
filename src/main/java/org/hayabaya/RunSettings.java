@@ -21,22 +21,14 @@ public class RunSettings {
     private int totalExperimentRepetitions;
     private int[] arrayLengthFromToBy;
     private int[] cycleNumbersFromToBy;
-    private int[] arrayLengths = generateIntegerLinearSpace(
-            arrayLengthFromToBy[0],
-            arrayLengthFromToBy[1],
-            arrayLengthFromToBy[2]);
-    private int[] cycleNumbers = generateIntegerLinearSpace(
-            cycleNumbersFromToBy[0],
-            cycleNumbersFromToBy[1],
-            cycleNumbersFromToBy[2]);
+
+    private int[] arrayLengths, cycleNumbers;
 
 
 //    private int[] cycleNumbers = {2500, 3844, 5625, 7569, 10000, 12544, 15625, 18769, 22500};
 //    private int[] arrayLengths = {100, 400, 900, 1600, 2500, 3600, 4900, 6400, 8100, 10000};
 
-    private RunSettings() {
-        System.out.println("RunSettings() Singleton being instantiated...");
-    }
+    private RunSettings() {}
 
     public static RunSettings getInstance() {
         return instance;
@@ -159,6 +151,18 @@ public class RunSettings {
         } else {
             throw new IllegalArgumentException("specify small/medium/large for 2nd argument!");
         }
+        generateArrays(this.arrayLengthFromToBy, this.cycleNumbersFromToBy);
+    }
+
+    private void generateArrays(int[] arl, int[] cnf){
+        this.arrayLengths = generateIntegerLinearSpace(
+                arl[0],
+                arl[1],
+                arl[2]);
+        this.cycleNumbers = generateIntegerLinearSpace(
+                cnf[0],
+                cnf[1],
+                cnf[2]);
     }
 
     public int getTotalExperimentRepetitions() {
