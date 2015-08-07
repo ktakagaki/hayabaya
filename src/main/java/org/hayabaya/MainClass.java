@@ -9,18 +9,17 @@
  */
 package org.hayabaya;
 
-import ch.qos.logback.classic.Level;
+import ch.qos.logback.classic.Logger;
 import org.hayabaya.datarelated.Tpe;
 import org.hayabaya.loopers.LooperFactory;
 import org.hayabaya.loopers.Loopers;
-import org.hayabaya.datarelated.LogLevel;
+import org.slf4j.LoggerFactory;
 import org.slf4j.ext.XLogger;
 import org.slf4j.ext.XLoggerFactory;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-
-import static org.hayabaya.datarelated.LogLevel.log;
 
 /**
  * Main class for testing java operations.
@@ -37,6 +36,7 @@ import static org.hayabaya.datarelated.LogLevel.log;
  * @version 1.0
  */
 public class MainClass {
+    private static final Logger logger = (Logger) LoggerFactory.getLogger(MainClass.class);
     /**
      * Main takes 3 parameters, \" name sampleSize reps \". Name is the name
      * of the CPU/System being tested, sampleSize has to be either small,
@@ -45,15 +45,26 @@ public class MainClass {
      *
      * @param args name sampleSize repetitions
      */
-    public static void main(String[] args) {
-        XLogger logger = XLoggerFactory.getXLogger(RunSettings.class.getName());
-        logger.entry(args);
+    public static void main(String[] args) throws IllegalArgumentException,
+            NumberFormatException, ClassNotFoundException {
+        try {
+            Class<?> cls = Class.forName("org.hayabaya.MainClass");
+            String TAG = cls.toString();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            logger.error("TAG:", e);
+        }
+        XLogger xlogger = XLoggerFactory.getXLogger(RunSettings.class.getName());
+        xlogger.entry(args);
+
+        Date date = new Date();
+        logger.info("TAG, the date is: " +date);
 
         RunSettings runSettings = RunSettings.getInstance();
 
 
         if (args.length < 3) {
-            throw logger.throwing(new IllegalArgumentException("You must supply 3 " +
+            throw xlogger.throwing(new IllegalArgumentException("You must supply 3 " +
                     "arguments to the program, 1st: name, 2nd: small/medium/large 3rd: " +
                     "repetitions [1-10] \n"));
         } else if (args.length == 3) {
@@ -68,7 +79,7 @@ public class MainClass {
                 runSettings.setTotalExperimentRepetitions(reps);
             } catch (NumberFormatException e) {
                 System.err.println("Argument \'" + args[2] + "\' must be a parsable integer.");
-                logger.error("Illegal usage of repetitions arguments", e);
+                xlogger.error("Illegal usage of repetitions arguments", e);
                 System.exit(-1);
             }
         }

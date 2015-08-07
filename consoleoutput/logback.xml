@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoders are assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n</pattern>
+        </encoder>
+    </appender>
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>junit.log</file>
+        <append>true</append>
+        <!-- encoders are assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+            <pattern>%-4r %-5level %logger{35}: %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="FILE2" class="ch.qos.logback.core.ConsoleAppender">
+        <file>file2.log</file>
+        <append>true</append>
+        <!-- encoders are assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n</pattern>
+        </encoder>
+    </appender>
+    <root level="TRACE">
+        <appender-ref ref="FILE" />
+        <appender-ref ref="FILE2" />
+        <appender-ref ref="STDOUT" />
+    </root>
+    <!-- We want error logging from this logger to go to an extra appender
+         It still inherits CONSOLE STDOUT from the root logger -->
+    <logger name="junit" level="TRACE">
+        <appender-ref ref="STDOUT" />
+    </logger>
+    <logger name="STDOUT" level="TRACE">
+        <appender-ref ref="STDOUT" />
+    </logger>
+    <logger name="SFILE2" level="TRACE">
+        <appender-ref ref="STDOUT" />
+    </logger>
+    <logger name="org.hayabaya.RunSettings" level="TRACE">
+        <appender-ref ref="STDOUT" />
+    </logger>
+    <logger name="org.hayabaya.MainClass" level="TRACE">
+        <appender-ref ref="STDOUT" />
+    </logger>
+</configuration>
