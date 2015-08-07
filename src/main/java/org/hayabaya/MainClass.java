@@ -13,14 +13,14 @@ import ch.qos.logback.classic.Level;
 import org.hayabaya.datarelated.Tpe;
 import org.hayabaya.loopers.LooperFactory;
 import org.hayabaya.loopers.Loopers;
-import java.util.ArrayList;
-import java.util.List;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import ch.qos.logback.classic.LoggerContext;
-import ch.qos.logback.core.util.StatusPrinter;
+import org.hayabaya.datarelated.LogLevel;
 import org.slf4j.ext.XLogger;
 import org.slf4j.ext.XLoggerFactory;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.hayabaya.datarelated.LogLevel.log;
 
 /**
  * Main class for testing java operations.
@@ -46,10 +46,9 @@ public class MainClass {
      * @param args name sampleSize repetitions
      */
     public static void main(String[] args) {
-        XLogger logger = XLoggerFactory.getXLogger(RunSettings.class
-                .getName());
-//        Logger logger = LoggerFactory.getLogger(MainClass.class);
-        logger.info("Hello, World!");
+        XLogger logger = XLoggerFactory.getXLogger(RunSettings.class.getName());
+        logger.entry(args);
+
         RunSettings runSettings = RunSettings.getInstance();
 
 

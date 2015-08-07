@@ -1,17 +1,17 @@
-183  INFO  org.hayabaya.RunSettings: Hello, World!
-187  TRACE org.hayabaya.RunSettings: entry with (inteli7)
-187  TRACE org.hayabaya.RunSettings: exit
-187  TRACE org.hayabaya.RunSettings: entry with (small)
-187  TRACE org.hayabaya.RunSettings: entry with ([10, 20, 1], [10, 200, 20])
-187  TRACE org.hayabaya.RunSettings: entry with (10, 20, 1)
-188  TRACE org.hayabaya.RunSettings: entry with ([10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20])
-188  TRACE org.hayabaya.RunSettings: exit with ([10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20])
-188  TRACE org.hayabaya.RunSettings: exit with ([10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20])
-188  TRACE org.hayabaya.RunSettings: entry with (10, 200, 20)
-188  TRACE org.hayabaya.RunSettings: entry with ([10, 30, 50, 70, 90, 110, 130, 150, 170, 190, 210])
-189  TRACE org.hayabaya.RunSettings: exit with ([10, 30, 50, 70, 90, 110, 130, 150, 170, 190, 210])
-189  TRACE org.hayabaya.RunSettings: exit with ([10, 30, 50, 70, 90, 110, 130, 150, 170, 190, 210])
-189  TRACE org.hayabaya.RunSettings: exit
-189  TRACE org.hayabaya.RunSettings: exit
-189  TRACE org.hayabaya.RunSettings: entry with (4)
-189  TRACE org.hayabaya.RunSettings: exit
+182  TRACE org.hayabaya.RunSettings: entry with (inteli7, small, 4)
+184  TRACE org.hayabaya.RunSettings: entry with (inteli7)
+184  TRACE org.hayabaya.RunSettings: exit
+184  TRACE org.hayabaya.RunSettings: entry with (small)
+185  TRACE org.hayabaya.RunSettings: entry with ([10, 20, 1], [10, 200, 20])
+185  TRACE org.hayabaya.RunSettings: entry with (10, 20, 1)
+185  TRACE org.hayabaya.RunSettings: entry with ([10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20])
+185  TRACE org.hayabaya.RunSettings: exit with ([10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20])
+185  TRACE org.hayabaya.RunSettings: exit with ([10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20])
+185  TRACE org.hayabaya.RunSettings: entry with (10, 200, 20)
+185  TRACE org.hayabaya.RunSettings: entry with ([10, 30, 50, 70, 90, 110, 130, 150, 170, 190, 210])
+190  TRACE org.hayabaya.RunSettings: exit with ([10, 30, 50, 70, 90, 110, 130, 150, 170, 190, 210])
+190  TRACE org.hayabaya.RunSettings: exit with ([10, 30, 50, 70, 90, 110, 130, 150, 170, 190, 210])
+190  TRACE org.hayabaya.RunSettings: exit
+190  TRACE org.hayabaya.RunSettings: exit
+190  TRACE org.hayabaya.RunSettings: entry with (4)
+190  TRACE org.hayabaya.RunSettings: exit
