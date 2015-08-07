@@ -142,11 +142,11 @@ public class RunSettings {
     public void setName(String n) {
         //if(n == null) throw new IllegalArgumentException("This shouldn't happen")
         //if(n.equals("")) throw new IllegalArgumentException("This shouldn't happen either")
-        this.name = Objects.requireNonNull(n);
+        this.name = Objects.requireNonNull(n, "name must not be null");
     }
 
     public void setSampleSize(String s) {
-        this.sampleSize = Objects.requireNonNull(s);
+        this.sampleSize = Objects.requireNonNull(s, "sampleSize must not be null");
         if (s.equals("small")) {
             this.arrayLengthFromToBy = new int[]{10, 20, 1};
             this.cycleNumbersFromToBy = new int[]{10, 200, 20};
@@ -169,7 +169,7 @@ public class RunSettings {
         if (r <= 0 || 100 <= r) {
             throw new IllegalArgumentException("third argument must be greater than zero and less than 100!");
         }
-        this.totalExperimentRepetitions = Objects.requireNonNull(r);
+        this.totalExperimentRepetitions = Objects.requireNonNull(r, "Repetitions must not be null");
     }
 
     public int[] getArrayLengths() {
