@@ -28,6 +28,16 @@ public class Utility {
         }
     }
 
+    public static void writeResultsV2(Results results){
+        //ToDo: Write this class
+        /*
+         1 Create name-resultsdirectory
+         2 Create the header line
+         3 Output all of the rows according to the long format
+         finalize and append to logger
+         */
+
+    }
 
     public static void writeResultsToCsv(Results results) {
         try
