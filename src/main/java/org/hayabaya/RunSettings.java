@@ -23,6 +23,11 @@ public class RunSettings {
     private static RunSettings instance = new RunSettings();
 
     private String sampleSize;
+
+    public String getName() {
+        return name;
+    }
+
     private String name;
     private int totalExperimentRepetitions;
     private int[] arrayLengthFromToBy;

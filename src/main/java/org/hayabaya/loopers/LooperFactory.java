@@ -10,7 +10,7 @@ public class LooperFactory {
     private LooperFactory(){}
     public static LooperFactory getinstance(){ return instance; }
 
-    public Loopers createLooperInstance(Tpe type){
+    public Loopers createLooperInstance(Tpe type) throws IllegalArgumentException{
         switch (type){
             case INT:
                 return new LoopersInt();

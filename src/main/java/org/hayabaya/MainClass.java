@@ -58,8 +58,6 @@ public class MainClass {
             logger.error("The classname was not found and TAG not initialized", e);
         }
 
-        XLogger xlogger = XLoggerFactory.getXLogger(MainClass.class.getName());
-        xlogger.entry(args);
 
         Date date = new Date();
         logger.info(TAG + " the date is: " + date);
@@ -70,9 +68,9 @@ public class MainClass {
 
 
         if (args.length < 3) {
-            throw xlogger.throwing(new IllegalArgumentException("You must supply 3 " +
+            throw new IllegalArgumentException("You must supply 3 " +
                     "arguments to the program, 1st: name, 2nd: small/medium/large 3rd: " +
-                    "repetitions [1-10] \n"));
+                    "repetitions [1-10] \n");
         } else if (args.length == 3) {
             String name = args[0];
             runSettings.setName(name);
@@ -85,7 +83,6 @@ public class MainClass {
                 runSettings.setTotalExperimentRepetitions(reps);
             } catch (NumberFormatException e) {
                 System.err.println("Argument \'" + args[2] + "\' must be a parsable integer.");
-                xlogger.error("Illegal usage of repetitions arguments", e);
                 System.exit(-1);
             }
         }

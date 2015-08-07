@@ -1,5 +1,8 @@
 package org.hayabaya.datarelated;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -10,14 +13,45 @@ import java.util.Arrays;
  * General Utility functions used to execute the project.
  */
 public class Utility {
+    private static String TAG;
+    private static Class<?> cls;
+    private static Logger logger;
+    static {
+        try {
+            Class<?> cls = Class.forName("org.hayabaya.datarelated.Utility");
+            TAG = cls.toString();
+            Logger logger = LoggerFactory.getLogger(cls);
+            logger.info("Utility logger sucessfully initialized");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            logger.error("The classname was not found and TAG not initialized", e);
+        }
+    }
 
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_RED = "\u001B[31m";
-    public static final String ANSI_GREEN = "\u001B[32m";
-    public static final String ANSI_YELLOW = "\u001B[33m";
-    public static final String ANSI_BLUE = "\u001B[34m";
-    public static final String ANSI_PURPLE = "\u001B[35m";
-    public static final String ANSI_CYAN = "\u001B[36m";
+
+    public static String isBoxed(Tpe type) throws IllegalArgumentException{
+            switch(type) {
+                case INT:
+                    return "FALSE";
+                case INTEGER_BOXED:
+                    return "TRUE";
+                case FLOAT:
+                    return "FALSE";
+                case FLOAT_BOXED:
+                    return "TRUE";
+                case DOUBLE:
+                    return "FALSE";
+                case DOUBLE_BOXED:
+                    return "TRUE";
+                case LONG:
+                    return "FALSE";
+                case LONG_BOXED:
+                    return "TRUE";
+                default:
+                    throw new IllegalArgumentException("Type given is not valid");
+            }
+    }
+
 
     public static void writeResultsToCsv(Results results) {
         try
@@ -51,4 +85,12 @@ public class Utility {
         }
 
     }
+
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_BLUE = "\u001B[34m";
+    public static final String ANSI_PURPLE = "\u001B[35m";
+    public static final String ANSI_CYAN = "\u001B[36m";
 }
