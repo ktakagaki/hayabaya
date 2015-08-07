@@ -15,19 +15,19 @@
             <pattern>%-4r %-5level %logger{35}: %msg%n</pattern>
         </encoder>
     </appender>
-    <root level="TRACE">
+    <root level="INFO">
         <appender-ref ref="FILE" />
         <appender-ref ref="STDOUT" />
     </root>
     <!-- We want error logging from this logger to go to an extra appender
          It still inherits CONSOLE STDOUT from the root logger -->
-    <logger name="junit" level="TRACE">
+    <logger name="junit" level="INFO">
         <appender-ref ref="STDOUT" />
     </logger>
-    <logger name="org.hayabaya.RunSettings" level="TRACE">
+    <logger name="org.hayabaya.RunSettings" level="INFO">
         <appender-ref ref="STDOUT" />
     </logger>
-    <logger name="org.hayabaya.MainClass" level="TRACE">
+    <logger name="org.hayabaya.MainClass" level="INFO">
         <appender-ref ref="STDOUT" />
     </logger>
 </configuration>
