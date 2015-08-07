@@ -107,12 +107,8 @@ public abstract class Loopers {
                     rowIndex ++;
                 }
 
-                try {
-                    result = new Results(data, currentRepetition, getType(), anOperationToUse);
-                    Utility.writeResultsToCsv(result);
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
+                result = new Results(data, currentRepetition, getType(), anOperationToUse);
+                Utility.writeResultsToCsv(result);
             }
         }
     }

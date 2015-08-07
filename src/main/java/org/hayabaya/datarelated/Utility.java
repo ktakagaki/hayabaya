@@ -29,30 +29,6 @@ public class Utility {
     }
 
 
-    public static String isBoxed(Tpe type) throws IllegalArgumentException{
-            switch(type) {
-                case INT:
-                    return "FALSE";
-                case INTEGER_BOXED:
-                    return "TRUE";
-                case FLOAT:
-                    return "FALSE";
-                case FLOAT_BOXED:
-                    return "TRUE";
-                case DOUBLE:
-                    return "FALSE";
-                case DOUBLE_BOXED:
-                    return "TRUE";
-                case LONG:
-                    return "FALSE";
-                case LONG_BOXED:
-                    return "TRUE";
-                default:
-                    throw new IllegalArgumentException("Type given is not valid");
-            }
-    }
-
-
     public static void writeResultsToCsv(Results results) {
         try
         {
