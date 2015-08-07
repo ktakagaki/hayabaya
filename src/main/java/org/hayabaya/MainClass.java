@@ -64,7 +64,8 @@ public class MainClass {
                 //The following will also check if the parse ended up with a valid int parameter
                 runSettings.setTotalExperimentRepetitions(reps);
             } catch (NumberFormatException e) {
-                System.err.println("Argument" + args[2] + "must be a parsable integer.");
+                System.err.println("Argument \'" + args[2] + "\' must be a parsable integer.");
+                logger.error("Illegal usage of repetitions arguments", e);
                 System.exit(-1);
             }
         }
