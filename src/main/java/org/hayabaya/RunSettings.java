@@ -4,14 +4,12 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
-/**This static class encapsulates the settings for experimental runs
+/**
+ * This static class encapsulates the settings for experimental runs
  * which are common for all types (Int/Float/Double, etc.)
- *
+ * <p/>
  * Created by cain on 4/20/2015.
  */
 public class RunSettings {
@@ -23,25 +21,6 @@ public class RunSettings {
     private int totalExperimentRepetitions;
     private int[] arrayLengthFromToBy;
     private int[] cycleNumbersFromToBy;
-
-    private RunSettings() {
-        System.out.println("RunSettings() Singleton being instantiated...");
-//        System.out.println("Total repetitions: "      +totalExperimentRepetitions);
-//        System.out.println("arrayLengthFromToBy: "    +Arrays.toString(arrayLengthFromToBy));
-//        System.out.println("Resulting ArrayLengths: " +Arrays.toString(arrayLengths));
-//        System.out.println("cycleNumbersFromToBy: "   +Arrays.toString(cycleNumbersFromToBy));
-//        System.out.println("Resulting cycleNumbers: " +Arrays.toString(cycleNumbers));
-    }
-
-
-    public static RunSettings getInstance() {
-        return instance;
-    }
-
-
-//    private int[] cycleNumbers = {2500, 3844, 5625, 7569, 10000, 12544, 15625, 18769, 22500};
-//    private int[] arrayLengths = {100, 400, 900, 1600, 2500, 3600, 4900, 6400, 8100, 10000};
-
     private int[] arrayLengths = generateIntegerLinearSpace(
             arrayLengthFromToBy[0],
             arrayLengthFromToBy[1],
@@ -51,6 +30,17 @@ public class RunSettings {
             cycleNumbersFromToBy[1],
             cycleNumbersFromToBy[2]);
 
+
+//    private int[] cycleNumbers = {2500, 3844, 5625, 7569, 10000, 12544, 15625, 18769, 22500};
+//    private int[] arrayLengths = {100, 400, 900, 1600, 2500, 3600, 4900, 6400, 8100, 10000};
+
+    private RunSettings() {
+        System.out.println("RunSettings() Singleton being instantiated...");
+    }
+
+    public static RunSettings getInstance() {
+        return instance;
+    }
 
     /**
      * Create an array of int[] starting from minimumValue, going up to (inclusive) maximumValue, in increments of
@@ -149,37 +139,37 @@ public class RunSettings {
 
     }
 
-    public void setName(String n){
+    public void setName(String n) {
         //if(n == null) throw new IllegalArgumentException("This shouldn't happen")
         //if(n.equals("")) throw new IllegalArgumentException("This shouldn't happen either")
-        this.name = n;
+        this.name = Objects.requireNonNull(n);
     }
 
-    public void setSampleSize(String s){
-        this.sampleSize = s;
-        if (s.equals("small")){
-            this.arrayLengthFromToBy = new int[] {10, 20, 1};
-            this.cycleNumbersFromToBy = new int[] {10, 200, 20};
-        } else if (s.equals("medium")){
-            this.arrayLengthFromToBy = new int[] {100, 200, 10};
-            this.cycleNumbersFromToBy = new int[] {1000, 20000, 2000};
-        } else if (s.equals("large")){
-            this.arrayLengthFromToBy = new int[] {1000, 200000, 1000};
-            this.cycleNumbersFromToBy = new int[] {10000, 200000, 20000};
+    public void setSampleSize(String s) {
+        this.sampleSize = Objects.requireNonNull(s);
+        if (s.equals("small")) {
+            this.arrayLengthFromToBy = new int[]{10, 20, 1};
+            this.cycleNumbersFromToBy = new int[]{10, 200, 20};
+        } else if (s.equals("medium")) {
+            this.arrayLengthFromToBy = new int[]{100, 200, 10};
+            this.cycleNumbersFromToBy = new int[]{1000, 20000, 2000};
+        } else if (s.equals("large")) {
+            this.arrayLengthFromToBy = new int[]{1000, 200000, 1000};
+            this.cycleNumbersFromToBy = new int[]{10000, 200000, 20000};
         } else {
             throw new IllegalArgumentException("specify small/medium/large for 2nd argument!");
         }
     }
 
-    public void setTotalExperimentRepetitions(int r){
-        if(r <= 0 || 100 <= r ){
-            throw new IllegalArgumentException("third argument must be greater than zero and less than 100!");
-        }
-        this.totalExperimentRepetitions = r;
-    }
-
     public int getTotalExperimentRepetitions() {
         return totalExperimentRepetitions;
+    }
+
+    public void setTotalExperimentRepetitions(int r) {
+        if (r <= 0 || 100 <= r) {
+            throw new IllegalArgumentException("third argument must be greater than zero and less than 100!");
+        }
+        this.totalExperimentRepetitions = Objects.requireNonNull(r);
     }
 
     public int[] getArrayLengths() {
