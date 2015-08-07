@@ -37,6 +37,8 @@ import java.util.List;
  */
 public class MainClass {
     private static final Logger logger = (Logger) LoggerFactory.getLogger(MainClass.class);
+    private static String TAG;
+
     /**
      * Main takes 3 parameters, \" name sampleSize reps \". Name is the name
      * of the CPU/System being tested, sampleSize has to be either small,
@@ -47,18 +49,22 @@ public class MainClass {
      */
     public static void main(String[] args) throws IllegalArgumentException,
             NumberFormatException, ClassNotFoundException {
+        //<editor-fold desc="Logging">
         try {
             Class<?> cls = Class.forName("org.hayabaya.MainClass");
-            String TAG = cls.toString();
+            TAG = cls.toString();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-            logger.error("TAG:", e);
+            logger.error("The classname was not found and TAG not initialized", e);
         }
-        XLogger xlogger = XLoggerFactory.getXLogger(RunSettings.class.getName());
+
+        XLogger xlogger = XLoggerFactory.getXLogger(MainClass.class.getName());
         xlogger.entry(args);
 
         Date date = new Date();
-        logger.info("TAG, the date is: " +date);
+        logger.info(TAG + " the date is: " + date);
+        //</editor-fold>
+
 
         RunSettings runSettings = RunSettings.getInstance();
 
