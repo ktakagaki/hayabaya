@@ -35,6 +35,8 @@ public abstract class Loopers {
     int currentCycleNumber;
     protected Tpe type = null;
 
+
+
     /**
      * Override method in the type specific child class implementations.
      *
@@ -57,6 +59,7 @@ public abstract class Loopers {
         assert type != null : "A Type must be given, not null";
         this.type = type;
     } //end constructor
+
 
 
     /**
