@@ -38,8 +38,7 @@ public class LoopersInt extends Loopers {
                 for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++) array[c] /= myNumber;
                 break;
             default:
-                System.out.println("Reached default in operateLoop!");
-                break;
+                throw new IllegalArgumentException("Invalid operation reached in LoopersInt");
         }
     }
 
