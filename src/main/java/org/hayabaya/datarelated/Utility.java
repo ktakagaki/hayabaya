@@ -30,7 +30,7 @@ public class Utility {
             logger.info("Utility logger sucessfully initialized");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-            logger.error("The classname was not found and TAG not initialized", e);
+//            logger.error("The classname was not found and TAG not initialized", e);
         }
     }
 
@@ -42,14 +42,8 @@ public class Utility {
      * @param results the Results datastructure to be written to disk
      */
     public static void writeResultsV2(Results results) {
-        //ToDo: Write this class
-        /*
-         1 Create name-resultsdirectory
-         2 Create the header line
-         3 Output all of the rows according to the long format
-         finalize and append to logger
-         */
-        logger.info("Writing results to disk with object ", results);
+
+       // Utility.logger.info("Writing results to disk with object ", results);
         RunSettings runSettings = RunSettings.getInstance();
         try {
             // Create the results folder
@@ -67,8 +61,8 @@ public class Utility {
             StringBuilder header = new StringBuilder();
 
             // Create the header/first line
-            header.append(name + ", \t" + results.type.toString() + ", \t" + results.isBoxed.toString() +
-                    ", \t" + "Repetition, \tArrayLength, \tCycleNumber, \tRuntime");
+            header.append("name,\t" + "DataType,\t" + "isBoxed,\t" + "Repetition, \tArrayLength," +
+            "\tCycleNumber, \tRuntime");
             br.write(header.toString());
             br.newLine();
 
@@ -81,10 +75,13 @@ public class Utility {
 
             // Close the connection to the file and finish off this result
             br.close();
+
         } catch (FileNotFoundException e) {
-            logger.error("The folder results does not exists, and cannot create the folder", e);
+//            Utility.logger.error("The folder results does not exists, and cannot create the folder", e);
+            e.printStackTrace(System.out);
         } catch (IOException e2) {
-            logger.error("Error in the BufferedWriter part of writeresults2CSV", e2);
+//            Utility.logger.error("Error in the BufferedWriter part of writeresults2CSV", e2);
+            e2.printStackTrace(System.out);
         }
 
     }
