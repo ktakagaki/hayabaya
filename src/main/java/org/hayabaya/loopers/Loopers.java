@@ -108,7 +108,8 @@ public abstract class Loopers {
                 }
 
                 result = new Results(data, currentRepetition, getType(), anOperationToUse);
-                Utility.writeResultsToCsv(result);
+//                Utility.writeResultsToCsv(result);
+                Utility.writeResultsV2(result);
             }
         }
     }

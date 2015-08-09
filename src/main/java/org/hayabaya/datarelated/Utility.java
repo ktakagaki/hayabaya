@@ -77,6 +77,10 @@ public class Utility {
             int cycleLengthNumbers = runSettings.getCycleNumbers().length;
             int rowNumbers = arrayLengthNumbers * cycleLengthNumbers;
 
+
+
+            // Close the connection to the file and finish off this result
+            br.close();
         } catch (FileNotFoundException e) {
             logger.error("The folder results does not exists, and cannot create the folder", e);
         } catch (IOException e2) {
