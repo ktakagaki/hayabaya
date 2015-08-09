@@ -46,23 +46,30 @@ public class Utility {
        // Utility.logger.info("Writing results to disk with object ", results);
         RunSettings runSettings = RunSettings.getInstance();
         try {
+            // Create needed local data
+            String nameCPU = runSettings.getName();
+            String dataType = results.type.toString();
+            String operation = results.operation.toString();
+            String isBoxed = results.isBoxed.toString();
+            String repetitionNumber = (String) "" + results.theRepetitionNumber;
+
+
             // Create the results folder
-            String name = runSettings.getName();
-            String fileDir = "./" + name + "_results";
+            String fileDir = "./" + nameCPU + "_results";
             File fileDirObject = new File(fileDir);
             if (!fileDirObject.exists()) fileDirObject.mkdir();
 
             // Create the file and open the connection
-            String filename = fileDir + "./" + name + "_res_" + results.type.toString() + "_" +
-                    results.operation.toString() + "_rep_" + results.theRepetitionNumber + ".csv";
+            String filename = fileDir + "./" + nameCPU + "_res_" + dataType + "_" +
+                    operation + "_rep_" +repetitionNumber + ".csv";
 
             // Open up the connection and create a string builder
             BufferedWriter br = new BufferedWriter(new FileWriter(filename));
             StringBuilder header = new StringBuilder();
 
             // Create the header/first line
-            header.append("name,\t" + "DataType,\t" + "isBoxed,\t" + "Repetition, \tArrayLength," +
-            "\tCycleNumber, \tRuntime");
+            header.append("name,\t\t DataType,\t isBoxed,\t operation,\t Repetition,\t ArrayLength\t " +
+                            "CycleNumber,\t RunTime,\t");
             br.write(header.toString());
             br.newLine();
 
@@ -70,6 +77,47 @@ public class Utility {
             int arrayLengthNumbers = runSettings.getArrayLengths().length;
             int cycleLengthNumbers = runSettings.getCycleNumbers().length;
             int rowNumbers = arrayLengthNumbers * cycleLengthNumbers;
+
+
+            //Start producing each line
+            int[] arrayLengths = runSettings.getArrayLengths();
+            int[] cycleNumbers = runSettings.getCycleNumbers();
+            int arrayLen = arrayLengths.length;
+            int cycleLen = cycleNumbers.length;
+
+            int rowIndex = 0, columnIndex = 0;
+
+            //StringBuilder rowLine = new StringBuilder();
+            //rowLine.append(resultLine);
+            // Missing values are ArrayLength CycleNumber and Runtime
+            String resultLine = nameCPU+ ",\t   " +dataType+ ",\t   " +isBoxed+ ",\t\t" +operation+
+                    ",\t\t" +repetitionNumber+ ",\t\t\t";
+            // Create the strinBuilder for adding the missing values and output on each line
+
+            // RowLoop
+            for (int i = 0; i< arrayLen; i++){
+
+                //Column Loop
+                for (int j = 0; j< cycleLen; j++){
+
+                    int arrayLength = arrayLengths[i];
+                    int cycleNumber = cycleNumbers[j];
+                    long runTime = results.data[i][j];
+
+                    String toAppend = (String) resultLine+ " " +arrayLength+ ",\t\t\t\t" +cycleNumber+ "," +
+                            "\t\t\t\t" +runTime+ ",\t\t\t";
+                    br.write(toAppend);
+                    br.newLine();
+                }
+            }
+
+            br.newLine();
+            br.close();
+
+/*            for (int i = 0; i <= rowNumbers; i++) {
+            }*/
+
+
 
 
 

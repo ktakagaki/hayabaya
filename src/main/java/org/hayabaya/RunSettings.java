@@ -137,7 +137,7 @@ public class RunSettings {
     public void writeRunSettingsToDisk() {
         try {
             //check if directory exists, and create if not
-            String fileDir = "./results";
+            String fileDir = name +"_results/";
             File fileDirObj = new File(fileDir);
             if (!fileDirObj.exists()) fileDirObj.mkdir();
 
