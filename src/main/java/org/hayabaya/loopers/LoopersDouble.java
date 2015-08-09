@@ -43,7 +43,7 @@ public class LoopersDouble extends Loopers {
             cycleSum += cycleNumbers[i];
         }
 
-        totalSums = arraySum * cycleSum;
+        totalSums = arraySum + cycleSum;
         myNumberArray = new double[totalSums];
         for (int i = 0; i < totalSums; i++) myNumberArray[i] = (double) rand.nextDouble();
     }

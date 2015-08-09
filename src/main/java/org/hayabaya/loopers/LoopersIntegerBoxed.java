@@ -7,7 +7,6 @@ public class LoopersIntegerBoxed extends Loopers {
 
     public static final Tpe type = Tpe.INTEGER_BOXED;
     private Integer[] array;
-    private Integer myNumber = rand.nextInt();
     private Integer[] myNumberArray;
 
     public LoopersIntegerBoxed()  {
@@ -44,7 +43,7 @@ public class LoopersIntegerBoxed extends Loopers {
             cycleSum += cycleNumbers[i];
         }
 
-        totalSums = arraySum * cycleSum;
+        totalSums = arraySum + cycleSum;
         myNumberArray = new Integer[totalSums];
         for (int i = 0; i < totalSums; i++) myNumberArray[i] = (Integer) rand.nextInt();
     }

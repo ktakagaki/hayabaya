@@ -46,7 +46,7 @@ public class LoopersInt extends Loopers {
             cycleSum += cycleNumbers[i];
         }
 
-        totalSums = arraySum * cycleSum;
+        totalSums = arraySum + cycleSum;
         myNumberArray = new int[totalSums];
         for (int i = 0; i < totalSums; i++) myNumberArray[i] = (int) rand.nextInt();
     }
