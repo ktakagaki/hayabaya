@@ -1,0 +1,4 @@
+repetitions: 2
+ArrayLengths: [10000, 20000, 30000, 40000, 50000]
+CycleNumbers: [1000, 2000, 3000, 4000, 5000]
+

@@ -1,6 +1,6 @@
 # Ignore the result files (*.csv)
-*.csv
-*.txt
+.csv
+.txt
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
