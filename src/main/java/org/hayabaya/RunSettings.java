@@ -15,7 +15,7 @@ import java.util.*;
 /**
  * This static class encapsulates the settings for experimental runs
  * which are common for all types (Int/Float/Double, etc.)
- * <p/>
+ *
  * Created by cain on 4/20/2015.
  */
 public class RunSettings {
@@ -114,8 +114,8 @@ public class RunSettings {
      * array, while avoiding Java throwing a
      * NullPointerException if any of the elements are null.
      *
-     * @see <a href="http://stackoverflow.com/questions/718554/how-to-convert-an-arraylist-containing-integers-to
-     * -primitive-int-array">The question on StackExchange</a>
+     * @param integers list of integers to convert
+     * @return int[] returns an array of ints
      */
     public static int[] convertToPrimitiveArray(List<Integer> integers) {
         xlogger.entry(integers);

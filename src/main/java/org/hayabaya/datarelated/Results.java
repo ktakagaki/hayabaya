@@ -10,7 +10,6 @@ import org.slf4j.LoggerFactory;
  * in ms for array length in the rows, and the number of cycles in the columns.</p>
  * <p>By calling {@link org.hayabaya.datarelated.Utility#writeResultsToCsv(Results)} the 2D array is written to disk as
  * a text file with the naming convention <b>results.[data type].[operation].[experiment repetion].csv</b></p>
- * <p/>
  * <TABLE>
  * <CAPTION>Example of the 2D array</CAPTION>
  * <TR>

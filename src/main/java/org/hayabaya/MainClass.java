@@ -14,8 +14,6 @@ import org.hayabaya.datarelated.Tpe;
 import org.hayabaya.loopers.LooperFactory;
 import org.hayabaya.loopers.Loopers;
 import org.slf4j.LoggerFactory;
-import org.slf4j.ext.XLogger;
-import org.slf4j.ext.XLoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -45,6 +43,8 @@ public class MainClass {
      * medium or large, and reps are the total number of repetitions to
      * perform for the benchmarking.
      *
+     * @throws IllegalArgumentException Throws error if 3 arguments are not given on the command line
+     * @throws java.lang.ClassNotFoundException Throws error if class is not found
      * @param args name sampleSize repetitions
      */
     public static void main(String[] args) throws IllegalArgumentException,

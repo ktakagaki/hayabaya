@@ -123,6 +123,7 @@ public abstract class Loopers {
      * implementations of computing on the arrays.
      *
      * @param operation The type of operation to perform (+,-,/,*) on the array for n cycles
+     * @return runTime Time it took to perform the operation in ms
      */
     protected long performOperation(Operation operation){
         //ToDo initRandom();
