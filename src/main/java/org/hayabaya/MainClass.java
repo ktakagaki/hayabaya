@@ -1,5 +1,5 @@
 /**
- * MainClass
+ * Hayabaya MainClass
  * <p/>
  * Measure the performance of arrays consisting of different primitive data types (int, float, double) and autoboxed
  * data types (Integer, Float).
