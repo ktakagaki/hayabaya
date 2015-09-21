@@ -30,18 +30,27 @@ public class MainClass {
     /**
      * When run from the command line, Hayabaya takes 3 arguments.
      * <code><pre>
-     *     $java -jar
+     *     $java -jar NameOfProcessor SizeOfTestData TotalRepetitions
+     *     $java -jar AMDA4 small 3
      * </pre></code>
-     * The first argument is \" name sampleSize reps \". Name is the name
-     * of the CPU/System being tested, sampleSize has to be either small,
-     * medium or large, and reps are the total number of repetitions to
-     * perform for the benchmarking.
+     * The arguments are as follows:
+     * <p>
+     *     <ul>
+     *         <li><b>NameOfProcessor</b> To distinguish between results from different systems, the name of the CPU
+     *         should be included
+     *         <li><b>SizeOfTestData</b> There are 3 preset configurations for convenience, <b>small, medium</b> and
+     *         <b>large</b>
+     *         <li><b>TotalRepetitions</b> How many times to replicate the entire experiment
+     *     </ul>
+     * </p>
+     *
      * Once Main has verified the values from the command line arguments given, it will pass them on to
      * the {@link RunSettings Runsettings} class which stores project settings.
      *
      * @throws IllegalArgumentException Throws error if 3 arguments are not given on the command line
      * @throws java.lang.ClassNotFoundException Throws error if class is not found
-     * @param args name sampleSize repetitions
+     * @param args Arguments specifying the name of the CPU being tested, the size of the experiment to run and the
+     *             total number of times to repeat the experiment
      */
     public static void main(String[] args) throws IllegalArgumentException, ClassNotFoundException {
         //<editor-fold desc="Logging">

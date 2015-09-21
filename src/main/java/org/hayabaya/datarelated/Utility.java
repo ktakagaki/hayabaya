@@ -125,7 +125,7 @@ public class Utility {
             br.close();
 
         } catch (FileNotFoundException e) {
-//            Utility.logger.error("The folder results does not exists, and cannot create the folder", e);
+//            Utility.logger.error("[linux]The folder results does not exists, and cannot create the folder", e);
             e.printStackTrace(System.out);
         } catch (IOException e2) {
 //            Utility.logger.error("Error in the BufferedWriter part of writeresults2CSV", e2);
