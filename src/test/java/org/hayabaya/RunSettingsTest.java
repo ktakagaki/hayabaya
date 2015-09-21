@@ -1,72 +1,67 @@
 package org.hayabaya;
 
-import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
-
-import java.lang.reflect.Field;
+import org.junit.rules.ExpectedException;
 
 import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 
 /**
  * Created by cain on 4/28/2015.
  */
 public class RunSettingsTest extends MyTestAbstract{
 
-//    RunSettings runSettings = new RunSettings();
-//    String runstr = runSettings.getClass().getName();
-//    Class<?> c = runSettings.getClass();
+    RunSettings runSettings = RunSettings.getRunSettings();
+
+
+    @Test
+    public void testGenerateIntegerLinearSpaceWorksCorrectly() {
+
+        int[] OneToTen = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int[] generated = runSettings.generateIntegerLinearSpace(1, 10, 1);
+        assertThat(OneToTen, equalTo(generated));
+
+    }
+
+    @Test
+    public void testInclusiveFencePostCases() {
+        // Length = Ceiling[ ((Max - Min) / Steps) + 1 ]
+        int[][] fencePostCases = {
+                {1, 10, 1},
+                {2, 20, 2}};
+
+        int[] fencePost = runSettings.generateIntegerLinearSpace(1, 10, 4); //[1, 5, 9, 13]
+        int fencePostMaxValue = fencePost[fencePost.length - 1];
+
+        //[1, 11, 21, 31, 41, 51, 61, 71, 81, 91, 101]
+        int[] fencePost2 = runSettings.generateIntegerLinearSpace(1, 100, 10);
+        int fencePost2MaxValue = fencePost2[fencePost2.length - 1];
+
+        //[1, 11, 21, 31, 41, 51, 61, 71, 81, 91, 101]
+        int[] fencePost3 = runSettings.generateIntegerLinearSpace(1, 10, 3);
+        int fencePost3MaxValue = fencePost3[fencePost3.length - 1];
+
+
+        //Is the result inclusive?
+        assertEquals(fencePost.length, 4);
+
+        // Inclusiveness should never exceed Max+StepSize
+        assertTrue(fencePostMaxValue <= 10 + 4);
+        assertTrue(fencePost2MaxValue <= 100 + 10);
+        assertTrue(fencePost3MaxValue <= 10 + 3);
+    }
 //
+//    @Rule
+//    public ExpectedException thrown = ExpectedException.none();
+////    public ExpectedException thrown = IllegalArgumentException.none();
 //
 //    @Test
-//    public void testGotRightClass(){
-//        assertThat(runstr, equalTo("org.hayabaya.RunSettings"));
-//    }
+//    public void testThrowsExceptionOnIllegalArguments() throws IllegalArgumentException {
+//        int[] impossibleValues = runSettings.generateIntegerLinearSpace(-1, -10, -3);
 //
-//
-//    @Test
-//    public void testRunSettingsHasRightNumberOfValues(){
-//        Field f[] = c.getFields();
-////        assertThat(f.length, equalTo(11));
-//    }
-//
-//
-//    @Test
-//    public void testFieldsAreOfCorrectType(){
-//        try {
-//            String a = c.getField("debug").getType().toString();
-//            assertThat("boolean", equalTo(a));
-//
-//            String b = c.getField("unitTesting").getType().toString();
-//            assertThat("boolean", equalTo(b));
-//
-//            String d = c.getField("ARRAY_SIZE_MIN").getType().toString();
-//            assertThat("int", equalTo(d));
-//
-//            String e = c.getField("ARRAY_SIZE_MAX").getType().toString();
-//            assertThat("int", equalTo(e));
-//
-//            String f = c.getField("ARRAY_SIZE_STEPS").getType().toString();
-//            assertThat("int", equalTo(f));
-//
-//            String g = c.getField("numberOfRowsArrayLength").getType().toString();
-//            assertThat("int", equalTo(g));
-//
-//            String h = c.getField("CYCLES_MIN").getType().toString();
-//            assertThat("int", equalTo(h));
-//
-//            String i = c.getField("CYCLES_MAX").getType().toString();
-//            assertThat("int", equalTo(i));
-//
-//            String j = c.getField("CYCLES_STEPS").getType().toString();
-//            assertThat("int", equalTo(j));
-//
-//            String k = c.getField("TOTAL_EXP_REPS").getType().toString();
-//            assertThat("int", equalTo(k));
-//
-//        } catch (NoSuchFieldException e) {
-//            e.printStackTrace();
-//        }
+//        thrown.expect(IllegalArgumentException.class);
+//        thrown.expectMessage("Can't generate int[] from argument values");
 //
 //
 //    }

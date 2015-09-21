@@ -47,7 +47,7 @@ public class Utility {
         RunSettings runSettings = RunSettings.getRunSettings();
         try {
             // Create needed local data
-            String nameCPU = runSettings.getName();
+            String nameCPU = runSettings.getNameOfProcessor();
             String dataType = results.type.toString();
             String operation = results.operation.toString();
             String isBoxed = results.isBoxed.toString();

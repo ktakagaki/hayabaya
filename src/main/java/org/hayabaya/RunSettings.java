@@ -24,7 +24,7 @@ public class RunSettings {
     private static RunSettings runSettings = new RunSettings();
 
     private String sampleSize;
-    private String name;
+    private String nameOfProcessor;
     private int totalExperimentRepetitions;
     private int[] arrayLengthFromToBy;
     private int[] cycleNumbersFromToBy;
@@ -34,16 +34,11 @@ public class RunSettings {
     // Singleton constructor
     private RunSettings() {}
 
-    public static RunSettings getRunSettings() {
-        return runSettings;
-    }
+    public static RunSettings getRunSettings() { return runSettings; }
 
-
-    public String getName() {
-        return name;
-    }
 
     /**
+     * Create an int[] array by specifying [From, To, ByStep]. Example: [1,6,2]=[1,3,5]. <b>Be aware that in "fencepost" cases like (1,10,3) the function will be inclusive and add as needed to the array. This mean that the last element may exceed the specified MAX value</b>
      * Create an array of int[] starting from minimumValue, going up to (inclusive) maximumValue, in increments of
      * incrementSize.
      *
@@ -53,10 +48,15 @@ public class RunSettings {
      * @return A variable length int[] array, in fencepost cases the method will be inclusive
      */
     public static int[] generateIntegerLinearSpace(int minimumValue, int maximumValue, int incrementSize) {
-        assert minimumValue > 0 : "array length must be > 0";
-        assert maximumValue > 0 : "array length must be > 0";
-        assert maximumValue > minimumValue : " maximumValue must be > minimumValue";
-        assert incrementSize > 0 : "incrementSize must be > 0";
+        // By DeMorgans law (!a OR !b OR !c) == !(a OR b OR c) which is simpler to read
+        if (!(minimumValue >= maximumValue ||
+            incrementSize >= (maximumValue - minimumValue) ||
+            minimumValue < 0 ||
+            maximumValue < 0 ||
+            incrementSize < 0 ||
+            (maximumValue - minimumValue) / incrementSize > 1)){
+            throw new IllegalArgumentException("Can't generate int[] from argument values");
+        }
 
         /*
         Use a dynamic Arraylist for the intermediate calculation. Initialize it with arraylength + 5 to make sure that
@@ -112,7 +112,7 @@ public class RunSettings {
     public void writeRunSettingsToDisk() {
         try {
             //check if directory exists, and create if not
-            String fileDir = name +"_results/";
+            String fileDir = nameOfProcessor +"_results/";
             File fileDirObj = new File(fileDir);
             if (!fileDirObj.exists()) fileDirObj.mkdir();
 
@@ -140,10 +140,14 @@ public class RunSettings {
 
     }
 
-    public void setName(String n) {
+    public void setNameOfProcessor(String n) {
         //if(n == null) throw new IllegalArgumentException("This shouldn't happen")
         //if(n.equals("")) throw new IllegalArgumentException("This shouldn't happen either")
-        this.name = Objects.requireNonNull(n, "name must not be null");
+        this.nameOfProcessor = Objects.requireNonNull(n, "nameOfProcessor must not be null");
+    }
+
+    public String getNameOfProcessor() {
+        return nameOfProcessor;
     }
 
     public void setSampleSize(String s) {

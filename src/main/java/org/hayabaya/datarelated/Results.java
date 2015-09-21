@@ -66,7 +66,7 @@ public class Results {
     public Results(long[][] data, int theRepetitionNumber, Tpe type, Operation operation) {
 
         RunSettings runSettings = RunSettings.getRunSettings();
-        this.name = runSettings.getName();
+        this.name = runSettings.getNameOfProcessor();
         this.data = data;
         this.theRepetitionNumber = theRepetitionNumber;
         this.type = type; // Can be null from creation from Loopers abstract class!
