@@ -3,7 +3,6 @@ package org.hayabaya.loopers;
 import org.hayabaya.datarelated.*;
 import org.hayabaya.RunSettings;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.Random;
 
@@ -26,7 +25,7 @@ public abstract class Loopers {
     private static Logger logger;
 
 
-    RunSettings runSettings = RunSettings.getInstance();
+    RunSettings runSettings = RunSettings.getRunSettings();
     Random rand = new Random();
 
     int[] arrayLengths = runSettings.getArrayLengths();

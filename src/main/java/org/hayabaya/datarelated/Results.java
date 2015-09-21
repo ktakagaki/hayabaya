@@ -65,7 +65,7 @@ public class Results {
      */
     public Results(long[][] data, int theRepetitionNumber, Tpe type, Operation operation) {
 
-        RunSettings runSettings = RunSettings.getInstance();
+        RunSettings runSettings = RunSettings.getRunSettings();
         this.name = runSettings.getName();
         this.data = data;
         this.theRepetitionNumber = theRepetitionNumber;

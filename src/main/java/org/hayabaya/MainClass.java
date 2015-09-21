@@ -66,7 +66,7 @@ public class MainClass {
         logger.info(TAG + " the date is: " + date);
 
 
-        RunSettings runSettings = RunSettings.getInstance();
+        RunSettings runSettings = RunSettings.getRunSettings();
 
 
         if (args.length < 3) {

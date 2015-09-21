@@ -44,7 +44,7 @@ public class Utility {
     public static void writeResultsV2(Results results) {
 
        // Utility.logger.info("Writing results to disk with object ", results);
-        RunSettings runSettings = RunSettings.getInstance();
+        RunSettings runSettings = RunSettings.getRunSettings();
         try {
             // Create needed local data
             String nameCPU = runSettings.getName();
