@@ -25,6 +25,7 @@ import org.hayabaya.loopers.Loopers;
 public class MainClass {
     private static final Logger logger = (Logger) LoggerFactory.getLogger(MainClass.class);
     private static String TAG;
+//    private static final org.slf4j.Logger logger = LoggerFactory.getLogger(this.getClass());
 
 
     /**
@@ -53,13 +54,14 @@ public class MainClass {
      *             total number of times to repeat the experiment
      */
     public static void main(String[] args) throws IllegalArgumentException, ClassNotFoundException {
-        try {
-            Class<?> cls = Class.forName("org.hayabaya.MainClass");
-            TAG = cls.toString();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            logger.error("The classname was not found and TAG not initialized", e);
-        }
+//        try {
+//            Class<?> cls = Class.forName("org.hayabaya.MainClass");
+//            TAG = cls.toString();
+//        } catch (ClassNotFoundException e) {
+//            e.printStackTrace();
+//            logger.error("The classname was not found and TAG not initialized", e);
+//        }
+
 
 
         Date date = new Date();
