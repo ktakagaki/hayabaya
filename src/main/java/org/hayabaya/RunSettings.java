@@ -19,20 +19,6 @@ import java.util.*;
  * Created by cain on 4/20/2015.
  */
 public class RunSettings {
-//    private static String TAG;
-//    private static Class<?> cls;
-//    private static Logger logger;
-//    static {
-//        try {
-//            Class<?> cls = Class.forName("org.hayabaya.RunSettings");
-//            TAG = cls.toString();
-//            Logger logger = LoggerFactory.getLogger(cls);
-//            logger.info("RunSettings logger sucessfully initialized");
-//        } catch (ClassNotFoundException e) {
-//            e.printStackTrace();
-//            logger.error("The classname was not found and TAG not initialized", e);
-//        }
-//    }
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private static RunSettings runSettings = new RunSettings();

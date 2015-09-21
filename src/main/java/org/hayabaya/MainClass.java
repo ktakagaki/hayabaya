@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,7 +26,6 @@ import org.hayabaya.loopers.Loopers;
 public class MainClass {
     private static final Logger logger = (Logger) LoggerFactory.getLogger(MainClass.class);
     private static String TAG;
-//    private static final org.slf4j.Logger logger = LoggerFactory.getLogger(this.getClass());
 
 
     /**
@@ -54,15 +54,6 @@ public class MainClass {
      *             total number of times to repeat the experiment
      */
     public static void main(String[] args) throws IllegalArgumentException, ClassNotFoundException {
-//        try {
-//            Class<?> cls = Class.forName("org.hayabaya.MainClass");
-//            TAG = cls.toString();
-//        } catch (ClassNotFoundException e) {
-//            e.printStackTrace();
-//            logger.error("The classname was not found and TAG not initialized", e);
-//        }
-
-
 
         Date date = new Date();
         logger.info(TAG + " the date is: " + date);
@@ -71,11 +62,16 @@ public class MainClass {
         RunSettings runSettings = RunSettings.getRunSettings();
 
 
-        if (args.length < 3) {
+        /*
+        This codeblock validates the input arguments given on the commandline
+         */
+        if (args.length != 3) {
+
             throw new IllegalArgumentException("You must supply 3 " +
                     "arguments to the program, 1st: name, 2nd: small/medium/large 3rd: " +
                     "repetitions [1-10] \n");
         } else if (args.length == 3) {
+
             String name = args[0];
             runSettings.setName(name);
             String sampleSize = args[1];
@@ -83,8 +79,8 @@ public class MainClass {
 
             try {
                 int reps = Integer.parseInt(args[2]);
-                //The following will also check if the parse ended up with a valid int parameter
                 runSettings.setTotalExperimentRepetitions(reps);
+
             } catch (NumberFormatException e) {
                 System.err.println("Argument \'" + args[2] + "\' must be a parsable integer.");
                 System.exit(-1);
@@ -92,22 +88,28 @@ public class MainClass {
         }
 
 
+        /*
+        Having validated the arguments it is now time to start the experiment. LooperFactory ensures that main does
+        not have to concern itself with the specifics of each different datatype as generics are not allowed for the
+        primitive data types in Java.
+         */
         LooperFactory looperFactory = LooperFactory.getinstance();
+        List<Loopers> arrayListOfLoopers = new ArrayList<>();
 
-        /* place Loopers into a list and iterate over the list performing operations, parsing types to methods */
-        List<Loopers> aListOfLoopers = new ArrayList<>();
-
-        for (Tpe datatype : Tpe.values()) {
-            aListOfLoopers.add(looperFactory.createLooperInstance(datatype));
+        for (Tpe datatype : Tpe.values()) { // Instantiate Looper instance for int, float...
+            arrayListOfLoopers.add(looperFactory.createLooperInstance(datatype));
         }
 
-        /* No need for doing casting as makeResults should only use non-instance specific actions */
-        for (Loopers anInstance : aListOfLoopers) {
+
+        for (Loopers anInstance : arrayListOfLoopers) {
             anInstance.makeResults();
         }
 
-        //Write the runsettings used to disk so it can be recalled later on during analysis
+
+        logger.info("Writing the results to disk");
         runSettings.writeRunSettingsToDisk();
+
+        logger.info("Exiting Hayabaya");
         System.exit(0);
     }
 }
