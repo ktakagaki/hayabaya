@@ -1,33 +1,22 @@
-/**
- * Hayabaya MainClass
- * <p/>
- * Measure the performance of arrays consisting of different primitive data types (int, float, double) and autoboxed
- * data types (Integer, Float).
- * <p/>
- * It is possible to performOperation the 4 fundamental operations (Addition, Subtraction, Multplication and Division) on an
- * array of arbitrary length, and with an arbitrary number of cycles repeated on each array.
- */
 package org.hayabaya;
-
-import ch.qos.logback.classic.Logger;
-import org.hayabaya.datarelated.Tpe;
-import org.hayabaya.loopers.LooperFactory;
-import org.hayabaya.loopers.Loopers;
-import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import ch.qos.logback.classic.Logger;
+import org.slf4j.LoggerFactory;
+
+import org.hayabaya.datarelated.Tpe;
+import org.hayabaya.loopers.LooperFactory;
+import org.hayabaya.loopers.Loopers;
+
+
 /**
- * Main class for testing java operations.
- * <p>
- * APPROACH TO GENERATE DATA FOR REPORT:
- * 1: create 2D arrays for each datatype and operation getType int:[add,sub,mult] + float:[add,sub,mult] etc.
- * ROWS:  Arraylength, start: 1.000 length, end: 100.length, stepsize: +1.000 length, TOTAL = 100
- * COLUMNS: Repetitions, start: 1.000 reps, end: 10.000 reps, stepsize: +1.000 reps, TOTAL = 10
- * 2: final is 100 rows X 10 colums (array length, repetitions)
- * 3: Write each datatype/operationtype to a csv file and process in R.</p>
+ * Profile how fast the JVM performs arithmetic operations. The program creates 8 arrays of length <i>n</i>
+ * for each of the 4 basic data types <i>int, float, double</i> and <i>long</i> and their boxed counterparts. The
+ * code then performs the 4 different operations (+,-,/,*) for <i>x</i> number of times on each element of the arrays
+ * and measures the runtime. Results are saved to disk in csv files
  *
  * @author Ktakagaki
  * @author Slentzen Demian
@@ -37,18 +26,24 @@ public class MainClass {
     private static final Logger logger = (Logger) LoggerFactory.getLogger(MainClass.class);
     private static String TAG;
 
+
     /**
-     * Main takes 3 parameters, \" name sampleSize reps \". Name is the name
+     * When run from the command line, Hayabaya takes 3 arguments.
+     * <code><pre>
+     *     $java -jar
+     * </pre></code>
+     * The first argument is \" name sampleSize reps \". Name is the name
      * of the CPU/System being tested, sampleSize has to be either small,
      * medium or large, and reps are the total number of repetitions to
      * perform for the benchmarking.
+     * Once Main has verified the values from the command line arguments given, it will pass them on to
+     * the {@link RunSettings Runsettings} class which stores project settings.
      *
      * @throws IllegalArgumentException Throws error if 3 arguments are not given on the command line
      * @throws java.lang.ClassNotFoundException Throws error if class is not found
      * @param args name sampleSize repetitions
      */
-    public static void main(String[] args) throws IllegalArgumentException,
-            NumberFormatException, ClassNotFoundException {
+    public static void main(String[] args) throws IllegalArgumentException, ClassNotFoundException {
         //<editor-fold desc="Logging">
         try {
             Class<?> cls = Class.forName("org.hayabaya.MainClass");
