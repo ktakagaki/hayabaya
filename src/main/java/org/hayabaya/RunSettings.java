@@ -57,10 +57,7 @@ public class RunSettings {
             throw new IllegalArgumentException("Increment is too large compared to max and min value ");
         }
 
-        /*
-        Use a dynamic Arraylist for the intermediate calculation. Initialize it with arraylength + 5 to make sure that
-        at no point will Java have to do any dynamic work and re-allocate a new arraylist (for performance).
-         */
+
         int arrayLength = (int) Math.ceil(((maximumValue - minimumValue)) / incrementSize) + 1; // Estimate the length
         ArrayList<Integer> arl = new ArrayList<>(arrayLength + 5); // Adding a couple of elements for safety
 
@@ -79,9 +76,14 @@ public class RunSettings {
 
     public static int[] generateBaseNSpace(int base, int[] linearArray) {
         int[] result = linearArray.clone();
-        for (int element : result) {
-            element = (int) Math.pow((double) base, (double) element);
+
+        for (int i = 0; i < result.length; i++) {
+            result[i] = (int) Math.pow((double) base, (double) result[i]);
         }
+//
+//        for (int element : result) {
+//            element = (int) Math.pow((double) base, (double) element);
+//        }
         return result;
     }
 
