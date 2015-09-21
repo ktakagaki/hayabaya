@@ -106,7 +106,6 @@ public class MainClass {
 
 
         logger.info("Writing the results to disk");
-        runSettings.writeRunSettingsToDisk();
 
         logger.info("Exiting Hayabaya");
         System.exit(0);

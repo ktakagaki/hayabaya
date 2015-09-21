@@ -69,33 +69,41 @@ public class RunSettings {
             arl.add(count);
         }
 
-        int[] result = convertToPrimitiveArray(arl);
+        int[] result = convertListToPrimitiveArray(arl);
 
-        return result;
-    }
-
-    public static int[] generateBaseNSpace(int base, int[] linearArray) {
-        int[] result = linearArray.clone();
-
-        for (int i = 0; i < result.length; i++) {
-            result[i] = (int) Math.pow((double) base, (double) result[i]);
-        }
-//
-//        for (int element : result) {
-//            element = (int) Math.pow((double) base, (double) element);
-//        }
         return result;
     }
 
     /**
-     * <b>(copied from online)</b> Convert an ArrayList of Integers to a Java primitive int[]
-     * array, while avoiding Java throwing a
-     * NullPointerException if any of the elements are null.
+     * Exponentiate each element of an array by another number.
+     * <code><pre>
+     *     int[] a = {1, 2, 3, 4}
+     *     int[] b = exponentiateArray(2, a)
+     *     // a = [2, 4, 8, 16]
+     *     exponentiateArray(3, {1, 2, 3, 4}) -> [3, 9, 27, 81]
+     *
+     * </pre></code>
+     * @param exponent What number to exponentiate each of the elements into
+     * @param linearArray An integer array to be exponentiated
+     * @return An integer array where each element has been raised to the power of the exponent
+     */
+    public static int[] exponentiateArray(int exponent, int[] linearArray) {
+        int[] result = linearArray.clone();
+
+        for (int i = 0; i < result.length; i++) {
+            result[i] = (int) Math.pow((double) exponent, (double) result[i]);
+        }
+        return result;
+    }
+
+    /**
+     * Convert a Java ArrayList of integers into a primitive int[] array. This function does not throw an exception
+     * if any of the elements are null.
      *
      * @param integers list of integers to convert
      * @return int[] returns an array of ints
      */
-    public static int[] convertToPrimitiveArray(List<Integer> integers) {
+    public static int[] convertListToPrimitiveArray(List<Integer> integers) {
         int[] ret = new int[integers.size()];
         Iterator<Integer> iterator = integers.iterator();
         for (int i = 0; i < ret.length; i++) {
@@ -104,42 +112,6 @@ public class RunSettings {
         return ret;
     }
 
-    /**
-     * Write the used runsettings to disk so it can be stored together with the results for later analysis. Utility
-     * .writeResultsToCSV will in the future be updated to also include the meta data from runsettings, this is only
-     * a temporary solution to ensure that the meta data is still saved in case the meta data should fail to be
-     * included by writeResultsToCSV().
-     */
-    public void writeRunSettingsToDisk() {
-        try {
-            //check if directory exists, and create if not
-            String fileDir = nameOfProcessor +"_results/";
-            File fileDirObj = new File(fileDir);
-            if (!fileDirObj.exists()) fileDirObj.mkdir();
-
-            String filename = fileDir + "./A_" + "RunSettings.txt";
-
-            BufferedWriter br = new BufferedWriter(new FileWriter(filename));
-            StringBuilder sb = new StringBuilder();
-            {
-                sb.append("repetitions: " + totalExperimentRepetitions + System.getProperty("line.separator"));
-                sb.append("ArrayLengths: " + Arrays.toString(arrayLengths) + System.getProperty("line.separator"));
-                sb.append("CycleNumbers: " + Arrays.toString(cycleNumbers) + System.getProperty("line.separator"));
-                sb.append(System.getProperty("line.separator"));
-            }
-
-            br.write(sb.toString());
-            br.close();
-        } catch (FileNotFoundException e) {
-            //This should not be triggered
-            System.out.println("SHOULD NOT BE TRIGGERED: The /results/ folder does not exist, cannot write file");
-            e.printStackTrace(System.out);
-        } catch (Exception e) {
-            System.out.println("An unknown file exception was thrown..");
-            e.printStackTrace(System.out);
-        }
-
-    }
 
     public void setNameOfProcessor(String n) {
         //if(n == null) throw new IllegalArgumentException("This shouldn't happen")
