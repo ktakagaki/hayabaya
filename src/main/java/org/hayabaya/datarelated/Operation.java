@@ -1,7 +1,13 @@
 package org.hayabaya.datarelated;
 
 /**
- * Created by ktakagaki on 15/04/08.
+ * The operations that are available in Hayabaya
+ * <ul>
+ *     <li><b>ADD:</b> Addition</li>
+ *     <li><b>SUBTRACT:</b> Subtraction</li>
+ *     <li><b>MULTIPLY:</b> Multiplication</li>
+ *     <li><b>DIVIDE:</b> Division</li>
+ * </ul>
  */
 public enum Operation {
     ADD,

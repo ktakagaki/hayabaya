@@ -24,17 +24,15 @@ import org.hayabaya.loopers.Loopers;
  */
 public class MainClass {
     private static final Logger logger = (Logger) LoggerFactory.getLogger(MainClass.class);
-    private static String TAG;
 
 
     /**
      * When run from the command line, Hayabaya takes 3 arguments.
-     * <code><pre>
+     * <pre>
      *     $java -jar NameOfProcessor SizeOfTestData TotalRepetitions
      *     $java -jar AMDA4 small 3
-     * </pre></code>
+     * </pre>
      * The arguments are as follows:
-     * <p>
      *     <ul>
      *         <li><b>NameOfProcessor</b> To distinguish between results from different systems, the name of the CPU
      *         should be included
@@ -42,21 +40,15 @@ public class MainClass {
      *         <b>large</b>
      *         <li><b>TotalRepetitions</b> How many times to replicate the entire experiment
      *     </ul>
-     * </p>
      *
      * Once Main has verified the values from the command line arguments given, it will pass them on to
      * the {@link RunSettings Runsettings} class which stores project settings.
      *
      * @throws IllegalArgumentException Throws error if 3 arguments are not given on the command line
-     * @throws java.lang.ClassNotFoundException Throws error if class is not found
      * @param args Arguments specifying the name of the CPU being tested, the size of the experiment to run and the
      *             total number of times to repeat the experiment
      */
-    public static void main(String[] args) throws IllegalArgumentException, ClassNotFoundException {
-
-        Date date = new Date();
-        logger.info(TAG + " the date is: " + date);
-
+    public static void main(String[] args){
 
         RunSettings runSettings = RunSettings.getRunSettings();
 

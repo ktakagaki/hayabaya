@@ -76,13 +76,13 @@ public class RunSettings {
 
     /**
      * Exponentiate each element of an array by another number.
-     * <code><pre>
+     * <pre>
      *     int[] a = {1, 2, 3, 4}
      *     int[] b = exponentiateArray(2, a)
      *     // a = [2, 4, 8, 16]
-     *     exponentiateArray(3, {1, 2, 3, 4}) -> [3, 9, 27, 81]
+     *     exponentiateArray(3, {1, 2, 3, 4}) == [3, 9, 27, 81]
      *
-     * </pre></code>
+     * </pre>
      * @param exponent What number to exponentiate each of the elements into
      * @param linearArray An integer array to be exponentiated
      * @return An integer array where each element has been raised to the power of the exponent
