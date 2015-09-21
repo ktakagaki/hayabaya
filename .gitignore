@@ -1,3 +1,5 @@
+#Test to see if git diff is working
+#test2
 # Ignore the result files (*.csv)
 .csv
 .txt
