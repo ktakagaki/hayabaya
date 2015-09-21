@@ -114,8 +114,6 @@ public class RunSettings {
 
 
     public void setNameOfProcessor(String n) {
-        //if(n == null) throw new IllegalArgumentException("This shouldn't happen")
-        //if(n.equals("")) throw new IllegalArgumentException("This shouldn't happen either")
         this.nameOfProcessor = Objects.requireNonNull(n, "nameOfProcessor must not be null");
     }
 
@@ -157,9 +155,6 @@ public class RunSettings {
 
     public void setTotalExperimentRepetitions(int r) {
         try {
-//            if (r <= 0 || 100 <= r) {
-//                throw new IllegalArgumentException("third argument must be greater than zero and less than 100!");
-//            }
             this.totalExperimentRepetitions = Objects.requireNonNull(r, "Repetitions must not be null");
         } catch (IllegalArgumentException e){
             logger.error("Illegal usage of repetitions arguments", e);
