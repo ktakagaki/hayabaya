@@ -51,18 +51,9 @@ public class RunSettingsTest extends MyTestAbstract{
         assertTrue(fencePost2MaxValue <= 100 + 10);
         assertTrue(fencePost3MaxValue <= 10 + 3);
     }
-//
-//    @Rule
-//    public ExpectedException thrown = ExpectedException.none();
-////    public ExpectedException thrown = IllegalArgumentException.none();
-//
-//    @Test
-//    public void testThrowsExceptionOnIllegalArguments() throws IllegalArgumentException {
-//        int[] impossibleValues = runSettings.generateIntegerLinearSpace(-1, -10, -3);
-//
-//        thrown.expect(IllegalArgumentException.class);
-//        thrown.expectMessage("Can't generate int[] from argument values");
-//
-//
-//    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testExceptionsThrown() throws IllegalArgumentException {
+        int[] impossibleValues = runSettings.generateIntegerLinearSpace(-1, -10, -3);
+    }
 }

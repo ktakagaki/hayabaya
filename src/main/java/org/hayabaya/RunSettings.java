@@ -48,14 +48,13 @@ public class RunSettings {
      * @return A variable length int[] array, in fencepost cases the method will be inclusive
      */
     public static int[] generateIntegerLinearSpace(int minimumValue, int maximumValue, int incrementSize) {
-        // By DeMorgans law (!a OR !b OR !c) == !(a OR b OR c) which is simpler to read
-        if (!(minimumValue >= maximumValue ||
-            incrementSize >= (maximumValue - minimumValue) ||
-            minimumValue < 0 ||
-            maximumValue < 0 ||
-            incrementSize < 0 ||
-            (maximumValue - minimumValue) / incrementSize > 1)){
-            throw new IllegalArgumentException("Can't generate int[] from argument values");
+        if (minimumValue < 0) throw new IllegalArgumentException("minimumValue must be > 0");
+        if (incrementSize >= (maximumValue - minimumValue)) throw new IllegalArgumentException("Increment too large");
+        if (minimumValue >= maximumValue) throw new IllegalArgumentException("Max must be > min");
+        if (maximumValue <= 0) throw new IllegalArgumentException("Max must be > 0");
+        if (incrementSize < 0) throw new IllegalArgumentException("Negative increments are impossible");
+        if (((maximumValue - minimumValue) / incrementSize) < 2){
+            throw new IllegalArgumentException("Increment is too large compared to max and min value ");
         }
 
         /*
