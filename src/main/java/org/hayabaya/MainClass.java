@@ -53,7 +53,6 @@ public class MainClass {
      *             total number of times to repeat the experiment
      */
     public static void main(String[] args) throws IllegalArgumentException, ClassNotFoundException {
-        //<editor-fold desc="Logging">
         try {
             Class<?> cls = Class.forName("org.hayabaya.MainClass");
             TAG = cls.toString();
@@ -65,7 +64,6 @@ public class MainClass {
 
         Date date = new Date();
         logger.info(TAG + " the date is: " + date);
-        //</editor-fold>
 
 
         RunSettings runSettings = RunSettings.getInstance();
