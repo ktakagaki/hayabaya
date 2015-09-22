@@ -79,6 +79,15 @@ public class Results {
     }
 
     /**
+     * Return a string for the filename following the res_[CPU]_[Data Type]_[Operation]_[Current Repetitions].csv
+     */
+    public String getFileName(){
+        String fileName = "res_" + "name_" + type.toString() + "_" + operation.toString() + "_" + isBoxed +
+                "_" + theRepetitionNumber + ".csv";
+        return fileName;
+    }
+
+    /**
      * Determine if this instance contains data for Boxed or primitive data types
      * @param type The data type used for the instantiation
      * @return A string indicating a boolean answer with TRUE for Boxed types and FALSE for primitive data types

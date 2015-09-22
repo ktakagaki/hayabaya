@@ -52,7 +52,7 @@ public class MainClass {
     public static void main(String[] args){
 
         RunSettings runSettings = RunSettings.getRunSettings();
-        System.out.println("args is: " + Arrays.toString(args));
+        logger.debug("args is: {}", Arrays.toString(args));
 
 
         /*

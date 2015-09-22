@@ -5,6 +5,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class WriteResults {
     private static final Logger logger = (Logger) LoggerFactory.getLogger(WriteResults.class);
@@ -26,19 +29,70 @@ public class WriteResults {
                 "Data: ", results.getName(), results.getType(), results.getOperation(), results
                 .getTheRepetitionNumber(), results.isBoxed);
 
-        // Utility.logger.info("Writing results to disk with object ", results);
+
         RunSettings runSettings = RunSettings.getRunSettings();
+
+        String wd = System.getProperty("user.dir");
+        String nameCPU = runSettings.getNameOfProcessor();
+        Path outPutFolderPath = Paths.get(wd + nameCPU);
+        logger.debug("Path to results folder: {} \n", outPutFolderPath);
+
+        // check if dir exists
+        // if dir, then verify read/write access
+        // else create dir
         try {
+            boolean folderExists = Files.exists(outPutFolderPath);
+            boolean folderRights = Files.isWritable(outPutFolderPath) && Files.isWritable(outPutFolderPath);
+
+            if(!folderExists) {
+                logger.debug("output folder {} did not exist - creating it..", outPutFolderPath);
+                Files.createDirectory(outPutFolderPath);
+            }
+            if (folderExists && !folderRights) {
+                logger.warn("cant write to results folder {}");
+            }
+        } catch (IOException e) {
+            logger.error("got exception when creating results folder: {}", e);
+        }
+
+
+        // Create result string to be writtten to disk
+        try {
+            String newline = System.getProperty("line.separator"); // Windows or Linux?
+            StringBuilder sb = new StringBuilder();
+
+            // Create the header in the csv file
+            sb.append("name, DataType, isBoxed, operation, Repetition, ArrayLength " +
+                    "CycleNumber, RunTimet");
+            sb.append(newline);
+
+
+            String fileText = sb.toString();
+        } catch (Exception e) {
+
+        }
+
+
+
+
+        try {
+            Path resultFilePath = Paths.get(outPutFolderPath + results.getFileName());
+            File newTextFile = new File(resultFilePath.toString());
+
+            FileWriter fw = new FileWriter(newTextFile);
+            fw.write(fileText);
+            fw.close();
+
+        } catch (Exception e) {
+
+        }
+
             // Create needed local data
-            String nameCPU = runSettings.getNameOfProcessor();
-            String dataType = results.getType().toString();
-            String operation = results.getOperation().toString();
-            String isBoxed = results.isBoxed();
-            String repetitionNumber = "" + results.getTheRepetitionNumber();
+
 
 
             // Create the results folder
-            String fileDir = "/" + nameCPU + "_results";
+            String fileDir = nameCPU + "_results";
             File fileDirObject = new File(fileDir);
             //ToDo: Test if folder exits and ensure it works on windows AND linux
             if (!fileDirObject.exists()) fileDirObject.mkdir();
