@@ -34,7 +34,7 @@ public class WriteResults {
 
         String wd = System.getProperty("user.dir");
         String nameCPU = runSettings.getNameOfProcessor();
-        Path outPutFolderPath = Paths.get(wd + nameCPU);
+        Path outPutFolderPath = Paths.get(wd + "/" + nameCPU);
         logger.debug("Path to results folder: {} \n", outPutFolderPath);
 
         // check if dir exists
@@ -43,6 +43,7 @@ public class WriteResults {
         try {
             boolean folderExists = Files.exists(outPutFolderPath);
             boolean folderRights = Files.isWritable(outPutFolderPath) && Files.isWritable(outPutFolderPath);
+            logger.debug("foldreExists: {} \n folderRights: {} \n", folderExists, folderExists);
 
             if(!folderExists) {
                 logger.debug("output folder {} did not exist - creating it..", outPutFolderPath);
@@ -69,12 +70,13 @@ public class WriteResults {
 
             String fileText = sb.toString();
 
-            Path resultFilePath = Paths.get(outPutFolderPath + results.getFileName());
+            Path resultFilePath = Paths.get(outPutFolderPath + "/" + results.getFileName());
             File newTextFile = new File(resultFilePath.toString());
 
             FileWriter fw = new FileWriter(newTextFile);
             fw.write(fileText);
             fw.close();
+            logger.debug("Wrote file to disk");
         } catch (IOException e) {
             logger.error("File error {}", e);
 
