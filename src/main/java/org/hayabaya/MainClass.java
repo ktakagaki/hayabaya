@@ -1,6 +1,7 @@
 package org.hayabaya;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -51,6 +52,7 @@ public class MainClass {
     public static void main(String[] args){
 
         RunSettings runSettings = RunSettings.getRunSettings();
+        System.out.println("args is: " + Arrays.toString(args));
 
 
         /*

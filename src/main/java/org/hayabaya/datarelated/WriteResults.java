@@ -38,12 +38,13 @@ public class WriteResults {
 
 
             // Create the results folder
-            String fileDir = "./" + nameCPU + "_results";
+            String fileDir = "/" + nameCPU + "_results";
             File fileDirObject = new File(fileDir);
+            //ToDo: Test if folder exits and ensure it works on windows AND linux
             if (!fileDirObject.exists()) fileDirObject.mkdir();
 
             // Create the file and open the connection
-            String filename = fileDir + "./" + nameCPU + "_res_" + dataType + "_" +
+            String filename = fileDir + "/" + nameCPU + "_res_" + dataType + "_" +
                     operation + "_rep_" + repetitionNumber + ".csv";
 
             // Open up the connection and create a string builder
