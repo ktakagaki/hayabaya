@@ -64,7 +64,7 @@ public class WriteResults {
 
             // Create the header in the csv file
             sb.append("name, DataType, isBoxed, operation, Repetition, ArrayLength " +
-                    "CycleNumber, RunTimet");
+                    "CycleNumber, RunTime");
             sb.append(newline);
 
 
