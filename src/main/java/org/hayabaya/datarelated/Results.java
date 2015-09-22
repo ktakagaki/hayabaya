@@ -37,6 +37,26 @@ public class Results {
     public String name;
     public String isBoxed;
 
+    public long[][] getData() {
+        return data;
+    }
+
+    public int getTheRepetitionNumber() {
+        return theRepetitionNumber;
+    }
+
+    public Tpe getType() {
+        return type;
+    }
+
+    public Operation getOperation() {
+        return operation;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     private Results() {
     }
 

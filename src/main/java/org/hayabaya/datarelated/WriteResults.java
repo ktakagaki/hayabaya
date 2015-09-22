@@ -17,6 +17,14 @@ public class WriteResults {
      * @param results the Results datastructure to be written to disk
      */
     public static void writeResultsV2(Results results) {
+        logger.debug("writeResultsV2 called with the following arguments: \n" +
+                "Results name: {} \n" +
+                "Results type: {} \n" +
+                "Results Operation: {} \n" +
+                "Repetition Number: {} \n" +
+                "isBoxed: {} \n" +
+                "Data: ", results.getName(), results.getType(), results.getOperation(), results
+                .getTheRepetitionNumber(), results.isBoxed);
 
         // Utility.logger.info("Writing results to disk with object ", results);
         RunSettings runSettings = RunSettings.getRunSettings();
