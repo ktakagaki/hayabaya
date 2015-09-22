@@ -17,7 +17,7 @@ public class WriteResults {
      * @param results the Results datastructure to be written to disk
      */
     public static void writeResultsV2(Results results) {
-        logger.debug("writeResultsV2 called with the following arguments: \n" +
+        logger.trace("writeResultsV2 called with the following arguments: \n" +
                 "Results name: {} \n" +
                 "Results type: {} \n" +
                 "Results Operation: {} \n" +
@@ -31,10 +31,10 @@ public class WriteResults {
         try {
             // Create needed local data
             String nameCPU = runSettings.getNameOfProcessor();
-            String dataType = results.type.toString();
-            String operation = results.operation.toString();
-            String isBoxed = results.isBoxed.toString();
-            String repetitionNumber = (String) "" + results.theRepetitionNumber;
+            String dataType = results.getType().toString();
+            String operation = results.getOperation().toString();
+            String isBoxed = results.isBoxed();
+            String repetitionNumber = "" + results.getTheRepetitionNumber();
 
 
             // Create the results folder
