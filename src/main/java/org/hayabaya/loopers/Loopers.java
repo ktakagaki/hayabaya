@@ -70,8 +70,8 @@ public abstract class Loopers {
 
 
     /**
-     * For each length of the arrays, CycleNumbers and type of operation call operateLoop to generate the data and
-     * then write the results to disk.
+     * For each length of the arrays, CycleNumbers and type of operation call {@link #performOperation(Operation)}
+     * which starts the JVM timer and then calls {@link #operateLoop(Operation)}.
      */
     public void makeResults(){
 
@@ -113,10 +113,9 @@ public abstract class Loopers {
      * implementations of computing on the arrays.
      *
      * @param operation The type of operation to perform (+,-,/,*) on the array for n cycles
-     * @return runTime Time it took to perform the operation in ms
+     * @return The time it took to perform the operation in milliseconds
      */
     protected long performOperation(Operation operation){
-        //ToDo initRandom();
 
         long startTime = System.currentTimeMillis();
         operateLoop(operation);
@@ -126,8 +125,8 @@ public abstract class Loopers {
     }
 
     /**
-     * Reset the arraylength of a Loopers object to a new length. This makes it possible for one object to profile
-     * arrays of multiple lengths without creating new object instances. The method uses
+     * Set the length of an array in a Loopers object to a new length. This method is used for testing the different
+     * arraylengths specified in {@link org.hayabaya.RunSettings}. The method uses
      * {@link org.hayabaya.loopers.Loopers#initializeArrayElements(int)}  of the specific child classes to re-initialize a new array.
      * @param arrayLength The length of the new array to be initialized
      */
@@ -141,12 +140,12 @@ public abstract class Loopers {
         return currentArrayLength;
     }
 
-    final public int getCycles() {
+    final public int getCurrentCycleNumber() {
         return currentCycleNumber;
     }
 
     /**
-     * Used to increment the number of cycles such that an array can be tested with different number of cycles
+     * Sets the currentCycleNumber to a new value.
      * @param cycles The new number of cycles to run on an array
      */
     final public void setCycles(int cycles) {
