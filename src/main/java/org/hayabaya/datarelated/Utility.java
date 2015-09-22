@@ -10,27 +10,7 @@ import java.util.Arrays;
  * General Utility functions used to execute the project.
  */
 public class Utility {
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_RED = "\u001B[31m";
-    public static final String ANSI_GREEN = "\u001B[32m";
-    public static final String ANSI_YELLOW = "\u001B[33m";
-    public static final String ANSI_BLUE = "\u001B[34m";
-    public static final String ANSI_PURPLE = "\u001B[35m";
-    public static final String ANSI_CYAN = "\u001B[36m";
-    private static String TAG;
-    private static Class<?> cls;
-
-    static {
-        try {
-            Class<?> cls = Class.forName("org.hayabaya.datarelated.Utility");
-            TAG = cls.toString();
-            Logger logger = LoggerFactory.getLogger(cls);
-            logger.info("Utility logger sucessfully initialized");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-//            logger.error("The classname was not found and TAG not initialized", e);
-        }
-    }
+    private static final Logger logger = (Logger) LoggerFactory.getLogger(Utility.class);
 
     public static void writeResultsToCsv(Results results) {
         try {

@@ -2,11 +2,12 @@ package org.hayabaya.datarelated;
 
 import org.hayabaya.RunSettings;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
 
 public class WriteResults {
-    public static Logger logger;
+    private static final Logger logger = (Logger) LoggerFactory.getLogger(WriteResults.class);
 
     /**
      * Writes the Results datastructure to a .csv file on disk. The results folder is prepended
