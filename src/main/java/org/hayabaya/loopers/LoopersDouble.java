@@ -1,18 +1,21 @@
 package org.hayabaya.loopers;
 
+import ch.qos.logback.classic.Logger;
 import org.hayabaya.datarelated.Operation;
 import org.hayabaya.datarelated.Tpe;
+import org.slf4j.LoggerFactory;
 
 /**
  * Specific implementation of the Loopers class for the data type double
  */
 public class LoopersDouble extends Loopers {
+    private static final Logger logger = (Logger) LoggerFactory.getLogger(LoopersDouble.class);
 
     public static final Tpe type = Tpe.DOUBLE;
     private double[] array; // The array to be operated on
-    private double[] myNumberArray; // Array to pre-initialize with random numbers for operating on the above arra in
-    // order to avoid an overhead of "generating" the numbers on the fly, or the compiler optimizing the operations
-    // by always using the same number again and again for the operation
+    // To avoid optimization an array with pre-initialized numbers is generated, it must have enough elements such
+    // that no number is reused in the entire project.
+    private double[] myNumberArray;
 
     /**
      * Primary constructor called by the {@link org.hayabaya.loopers.LooperFactory} class. Values for array lengths,
