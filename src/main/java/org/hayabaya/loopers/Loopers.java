@@ -7,37 +7,29 @@ import org.slf4j.Logger;
 import java.util.Random;
 
 /**
- * Loopers tests the runtime doing: addition, subtraction, multiplication
- *    Loopers DOES NOT do anything, it is abstract.
- *    try to explain what the abstract classes are encapsulating (i.e. what they give to the child classes),
- *    and what will be overriden during inheritance
- * and division on the data types: int, float, double, long and (autoboxed) Integer, Float, Double and Long.
- * A Loopers object will be of a fixed data getType, and the object ensures that operations are performed correctly on
- * the data getType.
- * <p>
+ * Abstract class encapsulating the parts of JVM profiling that does not depend on the specific datatype. Because
+ * generics and other advanced features are not available for primitive data types such as int, long, float and
+ * double, it is necessary to use a lot of child classes that handles each data type specificially.
  *
  * @author cain
  * @author ktakagaki
  */
 public abstract class Loopers {
-    private static String TAG;
-    private static Class<?> cls;
-    private static Logger logger;
-
 
     RunSettings runSettings = RunSettings.getRunSettings();
     Random rand = new Random();
 
-    int[] arrayLengths = runSettings.getArrayLengths();
-    int[] cycleNumbers = runSettings.getCycleNumbers();
+    int[] arrayLengths = runSettings.getArrayLengths(); // What size of arrays to be tested, e.g. [1, 1000, 10000]
+    int[] cycleNumbers = runSettings.getCycleNumbers(); // What number of times each operation is to be repeated onto
+    // each element of each of the arrays, e.g. [10, 2000, 4000]
     int currentArrayLength;
     int currentCycleNumber;
-    protected Tpe type = null;
+    protected Tpe type = null; // To be initialized when instantiating a subclass
 
 
 
     /**
-     * Override method in the type specific child class implementations.
+     * Override method in the data type specific sub-class implementations.
      *
      * @return Tpe the type of numerical representation that is tested.
      */
@@ -48,8 +40,8 @@ public abstract class Loopers {
     }
 
     /**
-     * Loopers superclass constructor. This constructor is called from each child class to set the fields
-     * arrayLengths, cycles and type. The specific child class implements the abstract {@link #initializeArrayElements(int)} method
+     * Primary constructor of the parent class, called from a child class when they are being instantiated.
+     * The specific child class implements the abstract {@link #initializeArrayElements(int)} method
      * to do the actual initialization of the arrays.
      *
      * @param type The specific datatype of a given child class
@@ -57,19 +49,19 @@ public abstract class Loopers {
     public Loopers(Tpe type) {
         assert type != null : "A Type must be given, not null";
         this.type = type;
-    } //end constructor
+    }
 
 
 
     /**
-     * This is the meat of the HayaBaya project. operateLoop in the child classes performs the actual computations on
-     * the arrays.
+     * Uses a switch statement to determine the type of operation given as the argument and then calls the appropriate
+     * loop to measure the runtimes for all of the arraylengths and cyclenumbers.
      * @param operation The type of operation to perform (+,-,/,*) on the array for n cycles
      */
     abstract void operateLoop(Operation operation);
 
     /**
-     * Initialize the correct primitive/boxed array with random values.
+     * Initialize the array with random values.
      * This is not done generically, in order to explicity
      * profile primitive operations.
      * @param arrayLength The length of the array
@@ -78,8 +70,8 @@ public abstract class Loopers {
 
 
     /**
-     * Runs [[performOperation]] for the given operation/type and bundles the results
-     * into [[Results]] object.
+     * For each length of the arrays, CycleNumbers and type of operation call operateLoop to generate the data and
+     * then write the results to disk.
      */
     public void makeResults(){
 
@@ -110,8 +102,7 @@ public abstract class Loopers {
                 }
 
                 result = new Results(data, currentRepetition, getType(), anOperationToUse);
-                Utility.writeResultsToCsv(result);
-//                Utility.writeResultsV2(result);
+                WriteResults.writeResultsV2(result);
             }
         }
     }
