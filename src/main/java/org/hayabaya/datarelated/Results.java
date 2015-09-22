@@ -75,10 +75,10 @@ public class Results {
         this.theRepetitionNumber = theRepetitionNumber;
         this.type = type; // Can be null from creation from Loopers abstract class!
         this.operation = operation;
-        this.isBoxed = isBoxed(type);
+        this.isBoxed = isBoxed();
     }
 
-    /**]
+    /**
      * Determine if this instance contains data for Boxed or primitive data types
      * @param type The data type used for the instantiation
      * @return A string indicating a boolean answer with TRUE for Boxed types and FALSE for primitive data types
@@ -86,6 +86,34 @@ public class Results {
      */
     public String isBoxed(Tpe type) throws IllegalArgumentException {
         switch (type) {
+            case INT:
+                return "FALSE";
+            case INTEGER_BOXED:
+                return "TRUE";
+            case FLOAT:
+                return "FALSE";
+            case FLOAT_BOXED:
+                return "TRUE";
+            case DOUBLE:
+                return "FALSE";
+            case DOUBLE_BOXED:
+                return "TRUE";
+            case LONG:
+                return "FALSE";
+            case LONG_BOXED:
+                return "TRUE";
+            default:
+                throw new IllegalArgumentException("Type given is not valid");
+        }
+    }
+
+    /**
+     * Determine if this instance contains data for Boxed or primitive data types
+     * @return A string indicating a boolean answer with TRUE for Boxed types and FALSE for primitive data types
+     * @throws IllegalArgumentException is thrown if no type was identified
+     */
+    public String isBoxed() throws IllegalArgumentException {
+        switch (this.type) {
             case INT:
                 return "FALSE";
             case INTEGER_BOXED:
