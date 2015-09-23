@@ -147,6 +147,12 @@ public class WriteResults {
 //                    int cycleNumber = cycleNumbers[j];
 //                    long runTime = results.data[i][j];
 //
+
+
+
+
+        ///// resultLine.toString()... never cast to a value!!!
+        ///// The cast below may be redundant
 //                    String toAppend = (String) resultLine + " " + arrayLength + ",\t\t\t\t" + cycleNumber + "," +
 //                            "\t\t\t\t" + runTime + ",\t\t\t";
 //                    br.write(toAppend);
