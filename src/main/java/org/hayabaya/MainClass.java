@@ -1,75 +1,107 @@
-/**
- * MainClass
- * <p>
- * Measure the performance of arrays consisting of different primitive data types (int, float, double) and autoboxed
- * data types (Integer, Float).
- * <p>
- * It is possible to performOperation the 4 fundamental operations (Addition, Subtraction, Multplication and Division) on an
- * array of arbitrary length, and with an arbitrary number of cycles repeated on each array.
- */
 package org.hayabaya;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+
+import ch.qos.logback.classic.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.hayabaya.datarelated.Tpe;
 import org.hayabaya.loopers.LooperFactory;
 import org.hayabaya.loopers.Loopers;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 /**
- * Main class for testing java operations.
- * <p>
- * APPROACH TO GENERATE DATA FOR REPORT:
- * 1: create 2D arrays for each datatype and operation getType int:[add,sub,mult] + float:[add,sub,mult] etc.
- * ROWS:  Arraylength, start: 1.000 length, end: 100.length, stepsize: +1.000 length, TOTAL = 100
- * COLUMNS: Repetitions, start: 1.000 reps, end: 10.000 reps, stepsize: +1.000 reps, TOTAL = 10
- * 2: final is 100 rows X 10 colums (array length, repetitions)
- * 3: Write each datatype/operationtype to a csv file and process in R.
+ * Profile how fast the JVM performs arithmetic operations. The program creates 8 arrays of length <i>n</i>
+ * for each of the 4 basic data types <i>int, float, double</i> and <i>long</i> and their boxed counterparts. The
+ * code then performs the 4 different operations (+,-,/,*) for <i>x</i> number of times on each element of the arrays
+ * and measures the runtime. Results are saved to disk in csv files
  *
  * @author Ktakagaki
  * @author Slentzen Demian
  * @version 1.0
  */
 public class MainClass {
-    public static void main(String[] args) {
-        RunSettings runSettings = RunSettings.getInstance();
+    private static final Logger logger = (Logger) LoggerFactory.getLogger(MainClass.class);
 
 
-        if (args.length < 3) {
-            System.out.println("Please supply a \"name\" param, a \"size\" param (small, medium, large) and number of repetitions");
-            System.exit(1);
+    /**
+     * When run from the command line, Hayabaya takes 3 arguments.
+     * <pre>
+     *     $java -jar NameOfProcessor SizeOfTestData TotalRepetitions
+     *     $java -jar AMDA4 small 3
+     * </pre>
+     * The arguments are as follows:
+     *     <ul>
+     *         <li><b>NameOfProcessor</b> To distinguish between results from different systems, the name of the CPU
+     *         should be included
+     *         <li><b>SizeOfTestData</b> There are 3 preset configurations for convenience, <b>small, medium</b> and
+     *         <b>large</b>
+     *         <li><b>TotalRepetitions</b> How many times to replicate the entire experiment
+     *     </ul>
+     *
+     * Once Main has verified the values from the command line arguments given, it will pass them on to
+     * the {@link RunSettings Runsettings} class which stores project settings.
+     *
+     * @throws IllegalArgumentException Throws error if 3 arguments are not given on the command line
+     * @param args Arguments specifying the name of the CPU being tested, the size of the experiment to run and the
+     *             total number of times to repeat the experiment
+     */
+    public static void main(String[] args){
+
+        RunSettings runSettings = RunSettings.getRunSettings();
+        logger.debug("args is: {}", Arrays.toString(args));
+
+
+        /*
+        This codeblock validates the input arguments given on the commandline
+         */
+        if (args.length != 3) {
+
+            throw new IllegalArgumentException("You must supply 3 " +
+                    "arguments to the program, 1st: name, 2nd: small/medium/large 3rd: " +
+                    "repetitions [1-10] \n");
         } else if (args.length == 3) {
-            String name= args[0];
-            runSettings.setName(name);
+
+            String name = args[0];
+            runSettings.setNameOfProcessor(name);
             String sampleSize = args[1];
             runSettings.setSampleSize(sampleSize);
 
             try {
                 int reps = Integer.parseInt(args[2]);
                 runSettings.setTotalExperimentRepetitions(reps);
+
             } catch (NumberFormatException e) {
-                System.err.println("Argument" + args[2] + "must be an integer > 0");
-                System.exit(1);
+                System.err.println("Argument \'" + args[2] + "\' must be a parsable integer.");
+                System.exit(-1);
             }
         }
 
 
+        /*
+        Having validated the arguments it is now time to start the experiment. LooperFactory ensures that main does
+        not have to concern itself with the specifics of each different datatype as generics are not allowed for the
+        primitive data types in Java.
+         */
         LooperFactory looperFactory = LooperFactory.getinstance();
+        List<Loopers> arrayListOfLoopers = new ArrayList<>();
 
-        /* place Loopers into a list and iterate over the list performing operations, parsing types to methods */
-        List<Loopers> aListOfLoopers = new ArrayList<>();
-
-        for (Tpe datatype: Tpe.values()){
-            aListOfLoopers.add(looperFactory.createLooperInstance(datatype));
+        for (Tpe datatype : Tpe.values()) { // Instantiate Looper instance for int, float...
+            arrayListOfLoopers.add(looperFactory.createLooperInstance(datatype));
         }
 
-        /* No need for doing casting as makeResults should only use non-instance specific actions */
-        for (Loopers anInstance : aListOfLoopers){
+
+        for (Loopers anInstance : arrayListOfLoopers) {
             anInstance.makeResults();
         }
 
-        //Write the runsettings used to disk so it can be recalled later on during analysis
-        runSettings.writeRunSettingsToDisk();
+
+        logger.info("Writing the results to disk");
+
+        logger.info("Exiting Hayabaya");
+        System.exit(0);
     }
 }

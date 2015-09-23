@@ -1,31 +1,29 @@
 package org.hayabaya.datarelated;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.*;
 import java.util.Arrays;
 
 /**
  * General Utility functions used to execute the project.
  */
 public class Utility {
+    private static final Logger logger = (Logger) LoggerFactory.getLogger(Utility.class);
 
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_RED = "\u001B[31m";
-    public static final String ANSI_GREEN = "\u001B[32m";
-    public static final String ANSI_YELLOW = "\u001B[33m";
-    public static final String ANSI_BLUE = "\u001B[34m";
-    public static final String ANSI_PURPLE = "\u001B[35m";
-    public static final String ANSI_CYAN = "\u001B[36m";
-
+    /**
+     * The old version of the function that was used to write the Results datastructure to disk as csv files. The
+     * function is now deprecated, but kept as a backup in case the new function should fail.
+     * @deprecated
+     * @param results The results datastructure to be written to disk as a csv file
+     */
     public static void writeResultsToCsv(Results results) {
-        try
-        {
+        try {
             //check if directory exists, and create if not
             String fileDir = "./results";
             File fileDirObj = new File(fileDir);
-            if(!fileDirObj.exists()) fileDirObj.mkdir();
+            if (!fileDirObj.exists()) fileDirObj.mkdir();
 
             String filename = fileDir + "./res_" + results.type.toString() + "_" +
                     results.operation.toString() + "_rep_" + results.theRepetitionNumber + ".csv";
@@ -39,13 +37,11 @@ public class Utility {
 
             br.write(sb.toString());
             br.close();
-        }catch( FileNotFoundException e )
-        {
+        } catch (FileNotFoundException e) {
             //This should not be triggered
             System.out.println("SHOULD NOT BE TRIGGERED: The /results/ folder does not exist, cannot write file");
             e.printStackTrace(System.out);
-        }catch ( Exception e)
-        {
+        } catch (Exception e) {
             System.out.println("An unknown file exception was thrown..");
             e.printStackTrace(System.out);
         }
