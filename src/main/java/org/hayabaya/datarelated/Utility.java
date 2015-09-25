@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
-import java.util.Arrays;
+import java.util.*;
 
 /**
  * General Utility functions used to execute the project.
@@ -13,11 +13,24 @@ public class Utility {
     private static final Logger logger = (Logger) LoggerFactory.getLogger(Utility.class);
 
     /**
+     *
+     * @param m
+     */
+    public static void getAllVars(Map<String, ?> m) {
+        List<String> keys = new ArrayList<String>(m.keySet());
+        Collections.sort(keys);
+        for (String k : keys) {
+            System.out.println(k + " : " + m.get(k));
+        }
+    }
+
+    /**
      * The old version of the function that was used to write the Results datastructure to disk as csv files. The
      * function is now deprecated, but kept as a backup in case the new function should fail.
      * @deprecated
      * @param results The results datastructure to be written to disk as a csv file
      */
+    @Deprecated
     public static void writeResultsToCsv(Results results) {
         try {
             //check if directory exists, and create if not
