@@ -127,8 +127,8 @@ public class RunSettings {
             this.arrayLengthFromToBy = new int[]{10, 20, 1};
             this.cycleNumbersFromToBy = new int[]{10, 200, 20};
         } else if (s.equals("medium")) {
-            this.arrayLengthFromToBy = new int[]{10000, 50000, 10000};
-            this.cycleNumbersFromToBy = new int[]{1000, 5000, 1000};
+            this.arrayLengthFromToBy = new int[]{3000, 5000, 1000};
+            this.cycleNumbersFromToBy = new int[]{6000, 9000, 1000};
         } else if (s.equals("large")) {
             this.arrayLengthFromToBy = new int[]{10000, 50000, 5000};
             this.cycleNumbersFromToBy = new int[]{1000, 10000, 1000};

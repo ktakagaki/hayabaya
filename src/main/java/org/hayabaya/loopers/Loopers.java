@@ -72,8 +72,12 @@ public abstract class Loopers {
     /**
      * For each length of the arrays, CycleNumbers and type of operation call {@link #performOperation(Operation)}
      * which starts the JVM timer and then calls {@link #operateLoop(Operation)}.
+     * @return A result datastructure
      */
     public void makeResults(){
+        ResultsCollection resultsCollection = ResultsCollection.getInstance();
+        //ToDo: Verify that results are initialized correctly in the loops
+
 
         int totalRepetitions = runSettings.getTotalExperimentRepetitions();
 
@@ -81,7 +85,7 @@ public abstract class Loopers {
 
             for (Operation anOperationToUse : Operation.values()) {
 
-                Results result;
+//                Results result;
                 long data[][] = new long[runSettings.getArrayLengths().length][runSettings.getCycleNumbers().length];
 
                 // #row loop#
@@ -101,8 +105,9 @@ public abstract class Loopers {
                     rowIndex ++;
                 }
 
-                result = new Results(data, currentRepetition, getType(), anOperationToUse);
-                WriteResults.writeResultsV2(result);
+                Results results = new Results(data, currentRepetition, getType(), anOperationToUse);
+                resultsCollection.addToResultsList(results);
+//                WriteResults.writeResultsV2(result);
             }
         }
     }

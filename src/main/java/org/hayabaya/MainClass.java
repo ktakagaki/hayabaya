@@ -1,11 +1,12 @@
 package org.hayabaya;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import ch.qos.logback.classic.Logger;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import org.hayabaya.datarelated.Results;
+import org.hayabaya.datarelated.ResultsCollection;
 import org.slf4j.LoggerFactory;
 
 import org.hayabaya.datarelated.Tpe;
@@ -98,6 +99,20 @@ public class MainClass {
             anInstance.makeResults();
         }
 
+
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
+        builder.setPrettyPrinting().serializeNulls();
+
+        ResultsCollection resultsCollection = ResultsCollection.getInstance();
+        LinkedList<Results> allResults = resultsCollection.getResultsList();
+
+//        Results oneResult = allResults.pop();
+//        System.out.println(gson.toJson(oneResult));
+//
+        for (Results individualResults : allResults){
+            System.out.println(gson.toJson(individualResults));
+        }
 
         logger.info("Writing the results to disk");
 
