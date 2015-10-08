@@ -37,6 +37,28 @@ public class Results {
     public String name;
     public String isBoxed;
 
+    private Results() {
+    }
+
+    /**
+     * Primary constructor to be used by clients.
+     *
+     * @param data                a 2D long[][] array assumed to be (non-null) and <b>non-ragged</b>
+     * @param theRepetitionNumber The current repetitions number for this result out of the total replicates
+     * @param type                the data type (int, float, double, long) and their Boxed counterparts
+     * @param operation           the operation performed (+,-,/,*)
+     */
+    public Results(long[][] data, int theRepetitionNumber, Tpe type, Operation operation) {
+
+        RunSettings runSettings = RunSettings.getRunSettingsInstance();
+        this.name = runSettings.getNameOfProcessor();
+        this.data = data;
+        this.theRepetitionNumber = theRepetitionNumber;
+        this.type = type; // Can be null from creation from Loopers abstract class!
+        this.operation = operation;
+        this.isBoxed = isBoxed();
+    }
+
     public long[][] getData() {
         return data;
     }
@@ -55,27 +77,6 @@ public class Results {
 
     public String getName() {
         return name;
-    }
-
-    private Results() {
-    }
-
-    /**
-     * Primary constructor to be used by clients.
-     * @param data                a 2D long[][] array assumed to be (non-null) and <b>non-ragged</b>
-     * @param theRepetitionNumber The current repetitions number for this result out of the total replicates
-     * @param type                the data type (int, float, double, long) and their Boxed counterparts
-     * @param operation           the operation performed (+,-,/,*)
-     */
-    public Results(long[][] data, int theRepetitionNumber, Tpe type, Operation operation) {
-
-        RunSettings runSettings = RunSettings.getRunSettings();
-        this.name = runSettings.getNameOfProcessor();
-        this.data = data;
-        this.theRepetitionNumber = theRepetitionNumber;
-        this.type = type; // Can be null from creation from Loopers abstract class!
-        this.operation = operation;
-        this.isBoxed = isBoxed();
     }
 
     /**

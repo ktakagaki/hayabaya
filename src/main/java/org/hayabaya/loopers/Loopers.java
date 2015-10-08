@@ -1,8 +1,10 @@
 package org.hayabaya.loopers;
 
-import org.hayabaya.datarelated.*;
 import org.hayabaya.RunSettings;
-import org.slf4j.Logger;
+import org.hayabaya.datarelated.Operation;
+import org.hayabaya.datarelated.Results;
+import org.hayabaya.datarelated.ResultsCollection;
+import org.hayabaya.datarelated.Tpe;
 
 import java.util.Random;
 
@@ -16,28 +18,19 @@ import java.util.Random;
  */
 public abstract class Loopers {
 
-    RunSettings runSettings = RunSettings.getRunSettings();
+    protected Tpe type = null; // To be initialized when instantiating a subclass
+    RunSettings runSettings = RunSettings.getRunSettingsInstance();
     Random rand = new Random();
-
     int[] arrayLengths = runSettings.getArrayLengths(); // What size of arrays to be tested, e.g. [1, 1000, 10000]
     int[] cycleNumbers = runSettings.getCycleNumbers(); // What number of times each operation is to be repeated onto
     // each element of each of the arrays, e.g. [10, 2000, 4000]
     int currentArrayLength;
     int currentCycleNumber;
-    protected Tpe type = null; // To be initialized when instantiating a subclass
-
-
-
-    /**
-     * Override method in the data type specific sub-class implementations.
-     *
-     * @return Tpe the type of numerical representation that is tested.
-     */
-    public abstract Tpe getType();
 
 
     protected Loopers() { // made protected to avoid external initialization
     }
+
 
     /**
      * Primary constructor of the parent class, called from a child class when they are being instantiated.
@@ -51,7 +44,12 @@ public abstract class Loopers {
         this.type = type;
     }
 
-
+    /**
+     * Override method in the data type specific sub-class implementations.
+     *
+     * @return Tpe the type of numerical representation that is tested.
+     */
+    public abstract Tpe getType();
 
     /**
      * Uses a switch statement to determine the type of operation given as the argument and then calls the appropriate
@@ -129,6 +127,10 @@ public abstract class Loopers {
         return endTime - startTime;
     }
 
+    final public int getArrayLength() {
+        return currentArrayLength;
+    }
+
     /**
      * Set the length of an array in a Loopers object to a new length. This method is used for testing the different
      * arraylengths specified in {@link org.hayabaya.RunSettings}. The method uses
@@ -139,10 +141,6 @@ public abstract class Loopers {
         assert arrayLength > 0 : "array length must be above zero";
         this.currentArrayLength = arrayLength;
         initializeArrayElements(arrayLength);
-    }
-
-    final public int getArrayLength() {
-        return currentArrayLength;
     }
 
     final public int getCurrentCycleNumber() {

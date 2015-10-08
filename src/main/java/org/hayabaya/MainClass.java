@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 /**
@@ -62,38 +64,42 @@ public class MainClass {
         This codeblock validates the input arguments given on the commandline
          */
         try {
+            if (args.length != 3) {
+                throw new IllegalArgumentException("You must supply 3 " +
+                        "arguments to the program, 1st: name, 2nd: small/medium/large 3rd: " +
+                        "repetitions [1-10] \n");
+            }
+            if (args.length == 3) {
+                logger.debug("argument length == 3 and values: {}", Arrays.toString(args));
 
-        } catch (IllegalArgumentException ie) {
-
-        } catch (NumberFormatException fe) {
-
-        }
-        if (args.length != 3) {
-            logger.error("args.length !=3 it is {} ", Integer.toString(args.length)
-                    , new IllegalArgumentException("You must supply 3 " +
-                    "arguments to the program, 1st: name, 2nd: small/medium/large 3rd: " +
-                    "repetitions [1-10] \n"));
-
-            throw new IllegalArgumentException("You must supply 3 " +
-                    "arguments to the program, 1st: name, 2nd: small/medium/large 3rd: " +
-                    "repetitions [1-10] \n");
-//            System.exit(-1);
-        } else if (args.length == 3) {
-
-            String name = args[0];
-            runSettingsInstance.setNameOfProcessor(name);
-            String sampleSize = args[1];
-            runSettingsInstance.setSampleSize(sampleSize);
-
-            try {
+                String name = args[0];
+                runSettingsInstance.setNameOfProcessor(name);
+                String sampleSize = args[1];
+                runSettingsInstance.setSampleSize(sampleSize);
                 int reps = Integer.parseInt(args[2]);
                 runSettingsInstance.setTotalExperimentRepetitions(reps);
-
-            } catch (NumberFormatException e) {
-                System.err.println("Argument \'" + args[2] + "\' must be a parsable integer.");
-                System.exit(-1);
             }
+        } catch (IllegalArgumentException ie) {
+            logger.error("args.length is not 3, it contains: {} ", Integer.toString(args.length));
+
+        } catch (NumberFormatException fe) {
+            logger.error("Argument \'" + args[2] + "\' must be a parsable integer.");
+
         }
+
+        //<editor-fold desc="Data generation">
+        //         else if (args.length == 3) {
+//
+//
+//
+//            try {
+//
+//
+//            } catch (NumberFormatException e) {
+//                System.err.println("Argument \'" + args[2] + "\' must be a parsable integer.");
+//                System.exit(-1);
+//            }
+//        }
 
 
         /*
@@ -132,5 +138,29 @@ public class MainClass {
 
         logger.info("Exiting Hayabaya");
         System.exit(0);
+        //</editor-fold>
+    }
+
+    private static void validateArgs(String[] args) throws RuntimeException {
+        if (args.length != 3) throw new IllegalArgumentException("Give 3 arguments");
+//
+//                args[1] wrong option
+//                args[2] not an integer
+//                args[2] int < 0
+
+    }
+
+    private static void validateArgsValues(String[] args) throws IllegalArgumentException {
+        String name = args[0];
+        String sampleSize = args[1];
+        String repetitions = args[2];
+
+        Pattern pattern = Pattern.compile("[~#@*+%{}<>\\[\\]|\"\\_^]");
+        Matcher matcher = pattern.matcher(name);
+        if (matcher.find()) throw new IllegalArgumentException("Illegal characters in argument name");
+        if (name.length() == 0 || name.length() > 20) throw new IllegalArgumentException("name must be 1-20 long");
+        if (sampleSize.matches("small|medium|large"))
+
+
     }
 }
