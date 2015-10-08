@@ -1,17 +1,19 @@
 package org.hayabaya;
 
-import java.util.*;
-
 import ch.qos.logback.classic.Logger;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.hayabaya.datarelated.Results;
 import org.hayabaya.datarelated.ResultsCollection;
-import org.slf4j.LoggerFactory;
-
 import org.hayabaya.datarelated.Tpe;
 import org.hayabaya.loopers.LooperFactory;
 import org.hayabaya.loopers.Loopers;
+import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 
 /**
@@ -48,32 +50,44 @@ public class MainClass {
      *
      * @throws IllegalArgumentException Throws error if 3 arguments are not given on the command line
      * @param args Arguments specifying the name of the CPU being tested, the size of the experiment to run and the
-     *             total number of times to repeat the experiment
      */
-    public static void main(String[] args){
+    public static void main(String[] args) {
+        logger.debug("Hayabaya main entered");
 
-        RunSettings runSettings = RunSettings.getRunSettings();
-        logger.debug("args is: {}", Arrays.toString(args));
+        RunSettings runSettingsInstance = RunSettings.getRunSettingsInstance();
+        logger.debug("The values from args are: {}", Arrays.toString(args));
 
 
         /*
         This codeblock validates the input arguments given on the commandline
          */
+        try {
+
+        } catch (IllegalArgumentException ie) {
+
+        } catch (NumberFormatException fe) {
+
+        }
         if (args.length != 3) {
+            logger.error("args.length !=3 it is {} ", Integer.toString(args.length)
+                    , new IllegalArgumentException("You must supply 3 " +
+                    "arguments to the program, 1st: name, 2nd: small/medium/large 3rd: " +
+                    "repetitions [1-10] \n"));
 
             throw new IllegalArgumentException("You must supply 3 " +
                     "arguments to the program, 1st: name, 2nd: small/medium/large 3rd: " +
                     "repetitions [1-10] \n");
+//            System.exit(-1);
         } else if (args.length == 3) {
 
             String name = args[0];
-            runSettings.setNameOfProcessor(name);
+            runSettingsInstance.setNameOfProcessor(name);
             String sampleSize = args[1];
-            runSettings.setSampleSize(sampleSize);
+            runSettingsInstance.setSampleSize(sampleSize);
 
             try {
                 int reps = Integer.parseInt(args[2]);
-                runSettings.setTotalExperimentRepetitions(reps);
+                runSettingsInstance.setTotalExperimentRepetitions(reps);
 
             } catch (NumberFormatException e) {
                 System.err.println("Argument \'" + args[2] + "\' must be a parsable integer.");
@@ -110,7 +124,7 @@ public class MainClass {
 //        Results oneResult = allResults.pop();
 //        System.out.println(gson.toJson(oneResult));
 //
-        for (Results individualResults : allResults){
+        for (Results individualResults : allResults) {
             System.out.println(gson.toJson(individualResults));
         }
 
