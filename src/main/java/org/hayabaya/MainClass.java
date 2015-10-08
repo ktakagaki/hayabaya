@@ -64,26 +64,18 @@ public class MainClass {
         This codeblock validates the input arguments given on the commandline
          */
         try {
-            if (args.length != 3) {
-                throw new IllegalArgumentException("You must supply 3 " +
-                        "arguments to the program, 1st: name, 2nd: small/medium/large 3rd: " +
-                        "repetitions [1-10] \n");
-            }
-            if (args.length == 3) {
-                logger.debug("argument length == 3 and values: {}", Arrays.toString(args));
+            validateArgsValues(args);
+            validateArgs(args);
 
-                String name = args[0];
-                runSettingsInstance.setNameOfProcessor(name);
-                String sampleSize = args[1];
-                runSettingsInstance.setSampleSize(sampleSize);
-                int reps = Integer.parseInt(args[2]);
-                runSettingsInstance.setTotalExperimentRepetitions(reps);
-            }
-        } catch (IllegalArgumentException ie) {
-            logger.error("args.length is not 3, it contains: {} ", Integer.toString(args.length));
+            String name = args[0];
+            runSettingsInstance.setNameOfProcessor(name);
+            String sampleSize = args[1];
+            runSettingsInstance.setSampleSize(sampleSize);
+            int reps = Integer.parseInt(args[2]);
+            runSettingsInstance.setTotalExperimentRepetitions(reps);
 
-        } catch (NumberFormatException fe) {
-            logger.error("Argument \'" + args[2] + "\' must be a parsable integer.");
+        } catch (IllegalArgumentException e) {
+            logger.error("Illegal arguments for args: {} ", Integer.toString(args.length));
 
         }
 
@@ -141,26 +133,56 @@ public class MainClass {
         //</editor-fold>
     }
 
-    private static void validateArgs(String[] args) throws RuntimeException {
+    public static void validateArgs(String[] args) throws IllegalArgumentException {
         if (args.length != 3) throw new IllegalArgumentException("Give 3 arguments");
-//
-//                args[1] wrong option
-//                args[2] not an integer
-//                args[2] int < 0
 
     }
 
-    private static void validateArgsValues(String[] args) throws IllegalArgumentException {
+    public static void validateArgsValues(String[] args) throws IllegalArgumentException {
         String name = args[0];
-        String sampleSize = args[1];
+        String sampleSize = args[1].toLowerCase();
         String repetitions = args[2];
 
         Pattern pattern = Pattern.compile("[~#@*+%{}<>\\[\\]|\"\\_^]");
         Matcher matcher = pattern.matcher(name);
-        if (matcher.find()) throw new IllegalArgumentException("Illegal characters in argument name");
-        if (name.length() == 0 || name.length() > 20) throw new IllegalArgumentException("name must be 1-20 long");
-        if (sampleSize.matches("small|medium|large"))
+
+        if (matcher.find() || name.length() <= 0 || name.length() > 20) throw new IllegalArgumentException("Bad name " +
+                "arguments");
+
+        if (!sampleSize.matches("small|medium|large")) throw new IllegalArgumentException("sample size must be either" +
+                " \"small\" , \"medium\" or \"large\" ");
+
+        if (!isInteger(repetitions)) throw new NumberFormatException("non integer rep argument");
+        if (isInteger(repetitions)) {
+            int reps = Integer.parseInt(args[2]);
+            if (reps <= 0) throw new NumberFormatException("repetitions must be > 0");
+            if (reps > 100) throw new NumberFormatException("too many repetitions");
+        }
 
 
+    }
+
+    public static boolean isInteger(String str) {
+        if (str == null) {
+            return false;
+        }
+        int length = str.length();
+        if (length == 0) {
+            return false;
+        }
+        int i = 0;
+        if (str.charAt(0) == '-') {
+            if (length == 1) {
+                return false;
+            }
+            i = 1;
+        }
+        for (; i < length; i++) {
+            char c = str.charAt(i);
+            if (c <= '/' || c >= ':') {
+                return false;
+            }
+        }
+        return true;
     }
 }
