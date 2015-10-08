@@ -1,4 +1,7 @@
-# Created by https://www.gitignore.io/api/java,intellij,gradle
+# Ignore data files (depends on context)
+#*.txt
+#*.csv
+#*.json
 
 ### Java ###
 *.class
