@@ -1,8 +1,4 @@
 apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'application'
-
-mainClassName = 'org.hayabaya.MainClass'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -13,18 +9,23 @@ repositories {
     mavenCentral()
 }
 
-
 dependencies {
     compile group: 'junit', name: 'junit', version: '4.+'
-    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.+'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.+'
     compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.+'
-    compile group: 'org.slf4j', name:  'slf4j-ext', version: '1.7.+'
-    compile 'com.google.code.gson:gson:2.2.4'
+    compile 'com.google.code.gson:gson:2.+'
 }
 
+defaultTasks 'runSmall', 'shower'
 
-//create a single Jar with all dependencies
+import java.awt.*
+
+task shower << {
+    Desktop.getDesktop().browse(new File("./build/reports/tests/index.html").toURI());
+}
+
 task fatJar(type: Jar) {
+    //create a single Jar with all dependencies
     manifest {
         attributes 'Implementation-Title': 'Hayabaya',
                 'Implementation-Version': version,
@@ -34,3 +35,25 @@ task fatJar(type: Jar) {
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }
+
+task(runSmall, dependsOn: 'classes', type: JavaExec) {
+    main = 'org.hayabaya.MainClass'
+    classpath = sourceSets.main.runtimeClasspath
+    args = "i7cpu small 1".split().toList() // CPUname sampleSize Repetitions
+    enableAssertions = true
+}
+
+task(runMedium, dependsOn: 'classes', type: JavaExec) {
+    main = 'org.hayabaya.MainClass'
+    classpath = sourceSets.main.runtimeClasspath
+    args = "i7cpu medium 1".split().toList() // CPUname sampleSize Repetitions
+    enableAssertions = true
+}
+
+task(runLarge, dependsOn: 'classes', type: JavaExec) {
+    main = 'org.hayabaya.MainClass'
+    classpath = sourceSets.main.runtimeClasspath
+    args = "i7cpu large 1".split().toList() // CPUname sampleSize Repetitions
+    enableAssertions = true
+}
+
