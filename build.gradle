@@ -16,8 +16,13 @@ dependencies {
     compile 'com.google.code.gson:gson:2.+'
 }
 
-defaultTasks 'runSmall'
+defaultTasks 'runSmall', 'shower'
 
+import java.awt.*
+
+task shower << {
+    Desktop.getDesktop().browse(new File("./build/reports/tests/index.html").toURI());
+}
 
 task fatJar(type: Jar) {
     //create a single Jar with all dependencies
