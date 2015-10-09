@@ -29,6 +29,49 @@ import java.util.regex.Pattern;
  * @version 1.0
  */
 public class MainClass {
+
+    /**
+     * Name, Description and flag for the -h (help) Command Line option
+     */
+    private static final String OPTION_H_NAME = "h";
+    private static final String OPTION_H_DESCRIPTION = "Prints helpfull information on program usage and options";
+    private static final boolean OPTION_H_HAS_ARGS = false;
+
+    /**
+     * Name, Description and flag for the -p (use preset values) Command Line option
+     */
+    private static final String OPTION_P_NAME = "h";
+    private static final String OPTION_P_DESCRIPTION = "Use preset values for generating the data supplying only 3 " +
+            "arguments, name of the cpu, sampleSize and number of total repetitions. Defaults to true. See -h for " +
+            "further details on usage and other options";
+    private static final boolean OPTION_P_HAS_ARGS = false;
+
+    /**
+     * Name, Description and flag for the -c (costum settings) Command Line option
+     */
+    private static final String OPTION_C_NAME = "c";
+    private static final String OPTION_C_DESCRIPTION = "Specify costum values for the profiling project " +
+            "(default=false) using the default -c=true option instead" +
+            ". See -h for " +
+            "details on usage";
+    private static final boolean OPTION_C_HAS_ARGS = true;
+
+    /**
+     * Name, Description and flag for the -la (linear arrays) Command Line option
+     */
+    private static final String OPTION_LA_NAME = "la";
+    private static final String OPTION_LA_DESCRIPTION = "Make the elements of the array of arraylengths to be tested" +
+            " " +
+            "be generated in a linear fashion";
+    private static final boolean OPTION_H_HAS_ARGS = false;
+
+    private static final String OPTION_H_NAME = "h";
+    private static final String OPTION_H_DESCRIPTION = "Prints helpfull information on program usage and options";
+    private static final boolean OPTION_H_HAS_ARGS = false;
+
+    private static final String OPTION_H_NAME = "h";
+    private static final String OPTION_H_DESCRIPTION = "Prints helpfull information on program usage and options";
+    private static final boolean OPTION_H_HAS_ARGS = false;
     private static final Logger logger = (Logger) LoggerFactory.getLogger(MainClass.class);
 
 
