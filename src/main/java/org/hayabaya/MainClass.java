@@ -30,96 +30,7 @@ import java.util.regex.Pattern;
  */
 public class MainClass {
 
-    /**
-     * Name, Description and flag for the -h (help) Command Line option
-     */
-    private static final String OPTION_H_NAME = "h";
-    private static final String OPTION_H_DESCRIPTION = "Prints helpfull information on program usage and options";
-    private static final boolean OPTION_H_HAS_ARGS = false;
 
-    /**
-     * Name, Description and flag for the -p (use preset values) Command Line option
-     */
-    private static final String OPTION_P_NAME = "h";
-    private static final String OPTION_P_DESCRIPTION = "Use preset values for generating the data supplying only 3 " +
-            "arguments, name of the cpu, sampleSize and number of total repetitions. Defaults to true. See -h for " +
-            "further details on usage and other options";
-    private static final boolean OPTION_P_HAS_ARGS = false;
-
-    /**
-     * Name, Description and flag for the -c (custom settings) Command Line option
-     */
-    private static final String OPTION_C_NAME = "c";
-    private static final String OPTION_C_DESCRIPTION = "Specify costum values for the profiling project " +
-            "(default=false) using the default -c=true option instead" +
-            ". See -h for " +
-            "details on usage";
-    private static final boolean OPTION_C_HAS_ARGS = true;
-
-    /**
-     * Name, Description and flag for the -la (linear arrays) Command Line option
-     */
-    private static final String OPTION_LA_NAME = "la";
-    private static final String OPTION_LA_DESCRIPTION = "Make the elements of the array of arraylengths to be tested" +
-            " " +
-            "be generated in a linear fashion. Default=true";
-    private static final boolean OPTION_LA_HAS_ARGS = false;
-
-    /**
-     * Name, Description and flag for the -ea (exponential arrays) Command Line option
-     */
-    private static final String OPTION_EA_NAME = "ea";
-    private static final String OPTION_EA_DESCRIPTION = "Make the elements of the array of arraylengths to be tested" +
-            " " +
-            "be generated in an exponential fashion. Default=false";
-    private static final boolean OPTION_EA_HAS_ARGS = false;
-
-
-    /**
-     * Name, Description and flag for the -lc (linear cycle numbers) Command Line option
-     */
-    private static final String OPTION_LC_NAME = "lc";
-    private static final String OPTION_LC_DESCRIPTION = "Make the elements of the array of cycle numbers to " +
-            "be tested be generated in a linear fashion. Default=true";
-    private static final boolean OPTION_LC_HAS_ARGS = false;
-
-    /**
-     * Name, Description and flag for the -ec (exponential cycle numbers) Command Line option
-     */
-    private static final String OPTION_EC_NAME = "ec";
-    private static final String OPTION_EC_DESCRIPTION = "Make the elements of the array of cycle numbers to be tested" +
-            " be generated in an exponential fashion. Default=false";
-    private static final boolean OPTION_EC_HAS_ARGS = false;
-
-    /**
-     * Name, Description and flag for the -json (use json format for results) Command Line option
-     */
-    private static final String OPTION_JSON_NAME = "json";
-    private static final String OPTION_JSON_DESCRIPTION = "Write results in json format instead of csv format. " +
-            "default=false";
-    private static final boolean OPTION_JSON_HAS_ARGS = false;
-
-    /**
-     * Name, Description and flag for the -csv (use csv format for results) Command Line option
-     */
-    private static final String OPTION_CSV_NAME = "csv";
-    private static final String OPTION_CSV_DESCRIPTION = "Write results in csv format. default=true";
-    private static final boolean OPTION_CSV_HAS_ARGS = false;
-
-    /**
-     * Name, Description and flag for the -v (verbose) Command Line option
-     */
-    private static final String OPTION_V_NAME = "v";
-    private static final String OPTION_V_DESCRIPTION = "Verbose mode, prints the results to stdout while running " +
-            "default=false";
-    private static final boolean OPTION_V_HAS_ARGS = false;
-
-    /**
-     * Name, Description and flag for the -d (debug mode) Command Line option
-     */
-    private static final String OPTION_D_NAME = "d";
-    private static final String OPTION_D_DESCRIPTION = "Debug mode. default=false";
-    private static final boolean OPTION_D_HAS_ARGS = false;
 
     private static final Logger logger = (Logger) LoggerFactory.getLogger(MainClass.class);
 
@@ -276,5 +187,101 @@ public class MainClass {
             }
         }
         return true;
+    }
+
+    /**
+     * Definition of all of the available command line options in Hayabaya
+     */
+    private static class CommandLineOptions {
+        /**
+         * Name, Description and flag for the -h (help) Command Line option
+         */
+        private static final String OPTION_H_NAME = "h";
+        private static final String OPTION_H_DESCRIPTION = "Prints helpfull information on program usage and options";
+        private static final boolean OPTION_H_HAS_ARGS = false;
+
+        /**
+         * Name, Description and flag for the -p (use preset values) Command Line option
+         */
+        private static final String OPTION_P_NAME = "h";
+        private static final String OPTION_P_DESCRIPTION = "Use preset values for generating the data supplying only 3 " +
+                "arguments, name of the cpu, sampleSize and number of total repetitions. Defaults to true. See -h for " +
+                "further details on usage and other options";
+        private static final boolean OPTION_P_HAS_ARGS = false;
+
+        /**
+         * Name, Description and flag for the -c (custom settings) Command Line option
+         */
+        private static final String OPTION_C_NAME = "c";
+        private static final String OPTION_C_DESCRIPTION = "Specify costum values for the profiling project " +
+                "(default=false) using the default -c=true option instead" +
+                ". See -h for " +
+                "details on usage";
+        private static final boolean OPTION_C_HAS_ARGS = true;
+
+        /**
+         * Name, Description and flag for the -la (linear arrays) Command Line option
+         */
+        private static final String OPTION_LA_NAME = "la";
+        private static final String OPTION_LA_DESCRIPTION = "Make the elements of the array of arraylengths to be tested" +
+                " " +
+                "be generated in a linear fashion. Default=true";
+        private static final boolean OPTION_LA_HAS_ARGS = false;
+
+        /**
+         * Name, Description and flag for the -ea (exponential arrays) Command Line option
+         */
+        private static final String OPTION_EA_NAME = "ea";
+        private static final String OPTION_EA_DESCRIPTION = "Make the elements of the array of arraylengths to be tested" +
+                " " +
+                "be generated in an exponential fashion. Default=false";
+        private static final boolean OPTION_EA_HAS_ARGS = false;
+
+
+        /**
+         * Name, Description and flag for the -lc (linear cycle numbers) Command Line option
+         */
+        private static final String OPTION_LC_NAME = "lc";
+        private static final String OPTION_LC_DESCRIPTION = "Make the elements of the array of cycle numbers to " +
+                "be tested be generated in a linear fashion. Default=true";
+        private static final boolean OPTION_LC_HAS_ARGS = false;
+
+        /**
+         * Name, Description and flag for the -ec (exponential cycle numbers) Command Line option
+         */
+        private static final String OPTION_EC_NAME = "ec";
+        private static final String OPTION_EC_DESCRIPTION = "Make the elements of the array of cycle numbers to be tested" +
+                " be generated in an exponential fashion. Default=false";
+        private static final boolean OPTION_EC_HAS_ARGS = false;
+
+        /**
+         * Name, Description and flag for the -json (use json format for results) Command Line option
+         */
+        private static final String OPTION_JSON_NAME = "json";
+        private static final String OPTION_JSON_DESCRIPTION = "Write results in json format instead of csv format. " +
+                "default=false";
+        private static final boolean OPTION_JSON_HAS_ARGS = false;
+
+        /**
+         * Name, Description and flag for the -csv (use csv format for results) Command Line option
+         */
+        private static final String OPTION_CSV_NAME = "csv";
+        private static final String OPTION_CSV_DESCRIPTION = "Write results in csv format. default=true";
+        private static final boolean OPTION_CSV_HAS_ARGS = false;
+
+        /**
+         * Name, Description and flag for the -v (verbose) Command Line option
+         */
+        private static final String OPTION_V_NAME = "v";
+        private static final String OPTION_V_DESCRIPTION = "Verbose mode, prints the results to stdout while running " +
+                "default=false";
+        private static final boolean OPTION_V_HAS_ARGS = false;
+
+        /**
+         * Name, Description and flag for the -d (debug mode) Command Line option
+         */
+        private static final String OPTION_D_NAME = "d";
+        private static final String OPTION_D_DESCRIPTION = "Debug mode. default=false";
+        private static final boolean OPTION_D_HAS_ARGS = false;
     }
 }
