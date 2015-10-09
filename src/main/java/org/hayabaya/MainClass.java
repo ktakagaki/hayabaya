@@ -3,6 +3,7 @@ package org.hayabaya;
 import ch.qos.logback.classic.Logger;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import org.apache.commons.cli.Options;
 import org.hayabaya.datarelated.Results;
 import org.hayabaya.datarelated.ResultsCollection;
 import org.hayabaya.datarelated.Tpe;
@@ -189,10 +190,52 @@ public class MainClass {
         return true;
     }
 
+//    /** Prints the usage information. **/
+//    private static void printUsage() {
+//        final HelpFormatter formatter = new HelpFormatter();
+//        formatter.printHelp(String.format("java %s [options] -c <config.xml> file...",
+//                Main.class.getName()), buildOptions());
+//    }
+
+    /**
+     * Builds the options objects outlined in the CLIOptions class
+     * @return available options
+     */
+    private static Options buildOptions() {
+        final Options options = new Options();
+        options.addOption(CLIOptions.OPTION_H_NAME, CLIOptions.OPTION_H_HAS_ARGS, CLIOptions.OPTION_H_DESCRIPTION);
+        options.addOption(CLIOptions.OPTION_P_NAME, CLIOptions.OPTION_P_HAS_ARGS, CLIOptions.OPTION_P_DESCRIPTION);
+        options.addOption(CLIOptions.OPTION_C_NAME, CLIOptions.OPTION_C_HAS_ARGS, CLIOptions.OPTION_C_DESCRIPTION);
+        options.addOption(CLIOptions.OPTION_LA_NAME, CLIOptions.OPTION_LA_HAS_ARGS, CLIOptions.OPTION_LA_DESCRIPTION);
+        options.addOption(CLIOptions.OPTION_LC_NAME, CLIOptions.OPTION_LC_HAS_ARGS, CLIOptions.OPTION_LC_DESCRIPTION);
+        options.addOption(CLIOptions.OPTION_EA_NAME, CLIOptions.OPTION_EA_HAS_ARGS, CLIOptions.OPTION_EA_DESCRIPTION);
+        options.addOption(CLIOptions.OPTION_EC_NAME, CLIOptions.OPTION_EC_HAS_ARGS, CLIOptions.OPTION_EC_DESCRIPTION);
+        options.addOption(CLIOptions.OPTION_JSON_NAME, CLIOptions.OPTION_JSON_HAS_ARGS, CLIOptions.OPTION_JSON_DESCRIPTION);
+        options.addOption(CLIOptions.OPTION_CSV_NAME, CLIOptions.OPTION_CSV_HAS_ARGS, CLIOptions.OPTION_CSV_DESCRIPTION);
+        options.addOption(CLIOptions.OPTION_V_NAME, CLIOptions.OPTION_V_HAS_ARGS, CLIOptions.OPTION_V_DESCRIPTION);
+        options.addOption(CLIOptions.OPTION_D_NAME, CLIOptions.OPTION_D_HAS_ARGS, CLIOptions.OPTION_D_DESCRIPTION);
+//        options.addOption(OPTION_F_NAME, true, String.format(
+//                "Sets the output format. (%s|%s). Defaults to %s",
+//                PLAIN_FORMAT_NAME, XML_FORMAT_NAME, PLAIN_FORMAT_NAME));
+//        options.addOption(OPTION_V_NAME, false, "Print product version and exit");
+        return options;
+    }
+
     /**
      * Definition of all of the available command line options in Hayabaya
      */
-    private static class CommandLineOptions {
+    private static class CLIOptions {
+//        /**
+//         * Name, Description and flag for the -participate (help) Command Line option
+//         */
+//        private static final String OPTION_PARTICIPATE_NAME = "participate";
+//        private static final String OPTION_PARTICIPATE_DESCRIPTION = "Help the hayabaya project out in our attempt to" +
+//                " create a website with a large database benchmarking many different devices in a uniform fashion. " +
+//                "This assist our users in choosing the right device for specific applications of high performance " +
+//                "computing at research institutions around the world. The option will run a series of benchmarks and " +
+//                "then it will upload the results to our server. All data will be anonymous. default=false";
+//        private static final boolean OPTION_PARTICIPATE_HAS_ARGS = false;
+
         /**
          * Name, Description and flag for the -h (help) Command Line option
          */
