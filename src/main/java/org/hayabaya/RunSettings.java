@@ -4,11 +4,10 @@ import org.hayabaya.datarelated.Utility;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Objects;
 
 
 /**
@@ -20,10 +19,8 @@ import java.util.*;
  * Created by cain on 4/20/2015.
  */
 public class RunSettings {
+    private static RunSettings runSettingsInstance = new RunSettings();
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
-
-    private static RunSettings runSettings = new RunSettings();
-
     private String sampleSize;
     private String nameOfProcessor;
     private int totalExperimentRepetitions;
@@ -35,7 +32,9 @@ public class RunSettings {
     // Singleton constructor
     private RunSettings() {}
 
-    public static RunSettings getRunSettings() { return runSettings; }
+    public static RunSettings getRunSettingsInstance() {
+        return runSettingsInstance;
+    }
 
 
     /**
@@ -123,13 +122,12 @@ public class RunSettings {
         return ret;
     }
 
+    public String getNameOfProcessor() {
+        return nameOfProcessor;
+    }
 
     public void setNameOfProcessor(String n) {
         this.nameOfProcessor = Objects.requireNonNull(n, "nameOfProcessor must not be null");
-    }
-
-    public String getNameOfProcessor() {
-        return nameOfProcessor;
     }
 
     public void setSampleSize(String s) {
@@ -138,8 +136,8 @@ public class RunSettings {
             this.arrayLengthFromToBy = new int[]{10, 20, 1};
             this.cycleNumbersFromToBy = new int[]{10, 200, 20};
         } else if (s.equals("medium")) {
-            this.arrayLengthFromToBy = new int[]{10000, 50000, 10000};
-            this.cycleNumbersFromToBy = new int[]{1000, 5000, 1000};
+            this.arrayLengthFromToBy = new int[]{3000, 5000, 1000};
+            this.cycleNumbersFromToBy = new int[]{6000, 9000, 1000};
         } else if (s.equals("large")) {
             this.arrayLengthFromToBy = new int[]{10000, 50000, 5000};
             this.cycleNumbersFromToBy = new int[]{1000, 10000, 1000};

@@ -1,8 +1,6 @@
 package org.hayabaya;
 
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.*;
@@ -12,7 +10,7 @@ import static org.junit.Assert.*;
  */
 public class RunSettingsTest extends MyTestAbstract{
 
-    RunSettings runSettings = RunSettings.getRunSettings();
+    RunSettings runSettings = RunSettings.getRunSettingsInstance();
 
 
     @Test

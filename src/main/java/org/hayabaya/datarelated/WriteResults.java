@@ -4,7 +4,9 @@ import org.hayabaya.RunSettings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -30,7 +32,7 @@ public class WriteResults {
                 .getTheRepetitionNumber(), results.isBoxed);
 
 
-        RunSettings runSettings = RunSettings.getRunSettings();
+        RunSettings runSettings = RunSettings.getRunSettingsInstance();
 
         String wd = System.getProperty("user.dir");
         String nameCPU = runSettings.getNameOfProcessor();
