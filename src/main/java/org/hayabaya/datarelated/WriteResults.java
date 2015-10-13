@@ -41,9 +41,10 @@ public class WriteResults {
 
         PrintWriter out = null;
         try {
-            List<String> listToWrite = dumpVars(new HashMap(System.getProperties()));
+//            List<String> listToWrite = dumpVars(new HashMap(System.getProperties()));
+            List<String> listToWrite = dumpVars(new HashMap(System.getenv()));
             String wd = System.getProperty("user.dir");
-            String outpath = wd + "/JVMresults/JVMDumps.txt";
+            String outpath = wd + "/JVMresults/JVMDumps2.txt";
 
             out = new PrintWriter(new FileWriter(outpath));
             for (String text : listToWrite) {
@@ -57,29 +58,6 @@ public class WriteResults {
                 out.close();
             }
         }
-
-
-//        try{
-//            List<String> listToWrite = dumpVars(new HashMap(System.getProperties()));
-//            String wd = System.getProperty("user.dir");
-//
-//            String fileDir = "./results";
-//            File fileDirObj = new File(fileDir);
-//            if (!fileDirObj.exists()) fileDirObj.mkdir();
-//
-//            FileWriter writer = new FileWriter(wd + "JVMProperties.txt");
-//            for(String str: listToWrite) {
-//                writer.write(str);
-//            }
-//            writer.close();
-//
-//        } catch (Exception e) {
-//            logger.error("Caught exctopn", e);
-//        }
-//
-//        finally {
-//            if (writer !=null) writer.close();
-//        }
     }
 
 

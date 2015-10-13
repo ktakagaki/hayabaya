@@ -10,7 +10,7 @@ java.endorsed.dirs : /usr/lib/jvm/java-8-jdk/jre/lib/endorsed
 java.ext.dirs : /usr/lib/jvm/java-8-jdk/jre/lib/ext:/usr/java/packages/lib/ext
 java.home : /usr/lib/jvm/java-8-jdk/jre
 java.io.tmpdir : /tmp
-java.library.path : /usr/share/intellij-idea-ultimate-edition/bin::/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+java.library.path : /usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
 java.runtime.name : Java(TM) SE Runtime Environment
 java.runtime.version : 1.8.0_60-b27
 java.specification.name : Java Platform API Specification
