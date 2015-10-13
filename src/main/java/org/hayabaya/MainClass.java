@@ -1,9 +1,6 @@
 package org.hayabaya;
 
 import ch.qos.logback.classic.Logger;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import org.apache.commons.cli.Options;
 import org.hayabaya.datarelated.Results;
 import org.hayabaya.datarelated.ResultsCollection;
 import org.hayabaya.datarelated.Tpe;
@@ -58,9 +55,7 @@ public class MainClass {
         logger.debug("Args are: {}", Arrays.toString(args));
 
 
-        /*
-        Validate arguments and then parse them to RunSettings so system is ready to go
-         */
+        //Validate arguments and then parse them to RunSettings so system is ready to go
         try {
             validateArgsValues(args);
             validateArgs(args);
@@ -73,8 +68,7 @@ public class MainClass {
             runSettingsInstance.setTotalExperimentRepetitions(reps);
 
         } catch (IllegalArgumentException e) {
-            logger.error("Illegal arguments for args: {} \n resulting in {}",
-                    Integer.toString(args.length), e.getStackTrace());
+            logger.error("IllegalArguments {}", e);
             e.printStackTrace();
         }
 
@@ -83,14 +77,19 @@ public class MainClass {
         List<Loopers> arrayListOfLoopers = new ArrayList<>();
         // Add a Loopers instance to the arrayList for each value in Tpe
         for (Tpe datatype : Tpe.values()) {
+
             try {
                 arrayListOfLoopers.add(LooperFactory.getLooper(datatype));
             } catch (IllegalArgumentException e) {
-             logger.error("LooperFactory.getlooper got an illegal argument: {}", e);
+             logger.error("No such Looper type: {}", e);
             }
+
         }
 
 
+        logger.info("All Looper instances created, making results");
+
+        List<Results> resultsList = new ArrayList<>();
         for (Loopers anInstance : arrayListOfLoopers) {
             anInstance.makeResults();
         }
@@ -114,7 +113,6 @@ public class MainClass {
 
         logger.info("Exiting Hayabaya");
         System.exit(0);
-        //</editor-fold>
     }
 
     public static void validateArgs(String[] args) throws IllegalArgumentException {
