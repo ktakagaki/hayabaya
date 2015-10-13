@@ -14,27 +14,7 @@ import java.util.regex.Pattern;
 public class Utility {
     private static final Logger logger = (Logger) LoggerFactory.getLogger(Utility.class);
 
-    /**
-     * Get all of the JVM properties
-     *
-     * @param m
-     */
-    private static void dumpVars(Map<String, ?> m) {
-        List<String> keys = new ArrayList<String>(m.keySet());
-        Collections.sort(keys);
-        for (String k : keys) {
-            System.out.println(k + " : " + m.get(k));
-        }
-    }
 
-    public static void dumpJVMProperties() {
-        String newline = System.getProperty("line.separator");
-        try{
-            String fileDir = "./results";
-            File fileDirObj = new File(fileDir);
-            if (!fileDirObj.exists()) fileDirObj.mkdir();
-        }
-    }
 
     /**
      * The old version of the function that was used to write the Results datastructure to disk as csv files. The

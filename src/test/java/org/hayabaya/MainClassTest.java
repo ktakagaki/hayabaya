@@ -31,7 +31,7 @@
 //    public void testValidateArgsWithBadArgs() throws IllegalArgumentException {
 //        thrown.expect(IllegalArgumentException.class);
 //        thrown.expectMessage("Give 3 arguments");
-//        MainClass.validateArgs(new String[]{"i7", "small"});
+//        MainClass.validateArgsLength(new String[]{"i7", "small"});
 //    }
 //
 //    @Test

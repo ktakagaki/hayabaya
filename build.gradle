@@ -39,14 +39,14 @@ task fatJar(type: Jar) {
 task(runSmall, dependsOn: 'classes', type: JavaExec) {
     main = 'org.hayabaya.MainClass'
     classpath = sourceSets.main.runtimeClasspath
-    args = "i7cpu small 1".split().toList() // CPUname sampleSize Repetitions
+    args = "i7cpu small 4".split().toList() // CPUname sampleSize Repetitions
     enableAssertions = true
 }
 
 task(runMedium, dependsOn: 'classes', type: JavaExec) {
     main = 'org.hayabaya.MainClass'
     classpath = sourceSets.main.runtimeClasspath
-    args = "i7cpu medium 1".split().toList() // CPUname sampleSize Repetitions
+    args = "i7cpu medium 2".split().toList() // CPUname sampleSize Repetitions
     enableAssertions = true
 }
 

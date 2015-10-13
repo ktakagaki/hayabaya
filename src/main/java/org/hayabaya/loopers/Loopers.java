@@ -3,7 +3,6 @@ package org.hayabaya.loopers;
 import org.hayabaya.RunSettings;
 import org.hayabaya.datarelated.Operation;
 import org.hayabaya.datarelated.Results;
-import org.hayabaya.datarelated.ResultsCollection;
 import org.hayabaya.datarelated.Tpe;
 
 import java.util.Random;

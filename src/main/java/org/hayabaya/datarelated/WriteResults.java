@@ -7,12 +7,81 @@ import org.slf4j.LoggerFactory;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.*;
 
 public class WriteResults {
     private static final Logger logger = (Logger) LoggerFactory.getLogger(WriteResults.class);
+
+    /**
+     * Get all of the JVM properties
+     *
+     * @param m
+     */
+    private static List<String> dumpVars(Map<String, ?> m) {
+        List<String> keys = new ArrayList<String>(m.keySet());
+        Collections.sort(keys);
+        List<String> linesOfValues = new ArrayList<>();
+
+        for (String k : keys) {
+            String line = k + " : " + m.get(k);
+            linesOfValues.add(line);
+        }
+        return linesOfValues;
+    }
+
+    public static void writeJVMValuesToDisk() {
+
+        String fileDir = "./JVMresults";
+        File fileDirObj = new File(fileDir);
+        if (!fileDirObj.exists()) fileDirObj.mkdir();
+
+        PrintWriter out = null;
+        try {
+            List<String> listToWrite = dumpVars(new HashMap(System.getProperties()));
+            String wd = System.getProperty("user.dir");
+            String outpath = wd + "/JVMresults/JVMDumps.txt";
+
+            out = new PrintWriter(new FileWriter(outpath));
+            for (String text : listToWrite) {
+                out.println(text);
+            }
+        } catch (IOException e) {
+            System.err.println("Caught IOException: " +  e.getMessage());
+
+        } finally {
+            if (out != null) {
+                out.close();
+            }
+        }
+
+
+//        try{
+//            List<String> listToWrite = dumpVars(new HashMap(System.getProperties()));
+//            String wd = System.getProperty("user.dir");
+//
+//            String fileDir = "./results";
+//            File fileDirObj = new File(fileDir);
+//            if (!fileDirObj.exists()) fileDirObj.mkdir();
+//
+//            FileWriter writer = new FileWriter(wd + "JVMProperties.txt");
+//            for(String str: listToWrite) {
+//                writer.write(str);
+//            }
+//            writer.close();
+//
+//        } catch (Exception e) {
+//            logger.error("Caught exctopn", e);
+//        }
+//
+//        finally {
+//            if (writer !=null) writer.close();
+//        }
+    }
+
 
     /**
      * Writes the Results datastructure to a .csv file on disk. The results folder is prepended
