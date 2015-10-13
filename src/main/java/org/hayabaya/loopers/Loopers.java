@@ -72,43 +72,33 @@ public abstract class Loopers {
      * which starts the JVM timer and then calls {@link #operateLoop(Operation)}.
      * @return A result datastructure
      */
-    public void makeResults(){
-        ResultsCollection resultsCollection = ResultsCollection.getInstance();
-        //ToDo: Verify that results are initialized correctly in the loops
-
-
+    public Results[] makeResults(Operation parsedOperation){
         int totalRepetitions = runSettings.getTotalExperimentRepetitions();
+        Results[] allResults = new Results[totalRepetitions];
 
         for (int currentRepetition = 0; currentRepetition < totalRepetitions; currentRepetition++) {
-
-            for (Operation anOperationToUse : Operation.values()) {
-
-//                Results result;
                 long data[][] = new long[runSettings.getArrayLengths().length][runSettings.getCycleNumbers().length];
 
-                // #row loop#
-
-                int rowIndex = 0;
+                int rowIndex = 0; // #row loop#
                 for (int rowCountArraySize: runSettings.getArrayLengths()){
-                    // #column loop#
-                    int columnIndex = 0;
+
+                    int columnIndex = 0; // #column loop#
 
                     for (int columnCountCycleNumbers : runSettings.getCycleNumbers()) {
                         setArrayLength(rowCountArraySize);
                         setCycles(columnCountCycleNumbers);
-                        data[rowIndex][columnIndex] = performOperation(anOperationToUse);
+                        data[rowIndex][columnIndex] = performOperation(parsedOperation);
 
                         columnIndex ++;
                     }
                     rowIndex ++;
                 }
 
-                Results results = new Results(data, currentRepetition, getType(), anOperationToUse);
-                resultsCollection.addToResultsList(results);
-//                WriteResults.writeResultsV2(result);
-            }
-        }
-    }
+                Results aResultElement = new Results(data, currentRepetition, getType(), parsedOperation);
+                allResults[currentRepetition] = aResultElement;
+        }// cureent repetitions
+        return allResults;
+    }// makeresults
 
     /**
      * This is where the core computations are actually performed; by calling it from performOperation
