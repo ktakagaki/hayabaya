@@ -75,7 +75,7 @@ public class MainClass {
         } catch (IllegalArgumentException e) {
             logger.error("Illegal arguments for args: {} \n resulting in {}",
                     Integer.toString(args.length), e.getStackTrace());
-//            logger.error(e.printStackTrace());
+            e.printStackTrace();
         }
 
 
