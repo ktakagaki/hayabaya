@@ -73,22 +73,21 @@ public class MainClass {
             runSettingsInstance.setTotalExperimentRepetitions(reps);
 
         } catch (IllegalArgumentException e) {
-            logger.error("Illegal arguments for args: {} ", Integer.toString(args.length));
-
+            logger.error("Illegal arguments for args: {} \n resulting in {}",
+                    Integer.toString(args.length), e.getStackTrace());
+//            logger.error(e.printStackTrace());
         }
 
 
 
-        /*
-        Having validated the arguments it is now time to start the experiment. LooperFactory ensures that main does
-        not have to concern itself with the specifics of each different datatype as generics are not allowed for the
-        primitive data types in Java.
-         */
-        LooperFactory looperFactory = LooperFactory.getinstance();
         List<Loopers> arrayListOfLoopers = new ArrayList<>();
-
-        for (Tpe datatype : Tpe.values()) { // Instantiate Looper instance for int, float...
-            arrayListOfLoopers.add(looperFactory.createLooperInstance(datatype));
+        // Add a Loopers instance to the arrayList for each value in Tpe
+        for (Tpe datatype : Tpe.values()) {
+            try {
+                arrayListOfLoopers.add(LooperFactory.getLooper(datatype));
+            } catch (IllegalArgumentException e) {
+             logger.error("LooperFactory.getlooper got an illegal argument: {}", e);
+            }
         }
 
 

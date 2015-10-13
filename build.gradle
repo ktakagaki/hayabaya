@@ -57,3 +57,11 @@ task(runLarge, dependsOn: 'classes', type: JavaExec) {
     enableAssertions = true
 }
 
+task(testTwoArgs, dependsOn: 'classes', type: JavaExec) {
+    println "Trying 2 arguments"
+    main = 'org.hayabaya.MainClass'
+    classpath = sourceSets.main.runtimeClasspath
+    args = "large 1".split().toList() // CPUname sampleSize Repetitions
+    enableAssertions = true
+}
+

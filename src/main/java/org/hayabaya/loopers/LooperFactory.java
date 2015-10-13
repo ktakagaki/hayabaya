@@ -8,21 +8,18 @@ import org.hayabaya.datarelated.Tpe;
  * @see org.hayabaya.datarelated.Tpe
  */
 public class LooperFactory {
-    private static LooperFactory instance = new LooperFactory();
-    private LooperFactory(){}
-    public static LooperFactory getinstance(){ return instance; }
 
     /**
      * Returns an instance of one of the Loopers_DATA_TYPE classes. To get an instance of a LoopersInt class use
      * <pre>
      *     LooperFactory looperFactory = LooperFactory.getinstance();
-     *     Loopers anIntInstance = looperFactory.createLooperInstance(Tpe.INT);
+     *     Loopers anIntInstance = looperFactory.getLooper(Tpe.INT);
      * </pre>
      * @param type One of the datatypes from the Tpe enum class @see org.hayabaya.datarelated.Tpe
      * @return A data type specific instance of Loopers sub-classes
      * @throws IllegalArgumentException Default fallthrough if argument does not match any known data type
      */
-    public Loopers createLooperInstance(Tpe type) throws IllegalArgumentException{
+    public static Loopers getLooper(Tpe type) throws IllegalArgumentException{
         switch (type){
             case INT:
                 return new LoopersInt();
@@ -41,7 +38,7 @@ public class LooperFactory {
             case LONG_BOXED:
                 return new LoopersLongBoxed();
             default:
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("Illegal arg given to LooperFactory.getLooper");
         }
     }
 }
