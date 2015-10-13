@@ -30,11 +30,7 @@ import java.util.regex.Pattern;
  * @version 1.0
  */
 public class MainClass {
-
-
-
     private static final Logger logger = (Logger) LoggerFactory.getLogger(MainClass.class);
-
 
     /**
      * When run from the command line, Hayabaya takes 3 arguments.
@@ -58,14 +54,12 @@ public class MainClass {
      * @param args Arguments specifying the name of the CPU being tested, the size of the experiment to run and the
      */
     public static void main(String[] args) {
-        logger.debug("Hayabaya main entered");
-
         RunSettings runSettingsInstance = RunSettings.getRunSettingsInstance();
-        logger.debug("The values from args are: {}", Arrays.toString(args));
+        logger.debug("Args are: {}", Arrays.toString(args));
 
 
         /*
-        This codeblock validates the input arguments given on the commandline
+        Validate arguments and then parse them to RunSettings so system is ready to go
          */
         try {
             validateArgsValues(args);
@@ -83,19 +77,6 @@ public class MainClass {
 
         }
 
-        //<editor-fold desc="Data generation">
-        //         else if (args.length == 3) {
-//
-//
-//
-//            try {
-//
-//
-//            } catch (NumberFormatException e) {
-//                System.err.println("Argument \'" + args[2] + "\' must be a parsable integer.");
-//                System.exit(-1);
-//            }
-//        }
 
 
         /*
