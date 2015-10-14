@@ -124,7 +124,7 @@ public class WriteResults {
 
         List<String> rValue = new ArrayList<>();
         rValue.add(results.getCSVHeader());
-        rValue.add(newline);
+//        rValue.add(newline);
 
         int[] arrayLengths = runSettings.getArrayLengths();
         int[] cycleNumbers = runSettings.getCycleNumbers();
@@ -141,7 +141,7 @@ public class WriteResults {
 
                 String toAdd = lineBody + al + "," + cn + "," + runTime;
                 rValue.add(toAdd);
-                rValue.add(newline);
+//                rValue.add(newline);
             }
         }
         return rValue;
