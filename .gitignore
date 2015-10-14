@@ -1,7 +1,7 @@
 # Ignore data files (depends on context)
-#*.txt
-#*.csv
-#*.json
+*.txt
+*.csv
+*.json
 
 ### Java ###
 *.class
