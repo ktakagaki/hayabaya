@@ -2,6 +2,7 @@
 *.txt
 *.csv
 *.json
+!hayabayaV1RC.jar
 
 ### Java ###
 *.class
