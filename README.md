@@ -11,6 +11,7 @@ Using "$java -jar HayabayaV1RC.jar" you must supply the program with 3 arguments
 
 ### Examples of running from commandline
 $java -jar hayabayaV1RC.jar AMDA4 small 3
+
 $java -jar hayabayaV1RC.jar inteli7 medium 6
 
 The first example will write the results into a subfolder of the current folder from which the jar file was executed. 
