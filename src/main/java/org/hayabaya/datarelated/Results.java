@@ -89,6 +89,13 @@ public class Results {
         return csvHeader;
     }
 
+    public String getLineBody() {
+        String lineBody = this.name + "," + type.toString() + "," + isBoxed + "," + operation.toString() +
+                "," + this.theRepetitionNumber + ",";
+
+        return lineBody;
+    }
+
     /**
      * Determine if this instance contains data for Boxed or primitive data types
      * @param type The data type used for the instantiation

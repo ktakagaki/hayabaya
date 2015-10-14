@@ -68,9 +68,6 @@ public class WriteResults {
         Path outPutFolderPath = Paths.get(wd + pathSeperator + nameCPU);
         logger.debug("Path to results folder: {} \n", outPutFolderPath);
 
-        // check if dir exists
-        // if dir, then verify read/write access
-        // else create dir
         try {
             boolean folderExists = Files.exists(outPutFolderPath);
             boolean folderRights = Files.isWritable(outPutFolderPath) && Files.isWritable(outPutFolderPath);
@@ -100,50 +97,78 @@ public class WriteResults {
     public static void writeResultsV2(Results results) {
 
         String pathSeperator = System.getProperty("file.separator");
-        String newline = System.getProperty("line.separator");
+
         Path outPutFolderPath = ensureResultFolder();
 
+        String fileName = results.getFileName();
+
+        Path outPath = Paths.get(outPutFolderPath + pathSeperator + fileName);
+
+        List<String> flatResults = flattenResults(results);
+
+        logger.debug("Attempting to write {} to file", fileName);
+
         try {
-            StringBuilder sb = new StringBuilder();
-
-            sb.append(results.getCSVHeader());
-            sb.append(newline);
-
-
-            String fileText = sb.toString();
-
-            Path resultFilePath = Paths.get(outPutFolderPath + pathSeperator + results.getFileName());
-            File newTextFile = new File(resultFilePath.toString());
-
-            FileWriter fw = new FileWriter(newTextFile);
-            fw.write(fileText);
-            fw.close();
-            logger.debug("Wrote file to disk");
-        } catch (IOException e) {
-            logger.error("File error {}", e);
-
+            Files.write(outPath,flatResults, StandardCharsets.UTF_8);
+        }catch (IOException e) {
+            logger.error("Writing file {} failed with {}", fileName, e);
+            e.printStackTrace();
         }
 
 
+    }
 
-//
+    private static List<String> flattenResults(Results results) {
+        RunSettings runSettings = RunSettings.getRunSettingsInstance();
+        String newline = System.getProperty("line.separator");
+
+        List<String> rValue = new ArrayList<>();
+        rValue.add(results.getCSVHeader());
+        rValue.add(newline);
+
+        int[] arrayLengths = runSettings.getArrayLengths();
+        int[] cycleNumbers = runSettings.getCycleNumbers();
+
+        String lineBody = results.getLineBody();
+
+        for (int i = 0; i < results.data.length; i++) { // traverse the rows
+
+            for (int j = 0; j < results.data[i].length; j++) { // traverse each column
+
+                int al = arrayLengths[i];
+                int cn = cycleNumbers[j];
+                Long runTime = results.data[i][j];
+
+                String toAdd = lineBody + al + "," + cn + "," + runTime;
+                rValue.add(toAdd);
+                rValue.add(newline);
+            }
+        }
+        return rValue;
+    }
+
+
 //        try {
+//            StringBuilder sb = new StringBuilder();
+//
+//            sb.append(results.getCSVHeader());
+//            sb.append(newline);
 //
 //
-//        } catch (Exception e) {
+//            String fileText = sb.toString();
 //
+//            Path resultFilePath = Paths.get(outPutFolderPath + pathSeperator + results.getFileName());
+//            File newTextFile = new File(resultFilePath.toString());
+//
+//            FileWriter fw = new FileWriter(newTextFile);
+//            fw.write(fileText);
+//            fw.close();
+//            logger.debug("Wrote file to disk");
+//        } catch (IOException e) {
+//            logger.error("File error {}", e);
 //        }
 //
-//            // Create needed local data
-//
-//
-//
-//            // Create the results folder
-//            String fileDir = nameCPU + "_results";
-//            File fileDirObject = new File(fileDir);
-//            //ToDo: Test if folder exits and ensure it works on windows AND linux
-//            if (!fileDirObject.exists()) fileDirObject.mkdir();
-//
+
 //            // Create the file and open the connection
 //            String filename = fileDir + "/" + nameCPU + "_res_" + dataType + "_" +
 //                    operation + "_rep_" + repetitionNumber + ".csv";
@@ -213,8 +238,4 @@ public class WriteResults {
 ////            Utility.logger.error("Error in the BufferedWriter part of writeresults2CSV", e2);
 //            e2.printStackTrace(System.out);
 //        }
-
-    }
-
-
 }
