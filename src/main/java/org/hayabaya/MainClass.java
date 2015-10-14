@@ -106,26 +106,10 @@ public class MainClass {
             }
         }
 
-
-//        Iterator<Stack<Results[]>> iter = stack.iterator();
-
-//        GsonBuilder builder = new GsonBuilder();
-//        Gson gson = builder.create();
-//        builder.setPrettyPrinting().serializeNulls();
-//
-
-//        Results oneResult = allResults.pop();
-//        System.out.println(gson.toJson(oneResult));
-//
-//        for (Results individualResults : allResults) {
-//            System.out.println(gson.toJson(individualResults));
-//        }
-//
-//        logger.info("Writing the results to disk");
-
         logger.info("Trying to dump JVM values");
         WriteResults.writeJVMValuesToDisk();
         logger.info("Exiting Hayabaya");
+
         System.exit(0);
     }
 
