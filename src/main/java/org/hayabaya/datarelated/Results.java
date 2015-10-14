@@ -36,9 +36,7 @@ public class Results {
     public Operation operation;
     public String name;
     public String isBoxed;
-
-    private Results() {
-    }
+    private static RunSettings runSettings = RunSettings.getRunSettingsInstance();
 
     /**
      * Primary constructor to be used by clients.
@@ -49,8 +47,6 @@ public class Results {
      * @param operation           the operation performed (+,-,/,*)
      */
     public Results(long[][] data, int theRepetitionNumber, Tpe type, Operation operation) {
-
-        RunSettings runSettings = RunSettings.getRunSettingsInstance();
         this.name = runSettings.getNameOfProcessor();
         this.data = data;
         this.theRepetitionNumber = theRepetitionNumber;
