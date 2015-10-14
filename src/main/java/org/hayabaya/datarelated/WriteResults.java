@@ -19,7 +19,8 @@ public class WriteResults {
     /**
      * Get all of the JVM properties
      *
-     * @param m
+     * @param m A  hashmap of either System.getEnv og System.getProperties
+     * @return List A List of strings for the System/Environment properties
      */
     private static List<String> dumpVars(Map<String, ?> m) {
         List<String> keys = new ArrayList<String>(m.keySet());
@@ -33,6 +34,9 @@ public class WriteResults {
         return linesOfValues;
     }
 
+    /**
+     * Calls dumpvars And writes them to disk
+     */
     public static void writeJVMValuesToDisk() {
 
         String fileDir = "./JVMresults";
@@ -41,8 +45,7 @@ public class WriteResults {
 
         PrintWriter out = null;
         try {
-//            List<String> listToWrite = dumpVars(new HashMap(System.getProperties()));
-            List<String> listToWrite = dumpVars(new HashMap(System.getenv()));
+            List<String> listToWrite = dumpVars(new HashMap(System.getProperties()));
             String wd = System.getProperty("user.dir");
             String outpath = wd + "/JVMresults/JVMDumps2.txt";
 
