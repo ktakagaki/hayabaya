@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -39,36 +40,32 @@ public class WriteResults {
      */
     public static void writeJVMValuesToDisk() {
 
-        String outPutFileName = "JVMresults";
-        File fileDirObj = new File(outPutFileName);
-        if (!fileDirObj.exists()) fileDirObj.mkdir();
+        String outPutFileName = "SystemPropertiesJVM.txt";
+        String pathSeperator = System.getProperty("file.separator");
+        Path outPath = Paths.get(ensureResultFolder() +pathSeperator + outPutFileName);
+        List<String> listToWrite = dumpVars(new HashMap(System.getProperties()));
 
-        PrintWriter out = null;
+        logger.debug("Attempting to write JVM values to disk");
         try {
-            List<String> listToWrite = dumpVars(new HashMap(System.getProperties()));
-            String wd = System.getProperty("user.dir");
-            String outpath = wd + "/JVMresults/JVMDumps3.txt";
-
-            out = new PrintWriter(new FileWriter(outpath));
-            for (String text : listToWrite) {
-                out.println(text);
-            }
+            Files.write(outPath, listToWrite, StandardCharsets.UTF_8);
         } catch (IOException e) {
-            System.err.println("Caught IOException: " +  e.getMessage());
-
-        } finally {
-            if (out != null) {
-                out.close();
-            }
+            logger.error("Writing JVM values files with {}", e);
+            e.printStackTrace();
         }
     }
 
+    /**
+     * Ensure that the folder for the results exits and if it does that it has the right permissions. If the folder
+     * does not exist, create the folder
+     * @return A system independent path to the resultsfolder
+     */
     static Path ensureResultFolder() {
         RunSettings runSettings = RunSettings.getRunSettingsInstance();
 
         String wd = System.getProperty("user.dir");
         String nameCPU = runSettings.getNameOfProcessor();
-        Path outPutFolderPath = Paths.get(wd + "/" + nameCPU);
+        String pathSeperator = System.getProperty("file.separator");
+        Path outPutFolderPath = Paths.get(wd + pathSeperator + nameCPU);
         logger.debug("Path to results folder: {} \n", outPutFolderPath);
 
         // check if dir exists
