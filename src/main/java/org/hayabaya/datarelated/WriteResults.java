@@ -39,8 +39,8 @@ public class WriteResults {
      */
     public static void writeJVMValuesToDisk() {
 
-        String fileDir = "./JVMresults";
-        File fileDirObj = new File(fileDir);
+        String outPutFileName = "JVMresults";
+        File fileDirObj = new File(outPutFileName);
         if (!fileDirObj.exists()) fileDirObj.mkdir();
 
         PrintWriter out = null;
@@ -77,7 +77,7 @@ public class WriteResults {
         try {
             boolean folderExists = Files.exists(outPutFolderPath);
             boolean folderRights = Files.isWritable(outPutFolderPath) && Files.isWritable(outPutFolderPath);
-            logger.debug("foldreExists: {} \n folderRights: {} \n", folderExists, folderExists);
+            logger.debug("folder Exists: {} \n folderRights: {} \n", folderExists, folderExists);
 
             if(!folderExists) {
                 logger.debug("output folder {} did not exist - creating it..", outPutFolderPath);
