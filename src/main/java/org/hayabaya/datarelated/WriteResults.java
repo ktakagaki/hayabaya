@@ -63,25 +63,7 @@ public class WriteResults {
         }
     }
 
-
-    /**
-     * Writes the Results datastructure to a .csv file on disk. The results folder is prepended
-     * with the "name" yielding name_results and the files are named as
-     * name_datatype_operation_repetionX.csv
-     *
-     * @param results the Results datastructure to be written to disk
-     */
-    public static void writeResultsV2(Results results) {
-        logger.trace("writeResultsV2 called with the following arguments: \n" +
-                "Results name: {} \n" +
-                "Results type: {} \n" +
-                "Results Operation: {} \n" +
-                "Repetition Number: {} \n" +
-                "isBoxed: {} \n" +
-                "Data: ", results.getName(), results.getType(), results.getOperation(), results
-                .getTheRepetitionNumber(), results.isBoxed);
-
-
+    static Path ensureResultFolder() {
         RunSettings runSettings = RunSettings.getRunSettingsInstance();
 
         String wd = System.getProperty("user.dir");
@@ -107,6 +89,29 @@ public class WriteResults {
         } catch (IOException e) {
             logger.error("got exception when creating results folder: {}", e);
         }
+        return outPutFolderPath;
+    }
+
+
+    /**
+     * Writes the Results datastructure to a .csv file on disk. The results folder is prepended
+     * with the "name" yielding name_results and the files are named as
+     * name_datatype_operation_repetionX.csv
+     *
+     * @param results the Results datastructure to be written to disk
+     */
+    public static void writeResultsV2(Results results) {
+        logger.trace("writeResultsV2 called with the following arguments: \n" +
+                "Results name: {} \n" +
+                "Results type: {} \n" +
+                "Results Operation: {} \n" +
+                "Repetition Number: {} \n" +
+                "isBoxed: {} \n" +
+                "Data: ", results.getName(), results.getType(), results.getOperation(), results
+                .getTheRepetitionNumber(), results.isBoxed);
+
+
+        Path outPutFolderPath = ensureResultFolder();
 
 
         // Create result string to be writtten to disk
@@ -225,4 +230,6 @@ public class WriteResults {
 //        }
 
     }
+
+
 }
