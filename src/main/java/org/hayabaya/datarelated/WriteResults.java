@@ -47,7 +47,7 @@ public class WriteResults {
         try {
             List<String> listToWrite = dumpVars(new HashMap(System.getProperties()));
             String wd = System.getProperty("user.dir");
-            String outpath = wd + "/JVMresults/JVMDumps2.txt";
+            String outpath = wd + "/JVMresults/JVMDumps3.txt";
 
             out = new PrintWriter(new FileWriter(outpath));
             for (String text : listToWrite) {
