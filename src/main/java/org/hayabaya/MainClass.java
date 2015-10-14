@@ -96,6 +96,16 @@ public class MainClass {
             }
         }
 
+        System.out.println("resultsCollection size: " +resultsCollection.size());
+
+        for (Results[] thisResult : resultsCollection){
+
+            for (int i = 0; i<thisResult.length; i++){
+                System.out.println("Results["+i+"] Filename: " +thisResult[i].getFileName());
+                WriteResults.writeResultsV2(thisResult[i]);
+            }
+        }
+
 
 //        Iterator<Stack<Results[]>> iter = stack.iterator();
 

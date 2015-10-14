@@ -79,9 +79,14 @@ public class Results {
      * Return a string for the filename following the res_[CPU]_[Data Type]_[Operation]_[Current Repetitions].csv
      */
     public String getFileName(){
-        String fileName = "res_" + "name_" + type.toString() + "_" + operation.toString() + "_" + isBoxed +
-                "_" + theRepetitionNumber + ".csv";
+        String fileName = "res_" + runSettings.getNameOfProcessor() + "_" + type.toString() + "_" +
+                operation.toString() + "_" + isBoxed + "_" + theRepetitionNumber + ".csv";
         return fileName;
+    }
+
+    public String getCSVHeader(){
+        String csvHeader = name.toString() + ",Datatype,IsBoxed,Operation,RepetionNumber,ArrayLength,CycleNumber,Runtime";
+        return csvHeader;
     }
 
     /**

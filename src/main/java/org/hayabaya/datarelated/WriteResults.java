@@ -98,33 +98,25 @@ public class WriteResults {
      * @param results the Results datastructure to be written to disk
      */
     public static void writeResultsV2(Results results) {
-        logger.trace("writeResultsV2 called with the following arguments: \n" +
-                "Results name: {} \n" +
-                "Results type: {} \n" +
-                "Results Operation: {} \n" +
-                "Repetition Number: {} \n" +
-                "isBoxed: {} \n" +
-                "Data: ", results.getName(), results.getType(), results.getOperation(), results
-                .getTheRepetitionNumber(), results.isBoxed);
-
 
         Path outPutFolderPath = ensureResultFolder();
-
+        // Windows or Linux?
+        String pathSeperator = System.getProperty("file.separator");
+        String newline = System.getProperty("line.separator");
 
         // Create result string to be writtten to disk
         try {
-            String newline = System.getProperty("line.separator"); // Windows or Linux?
+
+
             StringBuilder sb = new StringBuilder();
 
-            // Create the header in the csv file
-            sb.append("name, DataType, isBoxed, operation, Repetition, ArrayLength " +
-                    "CycleNumber, RunTime");
+            sb.append(results.getCSVHeader());
             sb.append(newline);
 
 
             String fileText = sb.toString();
 
-            Path resultFilePath = Paths.get(outPutFolderPath + "/" + results.getFileName());
+            Path resultFilePath = Paths.get(outPutFolderPath + pathSeperator + results.getFileName());
             File newTextFile = new File(resultFilePath.toString());
 
             FileWriter fw = new FileWriter(newTextFile);
