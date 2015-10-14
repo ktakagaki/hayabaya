@@ -36,6 +36,24 @@ public class Results {
     public Operation operation;
     public String name;
     public String isBoxed;
+    private static RunSettings runSettings = RunSettings.getRunSettingsInstance();
+
+    /**
+     * Primary constructor to be used by clients.
+     *
+     * @param data                a 2D long[][] array assumed to be (non-null) and <b>non-ragged</b>
+     * @param theRepetitionNumber The current repetitions number for this result out of the total replicates
+     * @param type                the data type (int, float, double, long) and their Boxed counterparts
+     * @param operation           the operation performed (+,-,/,*)
+     */
+    public Results(long[][] data, int theRepetitionNumber, Tpe type, Operation operation) {
+        this.name = runSettings.getNameOfProcessor();
+        this.data = data;
+        this.theRepetitionNumber = theRepetitionNumber;
+        this.type = type; // Can be null from creation from Loopers abstract class!
+        this.operation = operation;
+        this.isBoxed = isBoxed();
+    }
 
     public long[][] getData() {
         return data;
@@ -57,34 +75,25 @@ public class Results {
         return name;
     }
 
-    private Results() {
-    }
-
-    /**
-     * Primary constructor to be used by clients.
-     * @param data                a 2D long[][] array assumed to be (non-null) and <b>non-ragged</b>
-     * @param theRepetitionNumber The current repetitions number for this result out of the total replicates
-     * @param type                the data type (int, float, double, long) and their Boxed counterparts
-     * @param operation           the operation performed (+,-,/,*)
-     */
-    public Results(long[][] data, int theRepetitionNumber, Tpe type, Operation operation) {
-
-        RunSettings runSettings = RunSettings.getRunSettings();
-        this.name = runSettings.getNameOfProcessor();
-        this.data = data;
-        this.theRepetitionNumber = theRepetitionNumber;
-        this.type = type; // Can be null from creation from Loopers abstract class!
-        this.operation = operation;
-        this.isBoxed = isBoxed();
-    }
-
     /**
      * Return a string for the filename following the res_[CPU]_[Data Type]_[Operation]_[Current Repetitions].csv
      */
     public String getFileName(){
-        String fileName = "res_" + "name_" + type.toString() + "_" + operation.toString() + "_" + isBoxed +
-                "_" + theRepetitionNumber + ".csv";
+        String fileName = "res_" + runSettings.getNameOfProcessor() + "_" + type.toString() + "_" +
+                operation.toString() + "_" + isBoxed + "_" + theRepetitionNumber + ".csv";
         return fileName;
+    }
+
+    public String getCSVHeader(){
+        String csvHeader = name.toString() + ",Datatype,IsBoxed,Operation,RepetionNumber,ArrayLength,CycleNumber,Runtime";
+        return csvHeader;
+    }
+
+    public String getLineBody() {
+        String lineBody = this.name + "," + type.toString() + "," + isBoxed + "," + operation.toString() +
+                "," + this.theRepetitionNumber + ",";
+
+        return lineBody;
     }
 
     /**
