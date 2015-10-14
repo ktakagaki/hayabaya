@@ -1,8 +1,5 @@
 apply plugin: 'java'
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
 version =  '1.0.0'
 
 repositories {
@@ -14,12 +11,13 @@ dependencies {
     compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.+'
 }
 
-defaultTasks 'runSmall', 'shower'
+defaultTasks 'runSmall'
 
-import java.awt.*
-
-task shower << {
-    Desktop.getDesktop().browse(new File("./build/reports/tests/index.html").toURI());
+task(runSmall, dependsOn: 'classes', type: JavaExec) {
+    main = 'org.hayabaya.MainClass'
+    classpath = sourceSets.main.runtimeClasspath
+    args = "i7cpu small 4".split().toList() // CPUname sampleSize Repetitions
+    enableAssertions = true
 }
 
 task fatJar(type: Jar) {
@@ -32,34 +30,5 @@ task fatJar(type: Jar) {
     baseName = project.name + '-all'
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
-}
-
-task(runSmall, dependsOn: 'classes', type: JavaExec) {
-    main = 'org.hayabaya.MainClass'
-    classpath = sourceSets.main.runtimeClasspath
-    args = "i7cpu small 4".split().toList() // CPUname sampleSize Repetitions
-    enableAssertions = true
-}
-
-task(runMedium, dependsOn: 'classes', type: JavaExec) {
-    main = 'org.hayabaya.MainClass'
-    classpath = sourceSets.main.runtimeClasspath
-    args = "i7cpu medium 2".split().toList() // CPUname sampleSize Repetitions
-    enableAssertions = true
-}
-
-task(runLarge, dependsOn: 'classes', type: JavaExec) {
-    main = 'org.hayabaya.MainClass'
-    classpath = sourceSets.main.runtimeClasspath
-    args = "i7cpu large 1".split().toList() // CPUname sampleSize Repetitions
-    enableAssertions = true
-}
-
-task(testTwoArgs, dependsOn: 'classes', type: JavaExec) {
-    println "Trying 2 arguments"
-    main = 'org.hayabaya.MainClass'
-    classpath = sourceSets.main.runtimeClasspath
-    args = "large 1".split().toList() // CPUname sampleSize Repetitions
-    enableAssertions = true
 }
 
