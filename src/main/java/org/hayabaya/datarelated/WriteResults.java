@@ -99,15 +99,11 @@ public class WriteResults {
      */
     public static void writeResultsV2(Results results) {
 
-        Path outPutFolderPath = ensureResultFolder();
-        // Windows or Linux?
         String pathSeperator = System.getProperty("file.separator");
         String newline = System.getProperty("line.separator");
+        Path outPutFolderPath = ensureResultFolder();
 
-        // Create result string to be writtten to disk
         try {
-
-
             StringBuilder sb = new StringBuilder();
 
             sb.append(results.getCSVHeader());

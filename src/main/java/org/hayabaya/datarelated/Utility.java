@@ -14,14 +14,6 @@ import java.util.regex.Pattern;
 public class Utility {
     private static final Logger logger = (Logger) LoggerFactory.getLogger(Utility.class);
 
-
-
-    /**
-     * The old version of the function that was used to write the Results datastructure to disk as csv files. The
-     * function is now deprecated, but kept as a backup in case the new function should fail.
-     * @deprecated
-     * @param results The results datastructure to be written to disk as a csv file
-     */
     @Deprecated
     public static void writeResultsToCsv(Results results) {
         try {
