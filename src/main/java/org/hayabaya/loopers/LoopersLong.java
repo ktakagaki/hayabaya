@@ -76,35 +76,63 @@ public class LoopersLong extends Loopers {
 
         switch( operation ) {
             case ADD:
-                for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++) array[c] += myNumberArray[n+c];
+                for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++){
+                    long a = array[c];
+                    long b = myNumberArray[n + c];
+                    array[c] = (a + b);
+                }
                 break;
             case SUBTRACT:
-                for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++) array[c] -= myNumberArray[n+c];
+                for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++){
+                    long a = array[c];
+                    long b = myNumberArray[n + c];
+                    array[c] = (a - b);
+                }
                 break;
             case MULTIPLY:
-                for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++) array[c] *= myNumberArray[n+c];
+                for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++){
+                    long a = array[c];
+                    long b = myNumberArray[n + c];
+                    array[c] = (a * b);
+                }
                 break;
             case DIVIDE:
-                for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++) array[c] /= myNumberArray[n+c];
+                for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++){
+                    long a = array[c];
+                    long b = myNumberArray[n + c];
+                    array[c] = (a / b);
+                }
                 break;
             case LESSTHAN:
-                for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++)
-                    if (array[c] < myNumberArray[n + c]) {}
+                for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++){
+                    long a = array[c];
+                    long b = myNumberArray[n + c];
+                    if (a < b){}
+                }
                 break;
             case GREATERTHAN:
-                for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++)
-                    if (array[c] > myNumberArray[n + c]) {}
+                for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++){
+                    long a = array[c];
+                    long b = myNumberArray[n + c];
+                    if (a > b){}
+                }
                 break;
             case EQUALS:
                 for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++){
                     long a = array[c];
                     long b = myNumberArray[n + c];
-                    if (a == b) {
-                    }
+                    if (a == b) {}
+                }
+                break;
+            case NOTEQUAL:
+                for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++){
+                    long a = array[c];
+                    long b = myNumberArray[n + c];
+                    if (a != b) {}
                 }
                 break;
             default:
-                throw new IllegalArgumentException("Invalid operation reached in LoopersLong");
+                throw new IllegalArgumentException("Invalid operation reached in Looperslong");
         }
     }
 
