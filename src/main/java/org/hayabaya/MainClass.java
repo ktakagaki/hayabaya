@@ -74,7 +74,8 @@ public class MainClass {
             try {
                 arrayListOfLoopers.add(LooperFactory.getLooper(datatype));
             } catch (IllegalArgumentException e) {
-             logger.error("No such Looper type: {}", e);
+                logger.error("No such Looper type: {}", e);
+                e.printStackTrace();
             }
 
         }
