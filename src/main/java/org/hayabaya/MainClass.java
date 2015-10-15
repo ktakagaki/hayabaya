@@ -68,8 +68,8 @@ public class MainClass {
 
 
         List<Loopers> arrayListOfLoopers = new ArrayList<>();
-        // Add a Loopers instance to the arrayList for each value in Tpe
-        for (Tpe datatype : Tpe.values()) {
+
+        for (Tpe datatype : Tpe.values()) {// Add a Loopers instance to the arrayList for each value in Tpe
 
             try {
                 arrayListOfLoopers.add(LooperFactory.getLooper(datatype));
@@ -77,41 +77,37 @@ public class MainClass {
                 logger.error("No such Looper type: {}", e);
                 e.printStackTrace();
             }
-
         }
 
 
-
-        List<Results[]> resultsCollection = new ArrayList<>();
-
         for (Loopers anInstance : arrayListOfLoopers) {
-            logger.info("Using Looper type: {}", anInstance);
 
+            logger.info("Using Looper type: {}", anInstance);
             for (Operation anOperation : Operation.values()) {
+
                 logger.info("Using operation type: {}", anOperation);
 
                 Results[] opResults = anInstance.makeResults(anOperation);
+
                 logger.info("Results[] length: {}", opResults.length);
-
-                resultsCollection.add(opResults);
+                System.out.println("Writing " + anInstance + " operation " + anOperation + "to disk");
+                writeResultsArray(opResults);
             }
         }
 
-        System.out.println("resultsCollection size: " +resultsCollection.size());
-
-        for (Results[] thisResult : resultsCollection){
-
-            for (int i = 0; i<thisResult.length; i++){
-                System.out.println("Results["+i+"] Filename: " +thisResult[i].getFileName());
-                WriteResults.writeResultsV2(thisResult[i]);
-            }
-        }
 
         logger.info("Trying to dump JVM values");
         WriteResults.writeJVMValuesToDisk();
         logger.info("Exiting Hayabaya");
 
         System.exit(0);
+    }
+
+    private static void writeResultsArray(Results[] rArray){
+        for (int i = 0; i<rArray.length; i++){
+            System.out.println("Results["+i+"] Filename: " +rArray[i].getFileName());
+            WriteResults.writeResultsV2(rArray[i]);
+        }
     }
 
 }
