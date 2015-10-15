@@ -15,7 +15,8 @@ public enum Operation {
     SUBTRACT,
     MULTIPLY,
     DIVIDE,
-    LESSTHAN;
+    LESSTHAN,
+    GREATERTHAN;
 
     @Override
     public String toString() {
@@ -30,6 +31,8 @@ public enum Operation {
                 return "Divide";
             case LESSTHAN:
                 return "LessThan";
+            case GREATERTHAN:
+                return "GreaterThan";
             default:
                 throw new IllegalArgumentException();
         }
