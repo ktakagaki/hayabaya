@@ -107,28 +107,28 @@ public class LoopersLong extends Loopers {
                 for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++){
                     long a = array[c];
                     long b = myNumberArray[n + c];
-                    if (a < b){}
+                    if (a < b) array[c] = myNumberArray[n+c];
                 }
                 break;
             case GREATERTHAN:
                 for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++){
                     long a = array[c];
                     long b = myNumberArray[n + c];
-                    if (a > b){}
+                    if (a > b) array[c] = myNumberArray[n+c];
                 }
                 break;
             case EQUALS:
                 for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++){
                     long a = array[c];
                     long b = myNumberArray[n + c];
-                    if (a == b) {}
+                    if (a == b) array[c] = myNumberArray[n+c];
                 }
                 break;
             case NOTEQUAL:
                 for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++){
                     long a = array[c];
                     long b = myNumberArray[n + c];
-                    if (a != b) {}
+                    if (a != b) array[c] = myNumberArray[n+c];
                 }
                 break;
             default:

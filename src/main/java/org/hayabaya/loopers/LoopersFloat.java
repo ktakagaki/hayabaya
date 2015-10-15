@@ -108,28 +108,28 @@ public class LoopersFloat extends Loopers {
                 for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++){
                     float a = array[c];
                     float b = myNumberArray[n + c];
-                    if (a < b){}
+                    if (a < b) array[c] = myNumberArray[n+c];
                 }
                 break;
             case GREATERTHAN:
                 for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++){
                     float a = array[c];
                     float b = myNumberArray[n + c];
-                    if (a > b){}
+                    if (a > b) array[c] = myNumberArray[n+c];
                 }
                 break;
             case EQUALS:
                 for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++){
                     float a = array[c];
                     float b = myNumberArray[n + c];
-                    if (a == b) {}
+                    if (a == b) array[c] = myNumberArray[n+c];
                 }
                 break;
             case NOTEQUAL:
                 for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++){
                     float a = array[c];
                     float b = myNumberArray[n + c];
-                    if (a != b) {}
+                    if (a != b) array[c] = myNumberArray[n+c];
                 }
                 break;
             default:
