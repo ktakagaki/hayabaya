@@ -97,6 +97,14 @@ public class LoopersFloatBoxed extends Loopers {
                 for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++)
                     if (array[c] > myNumberArray[n + c]) {}
                 break;
+            case EQUALS:
+                for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++){
+                    Float a = array[c];
+                    Float b = myNumberArray[n + c];
+                    if (a.equals(b)) {
+                    }
+                }
+                break;
             default:
                 throw new IllegalArgumentException("Invalid operation reached in LoopersFloatBoxed");
         }

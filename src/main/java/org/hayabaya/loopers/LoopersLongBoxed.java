@@ -92,6 +92,14 @@ public class LoopersLongBoxed extends Loopers {
                 for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++)
                     if (array[c] > myNumberArray[n + c]) {}
                 break;
+            case EQUALS:
+                for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++){
+                    Long a = array[c];
+                    Long b = myNumberArray[n + c];
+                    if (a.equals(b)) {
+                    }
+                }
+                break;
             default:
                 throw new IllegalArgumentException("Invalid operation reached in LoopersLongBoxed");
         }
