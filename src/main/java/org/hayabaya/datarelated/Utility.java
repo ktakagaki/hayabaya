@@ -35,7 +35,7 @@ public class Utility {
 //        String sampleSize = args[1].toLowerCase();
 //        String repetitions = args[2];
 
-        Pattern pattern = Pattern.compile("[~#@*+%{}<>\\[\\]|\"\\_^]");
+        Pattern pattern = Pattern.compile("[~#@*+%{}<>\\[\\]|\"\\^]");
         Matcher matcher = pattern.matcher(name);
 
         if (matcher.find() || name.length() <= 0 || name.length() > 20) throw new IllegalArgumentException("Bad name " +
