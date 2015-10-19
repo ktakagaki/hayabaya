@@ -11,7 +11,7 @@ dependencies {
     compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.+'
 }
 
-defaultTasks 'runSmall'
+//defaultTasks 'runSmall'
 
 task(runSmall, dependsOn: 'classes', type: JavaExec) {
     main = 'org.hayabaya.MainClass'
