@@ -36,7 +36,8 @@ public class WriteResults {
     }
 
     /**
-     * Calls dumpvars And writes them to disk
+     * Calls the #dumpvars function And writes all of the System.getProperties resutls from the Java Virtual Machine to
+     * disk
      */
     public static void writeJVMValuesToDisk() {
 

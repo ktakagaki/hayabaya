@@ -16,7 +16,7 @@ defaultTasks 'runSmall'
 task(runSmall, dependsOn: 'classes', type: JavaExec) {
     main = 'org.hayabaya.MainClass'
     classpath = sourceSets.main.runtimeClasspath
-    args = "i7cpu".split().toList() // CPUname
+    args = "i7cpu_Alternate".split().toList() // CPUname
     enableAssertions = true
 }
 
