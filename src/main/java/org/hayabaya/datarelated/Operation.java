@@ -7,13 +7,18 @@ package org.hayabaya.datarelated;
  *     <li><b>SUBTRACT:</b> Subtraction</li>
  *     <li><b>MULTIPLY:</b> Multiplication</li>
  *     <li><b>DIVIDE:</b> Division</li>
+ *     <li><b>LESSTHAN:</b> \< comparison </li>
  * </ul>
  */
 public enum Operation {
     ADD,
     SUBTRACT,
     MULTIPLY,
-    DIVIDE;
+    DIVIDE,
+    LESSTHAN,
+    GREATERTHAN,
+    EQUALS,
+    NOTEQUAL;
 
     @Override
     public String toString() {
@@ -26,6 +31,14 @@ public enum Operation {
                 return "Multiply";
             case DIVIDE:
                 return "Divide";
+            case LESSTHAN:
+                return "LessThan";
+            case GREATERTHAN:
+                return "GreaterThan";
+            case EQUALS:
+                return "Equals";
+            case NOTEQUAL:
+                return "NotEqual";
             default:
                 throw new IllegalArgumentException();
         }

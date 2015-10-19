@@ -80,7 +80,7 @@ public class Results {
      */
     public String getFileName(){
         String fileName = "res_" + runSettings.getNameOfProcessor() + "_" + type.toString() + "_" +
-                operation.toString() + "_" + isBoxed + "_" + theRepetitionNumber + ".csv";
+                operation.toString() + "_" + theRepetitionNumber + ".csv";
         return fileName;
     }
 

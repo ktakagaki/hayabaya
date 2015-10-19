@@ -1,4 +1,4 @@
-# hayabaya
+# hayabaya (Release Candidate)
 Java based project for raw profiling of processing times of primitive Java data types and the Boxed counterparts.
 
 ## How to run Hayabaya
