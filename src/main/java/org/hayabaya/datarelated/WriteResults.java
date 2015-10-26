@@ -36,7 +36,8 @@ public class WriteResults {
     }
 
     /**
-     * Calls dumpvars And writes them to disk
+     * Calls the #dumpvars function And writes all of the System.getProperties resutls from the Java Virtual Machine to
+     * disk
      */
     public static void writeJVMValuesToDisk() {
 
@@ -118,6 +119,13 @@ public class WriteResults {
 
     }
 
+    /**
+     * Flattens a 2D array of RunTime results (Long) in milliseconds with increasing CycleNumbers and ArrayLengths
+     * out of the 2 dimenstions. The flattening will result in a 1D list of Key=ArrayLength,CycleNumber and
+     * Value=Runtime suitable for insertion into a flat csv file format
+     * @param results 2D Long[][] array of Runtime results
+     * @return List\<String\> [ArrayLength, CycleNumber, RunTime]
+     */
     private static List<String> flattenResults(Results results) {
         RunSettings runSettings = RunSettings.getRunSettingsInstance();
         List<String> rValue = new ArrayList<>();
