@@ -53,8 +53,8 @@ public class MainClass {
             Utility.validateArgsValues(args);
             Utility.validateArgsLength(args);
 
-            String sampleSize = "large";
-//            String sampleSize = "small";
+//            String sampleSize = "large";
+            String sampleSize = "small";
             int repetitions = 3;
             String name = args[0];
 
