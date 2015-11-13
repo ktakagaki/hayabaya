@@ -60,7 +60,15 @@ public class LoopersDouble extends Loopers {
 
         totalSums = arraySum + cycleSum;
         myNumberArray = new double[totalSums];
-        for (int i = 0; i < totalSums; i++) myNumberArray[i] = (double) rand.nextDouble();
+        // Ensure that double is NOT (0.0,1.0) by exponentiating with random int
+        for (int i = 0; i < totalSums; i++) {
+            double baseNumber = rand.nextDouble();
+            double exponentNumber = rand.nextDouble();
+
+
+            myNumberArray[i] = Math.pow((10 * baseNumber), (exponentNumber - 0.5));
+//            myNumberArray[i] = (double) rand.nextDouble();
+        }
     }
 
     @Override
