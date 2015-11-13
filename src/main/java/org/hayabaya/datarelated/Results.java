@@ -85,7 +85,7 @@ public class Results {
     }
 
     public String getCSVHeader(){
-        String csvHeader = name.toString() + ",Datatype,IsBoxed,Operation,RepetionNumber,ArrayLength,CycleNumber,Runtime";
+        String csvHeader = "name,Datatype,IsBoxed,Operation,RepetionNumber,ArrayLength,CycleNumber,Runtime";
         return csvHeader;
     }
 

@@ -53,12 +53,14 @@ public class MainClass {
             Utility.validateArgsValues(args);
             Utility.validateArgsLength(args);
 
+            String sampleSize = "large";
+//            String sampleSize = "small";
+            int repetitions = 3;
             String name = args[0];
+
             runSettingsInstance.setNameOfProcessor(name);
-            String sampleSize = args[1];
             runSettingsInstance.setSampleSize(sampleSize);
-            int reps = Integer.parseInt(args[2]);
-            runSettingsInstance.setTotalExperimentRepetitions(reps);
+            runSettingsInstance.setTotalExperimentRepetitions(repetitions);
 
         } catch (IllegalArgumentException e) {
             logger.error("IllegalArguments {}", e);

@@ -60,7 +60,15 @@ public class LoopersDouble extends Loopers {
 
         totalSums = arraySum + cycleSum;
         myNumberArray = new double[totalSums];
-        for (int i = 0; i < totalSums; i++) myNumberArray[i] = (double) rand.nextDouble();
+        // Ensure that double is NOT (0.0,1.0) by exponentiating with random int
+        for (int i = 0; i < totalSums; i++) {
+            double baseNumber = rand.nextDouble();
+            double exponentNumber = rand.nextDouble();
+
+
+            myNumberArray[i] = Math.pow((10 * baseNumber), (exponentNumber - 0.5));
+//            myNumberArray[i] = (double) rand.nextDouble();
+        }
     }
 
     @Override
@@ -77,59 +85,79 @@ public class LoopersDouble extends Loopers {
 
         switch( operation ) {
             case ADD:
-                for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++){
-                    double a = array[c];
-                    double b = myNumberArray[n + c];
-                    array[c] = (a + b);
+                for (int n = 0; n < currentCycleNumber; n++){
+                    for (int c = 0; c < currentArrayLength; c++){
+                        double a = array[c];
+                        double b = myNumberArray[n + c];
+                        array[c] = (a + b);
+                    }
                 }
                 break;
             case SUBTRACT:
-                for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++){
-                    double a = array[c];
-                    double b = myNumberArray[n + c];
-                    array[c] = (a - b);
+                for (int n = 0; n < currentCycleNumber; n++){
+                    for (int c = 0; c < currentArrayLength; c++){
+                        double a = array[c];
+                        double b = myNumberArray[n + c];
+                        array[c] = (a - b);
+                    }
                 }
                 break;
             case MULTIPLY:
-                for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++){
-                    double a = array[c];
-                    double b = myNumberArray[n + c];
-                    array[c] = (a * b);
+                for (int n = 0; n < currentCycleNumber; n++){
+                    for (int c = 0; c < currentArrayLength; c++){
+                        double a = array[c];
+                        double b = myNumberArray[n + c];
+                        array[c] = (a * b);
+                    }
                 }
                 break;
             case DIVIDE:
-                for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++){
-                    double a = array[c];
-                    double b = myNumberArray[n + c];
-                    array[c] = (a / b);
+                for (int n = 0; n < currentCycleNumber; n++){
+                    for (int c = 0; c < currentArrayLength; c++){
+                        double a = array[c];
+                        double b = myNumberArray[n + c];
+                        array[c] = (a / b);
+                    }
                 }
                 break;
             case LESSTHAN:
-                for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++){
-                    double a = array[c];
-                    double b = myNumberArray[n + c];
-                    if (a < b) array[c] = myNumberArray[n+c];
+                for (int n = 0; n < currentCycleNumber; n++){
+                    for (int c = 0; c < currentArrayLength; c++){
+                        double a = array[c];
+                        double b = myNumberArray[n + c];
+                        if (a < b) array[c] = myNumberArray[n+c];
+                        else array[c] = b;
+                    }
                 }
                 break;
             case GREATERTHAN:
-                for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++){
-                    double a = array[c];
-                    double b = myNumberArray[n + c];
-                    if (a > b) array[c] = myNumberArray[n+c];
+                for (int n = 0; n < currentCycleNumber; n++){
+                    for (int c = 0; c < currentArrayLength; c++){
+                        double a = array[c];
+                        double b = myNumberArray[n + c];
+                        if (a > b) array[c] = myNumberArray[n+c];
+                        else array[c] = b;
+                    }
                 }
                 break;
             case EQUALS:
-                for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++){
-                    double a = array[c];
-                    double b = myNumberArray[n + c];
-                    if (a == b) array[c] = myNumberArray[n+c];
+                for (int n = 0; n < currentCycleNumber; n++){
+                    for (int c = 0; c < currentArrayLength; c++){
+                        double a = array[c];
+                        double b = myNumberArray[n + c];
+                        if (a == b) array[c] = myNumberArray[n+c];
+                        else array[c] = b;
+                    }
                 }
                 break;
             case NOTEQUAL:
-                for (int n = 0; n < currentCycleNumber; n++) for (int c = 0; c < currentArrayLength; c++){
-                    double a = array[c];
-                    double b = myNumberArray[n + c];
-                    if (a != b) array[c] = myNumberArray[n+c];
+                for (int n = 0; n < currentCycleNumber; n++){
+                    for (int c = 0; c < currentArrayLength; c++){
+                        double a = array[c];
+                        double b = myNumberArray[n + c];
+                        if (a != b) array[c] = myNumberArray[n+c];
+                        else array[c] = b;
+                    }
                 }
                 break;
             default:
