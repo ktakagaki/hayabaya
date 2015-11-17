@@ -16,7 +16,7 @@ dependencies {
 task(runSmall, dependsOn: 'classes', type: JavaExec) {
     main = 'org.hayabaya.MainClass'
     classpath = sourceSets.main.runtimeClasspath
-    args = "i7cpu_Alternate".split().toList() // CPUname
+    args = "fixed_small".split().toList() // CPUname
     enableAssertions = true
 }
 
