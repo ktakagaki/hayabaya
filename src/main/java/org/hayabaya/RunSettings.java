@@ -57,7 +57,7 @@ public class RunSettings {
 //            throw temp;
 //        }
         //Or like this:
-        Utility.loggerRequire( minimumValue<0, "minimumValue must be > 0");
+        //Utility.loggerRequire( minimumValue<0, "minimumValue must be > 0");
 
         if (incrementSize >= (maximumValue - minimumValue)) throw new IllegalArgumentException("Increment too large");
         if (minimumValue >= maximumValue) throw new IllegalArgumentException("Max must be > min");
