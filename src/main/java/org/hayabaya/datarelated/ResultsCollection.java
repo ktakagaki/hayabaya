@@ -26,7 +26,7 @@ public class ResultsCollection {
         return resultsList;
     }
 
-    private LinkedList<Results> resultsList = new LinkedList<>();
+    private LinkedList<Results> resultsList = new LinkedList<Results>();
 
     protected ResultsCollection(){
 
