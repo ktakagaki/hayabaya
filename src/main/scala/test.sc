@@ -1,10 +1,12 @@
-for(n <- 0 to 5){
-  println(Test.overwriterI())
-  println(Test.adderI())
-  println(Test.dividerI())
-}
-for(n <- 0 to 5){
-  println(Test.overwriterD())
-  println(Test.adderD())
-  println(Test.dividerD())
-}
+var resultsI = Test.runloopsOverwriterI()
+resultsI.map( _._1.toDouble/1000000d)
+resultsI = Test.runloopsAdderI()
+resultsI.map( _._1.toDouble/1000000d)
+resultsI = Test.runloopsDividerI()
+resultsI.map( _._1.toDouble/1000000d)
+var resultsD = Test.runloopsOverwriterD()
+resultsD.map( _._1.toDouble/1000000d)
+resultsD  = Test.runloopsAdderD()
+resultsD.map( _._1.toDouble/1000000d)
+resultsD  = Test.runloopsDividerD()
+resultsD.map( _._1.toDouble/1000000d)
