@@ -1,5 +1,6 @@
 package org.hayabaya;
 
+import org.hayabaya.datarelated.Utility;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -48,6 +49,16 @@ public class RunSettings {
      */
     public static int[] generateIntegerLinearSpace(int minimumValue, int maximumValue, int incrementSize) {
         if (minimumValue < 0) throw new IllegalArgumentException("minimumValue must be > 0");
+
+//  Could do something like this:
+//        if (minimumValue < 0) {
+//            IllegalArgumentException temp = new IllegalArgumentException("minimumValue must be > 0");
+//            logger.error(temp.getMessage(), temp);
+//            throw temp;
+//        }
+        //Or like this:
+        //Utility.loggerRequire( minimumValue<0, "minimumValue must be > 0");
+
         if (incrementSize >= (maximumValue - minimumValue)) throw new IllegalArgumentException("Increment too large");
         if (minimumValue >= maximumValue) throw new IllegalArgumentException("Max must be > min");
         if (maximumValue <= 0) throw new IllegalArgumentException("Max must be > 0");
@@ -58,7 +69,7 @@ public class RunSettings {
 
 
         int arrayLength = (int) Math.ceil(((maximumValue - minimumValue)) / incrementSize) + 1; // Estimate the length
-        ArrayList<Integer> arl = new ArrayList<>(arrayLength + 5); // Adding a couple of elements for safety
+        ArrayList<Integer> arl = new ArrayList<Integer>(arrayLength + 5); // Adding a couple of elements for safety
 
         arl.add(minimumValue);
         int count = minimumValue;
