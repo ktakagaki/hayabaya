@@ -53,8 +53,8 @@ public class MainClass {
             Utility.validateArgsValues(args);
             Utility.validateArgsLength(args);
 
-            String sampleSize = "large";
-//            String sampleSize = "small";
+//            String sampleSize = "large";
+            String sampleSize = "small";
             int repetitions = 3;
             String name = args[0];
 
@@ -69,7 +69,7 @@ public class MainClass {
 
 
 
-        List<Loopers> arrayListOfLoopers = new ArrayList<>();
+        List<Loopers> arrayListOfLoopers = new ArrayList<Loopers>();
 
         for (Tpe datatype : Tpe.values()) {// Add a Loopers instance to the arrayList for each value in Tpe
 

@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin: 'scala'
 
 version =  '1.0.0'
 
@@ -9,6 +10,7 @@ repositories {
 dependencies {
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.+'
     compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.+'
+    compile 'org.scala-lang:scala-library:2.11.+'
 }
 
 //defaultTasks 'runSmall'

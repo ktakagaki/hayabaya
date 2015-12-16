@@ -57,7 +57,7 @@ public class RunSettings {
 //            throw temp;
 //        }
         //Or like this:
-        Utility.loggerRequire( minimumValue<0, "minimumValue must be > 0");
+        //Utility.loggerRequire( minimumValue<0, "minimumValue must be > 0");
 
         if (incrementSize >= (maximumValue - minimumValue)) throw new IllegalArgumentException("Increment too large");
         if (minimumValue >= maximumValue) throw new IllegalArgumentException("Max must be > min");
@@ -69,7 +69,7 @@ public class RunSettings {
 
 
         int arrayLength = (int) Math.ceil(((maximumValue - minimumValue)) / incrementSize) + 1; // Estimate the length
-        ArrayList<Integer> arl = new ArrayList<>(arrayLength + 5); // Adding a couple of elements for safety
+        ArrayList<Integer> arl = new ArrayList<Integer>(arrayLength + 5); // Adding a couple of elements for safety
 
         arl.add(minimumValue);
         int count = minimumValue;
