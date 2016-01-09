@@ -48,3 +48,7 @@ mainClass in (Compile, packageBin) := Some("de.lin-magdeburg.MainScala")
 // set the main class for the main 'run' task
 // change Compile to Test to set it for 'test:run'
 mainClass in (Compile, run) := Some("de.lin-magdeburg.MainScala")
+
+// fork a new JVM for 'run' and 'test:run'
+fork := true
+
