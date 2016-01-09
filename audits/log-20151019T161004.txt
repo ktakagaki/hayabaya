@@ -1,0 +1,1297 @@
+org.hayabaya.MainClass - Args are: [i7cpu]
+org.hayabaya.MainClass - Using Looper type: Integer
+org.hayabaya.MainClass - Using operation type: Add
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Add_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Add_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Add_2.csv to file
+org.hayabaya.MainClass - Using operation type: Subtract
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Subtract_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Subtract_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Subtract_2.csv to file
+org.hayabaya.MainClass - Using operation type: Multiply
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Multiply_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Multiply_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Multiply_2.csv to file
+org.hayabaya.MainClass - Using operation type: Divide
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Divide_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Divide_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Divide_2.csv to file
+org.hayabaya.MainClass - Using operation type: LessThan
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_LessThan_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_LessThan_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_LessThan_2.csv to file
+org.hayabaya.MainClass - Using operation type: GreaterThan
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_GreaterThan_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_GreaterThan_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_GreaterThan_2.csv to file
+org.hayabaya.MainClass - Using operation type: Equals
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Equals_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Equals_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Equals_2.csv to file
+org.hayabaya.MainClass - Using operation type: NotEqual
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_NotEqual_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_NotEqual_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_NotEqual_2.csv to file
+org.hayabaya.MainClass - Using Looper type: Integer_Boxed
+org.hayabaya.MainClass - Using operation type: Add
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Boxed_Add_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Boxed_Add_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Boxed_Add_2.csv to file
+org.hayabaya.MainClass - Using operation type: Subtract
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Boxed_Subtract_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Boxed_Subtract_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Boxed_Subtract_2.csv to file
+org.hayabaya.MainClass - Using operation type: Multiply
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Boxed_Multiply_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Boxed_Multiply_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Boxed_Multiply_2.csv to file
+org.hayabaya.MainClass - Using operation type: Divide
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Boxed_Divide_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Boxed_Divide_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Boxed_Divide_2.csv to file
+org.hayabaya.MainClass - Using operation type: LessThan
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Boxed_LessThan_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Boxed_LessThan_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Boxed_LessThan_2.csv to file
+org.hayabaya.MainClass - Using operation type: GreaterThan
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Boxed_GreaterThan_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Boxed_GreaterThan_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Boxed_GreaterThan_2.csv to file
+org.hayabaya.MainClass - Using operation type: Equals
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Boxed_Equals_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Boxed_Equals_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Boxed_Equals_2.csv to file
+org.hayabaya.MainClass - Using operation type: NotEqual
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Boxed_NotEqual_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Boxed_NotEqual_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Integer_Boxed_NotEqual_2.csv to file
+org.hayabaya.MainClass - Using Looper type: Float
+org.hayabaya.MainClass - Using operation type: Add
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Add_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Add_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Add_2.csv to file
+org.hayabaya.MainClass - Using operation type: Subtract
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Subtract_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Subtract_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Subtract_2.csv to file
+org.hayabaya.MainClass - Using operation type: Multiply
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Multiply_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Multiply_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Multiply_2.csv to file
+org.hayabaya.MainClass - Using operation type: Divide
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Divide_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Divide_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Divide_2.csv to file
+org.hayabaya.MainClass - Using operation type: LessThan
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_LessThan_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_LessThan_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_LessThan_2.csv to file
+org.hayabaya.MainClass - Using operation type: GreaterThan
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_GreaterThan_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_GreaterThan_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_GreaterThan_2.csv to file
+org.hayabaya.MainClass - Using operation type: Equals
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Equals_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Equals_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Equals_2.csv to file
+org.hayabaya.MainClass - Using operation type: NotEqual
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_NotEqual_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_NotEqual_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_NotEqual_2.csv to file
+org.hayabaya.MainClass - Using Looper type: Float_Boxed
+org.hayabaya.MainClass - Using operation type: Add
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Boxed_Add_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Boxed_Add_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Boxed_Add_2.csv to file
+org.hayabaya.MainClass - Using operation type: Subtract
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Boxed_Subtract_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Boxed_Subtract_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Boxed_Subtract_2.csv to file
+org.hayabaya.MainClass - Using operation type: Multiply
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Boxed_Multiply_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Boxed_Multiply_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Boxed_Multiply_2.csv to file
+org.hayabaya.MainClass - Using operation type: Divide
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Boxed_Divide_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Boxed_Divide_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Boxed_Divide_2.csv to file
+org.hayabaya.MainClass - Using operation type: LessThan
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Boxed_LessThan_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Boxed_LessThan_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Boxed_LessThan_2.csv to file
+org.hayabaya.MainClass - Using operation type: GreaterThan
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Boxed_GreaterThan_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Boxed_GreaterThan_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Boxed_GreaterThan_2.csv to file
+org.hayabaya.MainClass - Using operation type: Equals
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Boxed_Equals_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Boxed_Equals_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Boxed_Equals_2.csv to file
+org.hayabaya.MainClass - Using operation type: NotEqual
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Boxed_NotEqual_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Boxed_NotEqual_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Float_Boxed_NotEqual_2.csv to file
+org.hayabaya.MainClass - Using Looper type: Double
+org.hayabaya.MainClass - Using operation type: Add
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Add_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Add_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Add_2.csv to file
+org.hayabaya.MainClass - Using operation type: Subtract
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Subtract_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Subtract_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Subtract_2.csv to file
+org.hayabaya.MainClass - Using operation type: Multiply
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Multiply_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Multiply_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Multiply_2.csv to file
+org.hayabaya.MainClass - Using operation type: Divide
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Divide_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Divide_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Divide_2.csv to file
+org.hayabaya.MainClass - Using operation type: LessThan
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_LessThan_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_LessThan_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_LessThan_2.csv to file
+org.hayabaya.MainClass - Using operation type: GreaterThan
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_GreaterThan_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_GreaterThan_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_GreaterThan_2.csv to file
+org.hayabaya.MainClass - Using operation type: Equals
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Equals_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Equals_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Equals_2.csv to file
+org.hayabaya.MainClass - Using operation type: NotEqual
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_NotEqual_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_NotEqual_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_NotEqual_2.csv to file
+org.hayabaya.MainClass - Using Looper type: Double_Boxed
+org.hayabaya.MainClass - Using operation type: Add
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Boxed_Add_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Boxed_Add_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Boxed_Add_2.csv to file
+org.hayabaya.MainClass - Using operation type: Subtract
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Boxed_Subtract_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Boxed_Subtract_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Boxed_Subtract_2.csv to file
+org.hayabaya.MainClass - Using operation type: Multiply
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Boxed_Multiply_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Boxed_Multiply_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Boxed_Multiply_2.csv to file
+org.hayabaya.MainClass - Using operation type: Divide
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Boxed_Divide_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Boxed_Divide_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Boxed_Divide_2.csv to file
+org.hayabaya.MainClass - Using operation type: LessThan
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Boxed_LessThan_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Boxed_LessThan_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Boxed_LessThan_2.csv to file
+org.hayabaya.MainClass - Using operation type: GreaterThan
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Boxed_GreaterThan_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Boxed_GreaterThan_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Boxed_GreaterThan_2.csv to file
+org.hayabaya.MainClass - Using operation type: Equals
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Boxed_Equals_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Boxed_Equals_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Boxed_Equals_2.csv to file
+org.hayabaya.MainClass - Using operation type: NotEqual
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Boxed_NotEqual_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Boxed_NotEqual_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Double_Boxed_NotEqual_2.csv to file
+org.hayabaya.MainClass - Using Looper type: Long
+org.hayabaya.MainClass - Using operation type: Add
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Add_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Add_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Add_2.csv to file
+org.hayabaya.MainClass - Using operation type: Subtract
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Subtract_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Subtract_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Subtract_2.csv to file
+org.hayabaya.MainClass - Using operation type: Multiply
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Multiply_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Multiply_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Multiply_2.csv to file
+org.hayabaya.MainClass - Using operation type: Divide
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Divide_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Divide_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Divide_2.csv to file
+org.hayabaya.MainClass - Using operation type: LessThan
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_LessThan_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_LessThan_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_LessThan_2.csv to file
+org.hayabaya.MainClass - Using operation type: GreaterThan
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_GreaterThan_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_GreaterThan_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_GreaterThan_2.csv to file
+org.hayabaya.MainClass - Using operation type: Equals
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Equals_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Equals_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Equals_2.csv to file
+org.hayabaya.MainClass - Using operation type: NotEqual
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_NotEqual_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_NotEqual_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_NotEqual_2.csv to file
+org.hayabaya.MainClass - Using Looper type: Long_Boxed
+org.hayabaya.MainClass - Using operation type: Add
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Boxed_Add_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Boxed_Add_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Boxed_Add_2.csv to file
+org.hayabaya.MainClass - Using operation type: Subtract
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Boxed_Subtract_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Boxed_Subtract_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Boxed_Subtract_2.csv to file
+org.hayabaya.MainClass - Using operation type: Multiply
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Boxed_Multiply_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Boxed_Multiply_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Boxed_Multiply_2.csv to file
+org.hayabaya.MainClass - Using operation type: Divide
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Boxed_Divide_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Boxed_Divide_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Boxed_Divide_2.csv to file
+org.hayabaya.MainClass - Using operation type: LessThan
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Boxed_LessThan_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Boxed_LessThan_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Boxed_LessThan_2.csv to file
+org.hayabaya.MainClass - Using operation type: GreaterThan
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Boxed_GreaterThan_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Boxed_GreaterThan_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Boxed_GreaterThan_2.csv to file
+org.hayabaya.MainClass - Using operation type: Equals
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Boxed_Equals_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Boxed_Equals_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Boxed_Equals_2.csv to file
+org.hayabaya.MainClass - Using operation type: NotEqual
+org.hayabaya.MainClass - Results[] length: 3
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Boxed_NotEqual_0.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Boxed_NotEqual_1.csv to file
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write res_i7cpu_Long_Boxed_NotEqual_2.csv to file
+org.hayabaya.MainClass - Trying to dump JVM values
+o.hayabaya.datarelated.WriteResults - Path to results folder: /home/cain/KentaWork/hayabaya/i7cpu 
+
+o.hayabaya.datarelated.WriteResults - folder Exists: true 
+ folderRights: true 
+
+o.hayabaya.datarelated.WriteResults - Attempting to write JVM values to disk
+org.hayabaya.MainClass - Exiting Hayabaya
