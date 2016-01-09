@@ -39,3 +39,12 @@ initialCommands := """
 
 // set the initial commands when entering 'console' or 'console-quick', but not 'console-project'
 initialCommands in console := "import MainScala._"
+
+// set the main class for packaging the main jar
+// 'run' will still auto-detect and prompt
+// change Compile to Test to set it for the test jar
+mainClass in (Compile, packageBin) := Some("de.lin-magdeburg.MainScala")
+
+// set the main class for the main 'run' task
+// change Compile to Test to set it for 'test:run'
+mainClass in (Compile, run) := Some("de.lin-magdeburg.MainScala")
