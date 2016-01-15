@@ -1,3 +1,0 @@
-org.hayabaya.MainClass - args is: [inteli7cpu, medium, 2]
-org.hayabaya.MainClass - Writing the results to disk
-org.hayabaya.MainClass - Exiting Hayabaya

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.hayabaya.RunSettingsTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2015-10-09T05:46:40" hostname="X51" time="0.001">
-  <properties/>
-  <testcase name="testExceptionsThrown" classname="org.hayabaya.RunSettingsTest" time="0.0"/>
-  <testcase name="testInclusiveFencePostCases" classname="org.hayabaya.RunSettingsTest" time="0.0"/>
-  <testcase name="testGenerateIntegerLinearSpaceWorksCorrectly" classname="org.hayabaya.RunSettingsTest" time="0.001"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

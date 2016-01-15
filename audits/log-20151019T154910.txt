@@ -1,5 +1,0 @@
-org.hayabaya.MainClass - Args are: [i7cpu, small, 4]
-org.hayabaya.MainClass - IllegalArguments {}
-java.lang.IllegalArgumentException: Give only one argument, the name of the CPU
-	at org.hayabaya.datarelated.Utility.validateArgsLength(Utility.java:24) ~[main/:na]
-	at org.hayabaya.MainClass.main(MainClass.java:54) ~[main/:na]
