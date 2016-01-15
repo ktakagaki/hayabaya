@@ -43,11 +43,11 @@ initialCommands in console := "import de.lin_magdeburg._"
 // set the main class for packaging the main jar
 // 'run' will still auto-detect and prompt
 // change Compile to Test to set it for the test jar
-mainClass in (Compile, packageBin) := Some("de.lin-magdeburg.MainScala")
+mainClass in (Compile, packageBin) := Some("de.lin_magdeburg.HayabayaMain")
 
 // set the main class for the main 'run' task
 // change Compile to Test to set it for 'test:run'
-mainClass in (Compile, run) := Some("de.lin-magdeburg.MainScala")
+mainClass in (Compile, run) := Some("de.lin_magdeburg.HayabayaMain")
 
 // fork a new JVM for 'run' and 'test:run'
 fork := true
