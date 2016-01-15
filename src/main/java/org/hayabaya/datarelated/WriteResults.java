@@ -26,7 +26,7 @@ public class WriteResults {
     private static List<String> dumpVars(Map<String, ?> m) {
         List<String> keys = new ArrayList<String>(m.keySet());
         Collections.sort(keys);
-        List<String> linesOfValues = new ArrayList<>();
+        List<String> linesOfValues = new ArrayList<String>();
 
         for (String k : keys) {
             String line = k + " : " + m.get(k);
@@ -128,7 +128,7 @@ public class WriteResults {
      */
     private static List<String> flattenResults(Results results) {
         RunSettings runSettings = RunSettings.getRunSettingsInstance();
-        List<String> rValue = new ArrayList<>();
+        List<String> rValue = new ArrayList<String>();
         rValue.add(results.getCSVHeader());
 
         int[] arrayLengths = runSettings.getArrayLengths();
