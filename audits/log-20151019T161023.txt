@@ -1,5 +1,0 @@
-org.hayabaya.MainClass - Args are: [i7cpu_Alternate]
-org.hayabaya.MainClass - IllegalArguments {}
-java.lang.IllegalArgumentException: Bad name arguments
-	at org.hayabaya.datarelated.Utility.validateArgsValues(Utility.java:41) ~[main/:na]
-	at org.hayabaya.MainClass.main(MainClass.java:53) ~[main/:na]

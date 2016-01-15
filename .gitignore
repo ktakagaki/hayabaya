@@ -1,5 +1,19 @@
 # Created by https://www.gitignore.io/api/scala,sbt,intellij,java
 
+
+### Gradle ###
+.gradle
+build/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+gradle-wrapper.jar
+
+# Cache of project
+.gradletasknamecache
+
 ### Scala ###
 *.class
 *.log
@@ -78,7 +92,6 @@ fabric.properties
 
 
 ### Java ###
-*.class
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
