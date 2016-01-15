@@ -1,0 +1,4 @@
+org.hayabaya.MainClass - Hayabaya main entered
+org.hayabaya.MainClass - The values from args are: [i7, small, 1]
+org.hayabaya.MainClass - Writing the results to disk
+org.hayabaya.MainClass - Exiting Hayabaya
