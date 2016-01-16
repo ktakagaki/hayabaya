@@ -1,4 +1,4 @@
-package de.lin_magdeburg.datarelated
+package de.lin_magdeburg.hayabaya.datarelated
 
 /**
   * Created by cain on 1/9/16.
