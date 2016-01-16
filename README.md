@@ -1,30 +1,34 @@
-# hayabaya (Release Candidate)
-Java based project for raw profiling of processing times of primitive Java data types and the Boxed counterparts.
+# Java/Scala Microbenchmark - hayabaya
 
-## How to run Hayabaya
-##From the commandline 
-Using "$java -jar HayabayaV1RC.jar" you must supply the program with 3 arguments
+Hayabaya is a microbenchmark project written initially in Java while I was learning the Java programming language. The idea was to benchmark how long it takes for the JVM to perform arithmetic operations such as addition, multiplication, division etc. on arrays of integer, long, float and double for both the primitive and boxed versions available in Java.
 
-1. **name** The name of your CPU
-2. **sample size** What size of data you want to profile, choose among 3 predefined sets: **small, medium, large**
-3. **Number of repetitions** How many times the profiling should be replicated, must be an integer [1-100]
+Now as I am learning Scala as well, I have decided to start writing a new version of the project in Scala sourcecode to complement the code written in Java.
 
-### Examples of running from commandline
-$java -jar hayabayaV1RC.jar AMDA4 small 3
 
-$java -jar hayabayaV1RC.jar inteli7 medium 6
 
-The first example will write the results into a subfolder of the current folder from which the jar file was executed. 
-The subfolder will be named after the **name** argument given to the program and contains csv files for the profiling
-results, and a **SystemPropertiesJVM.txt** file with information about the JVM properties, such and operating system
-dependent path separator, line separator, newline character etc, all of which differ between *nix and Windows systems.
-The **audits** folder contains a text file with logging information from the logging system.
+# **ToDo**
 
-## Running using the gradle build system
-If you have gradle installed, from the command line (or in gradle pane in your IDE) you can build the project, assemble
-a jar file and clean the project.
 
-"$gradle build" will compile and assemble the project
-"$gradle" will will a small sample of the profiling project
-"$gradle fatJar" will assemble the project and all of its dependencies into a jar file located in the subfolder
-./build/libs/
+* Switch from Gradle build system to SBT build system
+* Use the "gen idea" plugin for SBT to generate the .idea folder and make a clean build
+* Re-design the Java domain model as a library provider for the Scala code being the "consumer"/"client" in the benchmark project.
+* Write Scala code using Java code to perform the benchmark
+* Implement code using the Scala version of the OpenJDK Java Microbenchmark Harness **(JMH)**
+
+# Design of Hayabaya
+## Use cases
+## Domain model
+## API
+## How to use
+
+# Benchmark results
+
+# Conclusion
+
+# References
+
+# Contact
+
+# Legal matters
+
+# Referencing the project
