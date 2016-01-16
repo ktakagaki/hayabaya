@@ -1,3 +1,4 @@
+package linpack;
 /*
 
 Modified 3/3/97 by David M. Doolin (dmd) doolin@cs.utk.edu
