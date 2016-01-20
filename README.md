@@ -1,7 +1,7 @@
 # Java/Scala Microbenchmark - hayabaya
 
 For the purpose of learning Java as a beginner, Hayabaya was developed as a rudimentary Microbenchmark project.
-The code performs arithmetic operations (+,-,/,*) on
+The code performs arithmetic operations (+,-,/,*) on arrays of type:
 
 ```java
 Integer ints[]
@@ -9,7 +9,9 @@ Float floats[]
 Long longs[]
 Float floats[]
 ``` 
-And their primitive counterparts.  **int[], long[], double[], float[]**. The runtime for performing the arithmetic operations on the different types of arrays are measured.
+And their primitive counterparts **int[], long[], double[], float[]**.
+The runtime for performing the arithmetic operations on the different types of arrays are measured.
+
 Each of the operations are tested on all the datatypes for arrays of varying lenths as specified by a from, to, by expression, e.g, arrays of element lengths . 1,000 to 10,000 in steps of 1,000.
 In addition to the lenths, each element of the array is operated on a number of times called the **CycleNumber** which is defined just like the array length (from, to, by).
 
