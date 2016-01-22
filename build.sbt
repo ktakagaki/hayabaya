@@ -38,8 +38,9 @@ initialCommands := """
                    """
 
 // set the initial commands when entering 'console' or 'console-quick', but not 'console-project'
-initialCommands in console := "import de.lin_magdeburg._ \n" +
-  "import de.lin_magdeburg.hayabaya.datarelated._"
+initialCommands in console := "import de.lin_magdeburg.hayabaya._ \n" +
+  "import de.lin_magdeburg.hayabaya.datarelated._" +
+  "import de.lin_magdeburg.hayabaya.BenchMarking"
 
 // set the main class for packaging the main jar
 // 'run' will still auto-detect and prompt
