@@ -10,6 +10,6 @@ object Util extends LazyLogging{
   val sessionLogger = logger
 
   @throws[IllegalArgumentException]
-  def throwError = throw new IllegalArgumentException("The param was not found")
+  def throwErrorForTesting = throw new IllegalArgumentException("Threw IllegalArgumentException for testing")
 
 }
