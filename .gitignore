@@ -1,5 +1,7 @@
 # Created by https://www.gitignore.io/api/scala,sbt,intellij,java
 
+### Own additions ###
+audits/
 
 ### Gradle ###
 .gradle
