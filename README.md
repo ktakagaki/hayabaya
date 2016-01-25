@@ -1,30 +1,71 @@
-# hayabaya (Release Candidate)
-Java based project for raw profiling of processing times of primitive Java data types and the Boxed counterparts.
+# Java/Scala Microbenchmark - hayabaya
 
-## How to run Hayabaya
-##From the commandline 
-Using "$java -jar HayabayaV1RC.jar" you must supply the program with 3 arguments
+For the purpose of learning Java as a beginner, Hayabaya was developed as a rudimentary Microbenchmark project.
+The code performs arithmetic operations (+,-,/,*) on arrays of type:
 
-1. **name** The name of your CPU
-2. **sample size** What size of data you want to profile, choose among 3 predefined sets: **small, medium, large**
-3. **Number of repetitions** How many times the profiling should be replicated, must be an integer [1-100]
+```java
+Integer ints[]
+Float floats[]
+Long longs[]
+Float floats[]
+``` 
+And their primitive counterparts **int[], long[], double[], float[]**.
+The runtime for performing the arithmetic operations on the different types of arrays are measured.
 
-### Examples of running from commandline
-$java -jar hayabayaV1RC.jar AMDA4 small 3
+Each of the operations are tested on all the datatypes for arrays of varying lenths as specified by a from, to, by expression, e.g, arrays of element lengths . 1,000 to 10,000 in steps of 1,000.
+In addition to the lenths, each element of the array is operated on a number of times called the **CycleNumber** which is defined just like the array length (from, to, by).
 
-$java -jar hayabayaV1RC.jar inteli7 medium 6
 
-The first example will write the results into a subfolder of the current folder from which the jar file was executed. 
-The subfolder will be named after the **name** argument given to the program and contains csv files for the profiling
-results, and a **SystemPropertiesJVM.txt** file with information about the JVM properties, such and operating system
-dependent path separator, line separator, newline character etc, all of which differ between *nix and Windows systems.
-The **audits** folder contains a text file with logging information from the logging system.
 
-## Running using the gradle build system
-If you have gradle installed, from the command line (or in gradle pane in your IDE) you can build the project, assemble
-a jar file and clean the project.
+Hayabaya saves the results of the microbenchmark in CSV (Comma Separated Value) files with the following columns:
 
-"$gradle build" will compile and assemble the project
-"$gradle" will will a small sample of the profiling project
-"$gradle fatJar" will assemble the project and all of its dependencies into a jar file located in the subfolder
-./build/libs/
+<H2 align="center">  Example Hayabaya result output </H2>
+
+| Column name | Name | Datatype | IsBoxed | Operation | ReplicationNumber | ArrayLength | CycleNumber | Runtime |
+|---------------|------------------------|---------------------|------------------------|-----------|-------------------------|----------------|---------------------------------------|---------------|
+| Description | Name of the system/CPU | Type of data tested | logical, Integer= True | (+,-,/,*) | What replication is run | Lenth of array | Times operation is done on an element | Runtime in ms |
+| Example value | Inteli7 | Integer | True | ADD | 4 | 100,000 | 10,000 | 230 (ms) |
+| Example value | AMDA4 | int | FALSE | DIVIDE | 5 | 100,000 | 20,000 | 175 (ms) |
+
+
+# **ToDo**
+
+
+* Switch from Gradle build system to SBT build system
+* Use the "gen idea" plugin for SBT to generate the .idea folder and make a clean build
+* Re-design the Java domain model as a library provider for the Scala code being the "consumer"/"client" in the benchmark project.
+* Write Scala code using Java code to perform the benchmark
+* Implement code using the Scala version of the OpenJDK Java Microbenchmark Harness **(JMH)**
+
+# Design of Hayabaya
+
+## Use cases
+
+## Domain model
+
+## API
+
+## How to use
+
+```bash
+$ git clone git@github.com:slentzen/hayabaya.git
+$ cd hayabaya
+$ sbt gen-idea
+$ sbt reload update compile
+$ sbt run myTestRun small 4 # Run a predefined set named "small" with name "myTestRun" and 4 replicates
+```
+
+Clone or fork the repository. Then issue the "**$sbt gen-idea**" command to intialize an IntelliJ IDEA project definition.
+
+### Generate idea proj
+# Benchmark results
+
+# Conclusion
+
+# References
+
+# Contact
+
+# Legal matters
+
+# Referencing the project
