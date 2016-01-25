@@ -16,6 +16,21 @@ object HayabayaMain {
 
     println("The value of aTPE is: " + aTPE)
 
+    if(args == null) Util.sessionLogger.error("have to give command line arguments!")
+    if(args.length < 2) Util.sessionLogger.error(s"must have more than 3 command line arguments, only ${args.length} arguments given!")
+
+    val arg0 = args(0)
+    val arg1 =
+      try{
+        args(1).toInt
+      }catch{
+        case e: Throwable => {
+          println(s"trying to parse arg1 to int threw the following:$e")
+          777 // <= this is the default value
+        }
+      }
+
+    println(s"Hi Soren! Don't get too fancy with tuples, and parsing will be fine. Parsed: $arg0, $arg1")
   }
 }
 
