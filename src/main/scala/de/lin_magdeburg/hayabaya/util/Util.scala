@@ -1,4 +1,4 @@
-package de.lin_magdeburg.hayabaya
+package de.lin_magdeburg.hayabaya.util
 
 import com.typesafe.scalalogging.LazyLogging
 
