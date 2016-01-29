@@ -6,13 +6,17 @@ organization := "de.lin-magdeburg"
 
 scalaVersion := "2.11.7"
 
+//ToDo: Add https://github.com/tkawachi/sbt-doctest
+//ToDo: Use SBT-DocTest and ScalaTest to do in-line testing
+
 // add a test dependency on ScalaCheck
 libraryDependencies ++= {
   Seq(
-    "org.scalatest" % "scalatest_2.10" % "2.0" % "test",
-    "ch.qos.logback" % "logback-core" % "1.1.3",
-    "ch.qos.logback" % "logback-classic" % "1.1.3",
-    "com.typesafe.scala-logging" %% "scala-logging" % "3.1.0"
+    "org.scalatest" % "scalatest_2.10" % "2.0" % "test" withSources() withJavadoc(),
+    "ch.qos.logback" % "logback-core" % "1.1.3" withSources() withJavadoc(),
+    "ch.qos.logback" % "logback-classic" % "1.1.3" withSources() withJavadoc(),
+    "com.typesafe.scala-logging" %% "scala-logging" % "3.1.0" withSources() withJavadoc(),
+    "com.typesafe" % "config" % "1.3.0" withSources() withJavadoc()
   )
 }
 
