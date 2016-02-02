@@ -40,3 +40,4 @@ class RunConfig(runArgs: Array[String], val lengthsToTest: Array[Int], repetitio
 
 
 }
+
