@@ -27,7 +27,15 @@ maxErrors := 20
 pollInterval := 1000
 
 // append several options to the list of options passed to the Java compiler
-javacOptions ++= Seq("-source", "1.8", "-target", "1.8")
+scalacOptions         := Seq(
+  "-encoding", "utf8",
+  "-feature",
+  "-unchecked",
+  "-deprecation",
+  "-target:jvm-1.8",
+  "-language:_",
+  "-Xlog-reflective-calls"
+)
 
 // append -deprecation to the options passed to the Scala compiler
 scalacOptions += "-deprecation"
