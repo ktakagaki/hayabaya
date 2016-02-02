@@ -7,7 +7,8 @@ import org.slf4j.LoggerFactory;
 /**
  * This class stores all of the data that is relevant to the profiling project. It gathers the data and makes it
  * possible to write it to disk in csv files.
- * <p>By calling {@link org.hayabaya.datarelated.Utility#writeResultsToCsv(Results)} the 2D array is written to disk as
+ * <p>By calling {@link org.hayabaya.datarelated.WriteResults} the 2D
+ * array is written to disk as
  * a text file with the naming convention <b>results.[data type].[operation].[experiment repetion].csv</b></p>
  */
 public class Results {
@@ -77,6 +78,8 @@ public class Results {
 
     /**
      * Return a string for the filename following the res_[CPU]_[Data Type]_[Operation]_[Current Repetitions].csv
+     *
+     * @return string representation of the filename
      */
     public String getFileName(){
         String fileName = "res_" + runSettings.getNameOfProcessor() + "_" + type.toString() + "_" +

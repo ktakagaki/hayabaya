@@ -17,8 +17,8 @@ public class Utility {
 
     /**
      * Ensures that correct number of arguments are passet to Hayabaya from the commandline
-     * @param args
-     * @throws IllegalArgumentException
+     * @param args String[] arguments passed from calling from CLI
+     * @throws IllegalArgumentException if more than one argument is given
      */
     public static void validateArgsLength(String[] args) throws IllegalArgumentException {
         if (args.length != 1) throw new IllegalArgumentException("Give only one argument, the name of the CPU");
@@ -28,7 +28,8 @@ public class Utility {
     /**
      * Ensures that the type and value of args passed to main are of the correct type
      * @param args String[]
-     * @throws IllegalArgumentException
+     * @throws IllegalArgumentException If filename contains illegal finename
+     * characters such as "~#;{}"
      */
     public static void validateArgsValues(String[] args) throws IllegalArgumentException {
         String name = args[0];
