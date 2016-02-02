@@ -27,6 +27,9 @@ maxErrors := 20
 pollInterval := 1000
 
 // append several options to the list of options passed to the Java compiler
+javacOptions ++= Seq("-source", "1.8", "-target", "1.8")
+
+// append -deprecation to the options passed to the Scala compiler
 scalacOptions         := Seq(
   "-encoding", "utf8",
   "-feature",
@@ -36,9 +39,6 @@ scalacOptions         := Seq(
   "-language:_",
   "-Xlog-reflective-calls"
 )
-
-// append -deprecation to the options passed to the Scala compiler
-scalacOptions += "-deprecation"
 
 // define the statements initially evaluated when entering 'console', 'console-quick', or 'console-project'
 initialCommands := """
