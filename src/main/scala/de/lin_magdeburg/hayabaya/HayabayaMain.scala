@@ -1,6 +1,6 @@
 package de.lin_magdeburg.hayabaya
 
-import de.lin_magdeburg.hayabaya.util.Util
+import de.lin_magdeburg.hayabaya.util._
 
 
 /**
