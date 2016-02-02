@@ -19,9 +19,9 @@ import de.lin_magdeburg.hayabaya.util.Util
 class RunConfig(runArgs: Array[String], val lengthsToTest: Array[Int], repetitions: Int = 3, cpuName: String = "testCPU",
                 debug: Boolean = false) {
 
-  def this(runArgs: Array[String]) {
-    this(runArgs: Array[String])
-  }
+//  def this(runArgs: Array[String]) {
+//    this(runArgs: Array[String])
+//  }
 
   Util.sessionLogger.debug("test")
 
