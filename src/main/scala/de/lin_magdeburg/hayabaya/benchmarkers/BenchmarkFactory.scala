@@ -5,7 +5,7 @@ import de.lin_magdeburg.hayabaya.datarelated.{INT, Datatypes}
 /**
   * Created by admin on 2/22/2016.
   */
-object BenchMarkFactory {
+object BenchmarkFactory {
 
   def getBenchMarker(dataType: Datatypes) = dataType match {
     case INT => new IntegerBenchmark(INT)

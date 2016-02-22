@@ -1,6 +1,6 @@
 package de.lin_magdeburg.hayabaya
 
-import de.lin_magdeburg.hayabaya.benchmarkers.BenchMarkFactory
+import de.lin_magdeburg.hayabaya.benchmarkers.BenchmarkFactory
 import de.lin_magdeburg.hayabaya.datarelated.INT
 import de.lin_magdeburg.hayabaya.util._
 
@@ -28,7 +28,7 @@ object HayabayaMain {
     val runConfig = new RunConfig(args, Array(1,2,3))
     Util.sessionLogger.debug(s"got ${args.mkString(" ")} and ended with $runConfig after parsing")
 
-    val testBenchmark = BenchMarkFactory.getBenchMarker(INT)
+    val testBenchmark = BenchmarkFactory.getBenchMarker(INT)
     println("Testing the returned type from benchmarkfactory")
 
     val testmsg = testBenchmark.dataTypeMessage()
