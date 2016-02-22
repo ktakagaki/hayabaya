@@ -1,5 +1,7 @@
 package de.lin_magdeburg.hayabaya
 
+import de.lin_magdeburg.hayabaya.benchmarkers.BenchMarkFactory
+import de.lin_magdeburg.hayabaya.datarelated.INT
 import de.lin_magdeburg.hayabaya.util._
 
 
@@ -21,13 +23,16 @@ import de.lin_magdeburg.hayabaya.util._
 object HayabayaMain {
   def main(args: Array[String]): Unit = {
 
-    Util.sessionLogger.debug("Starting Hayabaya Main Class")
-    println("[In Scala] Welcome to the Hayabaya Microbenchmark project")
+    println("\t\t========== Welcome to Hayabaya ==========")
 
     val runConfig = new RunConfig(args, Array(1,2,3))
+    Util.sessionLogger.debug(s"got ${args.mkString(" ")} and ended with $runConfig after parsing")
 
-    println("valie of runConfig is:" + runConfig)
+    val testBenchmark = BenchMarkFactory.getBenchMarker(INT)
+    println("Testing the returned type from benchmarkfactory")
 
+    val testmsg = testBenchmark.
+    println(testBenchmark.dataTypeMessage)
 
 
 
