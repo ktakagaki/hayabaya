@@ -24,4 +24,10 @@ final case object GREATERTHAN extends Operation { val name = "GREATERTHAN"}
 final case object EQUALS extends Operation { val name = "EQUALS"}
 final case object NOTEQUAL extends Operation { val name = "NOTEQUAL"}
 
+object Operation{
+  val arithmeticOperations = List(ADD, SUBTRACT, DIVIDE, MULTIPLY)
+  val comparisonOperations = List(LESSTHAN, GREATERTHAN, EQUALS, NOTEQUAL)
+  val allOperations = arithmeticOperations ::: comparisonOperations
+}
+
 

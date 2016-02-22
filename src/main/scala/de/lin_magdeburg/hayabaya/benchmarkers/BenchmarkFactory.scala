@@ -8,7 +8,7 @@ import de.lin_magdeburg.hayabaya.datarelated._
   */
 object BenchmarkFactory {
 
-  def getBenchMarker(dataType: Datatypes) = dataType match {
+  def getBenchMarker(dataType: DataTypes) = dataType match {
     case INT => new IntegerBenchmark(INT)
     case INTEGER_BOXED => new IntegerBoxedBenchmark(INTEGER_BOXED)
     case FLOAT => new FloatBenchmark(FLOAT)

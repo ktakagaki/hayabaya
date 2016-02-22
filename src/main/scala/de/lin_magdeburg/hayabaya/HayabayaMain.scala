@@ -23,9 +23,9 @@ import de.lin_magdeburg.hayabaya.util._
 object HayabayaMain {
   def main(args: Array[String]): Unit = {
 
-    println("\t\t========== Welcome to Hayabaya ==========")
+    println("\t\t\t========== Welcome to Hayabaya ==========")
 
-    val runConfig = new RunConfig(args, Array(1,2,3))
+    val runConfig = new RunConfig(args)
     Util.sessionLogger.debug(s"got ${args.mkString(" ")} and ended with $runConfig after parsing")
 
     val testBenchmark = BenchmarkFactory.getBenchMarker(INT)
