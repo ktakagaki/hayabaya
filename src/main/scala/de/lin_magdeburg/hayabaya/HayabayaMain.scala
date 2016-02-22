@@ -1,7 +1,7 @@
 package de.lin_magdeburg.hayabaya
 
 import de.lin_magdeburg.hayabaya.benchmarkers.BenchmarkFactory
-import de.lin_magdeburg.hayabaya.datarelated.INT
+import de.lin_magdeburg.hayabaya.datarelated._
 import de.lin_magdeburg.hayabaya.util._
 
 
@@ -21,49 +21,22 @@ import de.lin_magdeburg.hayabaya.util._
   *
   */
 object HayabayaMain {
-  def main(args: Array[String]): Unit = {
 
-    println("\t\t\t========== Welcome to Hayabaya ==========")
+  def main(args: Array[String]): Unit = {
+    println("\n\n\t\t\t========== Welcome to Hayabaya ==========\n\n")
 
     val runConfig = new RunConfig(args)
-    Util.sessionLogger.debug(s"got ${args.mkString(" ")} and ended with $runConfig after parsing")
+    Util.sessionLogger.debug(s"after parsing CLI, got runConfig: $runConfig")
 
-    val testBenchmark = BenchmarkFactory.getBenchMarker(INT)
-    println("Testing the returned type from benchmarkfactory")
+    val benchmarkClassList = DataTypes.allTypes.map{BenchmarkFactory.getBenchMarker(_)}
+    Util.sessionLogger.debug("benchmarkClassList.length = " + benchmarkClassList.length)
 
-    val testmsg = testBenchmark.dataTypeMessage()
-    println(testmsg)
-
-
-
-
-    /*    if(args == null) Util.sessionLogger.error("have to give command line arguments!")
-        if(args.length < 2) Util.sessionLogger.error(s"must have more than 3 command line arguments, only ${args.length} arguments given!")
-
-        val arg0 = args(0)
-        val arg1 =
-          try{
-            args(1).toInt
-          }catch{
-            case e: Throwable => {
-              println(s"trying to parse arg1 to int threw the following:$e")
-              777 // <= this is the default value
-            }
-          }
-
-        println(s"Hi Soren! Don't get too fancy with tuples, and parsing will be fine. Parsed: $arg0, $arg1")
-        */
-
+    val msgList = benchmarkClassList.map(_.dataTypeMessage())
+    msgList.foreach(println)
+    println("\n\n\t\t\t========== End of Hayabaya ==========\n\n")
 
   }
 }
-
-// ========== Example of using Logging ================== //
-/*Util.sessionLogger.trace("This is a trace, not important")
-Util.sessionLogger.error("Error, something bad has happened!")
-Util.sessionLogger.warn("Warning, are you sure?")
-Util.sessionLogger.info("Initializing hayabaya")*/
-
 
 // ========== Example of Throwing and Catching Exceptions ================== //
 /*    try {
