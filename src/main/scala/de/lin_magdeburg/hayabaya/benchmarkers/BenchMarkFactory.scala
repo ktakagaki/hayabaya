@@ -8,8 +8,8 @@ import de.lin_magdeburg.hayabaya.datarelated.{INT, Datatypes}
 object BenchMarkFactory {
 
   def getBenchMarker(dataType: Datatypes) = dataType match {
-    case INT => new IntegerBenchmark
-    case _ => println("Undetermined datatype for Benchmark")
+    case INT => new IntegerBenchmark(INT)
+    case _ => throw new IllegalArgumentException("Unknown datatype")
   }
 
 }

@@ -31,8 +31,8 @@ object HayabayaMain {
     val testBenchmark = BenchMarkFactory.getBenchMarker(INT)
     println("Testing the returned type from benchmarkfactory")
 
-    val testmsg = testBenchmark.
-    println(testBenchmark.dataTypeMessage)
+    val testmsg = testBenchmark.dataTypeMessage()
+    println(testmsg)
 
 
 
