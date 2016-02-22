@@ -17,7 +17,7 @@ import de.lin_magdeburg.hayabaya.util._
   * The closing scaladoc tag goes on its own separate line
   * an Example
   *
-  * Calculate the swuare of the given number
+  * Calculate the square of the given number
   *
   */
 object HayabayaMain {
@@ -37,11 +37,3 @@ object HayabayaMain {
 
   }
 }
-
-// ========== Example of Throwing and Catching Exceptions ================== //
-/*    try {
-      Util.throwErrorForTesting
-    } catch {
-        case e: IllegalArgumentException => Util.sessionLogger.error("caught error", e)
-        case _ => println("didn't recongize error")
-    }*/
