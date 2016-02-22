@@ -69,6 +69,7 @@ public abstract class Loopers {
     /**
      * For each length of the arrays, CycleNumbers and type of operation call {@link #performOperation(Operation)}
      * which starts the JVM timer and then calls {@link #operateLoop(Operation)}.
+     * @param parsedOperation The operation to be used on the array for the benchmark
      * @return A result datastructure
      */
     public Results[] makeResults(Operation parsedOperation){

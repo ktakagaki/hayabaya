@@ -7,8 +7,8 @@ package org.hayabaya.datarelated;
  *     <li><b>SUBTRACT:</b> Subtraction</li>
  *     <li><b>MULTIPLY:</b> Multiplication</li>
  *     <li><b>DIVIDE:</b> Division</li>
- *     <li><b>LESSTHAN:</b> \< a less than b comparison </li>
- *     <li><b>GREATERTHAN:</b> \> a greater than b comparison </li>
+ *     <li><b>LESSTHAN:</b> a less than b comparison </li>
+ *     <li><b>GREATERTHAN:</b> a greater than b comparison </li>
  *     <li><b>EQUALS:</b> \= equality comparison </li>
  *     <li><b>NOTEQUAL:</b> \!\= non equality comparison </li>
  * </ul>
