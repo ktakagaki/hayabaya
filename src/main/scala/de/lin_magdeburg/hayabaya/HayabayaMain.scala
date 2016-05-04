@@ -23,7 +23,7 @@ import de.lin_magdeburg.hayabaya.util._
 object HayabayaMain {
 
   def main(args: Array[String]): Unit = {
-    println("\n\n\t\t\t========== Welcome to Hayabaya ==========\n\n")
+    println("\n\t\t\t========== Welcome to Hayabaya ==========\n")
 
     val runConfig = new RunConfig(args)
     Util.sessionLogger.debug(s"after parsing CLI, got runConfig: $runConfig")
@@ -33,7 +33,7 @@ object HayabayaMain {
 
     val msgList = benchmarkClassList.map(_.dataTypeMessage())
     msgList.foreach(println)
-    println("\n\n\t\t\t========== End of Hayabaya ==========\n\n")
+    println("\n\t\t\t========== End of Hayabaya ==========\n")
 
   }
 }
