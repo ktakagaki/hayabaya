@@ -29,7 +29,6 @@ class HayabayaConfig(config: Config) {
     println("arraysizes = " + arraySizes)
   }
 
-//  val validated = validateName(name)
 }
 
 object HayabayaConfig {
