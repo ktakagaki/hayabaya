@@ -7,7 +7,7 @@ import com.typesafe.scalalogging.LazyLogging
   */
 object Util extends LazyLogging{
 
-  val sessionLogger = logger
+  val log = logger
 
   @throws[IllegalArgumentException]
   def throwErrorForTesting = throw new IllegalArgumentException("Threw IllegalArgumentException for testing")
