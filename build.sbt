@@ -12,7 +12,7 @@ scalaVersion := "2.11.7"
 // add a test dependency on ScalaCheck
 libraryDependencies ++= {
   Seq(
-    "org.scalatest" % "scalatest_2.10" % "2.0" % "test" withSources() withJavadoc(),
+    "org.scalatest" %% "scalatest" % "2.2.6" % "test" withSources() withJavadoc(),
     "ch.qos.logback" % "logback-core" % "1.1.3" withSources() withJavadoc(),
     "ch.qos.logback" % "logback-classic" % "1.1.3" withSources() withJavadoc(),
     "com.typesafe.scala-logging" %% "scala-logging" % "3.1.0" withSources() withJavadoc(),
