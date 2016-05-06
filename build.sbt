@@ -2,7 +2,7 @@ name := "hayabaya"
 
 version := "1.0"
 
-organization := "de.lin-magdeburg"
+organization := "de.lin_magdeburg"
 
 scalaVersion := "2.11.7"
 
@@ -19,12 +19,6 @@ libraryDependencies ++= {
     "com.typesafe" % "config" % "1.3.0" withSources() withJavadoc()
   )
 }
-
-// reduce the maximum number of errors shown by the Scala compiler
-maxErrors := 20
-
-// increase the time between polling for file changes when using continuous execution
-pollInterval := 1000
 
 // append several options to the list of options passed to the Java compiler
 javacOptions ++= Seq("-source", "1.8", "-target", "1.8")
