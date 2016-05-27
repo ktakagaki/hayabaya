@@ -1,11 +1,11 @@
-package playground
+package de.lin.hayabaya.playground
 
 import sys.process._
 import scala.language.postfixOps
 
 object SystemCall {
 
-  def printLines: String = ("ls -al" !!).toString
+  def printLines(): String = ("ls -al" !!).toString
 
   def printHash(): String = {
     val res = ("git rev-parse HEAD" !!).toString
