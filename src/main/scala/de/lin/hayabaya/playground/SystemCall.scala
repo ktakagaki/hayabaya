@@ -19,7 +19,7 @@ object SystemCall {
 
     val hash = SystemCall.printHash()
 
-    println("The git hash is: " +hash)
+    println("The git hash is: " + hash)
   }
 
 }

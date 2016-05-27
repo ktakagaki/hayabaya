@@ -1,4 +1,4 @@
-package de.lin_magdeburg.hayabaya.util
+package de.lin.hayabaya.util
 
 import com.typesafe.scalalogging.LazyLogging
 
@@ -8,7 +8,5 @@ import com.typesafe.scalalogging.LazyLogging
 object Util extends LazyLogging {
 
   val log = logger
-
-  @throws[IllegalArgumentException] def throwErrorForTesting = throw new IllegalArgumentException("Threw IllegalArgumentException for testing")
 
 }
