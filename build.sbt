@@ -4,10 +4,9 @@ version := "1.0"
 
 organization := "de.lin"
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.11.8"
 
-//ToDo: Add https://github.com/tkawachi/sbt-doctest
-//ToDo: Use SBT-DocTest and ScalaTest to do in-line testing
+
 
 // add a test dependency on ScalaCheck
 libraryDependencies ++= {
