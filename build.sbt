@@ -13,8 +13,6 @@ scalaVersion := "2.11.7"
 libraryDependencies ++= {
   Seq(
     "org.scalatest" %% "scalatest" % "2.2.6" % "test" withSources() withJavadoc(),
-    "ch.qos.logback" % "logback-core" % "1.1.3" withSources() withJavadoc(),
-    "ch.qos.logback" % "logback-classic" % "1.1.3" withSources() withJavadoc(),
     "com.typesafe.scala-logging" %% "scala-logging" % "3.1.0" withSources() withJavadoc(),
     "com.typesafe" % "config" % "1.3.0" withSources() withJavadoc()
   )
