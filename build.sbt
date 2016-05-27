@@ -2,7 +2,7 @@ name := "hayabaya"
 
 version := "1.0"
 
-organization := "de.lin_magdeburg"
+organization := "de.lin"
 
 scalaVersion := "2.11.7"
 
@@ -44,18 +44,13 @@ initialCommands := """
                    """
 
 // set the initial commands when entering 'console' or 'console-quick', but not 'console-project'
-initialCommands in console := "import de.lin_magdeburg.hayabaya._; \n" +
-  "import de.lin_magdeburg.hayabaya.datarelated._;" +
-  "import de.lin_magdeburg.hayabaya.benchmarking;"
+initialCommands in console := "" + "import de.lin.hayabaya._;" + "import de.lin.hayabaya.datarelated._;" + "import de.lin.util._;"
 
 // set the main class for packaging the main jar
 // 'run' will still auto-detect and prompt
 // change Compile to Test to set it for the test jar
-mainClass in (Compile, packageBin) := Some("de.lin_magdeburg.hayabaya.HayabayaMain")
+mainClass in(Compile, packageBin) := Some("de.lin.magdeburg.hayabaya.HayabayaMain")
 
-// set the main class for the main 'run' task
-// change Compile to Test to set it for 'test:run'
-mainClass in (Compile, run) := Some("de.lin_magdeburg.hayabaya.HayabayaMain")
 
 // fork a new JVM for 'run' and 'test:run'
 fork := true
