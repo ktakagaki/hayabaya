@@ -1,3 +1,4 @@
+/*
 package de.lin.hayabaya
 
 /**
@@ -15,3 +16,4 @@ class HayabayaConfigTest extends BaseTest {
   }
 
 }
+*/
