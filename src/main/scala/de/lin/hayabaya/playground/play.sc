@@ -7,3 +7,8 @@ def logb(base: Double, number: Double): Int = {
 logb(2, 512)
 logb(2, 16)
 logb(2, 1024)
+
+
+val exitVal = {
+  if (false) 1 else 0
+}

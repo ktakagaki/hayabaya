@@ -54,45 +54,58 @@ object Main {
     "true".equalsIgnoreCase(s)
   }
 
+  //ToDo: Write and implement a small runsmalltest function
+  def smallTestSample() = {
+    ???
+  }
 
+  /**
+    * Parses and validates the CLI arguments, initializing the MainConfig file
+    *
+    * @param args command line arguments
+    * @return MainConfig instance
+    */
   def parseArgs(args: Array[String]): MainConfig = {
     var config = MainConfig(false)
 
-    var i = 0
-    while (i < args.length) {
+    var i = 0 while (i < args.length) {
       if (args(i).startsWith("-") && i < args.length - 1) {
         args(i) match {
           case ("-h" | "--help") => usage()
-          case ("-t" | "--test") => config = config.copy()
-
-
-          case ("-v" | "--verbose") => config = config.copy(verbose = isTrue(args(i + 1)))
-          case ("-q" | "--quiet") => config = config.copy(quiet = isTrue(args(i + 1)))
-          case ("-w" | "--warnings") => config = config.copy(warningsaserrors = isTrue(args(i + 1)))
-          case ("--xmlOutput") => config = config.copy(xmlFile = Some(args(i + 1)))
-          case ("--xmlEncoding") => config = config.copy(xmlEncoding = Some(args(i + 1)))
-          case ("--inputEncoding") => config = config.copy(inputEncoding = Some(args(i + 1)))
-          case ("-e" | "--externalJar") => config = config.copy(externalJar = Some(args(i + 1)))
-          case ("-x" | "--excludedFiles") => config = config.copy(excludedFiles = args(i + 1).split(";"))
-          case _ => config = config.copy(error = true)
-        }
-        i = i + 2
+          case ("-t" | "--test") => smallTestSample()
+          case ("-c" | "--config") => ??? //ToDo: How to load a different conf file from path?
+          case ("-n" | "--name") => config = config.copy(cpuname = Some(args(i + 1)))
+          case ("-min" | "--minArraySize") => config = config.copy(minarraysize = Some(args(i + 1)))
+          case ("-max" | "--maxArraySize") => config = config.copy(maxarraysize = Some(args(i + 1)))
+          case ("-s" | "--stepSize") => config = config.copy(arraystepsize = Some(args(i + 1)))
+          case _ => config = config.copy(error = true); println("Unknown CLI arg")
+        } i = i + 2
       } else {
-        config = config.copy(directories = args(i) :: config.directories)
         i = i + 1
       }
-    }
-
-    if (!config.config.isDefined || config.directories.size == 0) {
-      config = config.copy(error = true)
     }
 
     config
   }
 
-  def main(args: Array[String]): Unit = {
-    usage()
 
+  def main(args: Array[String]): Unit = {
+
+    val config = parseArgs(args)
+
+    val exitVal = {
+      if (config.error) {
+        1
+      } else {
+        if (execute(config)) 1 else 0
+      }
+    }
+
+    System.exit(exitVal)
+  }
+
+  private[this] def execute(mc: MainConfig): Boolean = {
+    ???
   }
 }
 
