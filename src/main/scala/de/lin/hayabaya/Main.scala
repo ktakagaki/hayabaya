@@ -1,11 +1,18 @@
 package de.lin.hayabaya
 
 /**
- * Main configuration of the project at runtime, contains values for arraylengths, output dir
- * paths, where to read any application.conf configuration file, number of repetitions, name of
- * CPU/system and so forth.
+ * Main configuration of the project at runtime.
+ * contains values for arraylengths, output paths, location of application.conf, profiling params,
+ * CPU/system name and so forth.
  */
-case class MainConfig(error: Boolean, help: Option[String], runsmalltest: Boolean, cpuname: Option[String], minarraysize: Option[Int], maxarraysize: Option[Int], arraystepsize: Option[Int], pathtoconfigfile: Option[String])
+case class MainConfig(error: Boolean,
+  help: Option[String],
+  runsmalltest: Boolean,
+  cpuname: Option[String],
+  minarraysize: Option[Int],
+  maxarraysize: Option[Int],
+  arraystepsize: Option[Int],
+  pathtoconfigfile: Option[String])
 
 /**
  * Mainclass loading the CLI args, validating them, parsing them to other parts of code that
@@ -20,7 +27,17 @@ object Main {
    * dirty small testsample.
    */
   private def usage() = {
-    println("\n \t\t ===== Welcome to Hayabaya ===== ") println ("Usage: Hayabaya -options [argument type]") println ("============================================") println ("-h,   --help               Prints this help message") println ("-t,   --test               Runs a predefined small test sample") println ("-c,   --config [FILE]      Configuration file (if none given, default is used)") println ("-n,   --name [STRING]      Name of the CPU and/or Computer System") println ("-min, --minArraySize [INT] The minimum array size to profile") println ("-max, --maxArraySize [INT] The maximum array size to profile") println ("-s,   --stepSize [INT]     The stepsize/stride to be used in the [min,max] array") println ("============================================")
+    println("\n \t\t ===== Welcome to Hayabaya ===== ")
+    println("Usage: Hayabaya -options [argument type]")
+    println("============================================")
+    println("-h,   --help               Prints this help message")
+    println("-t,   --test               Runs a predefined small test sample")
+    println("-c,   --config [FILE]      Configuration file (if none given, default is used)")
+    println("-n,   --name [STRING]      Name of the CPU and/or Computer System")
+    println("-min, --minArraySize [INT] The minimum array size to profile")
+    println("-max, --maxArraySize [INT] The maximum array size to profile")
+    println("-s,   --stepSize [INT]     The stepsize/stride to be used in the [min,max] array")
+    println("============================================")
   }
 
   /**
