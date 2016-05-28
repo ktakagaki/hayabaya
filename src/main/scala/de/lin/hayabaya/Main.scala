@@ -1,18 +1,22 @@
 package de.lin.hayabaya
 
+
+import com.typesafe.config.ConfigFactory
+
+
 /**
  * Main configuration of the project at runtime.
  * contains values for arraylengths, output paths, location of application.conf, profiling params,
  * CPU/system name and so forth.
  */
 case class MainConfig(error: Boolean,
-  help: Option[String],
-  runsmalltest: Boolean,
-  cpuname: Option[String],
-  minarraysize: Option[Int],
-  maxarraysize: Option[Int],
-  arraystepsize: Option[Int],
-  pathtoconfigfile: Option[String])
+  help: Option[String] = None,
+  runsmalltest: Boolean = false,
+  cpuname: Option[String] = None,
+  minarraysize: Option[Int] = None,
+  maxarraysize: Option[Int] = None,
+  arraystepsize: Option[Int] = None,
+  pathtoconfigfile: Option[String] = None)
 
 /**
  * Mainclass loading the CLI args, validating them, parsing them to other parts of code that
@@ -50,22 +54,45 @@ object Main {
     "true".equalsIgnoreCase(s)
   }
 
-  def parseArgs(args: Array[String]): MainConfig = {
-    var config = MainConfig(false) // initialize error to false
-    var i = 0
 
+  def parseArgs(args: Array[String]): MainConfig = {
+    var config = MainConfig(false)
+
+    var i = 0
     while (i < args.length) {
-      if (args(i).startsWith("-") && i < (args.length - 1)) {
+      if (args(i).startsWith("-") && i < args.length - 1) {
         args(i) match {
           case ("-h" | "--help") => usage()
+          case ("-t" | "--test") => config = config.copy()
 
+
+          case ("-v" | "--verbose") => config = config.copy(verbose = isTrue(args(i + 1)))
+          case ("-q" | "--quiet") => config = config.copy(quiet = isTrue(args(i + 1)))
+          case ("-w" | "--warnings") => config = config.copy(warningsaserrors = isTrue(args(i + 1)))
+          case ("--xmlOutput") => config = config.copy(xmlFile = Some(args(i + 1)))
+          case ("--xmlEncoding") => config = config.copy(xmlEncoding = Some(args(i + 1)))
+          case ("--inputEncoding") => config = config.copy(inputEncoding = Some(args(i + 1)))
+          case ("-e" | "--externalJar") => config = config.copy(externalJar = Some(args(i + 1)))
+          case ("-x" | "--excludedFiles") => config = config.copy(excludedFiles = args(i + 1).split(";"))
+          case _ => config = config.copy(error = true)
         }
+        i = i + 2
+      } else {
+        config = config.copy(directories = args(i) :: config.directories)
+        i = i + 1
       }
     }
+
+    if (!config.config.isDefined || config.directories.size == 0) {
+      config = config.copy(error = true)
+    }
+
+    config
   }
 
   def main(args: Array[String]): Unit = {
     usage()
+
   }
 }
 
