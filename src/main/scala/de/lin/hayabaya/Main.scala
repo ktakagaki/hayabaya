@@ -44,15 +44,7 @@ object Main {
     println("============================================")
   }
 
-  /**
-   * Always be case insensitive when evaluating strings for "true"
-   *
-   * @param s
-   * @return true if string matches "true", "True", "TRUE" and so forth
-   */
-  private def isTrue(s: String): Boolean = {
-    "true".equalsIgnoreCase(s)
-  }
+
 
   //ToDo: Write and implement a small runsmalltest function
   def smallTestSample() = {
