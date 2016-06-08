@@ -1,14 +1,8 @@
-def logb(base: Double, number: Double): Int = {
-  import scala.math.log10
-  val res = log10(number) / log10(base)
-  res.toInt
-}
+// Notes from the scala cheat sheet
 
-logb(2, 512)
-logb(2, 16)
-logb(2, 1024)
-
-
-val exitVal = {
-  if (false) 1 else 0
-}
+/*
+* # Symbolics
+*
+*  -> returns a two-element tuple containing the key and value
+*  =>
+* */
