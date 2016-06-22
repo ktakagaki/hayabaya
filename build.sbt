@@ -6,6 +6,9 @@ organization := "de.lin"
 
 scalaVersion := "2.11.8"
 
+// To ignore all the java code
+unmanagedSourceDirectories in Compile := (scalaSource in Compile).value :: Nil
+
 scalacOptions ++= Seq("-unchecked", "-deprecation", "-Xcheckinit",
   "-encoding", "utf8", "-feature")
 
@@ -25,10 +28,9 @@ initialCommands in console := """
                                  println("hayabayaConsoleStarted")
      """
 
-mainClass in(Compile, packageBin) := Some("de.lin.magdeburg.hayabaya.Main")
+mainClass in Compile := Some("de.lin.hayabaya.Main")
+//mainClass in(Compile, packageBin) := Some("de.lin.hayabaya.Main")
 
-// To ignore all the java code
-unmanagedSourceDirectories in Compile := (scalaSource in Compile).value :: Nil
 
 // fork a new JVM for 'run' and 'test:run'
 fork := true
