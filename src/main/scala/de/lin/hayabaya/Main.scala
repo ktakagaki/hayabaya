@@ -30,17 +30,11 @@ object Main extends LazyLogging {
       System.exit(-1)
     }
 
-
-
+    // Arguments did not indicate help should be displayed
+    // parseargs
 
   }
 
-  /*  /**
-    * Parses and validates the CLI arguments, initializing the MainConfig file
-    *
-    * @param args command line arguments
-    * @return MainConfig instance
-    */
   def parseArgs(args: Array[String]): MainConfig = {
     var config = MainConfig(false)
 
@@ -62,6 +56,6 @@ object Main extends LazyLogging {
     }
 
     config
-  }*/
+  }
 }
 

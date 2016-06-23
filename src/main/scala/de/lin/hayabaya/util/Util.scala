@@ -1,6 +1,7 @@
 package de.lin.hayabaya.util
 
 import com.typesafe.scalalogging.LazyLogging
+import de.lin.hayabaya.MainConfig
 
 /**
  * Created by admin on 15/01/2016.
@@ -10,6 +11,7 @@ object Util {
   /**
    * Check if conditions for displaying help are satisfied, e.g. no args, invalid args
    *
+   * @param args command line arguments
    * @return Boolean True if the conditions for displaying help are met
    */
   def displayHelp[T](args: Array[T]): Boolean = args match {
@@ -37,6 +39,7 @@ object Util {
         |-max, --maxArraySize   The maximum array size to profile
         |-s,   --stepSize       The stride to increment arraysize with (default = 32)
       """.stripMargin
+
     println(usageText)
   }
 
@@ -57,6 +60,23 @@ object Util {
    */
   private def isTrue(s: String): Boolean = {
     "true".equalsIgnoreCase(s)
+  }
+
+  /**
+    * parse the arguments from cli. run a small test (the defaults) or
+    * parse all of the arguments
+    * @param args command line arguments
+    * @return MainConfig instance
+    */
+  def parseArgs[T](args: Array[T]): MainConfig = {
+    val mainConfig = mainConfig
+
+    val
+
+    args match {
+      case ("")
+    }
+
   }
 
 }
