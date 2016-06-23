@@ -8,7 +8,3 @@ abstract class BaseTest extends FlatSpec with Matchers with OptionValues with In
 */
 abstract class UnitSpec extends FlatSpec with Matchers with
   OptionValues with Inside with Inspectors
-
-class BaseTest extends UnitSpec {
-
-}

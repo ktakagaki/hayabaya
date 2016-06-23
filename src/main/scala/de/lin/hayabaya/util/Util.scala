@@ -9,32 +9,35 @@ object Util {
 
   /**
    * Check if conditions for displaying help are satisfied, e.g. no args, invalid args
+   *
    * @return Boolean True if the conditions for displaying help are met
    */
-  def displayHelp[T](args: Array[T]): Boolean = {
+  def displayHelp[T](args: Array[T]): Boolean = args match {
+    case Array() => true
+    case Array("-h") => true
+    case Array("--help") => true
+    case Array("-rt") => false
+    case Array("--runTest") => false
+    case _ if (args.length != 4) => true
+    case _ => false
 
-    val conditions: Boolean = if (args.length == 0) {
-      true
-    } else if (args.length != 1 && args.length != 4) {
-      true
-    } else {
-      false
-    }
-
-    conditions
   }
 
-  def usage(): Unit = {
-    println("\n \t\t ===== Welcome to Hayabaya ===== ")
-    println("Usage: Hayabaya -options [argument type]")
-    println("============================================")
-    println("-h,   --help            Prints this help message")
-    println("-rt,  --runTest        Runs a predefined small test example")
-    println("-sn,  --systemName     The name of the CPU/System running Hayabaya on")
-    println("-min, --minArraySize   The minimum array size to profile")
-    println("-max, --maxArraySize   The maximum array size to profile")
-    println("-s,   --stepSize       The stepsize increment the arraysize with (default=" + "32)")
-    println("============================================")
+  def printUsage(): Unit = {
+    val usageText =
+      """
+        |===== Welcome to Hayabaya =====
+        |Usage:
+        |-arg, --fullargName    description
+        |===============================
+        |-h,   --help           Prints this help message
+        |-rt,  --runTest        Runs a predefined small test example
+        |-sn,  --systemName     The name of the CPU/System running Hayabaya on
+        |-min, --minArraySize   The minimum array size to profile
+        |-max, --maxArraySize   The maximum array size to profile
+        |-s,   --stepSize       The stride to increment arraysize with (default = 32)
+      """.stripMargin
+    println(usageText)
   }
 
   /**

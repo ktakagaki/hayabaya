@@ -17,7 +17,8 @@ javacOptions ++= Seq("-source", "1.8", "-target", "1.8")
 libraryDependencies ++= {
   Seq(
     "org.scalatest" %% "scalatest" % "2.2.6" % "test" withSources() withJavadoc(),
-    "com.typesafe.scala-logging" %% "scala-logging" % "3.1.0" withSources() withJavadoc()
+    "com.typesafe.scala-logging" %% "scala-logging" % "3.1.0" withSources() withJavadoc(),
+    "ch.qos.logback" %  "logback-classic" % "1.1.7"
   )
 }
 
