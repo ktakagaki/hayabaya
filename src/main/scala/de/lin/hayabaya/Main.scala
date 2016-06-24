@@ -8,12 +8,11 @@ import de.lin.hayabaya.util.Util
  * contains values for arraylengths, CPU/system name and so forth.
  */
 case class MainConfig(
-  help: Option[String] = Some("false"),
-  runtest: Option[Boolean] = Some(false),
-  systemName: Option[String] = Some("i73770k"),
-  minarraysize: Option[Int] = Some(2024),
-  maxarraysize: Option[Int] = Some(4048),
-  arraystepsize: Option[Int] = Some(8)
+  runtest: Boolean = false,
+  systemName: String = "i73770k",
+  minarraysize: Int = 2024,
+  maxarraysize: Int = 4048,
+  arraystepsize: Int = 8
 )
 
 object Main extends LazyLogging {
@@ -45,9 +44,6 @@ object Main extends LazyLogging {
       val mainConfig: MainConfig = Util.parseArgs(args)
       logger.info(s"mainConfig is now after parsing: ${mainConfig}")
     }
-
-    // Arguments did not indicate help should be displayed
-    // parseargs
 
   }
 
