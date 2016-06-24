@@ -1,4 +1,5 @@
-addSbtPlugin("com.github.mpeltonen" % "sbt-idea" % "1.6.0")
+logLevel := sbt.Level.Info
 
-addSbtPlugin("net.virtual-void" % "sbt-dependency-graph" % "0.8.1")
+addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "0.8.0")
 
+addSbtPlugin("org.scalariform" % "sbt-scalariform" % "1.6.0")
