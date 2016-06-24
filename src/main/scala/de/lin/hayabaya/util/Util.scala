@@ -6,7 +6,7 @@ import de.lin.hayabaya.MainConfig
 /**
  * Created by admin on 15/01/2016.
  */
-object Util {
+object Util extends LazyLogging {
 
   /**
    * Check if conditions for displaying help are satisfied, e.g. no args, invalid args
@@ -22,25 +22,6 @@ object Util {
     case Array("--runTest") => false
     case _ if (args.length != 4) => true
     case _ => false
-
-  }
-
-  def printUsage(): Unit = {
-    val usageText =
-      """
-        |===== Welcome to Hayabaya =====
-        |Usage:
-        |-arg, --fullargName    description
-        |===============================
-        |-h,   --help           Prints this help message
-        |-rt,  --runTest        Runs a predefined small test example
-        |-sn,  --systemName     The name of the CPU/System running Hayabaya on
-        |-min, --minArraySize   The minimum array size to profile
-        |-max, --maxArraySize   The maximum array size to profile
-        |-s,   --stepSize       The stride to increment arraysize with (default = 32)
-      """.stripMargin
-
-    println(usageText)
   }
 
   /**
@@ -63,20 +44,14 @@ object Util {
   }
 
   /**
-    * parse the arguments from cli. run a small test (the defaults) or
-    * parse all of the arguments
-    * @param args command line arguments
-    * @return MainConfig instance
-    */
-  def parseArgs[T](args: Array[T]): MainConfig = {
-    val mainConfig = mainConfig
-
-    val
-
-    args match {
-      case ("")
-    }
-
+   * parse the arguments from cli. run a small test (the defaults) or
+   * parse all of the arguments
+   * @param args command line arguments
+   * @return MainConfig instance
+   */
+  def parseArgs(args: Array[String]): MainConfig = {
+    val conf = MainConfig
+    conf
   }
 
 }
