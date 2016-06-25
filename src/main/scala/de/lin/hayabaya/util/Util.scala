@@ -1,7 +1,7 @@
 package de.lin.hayabaya.util
 
 import com.typesafe.scalalogging.LazyLogging
-import de.lin.hayabaya.MainConfig
+import de.lin.hayabaya.datarelated.MainConfig
 
 /**
  * Created by admin on 15/01/2016.

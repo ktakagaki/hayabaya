@@ -1,4 +1,3 @@
-/*
 package de.lin.hayabaya.playground
 
 import sys.process._
@@ -23,5 +22,4 @@ object SystemCall {
   }
 
 }
-*/
 

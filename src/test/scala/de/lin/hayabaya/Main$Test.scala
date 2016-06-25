@@ -2,10 +2,9 @@ package de.lin.hayabaya
 
 
 import org.scalatest.{FlatSpec, FunSuite}
-
 import org.scalatest.BeforeAndAfter
-
 import de.lin.hayabaya._
+import de.lin.hayabaya.datarelated.MainConfig
 
 /**
   * Created by cain on 23/06/16.
