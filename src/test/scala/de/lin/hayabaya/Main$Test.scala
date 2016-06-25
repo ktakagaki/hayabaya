@@ -1,13 +1,13 @@
 package de.lin.hayabaya
 
-import org.scalatest.{FlatSpec, FunSuite}
+import org.scalatest.{ FlatSpec, FunSuite }
 import org.scalatest.BeforeAndAfter
 
 import de.lin.hayabaya._
 
 /**
-  * Created by cain on 23/06/16.
-  */
+ * Created by cain on 23/06/16.
+ */
 class Main$Test extends FunSuite with BeforeAndAfter {
 
   var mainConfig: MainConfig = _
