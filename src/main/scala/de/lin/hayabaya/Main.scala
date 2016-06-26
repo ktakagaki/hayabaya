@@ -5,8 +5,6 @@ import com.typesafe.scalalogging.LazyLogging
 import de.lin.hayabaya.datarelated.MainConfig
 import de.lin.hayabaya.util.Util
 
-
-
 object Main extends LazyLogging {
   val usage: String =
     """

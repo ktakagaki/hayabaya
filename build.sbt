@@ -26,6 +26,17 @@ libraryDependencies ++= {
 
 mainClass in(Compile, packageBin) := Some("de.lin.hayabaya.Main")
 
+initialCommands := """
+                     |import de.lin.hayabaya._
+                     |import de.lin.hayabaya.datarelated._
+                     |import de.lin.hayabaya.util._
+                     |import de.lin.hayabaya.playground._
+                     |println(" \n\t=== creating val mainConf = new MainConfig() ===\n")
+                     |val mainConf = new MainConfig()
+                     |println("args: are = -sn, corei5, -min, 512, -max, 1024, --stepSize, 32) ===\n")
+                     |val args = Array("-sn", "corei5", "-min", "512", "-max", "1024", "--stepSize", "32")
+                   """.stripMargin('|')
+
 // fork a new JVM for 'run' and 'test:run'
 fork := true
 

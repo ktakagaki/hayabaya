@@ -3,8 +3,8 @@ package de.lin.hayabaya.datarelated
 import org.scalatest.FunSuite
 
 /**
-  * Created by cain on 25/06/16.
-  */
+ * Created by cain on 25/06/16.
+ */
 class MainConfigTest extends FunSuite {
 
   test("MainConfig can be initialized without any parameters") {
