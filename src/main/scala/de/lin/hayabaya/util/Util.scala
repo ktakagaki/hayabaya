@@ -1,7 +1,7 @@
 package de.lin.hayabaya.util
 
 import com.typesafe.scalalogging.LazyLogging
-import de.lin.hayabaya.MainConfig
+import de.lin.hayabaya.datarelated.MainConfig
 
 /**
  * Created by admin on 15/01/2016.
@@ -34,24 +34,24 @@ object Util extends LazyLogging {
   }
 
   /**
-   * Always be case insensitive when evaluating strings for "true"
-   *
-   * @param s string being true,True,TRUE,TruE etc.
-   * @return true if string matches "true", "True", "TRUE" and so forth
-   */
-  private def isTrue(s: String): Boolean = {
-    "true".equalsIgnoreCase(s)
-  }
-
-  /**
    * parse the arguments from cli. run a small test (the defaults) or
    * parse all of the arguments
    * @param args command line arguments
    * @return MainConfig instance
    */
   def parseArgs(args: Array[String]): MainConfig = {
-    val conf = MainConfig
-    conf
+    var result = MainConfig()
+    args match {
+      case Array("-rt" | "--runTest") => MainConfig()
+      case _ => println("Unknown case"); MainConfig()
+    }
+  }
+
+  def getArgPosition(implicit args: Array[String], flags: String*): Int = {
+    val pos = args.indexOf(flags)
+    println(s"Position of flag is $pos ")
+    pos
   }
 
 }
+

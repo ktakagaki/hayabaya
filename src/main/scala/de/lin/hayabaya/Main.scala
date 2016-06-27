@@ -1,20 +1,9 @@
 package de.lin.hayabaya
 
 import com.typesafe.scalalogging.LazyLogging
-import de.lin.hayabaya.util.Util
 
-/**
- * Main configuration of the project at runtime.
- * contains values for arraylengths, CPU/system name and so forth.
- */
-case class MainConfig(
-  help: Option[String] = Some("false"),
-  runtest: Option[Boolean] = Some(false),
-  systemName: Option[String] = Some("i73770k"),
-  minarraysize: Option[Int] = Some(2024),
-  maxarraysize: Option[Int] = Some(4048),
-  arraystepsize: Option[Int] = Some(8)
-)
+import de.lin.hayabaya.datarelated.MainConfig
+import de.lin.hayabaya.util.Util
 
 object Main extends LazyLogging {
   val usage: String =
@@ -45,9 +34,6 @@ object Main extends LazyLogging {
       val mainConfig: MainConfig = Util.parseArgs(args)
       logger.info(s"mainConfig is now after parsing: ${mainConfig}")
     }
-
-    // Arguments did not indicate help should be displayed
-    // parseargs
 
   }
 
